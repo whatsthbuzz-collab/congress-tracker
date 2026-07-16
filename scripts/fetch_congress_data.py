@@ -6,6 +6,13 @@ Requires a free API key from https://api.congress.gov/sign-up/
 Set it as an environment variable named CONGRESS_API_KEY.
 
 Outputs: public/congress_data.json
+
+Notes on term counting:
+  The /member list endpoint groups service by CHAMBER, not by term, so it
+  can't be used to count terms. This script calls /member/{bioguideId} for
+  each person, which returns one entry per Congress served. Counting those
+  entries gives an accurate term count, and the most recent entry gives the
+  current term's start/end years.
 """
 
 import os
@@ -20,11 +27,13 @@ import requests
 API_BASE = "https://api.congress.gov/v3"
 API_KEY = os.environ.get("CONGRESS_API_KEY", "").strip()
 
-# Seconds between requests. The API allows 5,000/hour; this keeps us well under.
+# Seconds between requests. The API allows 5,000/hour.
+# This script makes roughly 3 calls per member (~1,600 total), so this
+# delay keeps the whole run around 10 minutes and well under the limit.
 REQUEST_DELAY = 0.3
 
 # How many sponsored bills to keep per member (keeps the JSON a sane size).
-BILLS_PER_MEMBER = 20
+BILLS_PER_MEMBER = 10
 
 OUTPUT_PATH = os.path.join("public", "congress_data.json")
 
@@ -44,6 +53,7 @@ class CongressDataFetcher:
         self.api_key = api_key
         self.session = requests.Session()
         self.session.headers.update({"User-Agent": "congress-tracker/1.0"})
+        self.failures = 0
 
     def _request(self, endpoint: str, params: Optional[Dict] = None) -> Dict[str, Any]:
         """GET an endpoint with the API key attached. Returns {} on failure."""
@@ -64,12 +74,15 @@ class CongressDataFetcher:
         except requests.exceptions.RequestException as e:
             # Don't leak the key into logs.
             print(f"  Request failed for {endpoint}: {e}", file=sys.stderr)
+            self.failures += 1
             return {}
 
-    def fetch_members(self) -> List[Dict[str, Any]]:
-        """Fetch all current members of Congress (House + Senate)."""
-        print("Fetching current members...")
-        members = []
+    # ---------- members ----------
+
+    def fetch_member_ids(self) -> List[str]:
+        """Fetch bioguide IDs for all current members of Congress."""
+        print("Fetching current member list...")
+        ids = []
         offset = 0
         limit = 250
 
@@ -83,60 +96,114 @@ class CongressDataFetcher:
                 break
 
             for m in batch:
-                parsed = self._parse_member(m)
-                if parsed:
-                    members.append(parsed)
+                bid = m.get("bioguideId")
+                if bid:
+                    ids.append(bid)
 
-            print(f"  {len(members)} members so far...")
+            print(f"  {len(ids)} members so far...")
 
-            pagination = data.get("pagination", {}) or {}
-            total = pagination.get("count")
-            if total is None or len(members) >= total or len(batch) < limit:
+            if len(batch) < limit:
                 break
             offset += limit
 
-        return members
+        # De-dupe, just in case.
+        return list(dict.fromkeys(ids))
 
-    def _parse_member(self, m: Dict) -> Optional[Dict[str, Any]]:
-        """Normalize one member record from the API into our shape."""
-        bioguide_id = m.get("bioguideId")
-        if not bioguide_id:
+    def fetch_member_detail(self, bioguide_id: str) -> Optional[Dict[str, Any]]:
+        """
+        Fetch full detail for one member, including complete term history.
+
+        The detail endpoint returns `terms` as a flat list with one entry per
+        Congress served, each with chamber/congress/startYear/endYear.
+        """
+        data = self._request(f"/member/{bioguide_id}")
+        m = data.get("member")
+        if not m:
             return None
 
-        # The /member list endpoint returns "Last, First" in `name`.
-        raw_name = m.get("name") or ""
-        if "," in raw_name:
-            last, first = [p.strip() for p in raw_name.split(",", 1)]
-            display_name = f"{first} {last}"
-        else:
-            display_name = raw_name
+        # ----- name -----
+        display_name = m.get("directOrderName")
+        if not display_name:
+            first = m.get("firstName") or ""
+            last = m.get("lastName") or ""
+            display_name = f"{first} {last}".strip()
+        if not display_name:
+            raw = m.get("invertedOrderName") or m.get("name") or ""
+            if "," in raw:
+                last, first = [p.strip() for p in raw.split(",", 1)]
+                display_name = f"{first} {last}"
+            else:
+                display_name = raw
 
-        # `terms` is a dict with an "item" list of served terms.
-        terms = ((m.get("terms") or {}).get("item")) or []
-        chamber = None
-        term_start = None
-        term_end = None
-        if terms:
-            latest = terms[-1]
-            chamber = latest.get("chamber")
-            term_start = latest.get("startYear")
-            term_end = latest.get("endYear")
+        # ----- terms -----
+        # On the detail endpoint `terms` is usually a plain list. Older/other
+        # shapes wrap it as {"item": [...]}. Handle both.
+        raw_terms = m.get("terms")
+        if isinstance(raw_terms, dict):
+            terms = raw_terms.get("item") or []
+        elif isinstance(raw_terms, list):
+            terms = raw_terms
+        else:
+            terms = []
+
+        # Sort chronologically so "latest" is genuinely the current term.
+        def term_sort_key(t):
+            return (t.get("congress") or 0, t.get("startYear") or 0)
+
+        terms = sorted(
+            [t for t in terms if isinstance(t, dict)], key=term_sort_key
+        )
+
+        terms_served = len(terms) if terms else None
+        current = terms[-1] if terms else {}
+
+        chamber = current.get("chamber")
+        term_start = current.get("startYear")
+        term_end = current.get("endYear")
+        district = current.get("district")
+        state = current.get("state") or m.get("state")
+
+        # First year they ever served — useful context, and it's what people
+        # usually mean by "how long have they been there".
+        first_year = terms[0].get("startYear") if terms else None
+
+        # ----- party -----
+        # partyHistory is a list; the last entry is the current affiliation.
+        party = None
+        party_history = m.get("partyHistory")
+        if isinstance(party_history, list) and party_history:
+            party = party_history[-1].get("partyName")
+        if not party:
+            party = m.get("partyName") or current.get("partyName")
+        if not party:
+            party = "Unknown"
+
+        # ----- next election -----
+        # A term ends in early January, and the election that decides the seat
+        # is the November before that. So endYear - 1 is the election year.
+        next_election = None
+        if isinstance(term_end, int):
+            next_election = term_end - 1 if term_end > 2000 else None
 
         return {
             "bioguideId": bioguide_id,
             "name": display_name,
-            "party": m.get("partyName") or "Unknown",
-            "state": m.get("state"),
+            "party": party,
+            "state": state,
             "chamber": chamber,
-            "district": m.get("district"),
+            "district": district,
             "termStart": str(term_start) if term_start else None,
             "termEnd": str(term_end) if term_end else None,
-            "termsServed": len(terms) if terms else None,
-            "website": m.get("url"),
+            "termsServed": terms_served,
+            "firstYearServed": str(first_year) if first_year else None,
+            "nextElection": str(next_election) if next_election else None,
+            "website": m.get("officialWebsiteUrl") or m.get("url"),
             "bills": [],
             "source": "Congress.gov API",
             "sourceUrl": f"https://www.congress.gov/member/{bioguide_id}",
         }
+
+    # ---------- bills ----------
 
     def fetch_sponsored_bills(self, bioguide_id: str) -> List[Dict[str, Any]]:
         """Fetch legislation sponsored by a member."""
@@ -148,6 +215,8 @@ class CongressDataFetcher:
 
         bills = []
         for b in items:
+            if not isinstance(b, dict):
+                continue
             number = b.get("number")
             bill_type = (b.get("type") or "").lower()
             congress = b.get("congress")
@@ -156,7 +225,7 @@ class CongressDataFetcher:
 
             bills.append(
                 {
-                    "billNumber": f"{(b.get('type') or '').upper()} {number}",
+                    "billNumber": f"{bill_type.upper()} {number}",
                     "title": b.get("title") or "",
                     "introducedDate": b.get("introducedDate"),
                     "latestAction": ((b.get("latestAction") or {}).get("text")) or "",
@@ -170,15 +239,40 @@ class CongressDataFetcher:
             )
         return bills
 
-    def run(self) -> Dict[str, Any]:
-        members = self.fetch_members()
-        print(f"Fetched {len(members)} members.\n")
+    # ---------- orchestration ----------
 
-        print("Fetching sponsored bills per member...")
-        for i, member in enumerate(members, start=1):
-            member["bills"] = self.fetch_sponsored_bills(member["bioguideId"])
+    def run(self) -> Dict[str, Any]:
+        ids = self.fetch_member_ids()
+        print(f"Found {len(ids)} current members.\n")
+
+        if not ids:
+            print("ERROR: No members returned. Check the API key.", file=sys.stderr)
+            sys.exit(1)
+
+        print("Fetching detail + bills for each member...")
+        members = []
+        for i, bid in enumerate(ids, start=1):
+            detail = self.fetch_member_detail(bid)
+            if not detail:
+                print(f"  Skipped {bid} (no detail returned)")
+                continue
+
+            detail["bills"] = self.fetch_sponsored_bills(bid)
+            members.append(detail)
+
             if i % 25 == 0:
-                print(f"  {i}/{len(members)} members processed")
+                print(f"  {i}/{len(ids)} processed")
+
+        # Sanity checks, so a silent parse failure doesn't ship quietly.
+        missing_party = sum(1 for m in members if m["party"] == "Unknown")
+        missing_terms = sum(1 for m in members if not m["termsServed"])
+        with_bills = sum(1 for m in members if m["bills"])
+
+        print("\n--- Data quality ---")
+        print(f"  Members with a party:      {len(members) - missing_party}/{len(members)}")
+        print(f"  Members with a term count: {len(members) - missing_terms}/{len(members)}")
+        print(f"  Members with bills:        {with_bills}/{len(members)}")
+        print(f"  Failed requests:           {self.failures}")
 
         return {
             "lastUpdated": datetime.utcnow().isoformat() + "Z",
@@ -187,6 +281,11 @@ class CongressDataFetcher:
             "metadata": {
                 "dataSource": "Congress.gov API",
                 "sourceUrl": "https://api.congress.gov",
+                "termNote": (
+                    "Terms are counted as one per Congress served, from the "
+                    "member's full term history. Next election is derived from "
+                    "the current term's end year."
+                ),
             },
         }
 
