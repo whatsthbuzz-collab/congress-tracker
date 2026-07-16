@@ -84,7 +84,13 @@ export default function CongressTable() {
     }),
     columnHelper.accessor('termStart', {
       header: 'Current Term Began',
-      cell: (info) => info.getValue() || '-',
+      cell: (info) => {
+        const v = info.getValue();
+        if (!v) return '-';
+        // Parse as UTC so the date doesn't shift a day in western timezones.
+        const d = new Date(`${v}T00:00:00Z`);
+        return isNaN(d) ? v : d.toLocaleDateString(undefined, { timeZone: 'UTC' });
+      },
     }),
     columnHelper.accessor('firstYearServed', {
       header: 'In Office Since',
