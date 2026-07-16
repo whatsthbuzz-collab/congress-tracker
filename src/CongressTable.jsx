@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 import {
   useReactTable,
   getCoreRowModel,
@@ -48,7 +48,7 @@ export default function CongressTable() {
     fetchData();
   }, []);
 
-  const columns = [
+  const columns = useMemo(() => [
     columnHelper.accessor('name', {
       header: 'Name',
       cell: (info) => <strong>{info.getValue()}</strong>,
@@ -165,11 +165,15 @@ export default function CongressTable() {
           '-'
         ),
     }),
-  ];
+  ], []);
 
-  const columnFilters = [];
-  if (partyFilter) columnFilters.push({ id: 'party', value: partyFilter });
-  if (stateFilter) columnFilters.push({ id: 'state', value: stateFilter });
+  // Memoized so the table isn't handed a new filter array on every render.
+  const columnFilters = useMemo(() => {
+    const f = [];
+    if (partyFilter) f.push({ id: 'party', value: partyFilter });
+    if (stateFilter) f.push({ id: 'state', value: stateFilter });
+    return f;
+  }, [partyFilter, stateFilter]);
 
   const table = useReactTable({
     data,
@@ -186,8 +190,14 @@ export default function CongressTable() {
     initialState: { pagination: { pageSize: 25 } },
   });
 
-  const parties = [...new Set(data.map((d) => d.party))].filter(Boolean).sort();
-  const states = [...new Set(data.map((d) => d.state))].filter(Boolean).sort();
+  const parties = useMemo(
+    () => [...new Set(data.map((d) => d.party))].filter(Boolean).sort(),
+    [data]
+  );
+  const states = useMemo(
+    () => [...new Set(data.map((d) => d.state))].filter(Boolean).sort(),
+    [data]
+  );
 
   if (loading) {
     return (

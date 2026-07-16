@@ -212,9 +212,14 @@ body {
   font-size: 0.85rem;
   font-weight: 600;
   color: white;
+  /* Neutral fallback: if a party value ever fails to match a class below,
+     the label stays readable instead of turning white-on-white. */
+  background-color: #555555;
+  white-space: nowrap;
 }
 
-.party.democrat {
+.party.democrat,
+.party.democratic {
   background-color: var(--color-democrat);
 }
 
@@ -236,6 +241,9 @@ body {
   border-radius: 3px;
   font-size: 0.85rem;
   font-weight: 500;
+  background-color: #e0e0e0;
+  color: var(--color-primary);
+  white-space: nowrap;
 }
 
 .chamber.senate {
