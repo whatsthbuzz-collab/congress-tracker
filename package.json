@@ -1,0 +1,21 @@
+{
+  "name": "congress-tracker",
+  "version": "1.0.0",
+  "description": "Track U.S. Federal Politicians - Bills, Votes, Stock Trades, and More",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "fetch-data": "python scripts/fetch_congress_data.py"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "@tanstack/react-table": "^8.13.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.0.0",
+    "vite": "^4.4.0"
+  }
+}
