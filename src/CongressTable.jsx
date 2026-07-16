@@ -14,23 +14,31 @@ const columnHelper = createColumnHelper();
 
 export default function CongressTable() {
   const [data, setData] = useState([]);
+  const [lastUpdated, setLastUpdated] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [globalFilter, setGlobalFilter] = useState('');
   const [partyFilter, setPartyFilter] = useState('');
   const [stateFilter, setStateFilter] = useState('');
 
-  // Fetch congressional data on mount
   useEffect(() => {
     const fetchData = async () => {
       try {
         setLoading(true);
-        // This path assumes congress_data.json is in public folder
-        const response = await fetch('/congress_data.json');
-        if (!response.ok) throw new Error('Failed to fetch data');
-        
+        // BASE_URL follows `base` in vite.config.js, so this works
+        // both locally and on GitHub Pages.
+        const response = await fetch(`${import.meta.env.BASE_URL}congress_data.json`);
+        if (!response.ok) {
+          throw new Error(
+            `Could not load congress_data.json (HTTP ${response.status}). ` +
+            `The data file may not exist yet — check the "Update Congressional Data" ` +
+            `workflow in the Actions tab.`
+          );
+        }
+
         const json = await response.json();
         setData(json.members || []);
+        setLastUpdated(json.lastUpdated || null);
       } catch (err) {
         setError(err.message);
         console.error('Error fetching congressional data:', err);
@@ -42,7 +50,6 @@ export default function CongressTable() {
     fetchData();
   }, []);
 
-  // Define columns
   const columns = [
     columnHelper.accessor('name', {
       header: 'Name',
@@ -51,99 +58,113 @@ export default function CongressTable() {
     columnHelper.accessor('state', {
       header: 'State',
       cell: (info) => info.getValue() || '-',
+      filterFn: 'equalsString',
     }),
     columnHelper.accessor('chamber', {
       header: 'Chamber',
       cell: (info) => {
-        const chamber = info.getValue();
-        return <span className={`chamber ${chamber?.toLowerCase()}`}>{chamber}</span>;
+        const chamber = info.getValue() || '';
+        const cls = chamber.toLowerCase().includes('senate') ? 'senate' : 'house';
+        return <span className={`chamber ${cls}`}>{chamber || '-'}</span>;
       },
     }),
     columnHelper.accessor('party', {
       header: 'Party',
       cell: (info) => {
-        const party = info.getValue();
-        return <span className={`party ${party?.toLowerCase()}`}>{party}</span>;
+        const party = info.getValue() || '';
+        const cls = party.toLowerCase().replace(/[^a-z]/g, '-');
+        return <span className={`party ${cls}`}>{party || '-'}</span>;
       },
+      filterFn: 'equalsString',
     }),
     columnHelper.accessor('district', {
       header: 'District',
-      cell: (info) => info.getValue() || '-',
+      cell: (info) => {
+        const d = info.getValue();
+        return d === null || d === undefined ? '-' : d;
+      },
     }),
     columnHelper.accessor('termStart', {
       header: 'Term Start',
-      cell: (info) => {
-        const date = info.getValue();
-        return date ? new Date(date).toLocaleDateString() : '-';
-      },
+      cell: (info) => info.getValue() || '-',
     }),
-    columnHelper.accessor('termEnd', {
-      header: 'Term End',
-      cell: (info) => {
-        const date = info.getValue();
-        return date ? new Date(date).toLocaleDateString() : '-';
-      },
+    columnHelper.accessor('termsServed', {
+      header: 'Terms',
+      cell: (info) => info.getValue() ?? '-',
     }),
     columnHelper.accessor('bills', {
       header: 'Bills Sponsored',
+      enableSorting: false,
       cell: (info) => {
         const bills = info.getValue() || [];
+        if (bills.length === 0) return <span className="more-indicator">None found</span>;
         return (
           <details className="bills-summary">
             <summary>{bills.length} bills</summary>
-            {bills.length > 0 && (
-              <ul className="bills-list">
-                {bills.slice(0, 5).map((bill, idx) => (
-                  <li key={idx}>
-                    <strong>{bill.billNumber}:</strong> {bill.title.substring(0, 60)}...
-                    <br />
-                    <small>{bill.summary.substring(0, 80)}...</small>
-                    <br />
-                    <a href={bill.sourceUrl} target="_blank" rel="noopener noreferrer" className="source-link">
-                      View on Congress.gov
-                    </a>
-                  </li>
-                ))}
-                {bills.length > 5 && <li className="more-indicator">+ {bills.length - 5} more</li>}
-              </ul>
-            )}
+            <ul className="bills-list">
+              {bills.slice(0, 5).map((bill, idx) => (
+                <li key={idx}>
+                  <strong>{bill.billNumber}</strong>
+                  {bill.title ? `: ${bill.title.substring(0, 70)}` : ''}
+                  {bill.title && bill.title.length > 70 ? '…' : ''}
+                  {bill.latestAction && (
+                    <>
+                      <br />
+                      <small>{bill.latestAction.substring(0, 90)}</small>
+                    </>
+                  )}
+                  {bill.sourceUrl && (
+                    <>
+                      <br />
+                      <a
+                        href={bill.sourceUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="source-link"
+                      >
+                        View on Congress.gov
+                      </a>
+                    </>
+                  )}
+                </li>
+              ))}
+              {bills.length > 5 && (
+                <li className="more-indicator">+ {bills.length - 5} more</li>
+              )}
+            </ul>
           </details>
-        );
-      },
-    }),
-    columnHelper.accessor('website', {
-      header: 'Contact',
-      cell: (info) => {
-        const url = info.getValue();
-        return url ? (
-          <a href={url} target="_blank" rel="noopener noreferrer" className="source-link">
-            Website
-          </a>
-        ) : (
-          '-'
         );
       },
     }),
     columnHelper.accessor('sourceUrl', {
       header: 'Source',
-      cell: (info) => (
-        <a href={info.getValue()} target="_blank" rel="noopener noreferrer" className="source-link">
-          Congress.gov
-        </a>
-      ),
+      enableSorting: false,
+      cell: (info) =>
+        info.getValue() ? (
+          <a
+            href={info.getValue()}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="source-link"
+          >
+            Congress.gov
+          </a>
+        ) : (
+          '-'
+        ),
     }),
   ];
 
-  // Initialize table
+  const columnFilters = [];
+  if (partyFilter) columnFilters.push({ id: 'party', value: partyFilter });
+  if (stateFilter) columnFilters.push({ id: 'state', value: stateFilter });
+
   const table = useReactTable({
     data,
     columns,
     state: {
       globalFilter,
-      columnFilters: [
-        { id: 'party', value: partyFilter },
-        { id: 'state', value: stateFilter },
-      ],
+      columnFilters,
     },
     onGlobalFilterChange: setGlobalFilter,
     getFilteredRowModel: getFilteredRowModel(),
@@ -152,14 +173,13 @@ export default function CongressTable() {
     getPaginationRowModel: getPaginationRowModel(),
   });
 
-  // Get unique values for filter dropdowns
   const parties = [...new Set(data.map((d) => d.party))].filter(Boolean).sort();
   const states = [...new Set(data.map((d) => d.state))].filter(Boolean).sort();
 
   if (loading) {
     return (
       <div className="congress-container">
-        <div className="loading">Loading congressional data...</div>
+        <div className="loading">Loading congressional data…</div>
       </div>
     );
   }
@@ -167,7 +187,7 @@ export default function CongressTable() {
   if (error) {
     return (
       <div className="congress-container">
-        <div className="error">Error: {error}</div>
+        <div className="error">{error}</div>
       </div>
     );
   }
@@ -176,23 +196,23 @@ export default function CongressTable() {
     <div className="congress-container">
       <header className="header">
         <h1>U.S. Federal Politicians Tracker</h1>
-        <p>Track bills, voting records, and more for current members of Congress</p>
+        <p>Bills, terms, and party data for current members of Congress</p>
         <p className="data-attribution">
-          Data sourced from{' '}
+          Data from{' '}
           <a href="https://api.congress.gov" target="_blank" rel="noopener noreferrer">
-            Congress.gov API
+            the Congress.gov API
           </a>
-          {' '}| Last updated: {data.length > 0 ? new Date().toLocaleDateString() : 'N/A'}
+          {lastUpdated && ` · Last updated: ${new Date(lastUpdated).toLocaleString()}`}
         </p>
       </header>
 
       <div className="filters">
         <div className="filter-group">
-          <label htmlFor="search">Search Name/State:</label>
+          <label htmlFor="search">Search</label>
           <input
             id="search"
             type="text"
-            placeholder="Search by name or state..."
+            placeholder="Name, state, party…"
             value={globalFilter}
             onChange={(e) => setGlobalFilter(e.target.value)}
             className="filter-input"
@@ -200,14 +220,14 @@ export default function CongressTable() {
         </div>
 
         <div className="filter-group">
-          <label htmlFor="party-filter">Party:</label>
+          <label htmlFor="party-filter">Party</label>
           <select
             id="party-filter"
             value={partyFilter}
             onChange={(e) => setPartyFilter(e.target.value)}
             className="filter-select"
           >
-            <option value="">All Parties</option>
+            <option value="">All parties</option>
             {parties.map((party) => (
               <option key={party} value={party}>
                 {party}
@@ -217,14 +237,14 @@ export default function CongressTable() {
         </div>
 
         <div className="filter-group">
-          <label htmlFor="state-filter">State:</label>
+          <label htmlFor="state-filter">State</label>
           <select
             id="state-filter"
             value={stateFilter}
             onChange={(e) => setStateFilter(e.target.value)}
             className="filter-select"
           >
-            <option value="">All States</option>
+            <option value="">All states</option>
             {states.map((state) => (
               <option key={state} value={state}>
                 {state}
@@ -247,13 +267,15 @@ export default function CongressTable() {
                   <th key={header.id} onClick={header.column.getToggleSortingHandler()}>
                     <div className="header-cell">
                       {flexRender(header.column.columnDef.header, header.getContext())}
-                      <span className="sort-indicator">
-                        {header.column.getIsSorted()
-                          ? header.column.getIsSorted() === 'desc'
+                      {header.column.getCanSort() && (
+                        <span className="sort-indicator">
+                          {header.column.getIsSorted() === 'desc'
                             ? ' ↓'
-                            : ' ↑'
-                          : ' ↕'}
-                      </span>
+                            : header.column.getIsSorted() === 'asc'
+                            ? ' ↑'
+                            : ' ↕'}
+                        </span>
+                      )}
                     </div>
                   </th>
                 ))}
@@ -264,7 +286,9 @@ export default function CongressTable() {
             {table.getRowModel().rows.map((row) => (
               <tr key={row.id}>
                 {row.getVisibleCells().map((cell) => (
-                  <td key={cell.id}>{flexRender(cell.column.columnDef.cell, cell.getContext())}</td>
+                  <td key={cell.id}>
+                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                  </td>
                 ))}
               </tr>
             ))}
@@ -277,7 +301,7 @@ export default function CongressTable() {
           ← Previous
         </button>
         <span className="page-info">
-          Page {table.getState().pagination.pageIndex + 1} of {table.getPageCount()}
+          Page {table.getState().pagination.pageIndex + 1} of {table.getPageCount() || 1}
         </span>
         <button onClick={() => table.nextPage()} disabled={!table.getCanNextPage()}>
           Next →
@@ -287,7 +311,7 @@ export default function CongressTable() {
           onChange={(e) => table.setPageSize(Number(e.target.value))}
           className="page-size-select"
         >
-          {[10, 25, 50].map((pageSize) => (
+          {[10, 25, 50, 100].map((pageSize) => (
             <option key={pageSize} value={pageSize}>
               Show {pageSize}
             </option>
@@ -297,10 +321,10 @@ export default function CongressTable() {
 
       <footer className="footer">
         <p>
-          <strong>Data Sources:</strong> Congress.gov API | <strong>Update Frequency:</strong> Nightly
+          <strong>Source:</strong> Congress.gov API · <strong>Updates:</strong> nightly
         </p>
         <p className="disclaimer">
-          This tool aggregates publicly available data. For official records, always refer to{' '}
+          This tool aggregates publicly available data. For official records, refer to{' '}
           <a href="https://www.congress.gov" target="_blank" rel="noopener noreferrer">
             Congress.gov
           </a>
