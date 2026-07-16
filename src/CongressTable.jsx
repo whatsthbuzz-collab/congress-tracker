@@ -25,8 +25,6 @@ export default function CongressTable() {
     const fetchData = async () => {
       try {
         setLoading(true);
-        // BASE_URL follows `base` in vite.config.js, so this works
-        // both locally and on GitHub Pages.
         const response = await fetch(`${import.meta.env.BASE_URL}congress_data.json`);
         if (!response.ok) {
           throw new Error(
@@ -65,7 +63,7 @@ export default function CongressTable() {
       cell: (info) => {
         const chamber = info.getValue() || '';
         const cls = chamber.toLowerCase().includes('senate') ? 'senate' : 'house';
-        return <span className={`chamber ${cls}`}>{chamber || '-'}</span>;
+        return chamber ? <span className={`chamber ${cls}`}>{chamber}</span> : '-';
       },
     }),
     columnHelper.accessor('party', {
@@ -73,7 +71,7 @@ export default function CongressTable() {
       cell: (info) => {
         const party = info.getValue() || '';
         const cls = party.toLowerCase().replace(/[^a-z]/g, '-');
-        return <span className={`party ${cls}`}>{party || '-'}</span>;
+        return party ? <span className={`party ${cls}`}>{party}</span> : '-';
       },
       filterFn: 'equalsString',
     }),
@@ -85,12 +83,20 @@ export default function CongressTable() {
       },
     }),
     columnHelper.accessor('termStart', {
-      header: 'Term Start',
+      header: 'Current Term Began',
+      cell: (info) => info.getValue() || '-',
+    }),
+    columnHelper.accessor('firstYearServed', {
+      header: 'In Office Since',
       cell: (info) => info.getValue() || '-',
     }),
     columnHelper.accessor('termsServed', {
-      header: 'Terms',
+      header: 'Terms Served',
       cell: (info) => info.getValue() ?? '-',
+    }),
+    columnHelper.accessor('nextElection', {
+      header: 'Next Election',
+      cell: (info) => info.getValue() || '-',
     }),
     columnHelper.accessor('bills', {
       header: 'Bills Sponsored',
@@ -171,6 +177,7 @@ export default function CongressTable() {
     getCoreRowModel: getCoreRowModel(),
     getSortedRowModel: getSortedRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
+    initialState: { pagination: { pageSize: 25 } },
   });
 
   const parties = [...new Set(data.map((d) => d.party))].filter(Boolean).sort();
@@ -324,7 +331,9 @@ export default function CongressTable() {
           <strong>Source:</strong> Congress.gov API · <strong>Updates:</strong> nightly
         </p>
         <p className="disclaimer">
-          This tool aggregates publicly available data. For official records, refer to{' '}
+          Terms are counted as one per Congress served. Next election is derived from the
+          current term's end year. This tool aggregates publicly available data — for
+          official records, refer to{' '}
           <a href="https://www.congress.gov" target="_blank" rel="noopener noreferrer">
             Congress.gov
           </a>
