@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-19T09:36:13.744945+00:00",
+  "lastUpdated": "2026-07-20T12:08:35.251015+00:00",
   "totalMembers": 537,
   "billsIncluded": true,
   "members": [
@@ -2871,7 +2871,7 @@
           "title": "Making continuing appropriations for fiscal year 2027, and for other purposes.",
           "introducedDate": "2026-07-18",
           "latestAction": "Referred to the Committee on Appropriations, and in addition to the Committee on the Budget, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
-          "policyArea": "",
+          "policyArea": "Economics and Public Finance",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/9770"
@@ -5773,98 +5773,7 @@
       "nextElection": "2026",
       "website": "https://jordan.house.gov",
       "phone": "202-225-2676",
-      "bills": [
-        {
-          "billNumber": "HRES 86",
-          "title": "Providing amounts for the expenses of the Committee on the Judiciary in the One Hundred Nineteenth Congress.",
-          "introducedDate": "2025-01-31",
-          "latestAction": "Referred to the House Committee on House Administration.",
-          "policyArea": "Congress",
-          "role": "sponsor",
-          "source": "Congress.gov API",
-          "sourceUrl": "https://www.congress.gov/bill/119th-congress/hres/86"
-        },
-        {
-          "billNumber": "HRES 1292",
-          "title": "Recommending that the House of Representatives find United States Attorney General Merrick B. Garland in contempt of Congress for refusal to comply with a subpoena duly issued by the Committee on the Judiciary.",
-          "introducedDate": "2024-06-12",
-          "latestAction": "Motion to reconsider laid on the table Agreed to without objection.",
-          "policyArea": "Congress",
-          "role": "sponsor",
-          "source": "Congress.gov API",
-          "sourceUrl": "https://www.congress.gov/bill/118th-congress/hres/1292"
-        },
-        {
-          "billNumber": "HR 4791",
-          "title": "Free Speech Protection Act",
-          "introducedDate": "2023-07-20",
-          "latestAction": "Referred to the Subcommittee on Communications and Technology.",
-          "policyArea": "Government Operations and Politics",
-          "role": "sponsor",
-          "source": "Congress.gov API",
-          "sourceUrl": "https://www.congress.gov/bill/118th-congress/hr/4791"
-        },
-        {
-          "billNumber": "HRES 159",
-          "title": "Providing amounts for the expenses of the Committee on the Judiciary in the One Hundred Eighteenth Congress.",
-          "introducedDate": "2023-02-24",
-          "latestAction": "Referred to the House Committee on House Administration.",
-          "policyArea": "Congress",
-          "role": "sponsor",
-          "source": "Congress.gov API",
-          "sourceUrl": "https://www.congress.gov/bill/118th-congress/hres/159"
-        },
-        {
-          "billNumber": "HRES 12",
-          "title": "Establishing a Select Subcommittee on the Weaponization of the Federal Government as a select investigative subcommittee of the Committee on the Judiciary.",
-          "introducedDate": "2023-01-09",
-          "latestAction": "UNANIMOUS CONSENT - Mr. Franklin, C. Scott asked unanimous consent that, notwithstanding section 1(a)(2)(A) of House Resolution 12 (as amended by section 1(c) of House Resolution 78), and the order of the House of today, the Select Subcommittee on the Weaponization of the Federal Government be composed of not more than 21 Members, Delegates, or the Resident Commissioner appointed by the Speaker, of whom not more than 9 shall be appointed in consultation with the Minority Leader. Agreed to without objection.",
-          "policyArea": "Congress",
-          "role": "sponsor",
-          "source": "Congress.gov API",
-          "sourceUrl": "https://www.congress.gov/bill/118th-congress/hres/12"
-        },
-        {
-          "billNumber": "HR 3827",
-          "title": "Protect Speech Act",
-          "introducedDate": "2021-06-11",
-          "latestAction": "Referred to the Subcommittee on Communications and Technology.",
-          "policyArea": "Science, Technology, Communications",
-          "role": "sponsor",
-          "source": "Congress.gov API",
-          "sourceUrl": "https://www.congress.gov/bill/117th-congress/hr/3827"
-        },
-        {
-          "billNumber": "HR 8517",
-          "title": "Protect Speech Act",
-          "introducedDate": "2020-10-02",
-          "latestAction": "Referred to the House Committee on Energy and Commerce.",
-          "policyArea": "Science, Technology, Communications",
-          "role": "sponsor",
-          "source": "Congress.gov API",
-          "sourceUrl": "https://www.congress.gov/bill/116th-congress/hr/8517"
-        },
-        {
-          "billNumber": "HRES 1138",
-          "title": "Expressing the sense of the House of Representatives that the number of Justices of the Supreme Court of the United States should remain at nine.",
-          "introducedDate": "2020-09-22",
-          "latestAction": "Referred to the House Committee on the Judiciary.",
-          "policyArea": "Law",
-          "role": "sponsor",
-          "source": "Congress.gov API",
-          "sourceUrl": "https://www.congress.gov/bill/116th-congress/hres/1138"
-        },
-        {
-          "billNumber": "HR 5246",
-          "title": "To require the United States attorney to bring the matter of an individual's contempt of Congress before a grand jury not later than 30 days after receiving a certification from the Speaker of the House of Representatives or the President of the Senate that the individual is in contempt.",
-          "introducedDate": "2014-07-29",
-          "latestAction": "Referred to the Subcommittee on Crime, Terrorism, Homeland Security, and Investigations.",
-          "policyArea": "Crime and Law Enforcement",
-          "role": "sponsor",
-          "source": "Congress.gov API",
-          "sourceUrl": "https://www.congress.gov/bill/113th-congress/hr/5246"
-        }
-      ],
+      "bills": [],
       "source": "unitedstates/congress-legislators",
       "sourceUrl": "https://www.congress.gov/member/J000289"
     },
@@ -7955,7 +7864,7 @@
         },
         {
           "billNumber": "HR 9712",
-          "title": "To amend title XIX of the Social Security Act to provide coverage under the Medicaid program for services provided by doulas, midwives, and lactation support providers, and for other purposes.",
+          "title": "Mamas First Act",
           "introducedDate": "2026-07-15",
           "latestAction": "Referred to the House Committee on Energy and Commerce.",
           "policyArea": "",
@@ -9684,7 +9593,7 @@
       "bills": [
         {
           "billNumber": "HR 9772",
-          "title": "To amend the Internal Revenue Code of 1986 to require disclosure by certain tax-exempt organizations of information relating to foreign contributions to such organizations.",
+          "title": "Foreign Funding Transparency Act",
           "introducedDate": "2026-07-18",
           "latestAction": "Referred to the House Committee on Ways and Means.",
           "policyArea": "",
@@ -10071,108 +9980,7 @@
       "nextElection": "2026",
       "website": "https://sewell.house.gov",
       "phone": "202-225-2665",
-      "bills": [
-        {
-          "billNumber": "HR 8864",
-          "title": "LIFT Act",
-          "introducedDate": "2026-05-15",
-          "latestAction": "Referred to the House Committee on Ways and Means.",
-          "policyArea": "Taxation",
-          "role": "sponsor",
-          "source": "Congress.gov API",
-          "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/8864"
-        },
-        {
-          "billNumber": "HR 4731",
-          "title": "Resident Physician Shortage Reduction Act of 2025",
-          "introducedDate": "2025-07-23",
-          "latestAction": "Referred to the Committee on Ways and Means, and in addition to the Committee on Energy and Commerce, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
-          "policyArea": "Health",
-          "role": "sponsor",
-          "source": "Congress.gov API",
-          "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/4731"
-        },
-        {
-          "billNumber": "HR 8153",
-          "title": "Maternal Vaccination Act",
-          "introducedDate": "2026-03-27",
-          "latestAction": "Referred to the House Committee on Energy and Commerce.",
-          "policyArea": "Health",
-          "role": "sponsor",
-          "source": "Congress.gov API",
-          "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/8153"
-        },
-        {
-          "billNumber": "HR 8024",
-          "title": "Maternal Vaccination Act",
-          "introducedDate": "2026-03-19",
-          "latestAction": "Referred to the House Committee on Energy and Commerce.",
-          "policyArea": "Health",
-          "role": "sponsor",
-          "source": "Congress.gov API",
-          "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/8024"
-        },
-        {
-          "billNumber": "HR 7921",
-          "title": "To amend the Consolidated Farm and Rural Development Act to modify provisions relating to rural decentralized water systems grants.",
-          "introducedDate": "2026-03-12",
-          "latestAction": "Referred to the House Committee on Agriculture.",
-          "policyArea": "Water Resources Development",
-          "role": "sponsor",
-          "source": "Congress.gov API",
-          "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/7921"
-        },
-        {
-          "billNumber": "HR 6894",
-          "title": "Increasing Access to Quality Cardiac Rehabilitation Care Act of 2025",
-          "introducedDate": "2025-12-18",
-          "latestAction": "Referred to the Committee on Energy and Commerce, and in addition to the Committee on Ways and Means, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
-          "policyArea": "Health",
-          "role": "sponsor",
-          "source": "Congress.gov API",
-          "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/6894"
-        },
-        {
-          "billNumber": "HR 5377",
-          "title": "Rural Health Training Opportunities Act",
-          "introducedDate": "2025-09-16",
-          "latestAction": "Referred to the House Committee on Ways and Means.",
-          "policyArea": "Health",
-          "role": "sponsor",
-          "source": "Congress.gov API",
-          "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/5377"
-        },
-        {
-          "billNumber": "HR 4381",
-          "title": "To direct the Secretary of Defense to establish a pilot program regarding treating pregnancy as a qualifying event for enrollment in TRICARE Select.",
-          "introducedDate": "2025-07-14",
-          "latestAction": "Referred to the House Committee on Armed Services.",
-          "policyArea": "Armed Forces and National Security",
-          "role": "sponsor",
-          "source": "Congress.gov API",
-          "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/4381"
-        },
-        {
-          "billNumber": "HR 3890",
-          "title": "Resident Physician Shortage Reduction Act of 2025",
-          "introducedDate": "2025-06-10",
-          "latestAction": "Referred to the Committee on Energy and Commerce, and in addition to the Committee on Ways and Means, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
-          "policyArea": "Health",
-          "role": "sponsor",
-          "source": "Congress.gov API",
-          "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/3890"
-        },
-        {
-          "billNumber": "HR 3257",
-          "title": "Bridge to Medicaid Act of 2025",
-          "introducedDate": "2025-05-07",
-          "latestAction": "Referred to the Committee on Energy and Commerce, and in addition to the Committee on Ways and Means, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
-          "policyArea": "Health",
-          "role": "sponsor",
-          "source": "Congress.gov API",
-          "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/3257"
-        }
-      ],
+      "bills": [],
       "source": "unitedstates/congress-legislators",
       "sourceUrl": "https://www.congress.gov/member/S001185"
     },
@@ -13273,7 +13081,7 @@
         },
         {
           "billNumber": "HR 9740",
-          "title": "To establish a Critical Materials Processing Technology Testbed Capability, and for other purposes.",
+          "title": "Critical Materials Processing Technology Testbed Act",
           "introducedDate": "2026-07-16",
           "latestAction": "Referred to the House Committee on Science, Space, and Technology.",
           "policyArea": "",
@@ -17482,7 +17290,7 @@
         },
         {
           "billNumber": "HR 9737",
-          "title": "To amend the Employment Retirement Income Security Act to establish a Benefits Assistance Program to improve access to benefits under employee welfare benefit plans, and for other purposes.",
+          "title": "Consumer Health Claim Assistance Act",
           "introducedDate": "2026-07-16",
           "latestAction": "Referred to the House Committee on Education and Workforce.",
           "policyArea": "",
@@ -18592,7 +18400,7 @@
         },
         {
           "billNumber": "HR 9711",
-          "title": "To amend title 49, United States Code, to prescribe safety standards for autocycles and related equipment, and for other purposes.",
+          "title": "Autocycle Safety Act",
           "introducedDate": "2026-07-15",
           "latestAction": "Referred to the House Committee on Energy and Commerce.",
           "policyArea": "",
@@ -21606,7 +21414,98 @@
       "nextElection": "2026",
       "website": "https://correa.house.gov",
       "phone": "202-225-2965",
-      "bills": [],
+      "bills": [
+        {
+          "billNumber": "HR 4643",
+          "title": "Business Uninterrupted Monetary Program Act of 2025",
+          "introducedDate": "2025-07-23",
+          "latestAction": "Referred to the Subcommittee on Highways and Transit.",
+          "policyArea": "Transportation and Public Works",
+          "role": "sponsor",
+          "source": "Congress.gov API",
+          "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/4643"
+        },
+        {
+          "billNumber": "HR 8605",
+          "title": "Honor Our Commitment Act of 2026",
+          "introducedDate": "2026-04-30",
+          "latestAction": "Referred to the House Committee on the Judiciary.",
+          "policyArea": "Immigration",
+          "role": "sponsor",
+          "source": "Congress.gov API",
+          "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/8605"
+        },
+        {
+          "billNumber": "HRES 1372",
+          "title": "Remembering kindness in the United States and affirming our commitment to fostering community and building resiliency through every day acts of kindness.",
+          "introducedDate": "2026-06-18",
+          "latestAction": "Referred to the House Committee on Oversight and Government Reform.",
+          "policyArea": "Government Operations and Politics",
+          "role": "sponsor",
+          "source": "Congress.gov API",
+          "sourceUrl": "https://www.congress.gov/bill/119th-congress/hres/1372"
+        },
+        {
+          "billNumber": "HR 7821",
+          "title": "Promoting Reduction of Emissions through Landscaping Equipment Act",
+          "introducedDate": "2026-03-05",
+          "latestAction": "Referred to the House Committee on Ways and Means.",
+          "policyArea": "Taxation",
+          "role": "sponsor",
+          "source": "Congress.gov API",
+          "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/7821"
+        },
+        {
+          "billNumber": "HRES 927",
+          "title": "Declaring support by the House of Representatives for Design for Recycling (DFR) initiatives that limit all types of waste by encouraging manufacturers to design their products to have the maximum number of recyclable components.",
+          "introducedDate": "2025-12-04",
+          "latestAction": "Referred to the House Committee on Energy and Commerce.",
+          "policyArea": "Environmental Protection",
+          "role": "sponsor",
+          "source": "Congress.gov API",
+          "sourceUrl": "https://www.congress.gov/bill/119th-congress/hres/927"
+        },
+        {
+          "billNumber": "HRES 800",
+          "title": "Expressing profound sorrow over the death of Alexander Michel Odeh.",
+          "introducedDate": "2025-10-10",
+          "latestAction": "Referred to the House Committee on Oversight and Government Reform.",
+          "policyArea": "Congress",
+          "role": "sponsor",
+          "source": "Congress.gov API",
+          "sourceUrl": "https://www.congress.gov/bill/119th-congress/hres/800"
+        },
+        {
+          "billNumber": "HR 5226",
+          "title": "Deceptive Downsizing Prohibition Act of 2025",
+          "introducedDate": "2025-09-09",
+          "latestAction": "Referred to the House Committee on Energy and Commerce.",
+          "policyArea": "Commerce",
+          "role": "sponsor",
+          "source": "Congress.gov API",
+          "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/5226"
+        },
+        {
+          "billNumber": "HRES 640",
+          "title": "Recognizing the significance of \"Chicano/Chicana Heritage Month\" in August as an important time to celebrate the significant contributions of Mexican Americans to the history of the United States.",
+          "introducedDate": "2025-08-08",
+          "latestAction": "Referred to the House Committee on Oversight and Government Reform.",
+          "policyArea": "Immigration",
+          "role": "sponsor",
+          "source": "Congress.gov API",
+          "sourceUrl": "https://www.congress.gov/bill/119th-congress/hres/640"
+        },
+        {
+          "billNumber": "HR 4444",
+          "title": "Student Loan Bankruptcy Improvement Act of 2025",
+          "introducedDate": "2025-07-16",
+          "latestAction": "Referred to the House Committee on the Judiciary.",
+          "policyArea": "Finance and Financial Sector",
+          "role": "sponsor",
+          "source": "Congress.gov API",
+          "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/4444"
+        }
+      ],
       "source": "unitedstates/congress-legislators",
       "sourceUrl": "https://www.congress.gov/member/C001110"
     },
@@ -23850,7 +23749,7 @@
           "title": "Establishing the congressional budget for the United States Government for fiscal year 2027 and setting forth the appropriate budgetary levels for fiscal years 2028 through 2036.",
           "introducedDate": "2026-07-18",
           "latestAction": "Placed on the Union Calendar, Calendar No. 657.",
-          "policyArea": "",
+          "policyArea": "Economics and Public Finance",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/hconres/113"
@@ -30117,7 +30016,7 @@
         },
         {
           "billNumber": "HR 9739",
-          "title": "To prohibit the exercise of the right of eminent domain with respect to Mount Cristo Rey.",
+          "title": "Mount Cristo Rey Protection Act",
           "introducedDate": "2026-07-16",
           "latestAction": "Referred to the House Committee on the Judiciary.",
           "policyArea": "",
@@ -30587,7 +30486,7 @@
         },
         {
           "billNumber": "HR 9445",
-          "title": "To ensure the right to provide reproductive health care services, and for other purposes.",
+          "title": "Let Doctors Provide Reproductive Health Care Act",
           "introducedDate": "2026-06-24",
           "latestAction": "Referred to the Committee on Energy and Commerce, and in addition to the Committee on the Judiciary, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
           "policyArea": "",
@@ -32573,108 +32472,7 @@
       "nextElection": "2026",
       "website": "https://sarajacobs.house.gov",
       "phone": "202-225-2040",
-      "bills": [
-        {
-          "billNumber": "HCONRES 101",
-          "title": "Directing the President, pursuant to section 5(c) of the War Powers Resolution, to remove United States Armed Forces from hostilities with Iran.",
-          "introducedDate": "2026-05-14",
-          "latestAction": "Referred to the House Committee on Foreign Affairs.",
-          "policyArea": "International Affairs",
-          "role": "sponsor",
-          "source": "Congress.gov API",
-          "sourceUrl": "https://www.congress.gov/bill/119th-congress/hconres/101"
-        },
-        {
-          "billNumber": "HR 8412",
-          "title": "To direct the Secretary of Health and Human Services, acting through the Commissioner of Food and Drugs, to revise certain regulations related to infant and toddler beverages, and for other purposes.",
-          "introducedDate": "2026-04-21",
-          "latestAction": "Referred to the House Committee on Energy and Commerce.",
-          "policyArea": "Health",
-          "role": "sponsor",
-          "source": "Congress.gov API",
-          "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/8412"
-        },
-        {
-          "billNumber": "HR 9470",
-          "title": "SAFER Health Act of 2026",
-          "introducedDate": "2026-06-25",
-          "latestAction": "Referred to the House Committee on Energy and Commerce.",
-          "policyArea": "Health",
-          "role": "sponsor",
-          "source": "Congress.gov API",
-          "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/9470"
-        },
-        {
-          "billNumber": "HR 9220",
-          "title": "Restore Military Families\u2019 Voices Act",
-          "introducedDate": "2026-06-09",
-          "latestAction": "Referred to the House Committee on Armed Services.",
-          "policyArea": "Armed Forces and National Security",
-          "role": "sponsor",
-          "source": "Congress.gov API",
-          "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/9220"
-        },
-        {
-          "billNumber": "HR 9125",
-          "title": "Sectoral AI Governance Act of 2026",
-          "introducedDate": "2026-06-03",
-          "latestAction": "Referred to the Committee on the Judiciary, and in addition to the Committee on Oversight and Government Reform, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
-          "policyArea": "Government Operations and Politics",
-          "role": "sponsor",
-          "source": "Congress.gov API",
-          "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/9125"
-        },
-        {
-          "billNumber": "HRES 1312",
-          "title": "Honoring the victims of the Islamic Center of San Diego shooting in San Diego, California, on May 18, 2026.",
-          "introducedDate": "2026-05-21",
-          "latestAction": "Referred to the House Committee on Oversight and Government Reform.",
-          "policyArea": "Government Operations and Politics",
-          "role": "sponsor",
-          "source": "Congress.gov API",
-          "sourceUrl": "https://www.congress.gov/bill/119th-congress/hres/1312"
-        },
-        {
-          "billNumber": "HR 8161",
-          "title": "Expeditionary Diplomacy Act",
-          "introducedDate": "2026-03-30",
-          "latestAction": "Referred to the House Committee on Foreign Affairs.",
-          "policyArea": "International Affairs",
-          "role": "sponsor",
-          "source": "Congress.gov API",
-          "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/8161"
-        },
-        {
-          "billNumber": "HCONRES 82",
-          "title": "Supporting the goals and ideals of International Transgender Day of Visibility.",
-          "introducedDate": "2026-03-27",
-          "latestAction": "Referred to the House Committee on the Judiciary.",
-          "policyArea": "Civil Rights and Liberties, Minority Issues",
-          "role": "sponsor",
-          "source": "Congress.gov API",
-          "sourceUrl": "https://www.congress.gov/bill/119th-congress/hconres/82"
-        },
-        {
-          "billNumber": "HR 7903",
-          "title": "Justice for Hind Rajab Act",
-          "introducedDate": "2026-03-12",
-          "latestAction": "Referred to the Committee on Foreign Affairs, and in addition to the Committee on the Judiciary, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
-          "policyArea": "International Affairs",
-          "role": "sponsor",
-          "source": "Congress.gov API",
-          "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/7903"
-        },
-        {
-          "billNumber": "HR 7052",
-          "title": "Conflict Prevention Act",
-          "introducedDate": "2026-01-14",
-          "latestAction": "Ordered to be Reported by the Yeas and Nays: 42 - 5.",
-          "policyArea": "International Affairs",
-          "role": "sponsor",
-          "source": "Congress.gov API",
-          "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/7052"
-        }
-      ],
+      "bills": [],
       "source": "unitedstates/congress-legislators",
       "sourceUrl": "https://www.congress.gov/member/J000305"
     },
@@ -35146,7 +34944,7 @@
       "bills": [
         {
           "billNumber": "HR 9771",
-          "title": "To amend the Internal Revenue Code of 1986 to impose penalties on political committees that accept foreign contributions.",
+          "title": "Stopping Foreign Influence in Elections Act of 2026",
           "introducedDate": "2026-07-18",
           "latestAction": "Referred to the House Committee on Ways and Means.",
           "policyArea": "",
@@ -35686,7 +35484,7 @@
         },
         {
           "billNumber": "HR 9710",
-          "title": "To prohibit aliens who are nationals of certain countries of identified concern from entering the United States, and for other purposes.",
+          "title": "Third World Immigration Moratorium Act",
           "introducedDate": "2026-07-15",
           "latestAction": "Referred to the House Committee on the Judiciary.",
           "policyArea": "",
@@ -35776,7 +35574,7 @@
         },
         {
           "billNumber": "HR 9708",
-          "title": "To provide transparency in short-term rental listings, and for other purposes.",
+          "title": "SECURED Act of 2026",
           "introducedDate": "2026-07-15",
           "latestAction": "Referred to the House Committee on Energy and Commerce.",
           "policyArea": "",
@@ -41816,7 +41614,7 @@
         },
         {
           "billNumber": "HR 9714",
-          "title": "To limit the total number of schedule C and schedule G positions in the Federal Government, and for other purposes.",
+          "title": "Capping Appointed Positions Act",
           "introducedDate": "2026-07-15",
           "latestAction": "Referred to the House Committee on Oversight and Government Reform.",
           "policyArea": "",
@@ -41996,7 +41794,7 @@
         },
         {
           "billNumber": "HR 9717",
-          "title": "To amend the Commodity Exchange Act to authorize certain treatment of customer property during commodity broker bankruptcy.",
+          "title": "Customer Property Protection Act",
           "introducedDate": "2026-07-15",
           "latestAction": "Referred to the House Committee on Agriculture.",
           "policyArea": "",
@@ -42826,7 +42624,7 @@
       "bills": [
         {
           "billNumber": "HR 9709",
-          "title": "To amend title XVIII of the Social Security Act to adjust the applicability of the income related monthly adjustment amount to premiums under part B of Medicare.",
+          "title": "Medicare Premiums Reduction Act of 2026",
           "introducedDate": "2026-07-15",
           "latestAction": "Referred to the Committee on Energy and Commerce, and in addition to the Committee on Ways and Means, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
           "policyArea": "",
@@ -54044,7 +53842,7 @@
         },
         {
           "billNumber": "HR 9742",
-          "title": "To amend the Immigration and Nationality Act to eliminate certain exceptions to the naturalization requirement as to understanding the English language, history, principles, and form of government of the United States.",
+          "title": "English Language Proficiency Act",
           "introducedDate": "2026-07-16",
           "latestAction": "Referred to the House Committee on the Judiciary.",
           "policyArea": "",
