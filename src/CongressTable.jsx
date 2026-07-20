@@ -95,7 +95,9 @@ export default function CongressTable() {
     for (const m of data) {
       byParty[m.party] = (byParty[m.party] || 0) + 1;
       const y = parseInt(m.nextElection, 10);
-      if (!isNaN(y)) {
+      // Skip odd years — federal general elections are even years; an odd year
+      // catches only a few special elections and misleads (showed "2").
+      if (!isNaN(y) && y % 2 === 0) {
         if (nextYear === null || y < nextYear) nextYear = y;
       }
     }
