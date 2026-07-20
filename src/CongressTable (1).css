@@ -1,0 +1,888 @@
+/* ============================================================
+   Congress Tracker — civic scoreboard
+   Palette:
+     --ink      #10181F  near-black blue ink
+     --paper    #F5F6F3  cool paper
+     --card     #FFFFFF  card surface
+     --navy     #16305C  federal navy (structure, headers)
+     --gold     #B8860B  rotunda gold (the one accent)
+     --dem      #2952CC  ballot blue
+     --rep      #C0332B  rally red
+     --ind      #7A6BAE  independent violet
+   Type:
+     Display  Libre Franklin (700/900)
+     UI/body  Public Sans
+     Data     IBM Plex Mono
+   ============================================================ */
+
+:root {
+  --ink: #10181f;
+  --ink-soft: #4a545e;
+  --paper: #f5f6f3;
+  --card: #ffffff;
+  --line: #dcdfd9;
+  --navy: #16305c;
+  --gold: #b8860b;
+  --gold-soft: #f5ecd7;
+  --dem: #2952cc;
+  --dem-soft: #e8edfb;
+  --rep: #c0332b;
+  --rep-soft: #faeae8;
+  --ind: #7a6bae;
+  --ind-soft: #efecf7;
+
+  --font-display: 'Libre Franklin', 'Franklin Gothic Medium', sans-serif;
+  --font-ui: 'Public Sans', -apple-system, sans-serif;
+  --font-data: 'IBM Plex Mono', 'SF Mono', monospace;
+
+  --r-sm: 6px;
+  --r-md: 10px;
+  --shadow: 0 1px 2px rgba(16, 24, 31, 0.06), 0 4px 16px rgba(16, 24, 31, 0.05);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-ui);
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--ink);
+  background: var(--paper);
+  -webkit-font-smoothing: antialiased;
+}
+
+.ct-shell {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 4rem;
+}
+
+/* ---------- status states ---------- */
+
+.ct-status {
+  display: grid;
+  place-items: center;
+  min-height: 40vh;
+  font-family: var(--font-data);
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+}
+
+.ct-error {
+  color: var(--rep);
+  text-align: center;
+  padding: 2rem;
+}
+
+/* ---------- masthead ---------- */
+
+.masthead {
+  max-width: 720px;
+  margin-bottom: 2.5rem;
+}
+
+.masthead-eyebrow {
+  font-family: var(--font-data);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 0 0 0.75rem;
+}
+
+.masthead-title {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(1.85rem, 3.5vw, 2.5rem);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: var(--navy);
+  margin: 0 0 1rem;
+}
+
+.masthead-dek {
+  font-size: 1.05rem;
+  color: var(--ink-soft);
+  margin: 0 0 1rem;
+  max-width: 58ch;
+}
+
+.record-stamp {
+  display: inline-block;
+  font-family: var(--font-ui);
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--navy);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--gold);
+  background: var(--card);
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--r-sm);
+  margin: 0;
+}
+
+/* ---------- scoreboard ---------- */
+
+.scoreboard {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  box-shadow: var(--shadow);
+  padding: 1.5rem;
+  margin-bottom: 1.75rem;
+}
+
+.split-bar {
+  display: flex;
+  height: 14px;
+  border-radius: 999px;
+  overflow: hidden;
+  background: var(--line);
+}
+
+.split-seg {
+  height: 100%;
+  min-width: 3px;
+}
+.split-seg.democratic { background: var(--dem); }
+.split-seg.republican { background: var(--rep); }
+.split-seg.independent { background: var(--ind); }
+
+.split-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  margin-top: 0.85rem;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+}
+
+.legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.legend-item strong {
+  font-family: var(--font-data);
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.stat-strip {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+}
+
+.stat-num {
+  display: block;
+  font-family: var(--font-ui);
+  font-weight: 600;
+  font-size: 1.9rem;
+  line-height: 1.1;
+  color: var(--navy);
+  font-variant-numeric: tabular-nums;
+}
+
+.stat-label {
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+}
+
+.stat-accent .stat-num {
+  color: var(--gold);
+}
+
+/* ---------- party dot / tag ---------- */
+
+.party-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--ink-soft);
+  flex-shrink: 0;
+}
+
+.democratic .party-dot,
+.party-tag.democratic .party-dot { background: var(--dem); }
+.republican .party-dot,
+.party-tag.republican .party-dot { background: var(--rep); }
+.independent .party-dot,
+.party-tag.independent .party-dot { background: var(--ind); }
+
+.party-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-weight: 600;
+  font-size: 0.88rem;
+  white-space: nowrap;
+}
+.party-tag.democratic { color: var(--dem); }
+.party-tag.republican { color: var(--rep); }
+.party-tag.independent { color: var(--ind); }
+
+/* ---------- toolbar ---------- */
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.search-input {
+  flex: 1 1 220px;
+  min-width: 180px;
+  font-family: var(--font-ui);
+  font-size: 0.95rem;
+  padding: 0.6rem 0.9rem;
+  border: 1px solid var(--line);
+  border-radius: var(--r-sm);
+  background: var(--card);
+  color: var(--ink);
+}
+
+.search-input:focus,
+.state-select:focus,
+.pill:focus-visible,
+.bills-toggle:focus-visible,
+.pager button:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 1px;
+}
+
+.pill-group {
+  display: inline-flex;
+  gap: 0.35rem;
+  flex-wrap: wrap;
+}
+
+.pill {
+  font-family: var(--font-ui);
+  font-size: 0.83rem;
+  font-weight: 600;
+  padding: 0.45rem 0.85rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--card);
+  color: var(--ink-soft);
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s, color 0.15s;
+}
+
+.pill:hover {
+  border-color: var(--navy);
+  color: var(--navy);
+}
+
+.pill.active {
+  background: var(--navy);
+  border-color: var(--navy);
+  color: #fff;
+}
+
+.pill-democratic.active { background: var(--dem); border-color: var(--dem); }
+.pill-republican.active { background: var(--rep); border-color: var(--rep); }
+.pill-independent.active { background: var(--ind); border-color: var(--ind); }
+
+.state-select {
+  font-family: var(--font-ui);
+  font-size: 0.9rem;
+  padding: 0.55rem 0.75rem;
+  border: 1px solid var(--line);
+  border-radius: var(--r-sm);
+  background: var(--card);
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.result-count {
+  margin-left: auto;
+  font-family: var(--font-ui);
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+  white-space: nowrap;
+}
+
+/* ---------- ledger ---------- */
+
+.ledger-wrap {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  box-shadow: var(--shadow);
+  overflow-x: auto;
+}
+
+.ledger {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+}
+
+.ledger thead th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: var(--navy);
+  color: #fff;
+  text-align: left;
+  font-family: var(--font-data);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.8rem 1rem;
+  white-space: nowrap;
+  user-select: none;
+}
+
+.ledger thead th.sortable {
+  cursor: pointer;
+}
+
+.th-inner {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.sort-mark {
+  opacity: 0.35;
+  transition: opacity 0.15s;
+}
+.sort-mark.on { opacity: 1; color: var(--gold); }
+.ledger thead th.sortable:hover .sort-mark { opacity: 0.8; }
+
+.ledger tbody td {
+  padding: 0.9rem 1rem;
+  border-top: 1px solid var(--line);
+  vertical-align: middle;
+}
+
+.ledger-row {
+  transition: background 0.12s;
+}
+
+.ledger-row:hover {
+  background: #fbfbf8;
+}
+
+.ledger-row.is-open {
+  background: var(--gold-soft);
+}
+
+.ledger-row:has(.bills-toggle) {
+  cursor: pointer;
+}
+
+/* member cell */
+
+.member-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  min-width: 160px;
+}
+
+.member-name {
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.member-seat {
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+}
+
+/* numeric cells */
+
+.num-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 0.05rem;
+  font-family: var(--font-ui);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.num-main {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--ink);
+}
+
+.num-unit {
+  font-weight: 400;
+  color: var(--ink-soft);
+}
+
+.num-sub {
+  font-size: 0.74rem;
+  color: var(--ink-soft);
+}
+
+/* bills toggle */
+
+.bills-none {
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+  font-style: italic;
+}
+
+.bills-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: var(--font-data);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--navy);
+  background: var(--dem-soft);
+  border: 1px solid transparent;
+  border-radius: 999px;
+  padding: 0.35rem 0.8rem;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+  white-space: nowrap;
+}
+
+.bills-toggle:hover {
+  background: var(--navy);
+  color: #fff;
+}
+
+.bills-toggle.open {
+  background: var(--navy);
+  color: #fff;
+}
+
+.chevron {
+  font-size: 0.7rem;
+}
+
+/* source links */
+
+.source-link {
+  color: var(--navy);
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.source-link:hover {
+  color: var(--gold);
+  text-decoration: underline;
+}
+
+/* ---------- expandable bill panel ---------- */
+
+.detail-row > td {
+  padding: 0;
+  border-top: none;
+}
+
+.bill-panel {
+  background: linear-gradient(to bottom, var(--gold-soft), var(--card) 30%);
+  border-top: 2px solid var(--gold);
+  padding: 1.25rem 1.5rem 1.5rem;
+}
+
+.bill-panel-title {
+  font-family: var(--font-data);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 0 0 1rem;
+}
+
+.bill-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 0.9rem;
+}
+
+.bill-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--r-sm);
+  padding: 0.95rem 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.bill-number {
+  font-family: var(--font-data);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--gold);
+  letter-spacing: 0.08em;
+  margin: 0;
+}
+
+.bill-title {
+  font-family: var(--font-ui);
+  font-size: 0.92rem;
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--ink);
+  margin: 0;
+}
+
+.bill-action {
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+  line-height: 1.45;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.bill-foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: auto;
+  padding-top: 0.4rem;
+}
+
+.bill-date {
+  font-family: var(--font-ui);
+  font-size: 0.72rem;
+  color: var(--ink-soft);
+}
+
+/* ---------- funding column ---------- */
+
+.fund-cell {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-width: 90px;
+}
+
+.fund-bar {
+  flex: 1;
+  height: 7px;
+  background: var(--line);
+  border-radius: 999px;
+  overflow: hidden;
+  min-width: 44px;
+}
+
+.fund-fill {
+  height: 100%;
+  border-radius: 999px;
+}
+
+/* More PAC money = warmer. This is a neutral visual cue, not a verdict. */
+.fund-fill.low { background: #4a8f5c; }
+.fund-fill.mid { background: var(--gold); }
+.fund-fill.high { background: var(--rep); }
+
+.fund-pct {
+  font-family: var(--font-ui);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+  min-width: 30px;
+}
+
+/* ---------- finance block in panel ---------- */
+
+.finance-block {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.finance-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.finance-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.finance-num {
+  font-family: var(--font-ui);
+  font-weight: 600;
+  font-size: 1.4rem;
+  line-height: 1.1;
+  color: var(--navy);
+  font-variant-numeric: tabular-nums;
+}
+
+.finance-label {
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+}
+
+.donor-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.85rem;
+}
+
+.donor-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+}
+
+.donor-chip {
+  font-size: 0.82rem;
+  padding: 0.3rem 0.7rem;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--ink);
+}
+
+.donor-chip strong {
+  font-family: var(--font-data);
+  color: var(--navy);
+}
+
+.finance-source {
+  font-family: var(--font-data);
+  font-size: 0.8rem;
+}
+
+/* Party-line: neutral navy. A high % isn't inherently good or bad, so we
+   don't color-grade it like PAC money -- it's just information. */
+.fund-fill.partyline { background: var(--navy); }
+
+/* Small "House only" tag under the Party Line header. */
+.th-with-note {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 1.15;
+}
+.th-note {
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  color: var(--gold);
+  margin-top: 2px;
+}
+
+.scope-note {
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+  font-style: italic;
+  margin: -0.5rem 0 1rem;
+}
+
+/* ---------- vote list in panel ---------- */
+
+.vote-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-bottom: 0.85rem;
+}
+
+.vote-row {
+  display: grid;
+  grid-template-columns: auto 1fr auto auto;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem 0.75rem;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--r-sm);
+  font-size: 0.85rem;
+}
+
+.vote-pos {
+  font-family: var(--font-ui);
+  font-weight: 700;
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.vote-yea { background: #e2f0e6; color: #1f6b3a; }
+.vote-nay { background: var(--rep-soft); color: var(--rep); }
+.vote-notvoting { background: #eee; color: var(--ink-soft); }
+.vote-present { background: var(--gold-soft); color: var(--gold); }
+
+.vote-desc {
+  color: var(--ink);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.vote-date {
+  font-family: var(--font-ui);
+  font-size: 0.76rem;
+  color: var(--ink-soft);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.vote-link {
+  font-size: 0.78rem;
+}
+
+@media (max-width: 640px) {
+  .vote-row {
+    grid-template-columns: auto 1fr;
+    row-gap: 0.25rem;
+  }
+  .vote-date, .vote-link { grid-column: 2; }
+}
+
+/* ---------- pagination ---------- */
+
+.pager {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.pager button {
+  font-family: var(--font-ui);
+  font-size: 0.88rem;
+  font-weight: 600;
+  padding: 0.55rem 1.1rem;
+  border: 1px solid var(--line);
+  border-radius: var(--r-sm);
+  background: var(--card);
+  color: var(--navy);
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+.pager button:hover:not(:disabled) {
+  background: var(--navy);
+  color: #fff;
+}
+
+.pager button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.pager-info {
+  font-family: var(--font-ui);
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+}
+
+.pager select {
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+  padding: 0.5rem 0.7rem;
+  border: 1px solid var(--line);
+  border-radius: var(--r-sm);
+  background: var(--card);
+  cursor: pointer;
+}
+
+/* ---------- colophon ---------- */
+
+.colophon {
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.83rem;
+  color: var(--ink-soft);
+}
+
+.colophon a {
+  color: var(--navy);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.colophon a:hover {
+  color: var(--gold);
+  text-decoration: underline;
+}
+
+.colophon-note {
+  font-size: 0.78rem;
+  margin-top: 0.5rem;
+}
+
+/* ---------- responsive ---------- */
+
+@media (max-width: 900px) {
+  .ct-shell {
+    padding: 2rem 1rem 3rem;
+  }
+
+  /* Columns: 1 Member 2 Party 3 Chamber 4 Tenure 5 Term 6 Bills
+     7 PartyLine 8 PAC-Funded 9 Record.
+     Drop Chamber(3), Current Term(5), and Record(9) first. The
+     accountability columns -- party, tenure, bills, party-line, PAC -- stay. */
+  .ledger th:nth-child(3),
+  .ledger td:nth-child(3),
+  .ledger th:nth-child(5),
+  .ledger td:nth-child(5),
+  .ledger th:nth-child(9),
+  .ledger td:nth-child(9) {
+    display: none;
+  }
+}
+
+@media (max-width: 560px) {
+  /* Also drop Tenure(4) and Bills(6); keep Member, Party, Party-line, PAC. */
+  .ledger th:nth-child(4),
+  .ledger td:nth-child(4),
+  .ledger th:nth-child(6),
+  .ledger td:nth-child(6) {
+    display: none;
+  }
+
+  .result-count {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .stat-num {
+    font-size: 1.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}
