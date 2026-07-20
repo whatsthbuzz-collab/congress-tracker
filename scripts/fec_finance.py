@@ -40,7 +40,7 @@ import requests
 FEC_BASE = "https://api.open.fec.gov/v1"
 FEC_API_KEY = os.environ.get("FEC_API_KEY", "").strip()
 
-REQUEST_DELAY = 0.4  # FEC allows 1,000/hour on a standard key; stay well under.
+REQUEST_DELAY = 0.5  # ~2/sec. FEC allows 1,000/hour; a full run is ~540 calls.
 
 # Which FEC office code goes with which chamber in our data.
 CHAMBER_TO_OFFICE = {"Senate": "S", "House": "H"}
@@ -63,19 +63,28 @@ class FinanceFetcher:
         p = dict(params)
         p["api_key"] = self.api_key
         url = f"{FEC_BASE}{path}"
-        try:
-            r = self.session.get(url, params=p, timeout=30)
-            if r.status_code == 429:
-                print("  [fec] rate limited; waiting 60s...")
-                time.sleep(60)
+        # Up to 3 attempts, backing off on 429. The FEC standard key allows
+        # 1,000 requests/hour; a single full run is ~540 calls, so hitting 429
+        # means a burst -- a real wait clears it. (The earlier version printed
+        # "waiting" but a bug made it retry instantly; this actually sleeps.)
+        for attempt in range(3):
+            try:
                 r = self.session.get(url, params=p, timeout=30)
-            r.raise_for_status()
-            return r.json()
-        except requests.exceptions.RequestException as e:
-            # Never print url -- it carries the key.
-            print(f"  [fec] request failed ({path}): {e}", file=sys.stderr)
-            self.failures += 1
-            return None
+                if r.status_code == 429:
+                    wait = 20 * (attempt + 1)
+                    print(f"  [fec] rate limited; waiting {wait}s "
+                          f"(attempt {attempt + 1}/3)")
+                    time.sleep(wait)
+                    continue
+                r.raise_for_status()
+                return r.json()
+            except requests.exceptions.RequestException as e:
+                if attempt == 2:
+                    print(f"  [fec] request failed ({path}): {e}", file=sys.stderr)
+                    self.failures += 1
+                    return None
+                time.sleep(5)
+        return None
 
     def pick_fec_id(self, fec_ids: List[str], chamber: str) -> Optional[str]:
         """
@@ -121,6 +130,10 @@ class FinanceFetcher:
 
         t = results[0]
 
+        # The /totals/ row returns `cycle: null` in practice, but
+        # `candidate_election_year` is populated -- use it for display.
+        cycle = t.get("cycle") or t.get("candidate_election_year")
+
         receipts = t.get("receipts") or 0
         individuals = t.get("individual_contributions") or 0
         # PAC money shows up as "other political committee contributions";
@@ -134,7 +147,7 @@ class FinanceFetcher:
         ind_pct = round(individuals / denom * 100) if denom else None
 
         return {
-            "financeCycle": t.get("cycle"),
+            "financeCycle": cycle,
             "totalRaised": round(receipts),
             "fromPacs": round(pac_total),
             "fromIndividuals": round(individuals),
