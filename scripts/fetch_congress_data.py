@@ -46,7 +46,7 @@ REQUEST_DELAY = 0.3
 # Sponsored bills to keep per member. Members like Grassley have sponsored
 # thousands over 50 years; we keep the most recent N to hold the JSON to a
 # size the browser can parse quickly.
-BILLS_PER_MEMBER = 10
+BILLS_PER_MEMBER = 15
 
 OUTPUT_PATH = os.path.join("public", "congress_data.json")
 
@@ -154,7 +154,9 @@ def build_member(person: Dict[str, Any]) -> Optional[Dict[str, Any]]:
         "phone": current.get("phone"),
         "bills": [],
         "source": "unitedstates/congress-legislators",
-        "sourceUrl": f"https://www.congress.gov/member/{bioguide}",
+        # The underscore stands in for the name slug; Congress.gov resolves it
+        # for any member serving from the 93rd Congress (1973) onward.
+        "sourceUrl": f"https://www.congress.gov/member/_/{bioguide}",
     }
 
 
@@ -210,7 +212,9 @@ class BillFetcher:
                 self.dropped += 1
                 continue
 
-            number = b.get("number")
+            # Bills carry `number`; amendments carry `amendmentNumber` and an
+            # amendment type like SAMDT. Accept both instead of dropping.
+            number = b.get("number") or b.get("amendmentNumber")
             bill_type = (b.get("type") or "").strip()
             congress = b.get("congress")
 
@@ -218,7 +222,7 @@ class BillFetcher:
                 self.dropped += 1
                 continue
 
-            label = f"{bill_type.upper()} {number}" if bill_type else str(number)
+            label = f"{bill_type.upper()} {number}" if bill_type else f"Measure {number}"
 
             # Only build a link if we have every piece it needs; a broken
             # link is worse than no link on a transparency tool.
