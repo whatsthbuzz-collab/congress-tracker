@@ -208,6 +208,30 @@ export default function CongressTable() {
           );
         },
       }),
+      columnHelper.accessor((row) => row.voting?.partyLinePct ?? -1, {
+        id: 'partyline',
+        header: 'Party Line',
+        cell: (info) => {
+          const v = info.row.original.voting;
+          if (!v || v.partyLinePct == null) {
+            return <span className="bills-none">—</span>;
+          }
+          return (
+            <div
+              className="fund-cell"
+              title={`Votes with own party ${v.partyLinePct}% of the time · missed ${v.missedPct ?? 0}%`}
+            >
+              <div className="fund-bar" aria-hidden="true">
+                <div
+                  className="fund-fill partyline"
+                  style={{ width: `${v.partyLinePct}%` }}
+                />
+              </div>
+              <span className="fund-pct">{v.partyLinePct}%</span>
+            </div>
+          );
+        },
+      }),
       columnHelper.accessor((row) => row.finance?.pacPct ?? -1, {
         id: 'funding',
         header: 'PAC-Funded',
@@ -485,7 +509,7 @@ export default function CongressTable() {
               const m = row.original;
               const isOpen = expanded.has(m.bioguideId);
               const bills = m.bills || [];
-              const hasDetail = bills.length > 0 || !!m.finance;
+              const hasDetail = bills.length > 0 || !!m.finance || !!m.voting;
               return (
                 <React.Fragment key={row.id}>
                   <tr
@@ -498,10 +522,85 @@ export default function CongressTable() {
                       </td>
                     ))}
                   </tr>
-                  {isOpen && (bills.length > 0 || m.finance) && (
+                  {isOpen && (bills.length > 0 || m.finance || m.voting) && (
                     <tr className="detail-row">
                       <td colSpan={colCount}>
                         <div className="bill-panel">
+                          {m.voting && (
+                            <div className="finance-block">
+                              <p className="bill-panel-title">
+                                Voting record · last {m.voting.votesTotal} roll calls
+                              </p>
+                              <div className="finance-grid">
+                                <div className="finance-stat">
+                                  <span className="finance-num">
+                                    {m.voting.partyLinePct ?? '—'}%
+                                  </span>
+                                  <span className="finance-label">
+                                    votes with their party
+                                  </span>
+                                </div>
+                                <div className="finance-stat">
+                                  <span className="finance-num">
+                                    {m.voting.missedPct ?? '—'}%
+                                  </span>
+                                  <span className="finance-label">votes missed</span>
+                                </div>
+                                <div className="finance-stat">
+                                  <span className="finance-num">
+                                    {m.voting.votesAgainstParty ?? '—'}
+                                  </span>
+                                  <span className="finance-label">
+                                    times broke with party
+                                  </span>
+                                </div>
+                              </div>
+                              {m.voting.recentVotes &&
+                                m.voting.recentVotes.length > 0 && (
+                                  <div className="vote-list">
+                                    {m.voting.recentVotes.map((rv, i) => (
+                                      <div key={i} className="vote-row">
+                                        <span
+                                          className={`vote-pos vote-${(rv.position || '')
+                                            .toLowerCase()
+                                            .replace(/[^a-z]/g, '')}`}
+                                        >
+                                          {rv.position}
+                                        </span>
+                                        <span className="vote-desc">
+                                          {rv.bill ? `${rv.bill} — ` : ''}
+                                          {rv.question || rv.result}
+                                        </span>
+                                        <span className="vote-date">{rv.date}</span>
+                                        {rv.billUrl && (
+                                          <a
+                                            href={rv.billUrl}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="source-link vote-link"
+                                            onClick={(e) => e.stopPropagation()}
+                                          >
+                                            bill ↗
+                                          </a>
+                                        )}
+                                      </div>
+                                    ))}
+                                  </div>
+                                )}
+                              {m.voting.sourceUrl && (
+                                <a
+                                  href={m.voting.sourceUrl}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="source-link finance-source"
+                                  onClick={(e) => e.stopPropagation()}
+                                >
+                                  Full voting record ↗
+                                </a>
+                              )}
+                            </div>
+                          )}
+
                           {m.finance && (
                             <div className="finance-block">
                               <p className="bill-panel-title">

@@ -674,6 +674,74 @@ body {
   font-size: 0.8rem;
 }
 
+/* Party-line: neutral navy. A high % isn't inherently good or bad, so we
+   don't color-grade it like PAC money -- it's just information. */
+.fund-fill.partyline { background: var(--navy); }
+
+/* ---------- vote list in panel ---------- */
+
+.vote-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-bottom: 0.85rem;
+}
+
+.vote-row {
+  display: grid;
+  grid-template-columns: auto 1fr auto auto;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem 0.75rem;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--r-sm);
+  font-size: 0.85rem;
+}
+
+.vote-pos {
+  font-family: var(--font-ui);
+  font-weight: 700;
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.vote-yea { background: #e2f0e6; color: #1f6b3a; }
+.vote-nay { background: var(--rep-soft); color: var(--rep); }
+.vote-notvoting { background: #eee; color: var(--ink-soft); }
+.vote-present { background: var(--gold-soft); color: var(--gold); }
+
+.vote-desc {
+  color: var(--ink);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.vote-date {
+  font-family: var(--font-ui);
+  font-size: 0.76rem;
+  color: var(--ink-soft);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.vote-link {
+  font-size: 0.78rem;
+}
+
+@media (max-width: 640px) {
+  .vote-row {
+    grid-template-columns: auto 1fr;
+    row-gap: 0.25rem;
+  }
+  .vote-date, .vote-link { grid-column: 2; }
+}
+
 /* ---------- pagination ---------- */
 
 .pager {
@@ -757,23 +825,26 @@ body {
     padding: 2rem 1rem 3rem;
   }
 
-  /* Columns: 1 Member 2 Party 3 Chamber 4 Tenure 5 Term 6 Bills 7 Funding 8 Record.
-     Drop Chamber and Current Term first; tenure, party, bills, funding stay
-     because they carry the accountability story. */
+  /* Columns: 1 Member 2 Party 3 Chamber 4 Tenure 5 Term 6 Bills
+     7 PartyLine 8 PAC-Funded 9 Record.
+     Drop Chamber(3), Current Term(5), and Record(9) first. The
+     accountability columns -- party, tenure, bills, party-line, PAC -- stay. */
   .ledger th:nth-child(3),
   .ledger td:nth-child(3),
   .ledger th:nth-child(5),
-  .ledger td:nth-child(5) {
+  .ledger td:nth-child(5),
+  .ledger th:nth-child(9),
+  .ledger td:nth-child(9) {
     display: none;
   }
 }
 
 @media (max-width: 560px) {
-  /* Also drop Record (8) and Tenure (4) on the smallest screens. */
-  .ledger th:nth-child(8),
-  .ledger td:nth-child(8),
+  /* Also drop Tenure(4) and Bills(6); keep Member, Party, Party-line, PAC. */
   .ledger th:nth-child(4),
-  .ledger td:nth-child(4) {
+  .ledger td:nth-child(4),
+  .ledger th:nth-child(6),
+  .ledger td:nth-child(6) {
     display: none;
   }
 
