@@ -31,6 +31,7 @@ from typing import Any, Dict, List, Optional
 import requests
 
 from fec_finance import add_finance
+from votes import add_votes
 
 # ---------- config ----------
 
@@ -292,6 +293,14 @@ def main():
     # ---- campaign finance (FEC) ----
     finance_enabled = add_finance(members, fec_id_by_bioguide)
 
+    # ---- federal roll-call votes (GovTrack) ----
+    # The 119th Congress convened Jan 2025 and runs through Jan 2027. Derive
+    # the current Congress number from the year so this stays correct over time:
+    # Congress N covers years [1789 + 2*(N-1), ...]; 119th = 2025-2026.
+    current_year = datetime.now(timezone.utc).year
+    current_congress = (current_year - 2025) // 2 + 119
+    votes_enabled = add_votes(members, current_congress)
+
     # Sanity checks. A silent parse regression should be loud, not invisible.
     total = len(members)
     have_party = sum(1 for m in members if m["party"] != "Unknown")
@@ -315,6 +324,7 @@ def main():
         "totalMembers": total,
         "billsIncluded": bills_enabled,
         "financeIncluded": finance_enabled,
+        "votesIncluded": votes_enabled,
         "members": members,
         "metadata": {
             "memberSource": "unitedstates/congress-legislators (public domain)",
@@ -323,6 +333,8 @@ def main():
             "billSourceUrl": "https://api.congress.gov",
             "financeSource": "OpenFEC API (Federal Election Commission)",
             "financeSourceUrl": "https://api.open.fec.gov",
+            "voteSource": "GovTrack / unitedstates congress project (public domain)",
+            "voteSourceUrl": "https://www.govtrack.us/congress/votes",
             "termNote": (
                 "Terms and dates come from the congress-legislators dataset, "
                 "which records one entry per elected term with exact start and "
