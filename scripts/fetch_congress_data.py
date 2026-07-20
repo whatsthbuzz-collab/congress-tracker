@@ -30,6 +30,8 @@ from typing import Any, Dict, List, Optional
 
 import requests
 
+from fec_finance import add_finance
+
 # ---------- config ----------
 
 LEGISLATORS_URL = (
@@ -256,10 +258,16 @@ def main():
     roster = fetch_legislators()
 
     members = []
+    fec_id_by_bioguide = {}
     for person in roster:
         row = build_member(person)
         if row:
             members.append(row)
+            # Stash each member's FEC candidate IDs for the finance pass.
+            fec_ids = (person.get("id") or {}).get("fec") or []
+            if isinstance(fec_ids, str):
+                fec_ids = [fec_ids]
+            fec_id_by_bioguide[row["bioguideId"]] = fec_ids
 
     print(f"Built {len(members)} member records.\n")
 
@@ -280,6 +288,9 @@ def main():
             member["bills"] = fetcher.fetch(member["bioguideId"])
             if i % 50 == 0:
                 print(f"  {i}/{len(members)} members processed")
+
+    # ---- campaign finance (FEC) ----
+    finance_enabled = add_finance(members, fec_id_by_bioguide)
 
     # Sanity checks. A silent parse regression should be loud, not invisible.
     total = len(members)
@@ -303,12 +314,15 @@ def main():
         "lastUpdated": datetime.now(timezone.utc).isoformat(),
         "totalMembers": total,
         "billsIncluded": bills_enabled,
+        "financeIncluded": finance_enabled,
         "members": members,
         "metadata": {
             "memberSource": "unitedstates/congress-legislators (public domain)",
             "memberSourceUrl": "https://github.com/unitedstates/congress-legislators",
             "billSource": "Congress.gov API",
             "billSourceUrl": "https://api.congress.gov",
+            "financeSource": "OpenFEC API (Federal Election Commission)",
+            "financeSourceUrl": "https://api.open.fec.gov",
             "termNote": (
                 "Terms and dates come from the congress-legislators dataset, "
                 "which records one entry per elected term with exact start and "
