@@ -1,37 +1,34 @@
 #!/usr/bin/env python3
 """
-votes.py — add federal roll-call voting behavior to each member.
+votes.py — add federal HOUSE roll-call voting behavior to each member.
 
-Source: GovTrack's public-domain mirror of the unitedstates/congress vote
-data (https://www.govtrack.us/data/congress/{congress}/votes/{session}/).
-No API key. Each roll-call vote is a data.json with this shape:
+Source: the official Congress.gov beta "House Roll Call Votes" endpoints
+(https://api.congress.gov/v3/house-vote/...), released 2025 in partnership
+with the Office of the Clerk. Uses the SAME CONGRESS_API_KEY already set for
+bills. No new secret.
 
-    {
-      "chamber": "s", "congress": 119, "number": 81,
-      "date": "...", "vote_id": "s81-119.2026",
-      "category": "passage", "result": "Agreed to",
-      "question": "...", "requires": "1/2",
-      "bill": {"type": "s", "number": 4796, "congress": 119},
-      "votes": {
-        "Yea": [{"id":"S000148","party":"D","state":"NY"}, ...],
-        "Nay": [...], "Present": [...], "Not Voting": [...]
-      }
-    }
+  List:    /house-vote/{congress}/{session}
+  Members: /house-vote/{congress}/{session}/{voteNumber}/members
+           -> how each Representative voted, keyed by Bioguide ID.
 
-Positions are keyed by Bioguide ID -- the same ID our roster uses -- so the
-join is exact, no name matching.
+IMPORTANT SCOPE LIMIT: these endpoints are HOUSE ONLY. The Senate does not yet
+publish roll-call votes through the Congress.gov API (expected in a later
+phase). So senators get voting == None, and the UI labels the column
+"House only" so the gap is honest rather than looking broken.
 
-What this computes per member:
+Because the API default response is XML, every call explicitly requests
+format=json.
+
+Per Representative we compute:
   - partyLinePct    % of party-split votes where they sided with their party
   - missedPct       % of eligible votes they missed ("Not Voting")
   - votesTotal      how many roll calls we evaluated them on
   - recentVotes     up to N most recent votes with their individual position
 
-"Party-line" is defined honestly: for each vote we find the majority position
-of each major party. A member is "with party" when their Yea/Nay matches the
-majority of their own party on that vote. Votes where a member's party has no
-clear majority position, and votes the member missed, are excluded from the
-denominator -- so the percentage reflects real partisan choices, not absences.
+The party-line definition matches the honest one we use elsewhere: for each
+vote, find each major party's majority position; a member is "with party" when
+their Yea/Nay matches their own party's majority. Missed votes and votes with
+no clear party majority are excluded from the party-line denominator.
 """
 
 import os
@@ -43,118 +40,176 @@ from typing import Any, Dict, List, Optional
 
 import requests
 
-GOVTRACK_BASE = "https://www.govtrack.us/data/congress"
+API_BASE = "https://api.congress.gov/v3"
+API_KEY = os.environ.get("CONGRESS_API_KEY", "").strip()
 
-# How many of the most recent roll-call votes to analyze. The current Congress
-# can have 500-900 votes; we take the most recent CAP for a current, useful
-# picture without downloading everything (one HTTP call per vote).
-VOTE_CAP = 200
+# Most recent roll calls to analyze. The House takes ~500-700 votes per
+# Congress; we pull the most recent CAP for a current picture. Each vote costs
+# 1 list slot + 1 members call.
+VOTE_CAP = 150
 
-# How many individual votes to surface per member in the UI.
 RECENT_PER_MEMBER = 10
+REQUEST_DELAY = 0.3  # shares the Congress.gov budget with bills; be polite
 
-REQUEST_DELAY = 0.15  # GovTrack is a static file host; be polite anyway.
+# Vote position strings the House API uses. We normalize a few variants.
+YEA_SET = {"Yea", "Aye", "Yes"}
+NAY_SET = {"Nay", "No"}
+MISSED_SET = {"Not Voting", "Present"}  # Present isn't "missed" but isn't Y/N
 
-# Map our roster's party names to the single letters GovTrack uses.
-PARTY_LETTER = {"Democratic": "D", "Republican": "R", "Independent": "I"}
 
-
-class VoteFetcher:
-    def __init__(self):
+class HouseVoteFetcher:
+    def __init__(self, api_key: str):
+        self.api_key = api_key
         self.session = requests.Session()
         self.session.headers.update({"User-Agent": "congress-tracker/1.0"})
         self.failures = 0
-        self._dumped = False
+        self._dumped_list = False
+        self._dumped_members = False
 
-    def _get_json(self, url: str) -> Optional[Any]:
+    def _get(self, path: str, params: Optional[Dict] = None) -> Optional[Dict]:
         time.sleep(REQUEST_DELAY)
-        try:
-            r = self.session.get(url, timeout=30)
-            if r.status_code == 404:
-                return None
-            r.raise_for_status()
-            return r.json()
-        except requests.exceptions.RequestException as e:
-            print(f"  [votes] request failed ({url}): {e}", file=sys.stderr)
-            self.failures += 1
-            return None
+        p = dict(params or {})
+        p["api_key"] = self.api_key
+        p["format"] = "json"  # API defaults to XML; we always want JSON.
+        url = f"{API_BASE}{path}"
+        for attempt in range(3):
+            try:
+                r = self.session.get(url, params=p, timeout=30)
+                if r.status_code == 429:
+                    wait = 20 * (attempt + 1)
+                    print(f"  [votes] rate limited; waiting {wait}s "
+                          f"(attempt {attempt + 1}/3)")
+                    time.sleep(wait)
+                    continue
+                if r.status_code == 404:
+                    return None
+                r.raise_for_status()
+                return r.json()
+            except requests.exceptions.RequestException as e:
+                if attempt == 2:
+                    print(f"  [votes] request failed ({path}): {e}",
+                          file=sys.stderr)
+                    self.failures += 1
+                    return None
+                time.sleep(5)
+        return None
 
-    def find_latest_vote_number(self, congress: int, session: str,
-                                chamber: str) -> int:
-        """
-        Highest vote number for ONE chamber in a session, via exponential +
-        binary search on data.json existence. No directory listing needed.
-        """
-        def exists(n: int) -> bool:
-            url = f"{GOVTRACK_BASE}/{congress}/votes/{session}/{chamber}{n}/data.json"
-            return self._get_json(url) is not None
+    def list_votes(self, congress: int, session: int) -> List[Dict]:
+        """List roll-call votes for a chamber-session, most recent first."""
+        data = self._get(
+            f"/house-vote/{congress}/{session}",
+            {"limit": 250, "sort": "updateDate+desc"},
+        )
+        if not data:
+            return []
 
-        low, high = 0, 1
-        while exists(high):
-            low = high
-            high *= 2
-            if high > 5000:
+        if not self._dumped_list:
+            self._dumped_list = True
+            print("\n  [debug] house-vote list response keys:", list(data.keys()))
+            # The list container name varies; find the list of votes.
+            for k, v in data.items():
+                if isinstance(v, list) and v:
+                    print(f"  [debug] first item in '{k}':",
+                          json.dumps(v[0], indent=2)[:500].replace("\n", "\n  "))
+                    break
+            print()
+
+        # Find whichever key holds the list of votes.
+        votes = None
+        for k in ("houseRollCallVotes", "votes", "houseVotes", "results"):
+            if isinstance(data.get(k), list):
+                votes = data[k]
                 break
-        while high - low > 1:
-            mid = (low + high) // 2
-            if exists(mid):
-                low = mid
-            else:
-                high = mid
-        return low
+        if votes is None:
+            # Fall back: first list-valued field.
+            for v in data.values():
+                if isinstance(v, list):
+                    votes = v
+                    break
+        return votes or []
 
-    def fetch_session_votes(self, congress: int, session: str,
-                            cap_per_chamber: int) -> List[Dict]:
-        """Fetch up to `cap_per_chamber` recent votes from each chamber."""
-        votes = []
-        for chamber in ("h", "s"):
-            top = self.find_latest_vote_number(congress, session, chamber)
-            if top == 0:
-                continue
-            label = "House" if chamber == "h" else "Senate"
-            recent = min(cap_per_chamber, top)
-            print(f"  Session {session} {label}: latest #{top}, "
-                  f"pulling most recent {recent}")
-            start = max(1, top - cap_per_chamber + 1)
-            for n in range(start, top + 1):
-                v = self.fetch_vote(congress, session, f"{chamber}{n}")
-                if v:
-                    votes.append(v)
-        return votes
-
-    def fetch_vote(self, congress: int, session: str, vote_dir: str) -> Optional[Dict]:
-        url = f"{GOVTRACK_BASE}/{congress}/votes/{session}/{vote_dir}/data.json"
-        data = self._get_json(url)
+    def fetch_member_votes(self, congress: int, session: int,
+                           vote_number: int) -> Optional[Dict]:
+        """Get each Representative's position on one roll call."""
+        data = self._get(
+            f"/house-vote/{congress}/{session}/{vote_number}/members"
+        )
         if not data:
             return None
 
-        if not self._dumped:
-            self._dumped = True
-            keys = list(data.keys())
-            print("\n  [debug] raw vote data.json keys:", keys)
-            vb = data.get("votes") or {}
-            print("  [debug] vote option buckets:", list(vb.keys()))
-            # Show one voter record shape.
-            for opt, voters in vb.items():
-                if isinstance(voters, list) and voters:
-                    print(f"  [debug] sample voter in '{opt}':",
-                          json.dumps(voters[0])[:200])
-                    break
+        if not self._dumped_members:
+            self._dumped_members = True
+            print("\n  [debug] house-vote members response keys:",
+                  list(data.keys()))
+            print("  " + json.dumps(data, indent=2)[:800].replace("\n", "\n  "))
             print()
 
         return data
 
 
-def _majority_position(voters: List[Dict], party_letter: str) -> Optional[str]:
+def _extract_member_positions(members_payload: Dict) -> List[Dict]:
     """
-    Given the Yea and Nay voter lists for one party, return whichever the
-    party did more of ('Yea' or 'Nay'), or None if no clear majority.
-    `voters` here is a list of (position, party) already filtered.
+    Normalize the members-level response into a list of
+    {bioguide, position, party} regardless of the exact container names,
+    since this is a beta endpoint whose shape may shift.
     """
-    counts = Counter(pos for pos, party in voters if party == party_letter)
+    # Drill to the list of member-vote records.
+    candidates = []
+
+    def walk(obj):
+        if isinstance(obj, list):
+            # A list of dicts that look like member votes?
+            if obj and isinstance(obj[0], dict) and any(
+                key in obj[0] for key in ("bioguideID", "bioguideId", "voteCast",
+                                          "voteState", "voteParty")
+            ):
+                candidates.append(obj)
+            else:
+                for item in obj:
+                    walk(item)
+        elif isinstance(obj, dict):
+            for v in obj.values():
+                walk(v)
+
+    walk(members_payload)
+
+    records = []
+    for lst in candidates:
+        for m in lst:
+            if not isinstance(m, dict):
+                continue
+            bid = m.get("bioguideID") or m.get("bioguideId") or m.get("bioguide")
+            pos = (m.get("voteCast") or m.get("vote") or m.get("position")
+                   or m.get("voteState"))
+            party = m.get("voteParty") or m.get("party")
+            if bid and pos:
+                records.append({
+                    "bioguide": bid,
+                    "position": pos,
+                    "party": (party or "")[:1].upper(),  # D/R/I
+                })
+    return records
+
+
+def _norm_position(pos: str) -> str:
+    if pos in YEA_SET:
+        return "Yea"
+    if pos in NAY_SET:
+        return "Nay"
+    if pos == "Not Voting":
+        return "Not Voting"
+    if pos == "Present":
+        return "Present"
+    return pos
+
+
+def _majority(records: List[Dict], party_letter: str) -> Optional[str]:
+    counts = Counter(
+        _norm_position(r["position"]) for r in records
+        if r["party"] == party_letter
+        and _norm_position(r["position"]) in ("Yea", "Nay")
+    )
     yea, nay = counts.get("Yea", 0), counts.get("Nay", 0)
-    if yea == 0 and nay == 0:
-        return None
     if yea == nay:
         return None
     return "Yea" if yea > nay else "Nay"
@@ -162,125 +217,143 @@ def _majority_position(voters: List[Dict], party_letter: str) -> Optional[str]:
 
 def add_votes(members: List[Dict[str, Any]], congress: int) -> bool:
     """
-    Enrich members with voting behavior. Mutates members in place.
-    Returns True (votes are always attempted; no key required).
+    Enrich HOUSE members with voting behavior from Congress.gov. Senators get
+    voting == None (labeled in the UI). Mutates members in place.
     """
-    print(f"Fetching federal roll-call votes (Congress {congress})...")
-    fetcher = VoteFetcher()
+    if not API_KEY:
+        print("WARNING: CONGRESS_API_KEY not set -- skipping votes.")
+        for m in members:
+            m["voting"] = None
+        return False
 
-    # Current Congress spans two sessions (odd year = 1, even = 2). Pull recent
-    # votes from each chamber in each session.
-    all_votes: List[Dict] = []
-    for session in ("1", "2"):
-        session_votes = fetcher.fetch_session_votes(congress, session, VOTE_CAP)
-        all_votes.extend(session_votes)
+    print(f"Fetching House roll-call votes (Congress {congress})...")
+    fetcher = HouseVoteFetcher(API_KEY)
 
-    if not all_votes:
-        print("  No votes retrieved. Leaving vote fields empty.")
+    # Gather recent votes across both sessions of the current Congress.
+    vote_refs: List[Dict] = []
+    for session in (2, 1):  # session 2 is more recent; take it first
+        listed = fetcher.list_votes(congress, session)
+        for v in listed:
+            num = (v.get("rollCallNumber") or v.get("voteNumber")
+                   or v.get("number") or v.get("rollCall"))
+            if num is not None:
+                vote_refs.append({
+                    "session": session,
+                    "number": int(num),
+                    "date": (v.get("startDate") or v.get("updateDate")
+                             or v.get("date") or "")[:10],
+                    "result": v.get("result") or v.get("voteResult") or "",
+                    "question": (v.get("voteQuestion") or v.get("question")
+                                 or v.get("legislationType", "")),
+                    "bill": _bill_label(v),
+                    "billUrl": _bill_url(v),
+                })
+        if len(vote_refs) >= VOTE_CAP:
+            break
+
+    # Keep the most recent VOTE_CAP by date.
+    vote_refs.sort(key=lambda r: r["date"], reverse=True)
+    vote_refs = vote_refs[:VOTE_CAP]
+
+    if not vote_refs:
+        print("  No House votes retrieved. Leaving vote fields empty.")
         print(f"  Failed requests: {fetcher.failures}")
         for m in members:
             m["voting"] = None
         return False
 
-    # Sort all collected votes newest-first by date for the "recent" list.
-    all_votes.sort(key=lambda v: v.get("date") or "", reverse=True)
-    print(f"  Analyzing {len(all_votes)} roll-call votes.")
+    print(f"  Analyzing {len(vote_refs)} House roll-call votes.")
 
-    # Build a fast lookup: bioguide -> member row.
     by_bioguide = {m["bioguideId"]: m for m in members}
+    tally = {bid: {"with": 0, "against": 0, "missed": 0,
+                   "eligible": 0, "recent": []}
+             for bid in by_bioguide}
 
-    # Per-member tallies.
-    tally = {
-        bid: {"with": 0, "against": 0, "missed": 0, "eligible": 0, "recent": []}
-        for bid in by_bioguide
-    }
+    for ref in vote_refs:
+        payload = fetcher.fetch_member_votes(congress, ref["session"],
+                                             ref["number"])
+        if not payload:
+            continue
+        records = _extract_member_positions(payload)
+        if not records:
+            continue
 
-    for v in all_votes:
-        buckets = v.get("votes") or {}
+        dem_maj = _majority(records, "D")
+        rep_maj = _majority(records, "R")
+        maj_by_party = {"D": dem_maj, "R": rep_maj}
 
-        # Flatten to (bioguide, position, party) once per vote.
-        records = []
-        for position, voters in buckets.items():
-            if not isinstance(voters, list):
-                continue
-            for voter in voters:
-                if not isinstance(voter, dict):
-                    continue
-                bid = voter.get("id")
-                if bid:
-                    records.append((bid, position, voter.get("party")))
-
-        # Determine each major party's majority position on this vote.
-        yn = [(pos, party) for bid, pos, party in records if pos in ("Yea", "Nay")]
-        dem_majority = _majority_position(yn, "D")
-        rep_majority = _majority_position(yn, "R")
-        majority_by_party = {"D": dem_majority, "R": rep_majority}
-
-        # Which members were eligible (i.e. appear in this vote at all)?
-        vote_meta = {
-            "voteId": v.get("vote_id"),
-            "date": (v.get("date") or "")[:10],
-            "question": v.get("question") or v.get("category") or "",
-            "result": v.get("result") or "",
-            "chamber": "Senate" if v.get("chamber") == "s" else "House",
+        meta = {
+            "date": ref["date"],
+            "question": ref["question"],
+            "result": ref["result"],
+            "chamber": "House",
         }
-        bill = v.get("bill") or {}
-        if bill.get("type") and bill.get("number") and bill.get("congress"):
-            vote_meta["bill"] = f"{bill['type'].upper()} {bill['number']}"
-            vote_meta["billUrl"] = (
-                f"https://www.congress.gov/bill/{bill['congress']}th-congress/"
-                f"{bill['type']}/{bill['number']}"
-            )
+        if ref["bill"]:
+            meta["bill"] = ref["bill"]
+        if ref["billUrl"]:
+            meta["billUrl"] = ref["billUrl"]
 
-        for bid, position, party in records:
+        for rec in records:
+            bid = rec["bioguide"]
             t = tally.get(bid)
             if t is None:
-                continue  # not a current member (e.g. former member mid-term)
-
+                continue
+            pos = _norm_position(rec["position"])
             t["eligible"] += 1
-
-            if position == "Not Voting":
+            if pos == "Not Voting":
                 t["missed"] += 1
-            elif position in ("Yea", "Nay"):
-                pl = majority_by_party.get(party)
+            elif pos in ("Yea", "Nay"):
+                pl = maj_by_party.get(rec["party"])
                 if pl is not None:
-                    if position == pl:
+                    if pos == pl:
                         t["with"] += 1
                     else:
                         t["against"] += 1
-
-            # Record the member's individual position for the recent list.
             if len(t["recent"]) < RECENT_PER_MEMBER:
-                t["recent"].append({**vote_meta, "position": position})
+                t["recent"].append({**meta, "position": pos})
 
-    # Fold tallies into member rows.
     enriched = 0
     for bid, m in by_bioguide.items():
         t = tally[bid]
-        eligible = t["eligible"]
-        if eligible == 0:
+        if t["eligible"] == 0:
             m["voting"] = None
             continue
-
         partisan = t["with"] + t["against"]
-        party_line_pct = round(t["with"] / partisan * 100) if partisan else None
-        missed_pct = round(t["missed"] / eligible * 100) if eligible else None
-
         m["voting"] = {
-            "partyLinePct": party_line_pct,
-            "missedPct": missed_pct,
-            "votesTotal": eligible,
+            "partyLinePct": round(t["with"] / partisan * 100) if partisan else None,
+            "missedPct": round(t["missed"] / t["eligible"] * 100),
+            "votesTotal": t["eligible"],
             "votesWithParty": t["with"],
             "votesAgainstParty": t["against"],
             "recentVotes": t["recent"],
-            "source": "GovTrack / unitedstates congress project",
-            "sourceUrl": "https://www.govtrack.us/congress/votes",
+            "chamberScope": "House",
+            "source": "Congress.gov House Roll Call Votes API (beta)",
+            "sourceUrl": "https://www.congress.gov/roll-call-votes",
         }
         enriched += 1
 
-    print("\n--- Voting data quality ---")
-    print(f"  Members with vote data: {enriched}/{len(members)}")
-    print(f"  Roll calls analyzed:    {len(all_votes)}")
-    print(f"  Failed requests:        {fetcher.failures}")
+    print("\n--- Voting data quality (House only) ---")
+    print(f"  Representatives with vote data: {enriched}")
+    print(f"  Roll calls analyzed:            {len(vote_refs)}")
+    print(f"  Failed requests:                {fetcher.failures}")
+    print("  (Senators intentionally blank: Senate votes not yet in the API)")
 
     return True
+
+
+def _bill_label(v: Dict) -> Optional[str]:
+    bt = v.get("legislationType") or v.get("billType")
+    bn = v.get("legislationNumber") or v.get("billNumber")
+    if bt and bn:
+        return f"{str(bt).upper()} {bn}"
+    return None
+
+
+def _bill_url(v: Dict) -> Optional[str]:
+    bt = v.get("legislationType") or v.get("billType")
+    bn = v.get("legislationNumber") or v.get("billNumber")
+    cong = v.get("congress")
+    if bt and bn and cong:
+        return (f"https://www.congress.gov/bill/{cong}th-congress/"
+                f"{str(bt).lower()}/{bn}")
+    return None
