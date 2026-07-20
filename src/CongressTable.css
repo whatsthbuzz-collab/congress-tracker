@@ -97,8 +97,8 @@ body {
 .masthead-title {
   font-family: var(--font-display);
   font-weight: 900;
-  font-size: clamp(2rem, 5vw, 3.25rem);
-  line-height: 1.05;
+  font-size: clamp(1.85rem, 3.5vw, 2.5rem);
+  line-height: 1.08;
   letter-spacing: -0.02em;
   color: var(--navy);
   margin: 0 0 1rem;
@@ -113,7 +113,7 @@ body {
 
 .record-stamp {
   display: inline-block;
-  font-family: var(--font-data);
+  font-family: var(--font-ui);
   font-size: 0.78rem;
   font-weight: 500;
   color: var(--navy);
@@ -184,7 +184,7 @@ body {
 
 .stat-num {
   display: block;
-  font-family: var(--font-data);
+  font-family: var(--font-ui);
   font-weight: 600;
   font-size: 1.9rem;
   line-height: 1.1;
@@ -308,7 +308,7 @@ body {
 
 .result-count {
   margin-left: auto;
-  font-family: var(--font-data);
+  font-family: var(--font-ui);
   font-size: 0.8rem;
   color: var(--ink-soft);
   white-space: nowrap;
@@ -411,7 +411,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 0.05rem;
-  font-family: var(--font-data);
+  font-family: var(--font-ui);
   font-variant-numeric: tabular-nums;
   white-space: nowrap;
 }
@@ -564,7 +564,7 @@ body {
 }
 
 .bill-date {
-  font-family: var(--font-data);
+  font-family: var(--font-ui);
   font-size: 0.72rem;
   color: var(--ink-soft);
 }
@@ -598,7 +598,7 @@ body {
 .fund-fill.high { background: var(--rep); }
 
 .fund-pct {
-  font-family: var(--font-data);
+  font-family: var(--font-ui);
   font-size: 0.78rem;
   font-weight: 600;
   color: var(--ink);
@@ -628,7 +628,7 @@ body {
 }
 
 .finance-num {
-  font-family: var(--font-data);
+  font-family: var(--font-ui);
   font-weight: 600;
   font-size: 1.4rem;
   line-height: 1.1;
@@ -709,7 +709,7 @@ body {
 }
 
 .pager-info {
-  font-family: var(--font-data);
+  font-family: var(--font-ui);
   font-size: 0.82rem;
   color: var(--ink-soft);
 }

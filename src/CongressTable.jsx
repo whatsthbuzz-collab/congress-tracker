@@ -50,7 +50,12 @@ export default function CongressTable() {
     const fetchData = async () => {
       try {
         setLoading(true);
-        const response = await fetch(`${import.meta.env.BASE_URL}congress_data.json`);
+        // Cache-bust with a coarse timestamp (changes hourly) so an updated
+        // congress_data.json isn't masked by a stale browser/CDN copy.
+        const bust = Math.floor(Date.now() / 3_600_000);
+        const response = await fetch(
+          `${import.meta.env.BASE_URL}congress_data.json?v=${bust}`
+        );
         if (!response.ok) {
           throw new Error(
             `Could not load congress_data.json (HTTP ${response.status}). ` +
@@ -532,17 +537,6 @@ export default function CongressTable() {
                                   <span className="finance-label">cash on hand</span>
                                 </div>
                               </div>
-                              {m.finance.topPacDonors &&
-                                m.finance.topPacDonors.length > 0 && (
-                                  <div className="donor-list">
-                                    <span className="donor-label">Top PAC donors:</span>
-                                    {m.finance.topPacDonors.map((d, i) => (
-                                      <span key={i} className="donor-chip">
-                                        {d.name} <strong>{fmtMoney(d.amount)}</strong>
-                                      </span>
-                                    ))}
-                                  </div>
-                                )}
                               {m.finance.financeSourceUrl && (
                                 <a
                                   href={m.finance.financeSourceUrl}
