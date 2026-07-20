@@ -569,6 +569,111 @@ body {
   color: var(--ink-soft);
 }
 
+/* ---------- funding column ---------- */
+
+.fund-cell {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-width: 90px;
+}
+
+.fund-bar {
+  flex: 1;
+  height: 7px;
+  background: var(--line);
+  border-radius: 999px;
+  overflow: hidden;
+  min-width: 44px;
+}
+
+.fund-fill {
+  height: 100%;
+  border-radius: 999px;
+}
+
+/* More PAC money = warmer. This is a neutral visual cue, not a verdict. */
+.fund-fill.low { background: #4a8f5c; }
+.fund-fill.mid { background: var(--gold); }
+.fund-fill.high { background: var(--rep); }
+
+.fund-pct {
+  font-family: var(--font-data);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+  min-width: 30px;
+}
+
+/* ---------- finance block in panel ---------- */
+
+.finance-block {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.finance-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.finance-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.finance-num {
+  font-family: var(--font-data);
+  font-weight: 600;
+  font-size: 1.4rem;
+  line-height: 1.1;
+  color: var(--navy);
+  font-variant-numeric: tabular-nums;
+}
+
+.finance-label {
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+}
+
+.donor-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.85rem;
+}
+
+.donor-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+}
+
+.donor-chip {
+  font-size: 0.82rem;
+  padding: 0.3rem 0.7rem;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--ink);
+}
+
+.donor-chip strong {
+  font-family: var(--font-data);
+  color: var(--navy);
+}
+
+.finance-source {
+  font-family: var(--font-data);
+  font-size: 0.8rem;
+}
+
 /* ---------- pagination ---------- */
 
 .pager {
@@ -652,8 +757,9 @@ body {
     padding: 2rem 1rem 3rem;
   }
 
-  /* Chamber + Current Term columns drop first on small screens;
-     tenure and party stay because they carry the accountability story. */
+  /* Columns: 1 Member 2 Party 3 Chamber 4 Tenure 5 Term 6 Bills 7 Funding 8 Record.
+     Drop Chamber and Current Term first; tenure, party, bills, funding stay
+     because they carry the accountability story. */
   .ledger th:nth-child(3),
   .ledger td:nth-child(3),
   .ledger th:nth-child(5),
@@ -663,8 +769,11 @@ body {
 }
 
 @media (max-width: 560px) {
-  .ledger th:nth-child(7),
-  .ledger td:nth-child(7) {
+  /* Also drop Record (8) and Tenure (4) on the smallest screens. */
+  .ledger th:nth-child(8),
+  .ledger td:nth-child(8),
+  .ledger th:nth-child(4),
+  .ledger td:nth-child(4) {
     display: none;
   }
 

@@ -23,6 +23,15 @@ const fmtDate = (iso) => {
   });
 };
 
+// Compact money: 1_234_567 -> "$1.2M", 45_000 -> "$45K".
+const fmtMoney = (n) => {
+  if (n == null || isNaN(n)) return '—';
+  const abs = Math.abs(n);
+  if (abs >= 1_000_000) return `$${(n / 1_000_000).toFixed(1)}M`;
+  if (abs >= 1_000) return `$${Math.round(n / 1_000)}K`;
+  return `$${n}`;
+};
+
 const partyClass = (party) =>
   (party || '').toLowerCase().replace(/[^a-z]/g, '-');
 
@@ -191,6 +200,30 @@ export default function CongressTable() {
                 {isOpen ? '▴' : '▾'}
               </span>
             </button>
+          );
+        },
+      }),
+      columnHelper.accessor((row) => row.finance?.pacPct ?? -1, {
+        id: 'funding',
+        header: 'PAC-Funded',
+        cell: (info) => {
+          const f = info.row.original.finance;
+          if (!f || f.pacPct == null) {
+            return <span className="bills-none">—</span>;
+          }
+          // A quick visual read: how much of their money is PAC money.
+          const level =
+            f.pacPct >= 50 ? 'high' : f.pacPct >= 25 ? 'mid' : 'low';
+          return (
+            <div className="fund-cell" title={`${f.pacPct}% from PACs, ${f.individualPct}% from individuals`}>
+              <div className="fund-bar" aria-hidden="true">
+                <div
+                  className={`fund-fill ${level}`}
+                  style={{ width: `${f.pacPct}%` }}
+                />
+              </div>
+              <span className="fund-pct">{f.pacPct}%</span>
+            </div>
           );
         },
       }),
@@ -447,11 +480,12 @@ export default function CongressTable() {
               const m = row.original;
               const isOpen = expanded.has(m.bioguideId);
               const bills = m.bills || [];
+              const hasDetail = bills.length > 0 || !!m.finance;
               return (
                 <React.Fragment key={row.id}>
                   <tr
                     className={`ledger-row ${isOpen ? 'is-open' : ''}`}
-                    onClick={() => bills.length > 0 && toggleRow(m.bioguideId)}
+                    onClick={() => hasDetail && toggleRow(m.bioguideId)}
                   >
                     {row.getVisibleCells().map((cell) => (
                       <td key={cell.id}>
@@ -459,44 +493,108 @@ export default function CongressTable() {
                       </td>
                     ))}
                   </tr>
-                  {isOpen && bills.length > 0 && (
+                  {isOpen && (bills.length > 0 || m.finance) && (
                     <tr className="detail-row">
                       <td colSpan={colCount}>
                         <div className="bill-panel">
-                          <p className="bill-panel-title">
-                            Most recent sponsored legislation
-                          </p>
-                          <div className="bill-grid">
-                            {bills.map((bill, idx) => (
-                              <article key={idx} className="bill-card">
-                                <p className="bill-number">{bill.billNumber}</p>
-                                <h3 className="bill-title">
-                                  {bill.title || 'Untitled measure'}
-                                </h3>
-                                {bill.latestAction && (
-                                  <p className="bill-action">{bill.latestAction}</p>
-                                )}
-                                <div className="bill-foot">
-                                  {bill.introducedDate && (
-                                    <span className="bill-date">
-                                      Introduced {fmtDate(bill.introducedDate)}
-                                    </span>
-                                  )}
-                                  {bill.sourceUrl && (
-                                    <a
-                                      href={bill.sourceUrl}
-                                      target="_blank"
-                                      rel="noopener noreferrer"
-                                      className="source-link"
-                                      onClick={(e) => e.stopPropagation()}
-                                    >
-                                      Full text ↗
-                                    </a>
-                                  )}
+                          {m.finance && (
+                            <div className="finance-block">
+                              <p className="bill-panel-title">
+                                Campaign finance · {m.finance.financeCycle} cycle
+                              </p>
+                              <div className="finance-grid">
+                                <div className="finance-stat">
+                                  <span className="finance-num">
+                                    {fmtMoney(m.finance.totalRaised)}
+                                  </span>
+                                  <span className="finance-label">total raised</span>
                                 </div>
-                              </article>
-                            ))}
-                          </div>
+                                <div className="finance-stat">
+                                  <span className="finance-num">
+                                    {fmtMoney(m.finance.fromPacs)}
+                                  </span>
+                                  <span className="finance-label">
+                                    from PACs ({m.finance.pacPct ?? '—'}%)
+                                  </span>
+                                </div>
+                                <div className="finance-stat">
+                                  <span className="finance-num">
+                                    {fmtMoney(m.finance.fromIndividuals)}
+                                  </span>
+                                  <span className="finance-label">
+                                    from individuals ({m.finance.individualPct ?? '—'}%)
+                                  </span>
+                                </div>
+                                <div className="finance-stat">
+                                  <span className="finance-num">
+                                    {fmtMoney(m.finance.cashOnHand)}
+                                  </span>
+                                  <span className="finance-label">cash on hand</span>
+                                </div>
+                              </div>
+                              {m.finance.topPacDonors &&
+                                m.finance.topPacDonors.length > 0 && (
+                                  <div className="donor-list">
+                                    <span className="donor-label">Top PAC donors:</span>
+                                    {m.finance.topPacDonors.map((d, i) => (
+                                      <span key={i} className="donor-chip">
+                                        {d.name} <strong>{fmtMoney(d.amount)}</strong>
+                                      </span>
+                                    ))}
+                                  </div>
+                                )}
+                              {m.finance.financeSourceUrl && (
+                                <a
+                                  href={m.finance.financeSourceUrl}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="source-link finance-source"
+                                  onClick={(e) => e.stopPropagation()}
+                                >
+                                  Full FEC filings ↗
+                                </a>
+                              )}
+                            </div>
+                          )}
+
+                          {bills.length > 0 && (
+                            <>
+                              <p className="bill-panel-title">
+                                Most recent sponsored legislation
+                              </p>
+                              <div className="bill-grid">
+                                {bills.map((bill, idx) => (
+                                  <article key={idx} className="bill-card">
+                                    <p className="bill-number">{bill.billNumber}</p>
+                                    <h3 className="bill-title">
+                                      {bill.title || 'Untitled measure'}
+                                    </h3>
+                                    {bill.latestAction && (
+                                      <p className="bill-action">{bill.latestAction}</p>
+                                    )}
+                                    <div className="bill-foot">
+                                      {bill.introducedDate && (
+                                        <span className="bill-date">
+                                          Introduced {fmtDate(bill.introducedDate)}
+                                        </span>
+                                      )}
+                                      {bill.sourceUrl && (
+                                        <a
+                                          href={bill.sourceUrl}
+                                          target="_blank"
+                                          rel="noopener noreferrer"
+                                          className="source-link"
+                                          onClick={(e) => e.stopPropagation()}
+                                        >
+                                          Full text ↗
+                                        </a>
+                                      )}
+                                    </div>
+                                  </article>
+                                ))}
+                              </div>
+                            </>
+                          )}
                         </div>
                       </td>
                     </tr>
