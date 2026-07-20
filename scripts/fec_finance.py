@@ -143,47 +143,6 @@ class FinanceFetcher:
             "cashOnHand": round(t.get("last_cash_on_hand_end_period") or 0),
         }
 
-    def fetch_top_pacs(self, fec_id: str, cycle: Optional[int]) -> List[Dict[str, Any]]:
-        """
-        Top PACs giving to this candidate, via Schedule A contributions
-        aggregated by contributor committee. Best-effort: if the endpoint
-        shape differs, we degrade to an empty list rather than failing.
-        """
-        params = {
-            "candidate_id": fec_id,
-            "per_page": 3,
-            "sort": "-total",
-        }
-        if cycle:
-            params["cycle"] = cycle
-
-        data = self._get("/schedules/schedule_a/by_contributor/", params)
-
-        # This endpoint isn't available for every candidate/cycle; a None or
-        # empty result is normal, not an error.
-        if not data:
-            return []
-
-        results = data.get("results") or []
-
-        if not self._dumped_sched and results:
-            self._dumped_sched = True
-            print("\n  [debug] raw schedule_a by_contributor row:")
-            print("  " + json.dumps(results[0], indent=2)[:700].replace("\n", "\n  "))
-            print()
-
-        top = []
-        for r in results[:3]:
-            name = (
-                r.get("contributor_name")
-                or r.get("contributor_committee_name")
-                or "Unnamed committee"
-            )
-            amount = r.get("total") or r.get("total_amount") or 0
-            top.append({"name": name.title() if name.isupper() else name,
-                        "amount": round(amount)})
-        return top
-
     def enrich(self, member: Dict[str, Any], fec_ids: List[str]) -> None:
         """Attach finance fields to one member dict in place."""
         fec_id = self.pick_fec_id(fec_ids, member.get("chamber"))
@@ -198,11 +157,14 @@ class FinanceFetcher:
             member["finance"] = None
             return
 
-        top_pacs = self.fetch_top_pacs(fec_id, totals.get("financeCycle"))
-
+        # Note: we deliberately do NOT fetch a "top donors" list. The FEC's
+        # by_contributor aggregate is keyed by committee_id, not candidate_id,
+        # and there's no clean candidate-level "top PACs" endpoint. Rather than
+        # ship fragile or wrong donor names, we report the totals the /totals/
+        # endpoint gives us -- raised, PAC vs individual split, cash on hand --
+        # which are the accountability numbers that matter and are rock-solid.
         member["finance"] = {
             **totals,
-            "topPacDonors": top_pacs,
             "fecId": fec_id,
             "financeSourceUrl": f"https://www.fec.gov/data/candidate/{fec_id}/",
             "source": "OpenFEC API",
