@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-29T11:40:14.597164+00:00",
+  "lastUpdated": "2026-07-30T11:06:59.954696+00:00",
   "totalMembers": 537,
   "billsIncluded": true,
   "financeIncluded": true,
@@ -938,7 +938,7 @@
       "bills": [
         {
           "billNumber": "S 5095",
-          "title": "A bill to require the Secretary of Transportation to revise certain Federal motor vehicle safety standards to advance tire technologies, and for other purposes.",
+          "title": "Tire Safety Modernization Act of 2026",
           "introducedDate": "2026-07-23",
           "latestAction": "Read twice and referred to the Committee on Commerce, Science, and Transportation.",
           "policyArea": "",
@@ -1873,7 +1873,7 @@
         },
         {
           "billNumber": "S 5087",
-          "title": "A bill to amend the Clean Air Act to modify the definition of renewable biomass for purposes of the renewable fuel standard, and for other purposes.",
+          "title": "Wildfire Reduction Market Expansion Act of 2026",
           "introducedDate": "2026-07-22",
           "latestAction": "Read twice and referred to the Committee on Environment and Public Works.",
           "policyArea": "",
@@ -2595,7 +2595,7 @@
         },
         {
           "billNumber": "S 5057",
-          "title": "A bill to prohibit the use of certain artificial intelligence models across the Federal Government, and for other purposes.",
+          "title": "Safeguarding Against Fabricated Exploitation Through Artificial Intelligence Act of 2026",
           "introducedDate": "2026-07-21",
           "latestAction": "Read twice and referred to the Committee on Homeland Security and Governmental Affairs.",
           "policyArea": "",
@@ -2625,7 +2625,7 @@
         },
         {
           "billNumber": "S 5061",
-          "title": "A bill to improve the tracking and processing of security and safety incidents and risks associated with artificial intelligence, and for other purposes.",
+          "title": "Secure A.I. Development Act of 2026",
           "introducedDate": "2026-07-21",
           "latestAction": "Read twice and referred to the Committee on Commerce, Science, and Transportation.",
           "policyArea": "",
@@ -3641,7 +3641,7 @@
         },
         {
           "billNumber": "S 5101",
-          "title": "A bill to prohibit the Secretary of the Interior from taking any action to expand the Mid-Continent Limestone Quarry located near Glenwood Springs, Colorado.",
+          "title": "Glenwood Hot Springs Protection Act",
           "introducedDate": "2026-07-23",
           "latestAction": "Read twice and referred to the Committee on Energy and Natural Resources.",
           "policyArea": "",
@@ -4372,7 +4372,7 @@
         },
         {
           "billNumber": "S 5098",
-          "title": "A bill to direct the Director of the Cybersecurity and Infrastructure Security Agency to establish a K-12 Cybersecurity Technology Improvement Program, and for other purposes.",
+          "title": "Enhancing K\u201312 Cybersecurity Act",
           "introducedDate": "2026-07-23",
           "latestAction": "Read twice and referred to the Committee on Homeland Security and Governmental Affairs.",
           "policyArea": "",
@@ -4538,14 +4538,14 @@
           "title": "A resolution directing the Senate Legal Counsel to bring a civil action in the name of the Senate to enforce the Foreign Emoluments Clause contained in clause 8 of section 9 of article I of the Constitution of the United States.",
           "introducedDate": "2026-07-21",
           "latestAction": "Referred to the Committee on Rules and Administration. (text: CR S4194-4195)",
-          "policyArea": "",
+          "policyArea": "Congress",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/sres/807"
         },
         {
           "billNumber": "S 5042",
-          "title": "A bill to protect our Social Security system and improve benefits for current and future generations.",
+          "title": "Social Security 2100 Act",
           "introducedDate": "2026-07-21",
           "latestAction": "Read twice and referred to the Committee on Finance.",
           "policyArea": "",
@@ -9134,7 +9134,7 @@
           "title": "FLOWS Act of 2026",
           "introducedDate": "2026-07-20",
           "latestAction": "Referred to the Committee on Transportation and Infrastructure, and in addition to the Committee on Energy and Commerce, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
-          "policyArea": "",
+          "policyArea": "Water Resources Development",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/9776"
@@ -12542,7 +12542,7 @@
           "title": "A resolution designating June 15, 2026, as \"World Elder Abuse Awareness Day\" and the month of June 2026 as \"Elder Abuse Awareness Month\".",
           "introducedDate": "2026-07-21",
           "latestAction": "Submitted in the Senate, considered, and agreed to without amendment and with a preamble by Unanimous Consent. (consideration: CR S4200; text: CR S4195-4196)",
-          "policyArea": "",
+          "policyArea": "Crime and Law Enforcement",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/sres/809"
@@ -15546,7 +15546,7 @@
           "title": "Justice is BLIND Act of 2026",
           "introducedDate": "2026-07-20",
           "latestAction": "Referred to the House Committee on the Judiciary.",
-          "policyArea": "",
+          "policyArea": "Law",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/9784"
@@ -16307,7 +16307,7 @@
           "title": "Ratepayer Justice and Commercial Power Accountability Act",
           "introducedDate": "2026-07-15",
           "latestAction": "Sponsor introductory remarks on measure. (CR H4617)",
-          "policyArea": "",
+          "policyArea": "Energy",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/9700"
@@ -16885,7 +16885,7 @@
           "title": "Remembering the life of Corey Comperatore who passed away on Saturday, July 13, 2024.",
           "introducedDate": "2026-07-13",
           "latestAction": "Referred to the House Committee on Oversight and Government Reform.",
-          "policyArea": "",
+          "policyArea": "Congress",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/hres/1426"
@@ -19582,7 +19582,7 @@
       "bills": [
         {
           "billNumber": "HR 9918",
-          "title": "To direct the Director of the Cybersecurity and Infrastructure Security Agency to establish a School Cybersecurity Improvement Program, and for other purposes.",
+          "title": "Enhancing K\u201312 Cybersecurity Act",
           "introducedDate": "2026-07-23",
           "latestAction": "Referred to the Committee on Homeland Security, and in addition to the Committee on Education and Workforce, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
           "policyArea": "",
@@ -19595,7 +19595,7 @@
           "title": "No Passes for Polluters Act of 2026",
           "introducedDate": "2026-07-21",
           "latestAction": "Referred to the Committee on Energy and Commerce, and in addition to the Committee on Rules, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
-          "policyArea": "",
+          "policyArea": "Environmental Protection",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/9808"
@@ -21286,7 +21286,7 @@
       "bills": [
         {
           "billNumber": "HR 9861",
-          "title": "To amend the Internal Revenue Code of 1986 to treat certain spouses and surviving spouses of military veterans as veterans for purposes of the exception to the 3-year ownership look-back limitation for qualified mortgage bonds and mortgage credit certificates.",
+          "title": "Veteran\u2019s Surviving Spouse Parity Act of 2026",
           "introducedDate": "2026-07-22",
           "latestAction": "Referred to the House Committee on Ways and Means.",
           "policyArea": "",
@@ -22139,7 +22139,7 @@
         },
         {
           "billNumber": "S 5082",
-          "title": "A bill to amend the Arms Export Control Act to provide for better monitoring and verification of the use of defense articles and defense services by countries of concern, and for other purposes.",
+          "title": "Values in Arms Export Act of 2026",
           "introducedDate": "2026-07-22",
           "latestAction": "Read twice and referred to the Committee on Foreign Relations.",
           "policyArea": "",
@@ -22973,7 +22973,7 @@
           "title": "National Capital Revitalization and Self-Government Improvement Act of 1997 Technical Corrections Act of 2026",
           "introducedDate": "2026-07-13",
           "latestAction": "Referred to the House Committee on Oversight and Government Reform.",
-          "policyArea": "",
+          "policyArea": "Government Operations and Politics",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/9654"
@@ -25855,7 +25855,7 @@
           "title": "Judicial FOIA Expansion Act",
           "introducedDate": "2026-07-20",
           "latestAction": "Read twice and referred to the Committee on the Judiciary.",
-          "policyArea": "",
+          "policyArea": "Law",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/s/5033"
@@ -25865,7 +25865,7 @@
           "title": "Justice is BLIND Act of 2026",
           "introducedDate": "2026-07-20",
           "latestAction": "Read twice and referred to the Committee on the Judiciary.",
-          "policyArea": "",
+          "policyArea": "Law",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/s/5032"
@@ -25875,7 +25875,7 @@
           "title": "Judicial Integrity Act",
           "introducedDate": "2026-07-20",
           "latestAction": "Read twice and referred to the Committee on the Judiciary.",
-          "policyArea": "",
+          "policyArea": "Crime and Law Enforcement",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/s/5036"
@@ -26191,7 +26191,7 @@
           "title": "Intelligent Arbitration Act of 2026",
           "introducedDate": "2026-07-15",
           "latestAction": "Referred to the House Committee on the Judiciary.",
-          "policyArea": "",
+          "policyArea": "Crime and Law Enforcement",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/9715"
@@ -26979,7 +26979,7 @@
       "bills": [
         {
           "billNumber": "S 5096",
-          "title": "A bill to amend section 477 of the Social Security Act to improve supports for expectant and parenting youth who have experienced foster care by strengthening coordination with the Maternal, Infant, and Early Childhood Home Visiting Program, and for other purposes.",
+          "title": "Support for Expectant and Parenting Foster Youth Act",
           "introducedDate": "2026-07-23",
           "latestAction": "Read twice and referred to the Committee on Finance.",
           "policyArea": "",
@@ -28017,7 +28017,7 @@
           "title": "Educators for America Act",
           "introducedDate": "2026-07-16",
           "latestAction": "Referred to the House Committee on Education and Workforce.",
-          "policyArea": "",
+          "policyArea": "Education",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/9765"
@@ -28027,7 +28027,7 @@
           "title": "Building Community in America Act",
           "introducedDate": "2026-07-16",
           "latestAction": "Referred to the House Committee on Education and Workforce.",
-          "policyArea": "",
+          "policyArea": "Labor and Employment",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/9766"
@@ -28037,7 +28037,7 @@
           "title": "Protecting American Homes from Hedge Funds Act",
           "introducedDate": "2026-07-13",
           "latestAction": "Referred to the Committee on Ways and Means, and in addition to the Committee on Financial Services, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
-          "policyArea": "",
+          "policyArea": "Taxation",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/9657"
@@ -28582,7 +28582,7 @@
       "bills": [
         {
           "billNumber": "HR 9893",
-          "title": "To prohibit contributions to the United Nations Relief and Works Agency for Palestine Refugees in the Near East, and for other purposes.",
+          "title": "Stop Support for UNRWA Act of 2026",
           "introducedDate": "2026-07-23",
           "latestAction": "Referred to the House Committee on Foreign Affairs.",
           "policyArea": "",
@@ -30055,7 +30055,7 @@
           "title": "A resolution to constitute the majority party's membership on certain committees for the One Hundred Nineteenth Congress, or until their successors are chosen.",
           "introducedDate": "2026-07-21",
           "latestAction": "Submitted in the Senate, considered, and agreed to without amendment by Unanimous Consent. (consideration: CR S4200; text: CR S4196)",
-          "policyArea": "",
+          "policyArea": "Congress",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/sres/810"
@@ -30195,7 +30195,7 @@
         },
         {
           "billNumber": "HR 9940",
-          "title": "To amend title XIX of the Social Security Act to provide a temporary higher Federal medical assistance percentage for Federal expenditures under the Medicaid program that are associated with the cost of compliance with certain Federal regulations with respect to services furnished in certain intermediate care facilities or home and community-based services furnished to individuals with intellectual and developmental disabilities.",
+          "title": "Disability Community Act of 2026",
           "introducedDate": "2026-07-23",
           "latestAction": "Referred to the House Committee on Energy and Commerce.",
           "policyArea": "",
@@ -30955,7 +30955,7 @@
         },
         {
           "billNumber": "HR 9885",
-          "title": "To clarify the applicability of certain provisions of the Administrative Procedures Act to certain actions of the Small Business Administration, and for other purposes.",
+          "title": "Maintaining Small Business Engagement Act of 2026",
           "introducedDate": "2026-07-22",
           "latestAction": "Referred to the Committee on Small Business, and in addition to the Committee on the Judiciary, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
           "policyArea": "",
@@ -33664,7 +33664,7 @@
       "bills": [
         {
           "billNumber": "S 5081",
-          "title": "A bill to reclaim the authority of Congress over the imposition of duties and other trade actions, and for other purposes.",
+          "title": "Congressional Trade Powers Reform Act of 2026",
           "introducedDate": "2026-07-22",
           "latestAction": "Read twice and referred to the Committee on Finance.",
           "policyArea": "",
@@ -33697,7 +33697,7 @@
           "title": "Nitrous Oxide Inhalation Prevention Act",
           "introducedDate": "2026-07-15",
           "latestAction": "Read twice and referred to the Committee on Health, Education, Labor, and Pensions.",
-          "policyArea": "",
+          "policyArea": "Health",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/s/4997"
@@ -34327,7 +34327,7 @@
           "title": "Supporting Grandfamilies Act of 2026",
           "introducedDate": "2026-07-21",
           "latestAction": "Referred to the Committee on Education and Workforce, and in addition to the Committees on Financial Services, the Judiciary, and Energy and Commerce, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
-          "policyArea": "",
+          "policyArea": "Families",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/9796"
@@ -34631,7 +34631,7 @@
           "title": "Stop CHEATERS Act",
           "introducedDate": "2026-07-16",
           "latestAction": "Referred to the House Committee on Appropriations.",
-          "policyArea": "",
+          "policyArea": "Economics and Public Finance",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/9736"
@@ -35716,7 +35716,7 @@
           "title": "PRESERVE Act",
           "introducedDate": "2026-07-14",
           "latestAction": "Referred to the Committee on Transportation and Infrastructure, and in addition to the Committee on Oversight and Government Reform, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
-          "policyArea": "",
+          "policyArea": "Government Operations and Politics",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/9689"
@@ -35917,7 +35917,7 @@
       "bills": [
         {
           "billNumber": "S 5083",
-          "title": "A bill to amend the Internal Revenue Code of 1986 to require reporting by certain charitable organizations relating to fiscal sponsorship arrangements, and for other purposes.",
+          "title": "Fiscal Sponsorship Transparency Act of 2026",
           "introducedDate": "2026-07-22",
           "latestAction": "Read twice and referred to the Committee on Finance.",
           "policyArea": "",
@@ -37236,7 +37236,7 @@
       "bills": [
         {
           "billNumber": "HR 9881",
-          "title": "To modify the procedure for an institution of higher education to change the institution's primary accrediting agency or association, and for other purposes.",
+          "title": "Higher Education Accreditation Accountability Act",
           "introducedDate": "2026-07-22",
           "latestAction": "Referred to the House Committee on Education and Workforce.",
           "policyArea": "",
@@ -38381,7 +38381,7 @@
         },
         {
           "billNumber": "S 5086",
-          "title": "A bill to amend chapter 53 of title 49, United States Code, to provide competitive grants to assist State and local governmental authorities in addressing accessibility needs of legacy rail fixed guideway public transportation systems.",
+          "title": "ASAP Act",
           "introducedDate": "2026-07-22",
           "latestAction": "Read twice and referred to the Committee on Banking, Housing, and Urban Affairs.",
           "policyArea": "",
@@ -39948,7 +39948,7 @@
           "title": "CLAIM Act",
           "introducedDate": "2026-07-21",
           "latestAction": "Read twice and referred to the Committee on Banking, Housing, and Urban Affairs.",
-          "policyArea": "",
+          "policyArea": "Finance and Financial Sector",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/s/5049"
@@ -40879,7 +40879,7 @@
       "bills": [
         {
           "billNumber": "HR 9896",
-          "title": "To amend the Higher Education Act of 1965 to include certain licensure, certification, and aviation training costs in the determination of the cost of attendance of a student, and for other purposes.",
+          "title": "WINGS Act of 2026",
           "introducedDate": "2026-07-23",
           "latestAction": "Referred to the House Committee on Education and Workforce.",
           "policyArea": "",
@@ -41470,7 +41470,7 @@
           "title": "NO FEES Act of 2026",
           "introducedDate": "2026-07-20",
           "latestAction": "Referred to the House Committee on Energy and Commerce.",
-          "policyArea": "",
+          "policyArea": "Commerce",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/9791"
@@ -44839,7 +44839,7 @@
           "title": "Recognizing the significance of equal pay and the disparity in wages paid to men and to Black women.",
           "introducedDate": "2026-07-21",
           "latestAction": "Referred to the House Committee on Education and Workforce.",
-          "policyArea": "",
+          "policyArea": "Labor and Employment",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/hconres/114"
@@ -46723,7 +46723,7 @@
       "bills": [
         {
           "billNumber": "HR 9917",
-          "title": "To amend the Homeland Security Act of 2002 to require certain entities to maintain a technical capability with respect to shutting down certain technology, and for other purposes.",
+          "title": "AI Kill Switch Act",
           "introducedDate": "2026-07-23",
           "latestAction": "Referred to the House Committee on Homeland Security.",
           "policyArea": "",
@@ -47862,7 +47862,7 @@
           "title": "Employer Health Plan Flexibility Act",
           "introducedDate": "2026-07-21",
           "latestAction": "Referred to the Committee on Education and Workforce, and in addition to the Committee on Energy and Commerce, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
-          "policyArea": "",
+          "policyArea": "Health",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/9798"
@@ -49850,7 +49850,7 @@
           "title": "Condemning all forms of hate.",
           "introducedDate": "2026-07-22",
           "latestAction": "Referred to the House Committee on the Judiciary.",
-          "policyArea": "",
+          "policyArea": "Civil Rights and Liberties, Minority Issues",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/hres/1450"
@@ -50702,7 +50702,7 @@
           "title": "ORTHO Act",
           "introducedDate": "2026-07-22",
           "latestAction": "Referred to the House Committee on Energy and Commerce.",
-          "policyArea": "",
+          "policyArea": "Health",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/9829"
@@ -53663,7 +53663,7 @@
       "bills": [
         {
           "billNumber": "HR 9900",
-          "title": "To amend the Federal Credit Union Act with respect to conversion modernization for privately insured credit unions.",
+          "title": "Privately Insured Credit Unions Conversion Modernization Act",
           "introducedDate": "2026-07-23",
           "latestAction": "Referred to the House Committee on Financial Services.",
           "policyArea": "",
@@ -54698,7 +54698,7 @@
       "bills": [
         {
           "billNumber": "S 5133",
-          "title": "A bill to amend the Internal Revenue Code of 1986 to modify the time for filing certain information returns.",
+          "title": "Preventing Tax Fraud and Identity Theft Act",
           "introducedDate": "2026-07-27",
           "latestAction": "Read twice and referred to the Committee on Finance.",
           "policyArea": "",
@@ -57075,7 +57075,7 @@
           "title": "A concurrent resolution recognizing the significance of equal pay and the disparity in wages paid to men and to Black women.",
           "introducedDate": "2026-07-21",
           "latestAction": "Referred to the Committee on Health, Education, Labor, and Pensions. (text: CR S4196-4197)",
-          "policyArea": "",
+          "policyArea": "Labor and Employment",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/sconres/36"
@@ -58851,7 +58851,7 @@
           "title": "Protecting Innocent Taxpayers from Endless Assessments Act",
           "introducedDate": "2026-07-14",
           "latestAction": "Read twice and referred to the Committee on Finance.",
-          "policyArea": "",
+          "policyArea": "Taxation",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/s/4964"
@@ -59074,7 +59074,7 @@
           "title": "Comment Integrity and Management Act",
           "introducedDate": "2026-07-13",
           "latestAction": "Ordered to be Reported (Amended) by the Yeas and Nays: 24 - 19.",
-          "policyArea": "",
+          "policyArea": "Government Operations and Politics",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/9643"
@@ -59589,7 +59589,7 @@
       "bills": [
         {
           "billNumber": "HR 9874",
-          "title": "To amend the Federal Election Campaign Act of 1971 to apply the ban on contributions and expenditures by foreign nationals under such Act to foreign-controlled, foreign-influenced, and foreign-owned domestic business entities, and for other purposes.",
+          "title": "Get Foreign Money Out of United States Elections Act",
           "introducedDate": "2026-07-22",
           "latestAction": "Referred to the House Committee on House Administration.",
           "policyArea": "",
@@ -60170,7 +60170,7 @@
           "title": "Secure Drug Supply Chain Act of 2026",
           "introducedDate": "2026-07-21",
           "latestAction": "Read twice and referred to the Committee on Health, Education, Labor, and Pensions.",
-          "policyArea": "",
+          "policyArea": "Health",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/s/5043"
@@ -60403,7 +60403,7 @@
           "title": "General John D. Lavelle Act",
           "introducedDate": "2026-07-13",
           "latestAction": "Referred to the House Committee on Armed Services.",
-          "policyArea": "",
+          "policyArea": "Armed Forces and National Security",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/9648"
@@ -61682,7 +61682,7 @@
           "title": "Fiscal Sponsorship Transparency Act of 2026",
           "introducedDate": "2026-07-16",
           "latestAction": "Ordered to be Reported in the Nature of a Substitute by the Yeas and Nays: 23 - 15.",
-          "policyArea": "",
+          "policyArea": "Taxation",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/9721"
@@ -65616,7 +65616,7 @@
       "bills": [
         {
           "billNumber": "HR 9878",
-          "title": "To amend the Child Abuse Prevention and Treatment Act to provide for better protections for children raised in kinship families outside of the foster care system.",
+          "title": "Help Grandfamilies Prevent Child Abuse Act",
           "introducedDate": "2026-07-22",
           "latestAction": "Referred to the House Committee on Education and Workforce.",
           "policyArea": "",
@@ -65699,7 +65699,7 @@
           "title": "SWIFT Act of 2026",
           "introducedDate": "2026-07-16",
           "latestAction": "Referred to the Committee on Ways and Means, and in addition to the Committee on Oversight and Government Reform, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
-          "policyArea": "",
+          "policyArea": "Social Welfare",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/9763"
@@ -67330,7 +67330,7 @@
         },
         {
           "billNumber": "HR 9924",
-          "title": "To require the Secretary of the Interior to meaningfully involve the public and State, Tribal, and local government officials prior to determining whether to offer certain parcels of land for oil or gas leasing, and for other purposes.",
+          "title": "Local Input Act",
           "introducedDate": "2026-07-23",
           "latestAction": "Referred to the House Committee on Natural Resources.",
           "policyArea": "",
@@ -67340,7 +67340,7 @@
         },
         {
           "billNumber": "HR 9865",
-          "title": "To direct the Secretary of Defense to submit a report and establish standards on the timeliness of providing electronic health records to members of the Armed Forces separating from active duty, and for other purposes.",
+          "title": "Timely Electronic Health Record Transfers for Transitioning Servicemembers Act of 2026",
           "introducedDate": "2026-07-22",
           "latestAction": "Referred to the House Committee on Armed Services.",
           "policyArea": "",
@@ -67350,7 +67350,7 @@
         },
         {
           "billNumber": "HR 9864",
-          "title": "To amend title 10, United States Code, to direct the Secretary of Defense to include on a website of the Department of Defense certain information with respect to a patient booking an appointment for health care provided under the TRICARE program at a military medical treatment facility, and for other purposes.",
+          "title": "Reducing Military Health Care Wait Times Act",
           "introducedDate": "2026-07-22",
           "latestAction": "Referred to the House Committee on Armed Services.",
           "policyArea": "",
@@ -67363,7 +67363,7 @@
           "title": "Expand the Behavioral Health Workforce Now Act",
           "introducedDate": "2026-07-22",
           "latestAction": "Referred to the House Committee on Energy and Commerce.",
-          "policyArea": "",
+          "policyArea": "Health",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/9867"
@@ -67383,7 +67383,7 @@
           "title": "C.A.R.E. for Mental Health Professionals Act",
           "introducedDate": "2026-07-22",
           "latestAction": "Referred to the House Committee on Energy and Commerce.",
-          "policyArea": "",
+          "policyArea": "Health",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/9866"
@@ -67604,7 +67604,7 @@
       "bills": [
         {
           "billNumber": "HR 9899",
-          "title": "To designate Afghanistan under section 244 of the Immigration and Nationality Act to permit nationals of Afghanistan to be eligible for temporary protected status under such section, and for other purposes.",
+          "title": "Afghanistan TPS Act of 2026",
           "introducedDate": "2026-07-23",
           "latestAction": "Referred to the House Committee on the Judiciary.",
           "policyArea": "",
@@ -69027,7 +69027,7 @@
           "title": "To establish a grant program to support students, families, and school personnel impacted by immigration enforcement actions to ensure that schools remain safe, trauma-informed learning environments, and for other purposes.",
           "introducedDate": "2026-07-22",
           "latestAction": "Referred to the House Committee on Education and Workforce.",
-          "policyArea": "",
+          "policyArea": "Education",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/9853"
@@ -70728,7 +70728,7 @@
       "bills": [
         {
           "billNumber": "HR 9873",
-          "title": "To guarantee the right to vote for all citizens regardless of conviction of a criminal offense, and for other purposes.",
+          "title": "Inclusive Democracy Act of 2026",
           "introducedDate": "2026-07-22",
           "latestAction": "Referred to the Committee on the Judiciary, and in addition to the Committee on House Administration, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
           "policyArea": "",
@@ -71479,7 +71479,7 @@
       "bills": [
         {
           "billNumber": "HR 9939",
-          "title": "To prohibit Artificial Intelligence Data Centers on Federal land.",
+          "title": "No AI Data Centers on Federal Lands Act",
           "introducedDate": "2026-07-23",
           "latestAction": "Referred to the House Committee on Natural Resources.",
           "policyArea": "",
@@ -72080,7 +72080,7 @@
           "title": "Expressing the sense of the House of Representatives that the United States should ratify the Rome Statute and join the International Criminal Court.",
           "introducedDate": "2026-07-15",
           "latestAction": "Referred to the Committee on Foreign Affairs, and in addition to the Committee on the Judiciary, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
-          "policyArea": "",
+          "policyArea": "International Affairs",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/hres/1435"
@@ -72909,7 +72909,7 @@
         },
         {
           "billNumber": "HR 9894",
-          "title": "To require certain information and financial assistance under the State energy program and the weatherization assistance program to be distributed without undue delay to support State and local high-impact energy efficiency and renewable energy initiatives, and for other purposes.",
+          "title": "Investing in State Energy Act of 2026",
           "introducedDate": "2026-07-23",
           "latestAction": "Referred to the House Committee on Energy and Commerce.",
           "policyArea": "",
@@ -73650,7 +73650,7 @@
       "bills": [
         {
           "billNumber": "HR 9916",
-          "title": "To require the Director of the Federal Insurance Office to submit an annual report to the President and certain congressional committees with respect to the automobile insurance industry, and for other purposes.",
+          "title": "Lowering CAR Insurance Act",
           "introducedDate": "2026-07-23",
           "latestAction": "Referred to the House Committee on Financial Services.",
           "policyArea": "",
@@ -75925,7 +75925,7 @@
           "title": "South Dakota Water Feasibility Studies Act",
           "introducedDate": "2026-07-20",
           "latestAction": "Referred to the House Committee on Natural Resources.",
-          "policyArea": "",
+          "policyArea": "Water Resources Development",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/9785"
@@ -76490,7 +76490,7 @@
       "bills": [
         {
           "billNumber": "HR 9876",
-          "title": "To prohibit birth tourism, and for other purposes.",
+          "title": "BAN Act",
           "introducedDate": "2026-07-22",
           "latestAction": "Referred to the House Committee on the Judiciary.",
           "policyArea": "",
@@ -77649,7 +77649,7 @@
           "title": "Streamlining Military Infrastructure Act",
           "introducedDate": "2026-07-16",
           "latestAction": "Referred to the House Committee on Armed Services.",
-          "policyArea": "",
+          "policyArea": "Armed Forces and National Security",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/9738"
@@ -77913,7 +77913,7 @@
           "title": "Permanent Trump Secure Border Act",
           "introducedDate": "2026-07-20",
           "latestAction": "Ordered to be Reported in the Nature of a Substitute by the Yeas and Nays: 16 - 14.",
-          "policyArea": "",
+          "policyArea": "Immigration",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/9773"
@@ -79634,7 +79634,7 @@
         },
         {
           "billNumber": "S 5068",
-          "title": "A bill to amend title 14, United States Code, to provide for the nomination and appointment of cadets to the Coast Guard Academy.",
+          "title": "Service Academy Parity Act",
           "introducedDate": "2026-07-22",
           "latestAction": "Read twice and referred to the Committee on Commerce, Science, and Transportation.",
           "policyArea": "",
@@ -79707,7 +79707,7 @@
           "title": "A resolution commending the courage, bravery, and resolve of the fathers, mothers, sons, and daughters of Cuba, whom 5 years ago, stood in the face of brutal harassment, beatings, and torture to protest against the Communist Cuban regime, demanding access to their fundamental rights to life, dignity, and freedom.",
           "introducedDate": "2026-07-13",
           "latestAction": "Referred to the Committee on Foreign Relations. (text: CR S3746)",
-          "policyArea": "",
+          "policyArea": "International Affairs",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/sres/800"
@@ -81139,7 +81139,7 @@
           "title": "Building Community in America Act",
           "introducedDate": "2026-07-16",
           "latestAction": "Read twice and referred to the Committee on Health, Education, Labor, and Pensions.",
-          "policyArea": "",
+          "policyArea": "Labor and Employment",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/s/5031"
@@ -85733,7 +85733,7 @@
         },
         {
           "billNumber": "HR 9890",
-          "title": "To direct State and local election officials to provide a minimum number of polling places within a State for voters to cast a ballot in an election for Federal office and to ensure that such polling places are not concentrated in a specific area, and for other purposes.",
+          "title": "Polling Place Standards Act",
           "introducedDate": "2026-07-22",
           "latestAction": "Referred to the House Committee on House Administration.",
           "policyArea": "",
@@ -86159,13 +86159,13 @@
       "source": "unitedstates/congress-legislators",
       "sourceUrl": "https://www.congress.gov/member/_/C001116",
       "finance": {
-        "financeCycle": 2026,
-        "totalRaised": 671072,
-        "fromPacs": 118711,
-        "fromIndividuals": 552361,
-        "pacPct": 18,
-        "individualPct": 82,
-        "cashOnHand": 176253,
+        "financeCycle": 2020,
+        "totalRaised": 1933971,
+        "fromPacs": 159800,
+        "fromIndividuals": 230326,
+        "pacPct": 41,
+        "individualPct": 59,
+        "cashOnHand": 8108,
         "fecId": "H0GA09246",
         "financeSourceUrl": "https://www.fec.gov/data/candidate/H0GA09246/",
         "source": "OpenFEC API"
@@ -88147,13 +88147,13 @@
       "source": "unitedstates/congress-legislators",
       "sourceUrl": "https://www.congress.gov/member/_/M000871",
       "finance": {
-        "financeCycle": 2026,
-        "totalRaised": 1488465,
-        "fromPacs": 598040,
-        "fromIndividuals": 345109,
-        "pacPct": 63,
-        "individualPct": 37,
-        "cashOnHand": 2713324,
+        "financeCycle": 2010,
+        "totalRaised": 785920,
+        "fromPacs": 5000,
+        "fromIndividuals": 655920,
+        "pacPct": 1,
+        "individualPct": 99,
+        "cashOnHand": 853,
         "fecId": "H0KS01123",
         "financeSourceUrl": "https://www.fec.gov/data/candidate/H0KS01123/",
         "source": "OpenFEC API"
@@ -90340,7 +90340,7 @@
           "title": "Duty of Transparency Act",
           "introducedDate": "2026-07-16",
           "latestAction": "Referred to the House Committee on House Administration.",
-          "policyArea": "",
+          "policyArea": "Congress",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/9769"
@@ -90703,13 +90703,13 @@
       "source": "unitedstates/congress-legislators",
       "sourceUrl": "https://www.congress.gov/member/_/B000740",
       "finance": {
-        "financeCycle": 2026,
-        "totalRaised": 1943507,
-        "fromPacs": 973750,
-        "fromIndividuals": 453944,
-        "pacPct": 68,
-        "individualPct": 32,
-        "cashOnHand": 2021981,
+        "financeCycle": 2020,
+        "totalRaised": 3779470,
+        "fromPacs": 542550,
+        "fromIndividuals": 3009931,
+        "pacPct": 15,
+        "individualPct": 85,
+        "cashOnHand": 211591,
         "fecId": "H0OK05205",
         "financeSourceUrl": "https://www.fec.gov/data/candidate/H0OK05205/",
         "source": "OpenFEC API"
@@ -92255,7 +92255,7 @@
       "bills": [
         {
           "billNumber": "HR 9909",
-          "title": "To direct the Secretary of Defense to establish test and training corridors for small unmanned aircraft systems and associated capabilities, and for other purposes.",
+          "title": "Small Unmanned Aircraft Systems Operational Test, Evaluation, and Training Corridor Act",
           "introducedDate": "2026-07-23",
           "latestAction": "Referred to the House Committee on Armed Services.",
           "policyArea": "",
@@ -93107,7 +93107,7 @@
       "bills": [
         {
           "billNumber": "HR 9920",
-          "title": "To amend the Internal Revenue Code of 1986 to allow general contributions to Trump accounts for foster children.",
+          "title": "Foster Youth Investment Act",
           "introducedDate": "2026-07-23",
           "latestAction": "Referred to the House Committee on Ways and Means.",
           "policyArea": "",
@@ -93180,7 +93180,7 @@
           "title": "Fair Treatment of Religious Organizations Act of 2026",
           "introducedDate": "2026-07-16",
           "latestAction": "Ordered to be Reported in the Nature of a Substitute by the Yeas and Nays: 23 - 16.",
-          "policyArea": "",
+          "policyArea": "Taxation",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/9722"
@@ -94792,7 +94792,7 @@
       "bills": [
         {
           "billNumber": "HR 9938",
-          "title": "To amend the Internal Revenue Code of 1986 to establish a credit to incentivize investments in movie theaters, and for other purposes.",
+          "title": "SCREEN Act",
           "introducedDate": "2026-07-23",
           "latestAction": "Referred to the House Committee on Ways and Means.",
           "policyArea": "",
@@ -94845,7 +94845,7 @@
           "title": "No Hostile ONLOOKERS Act",
           "introducedDate": "2026-07-13",
           "latestAction": "Referred to the House Permanent Select Committee on Intelligence.",
-          "policyArea": "",
+          "policyArea": "Armed Forces and National Security",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/9660"
@@ -95654,7 +95654,7 @@
         },
         {
           "billNumber": "HR 9935",
-          "title": "To improve the Indian School Equalization Formula of the Bureau of Indian Education, and for other purposes.",
+          "title": "Indigenous Students Excel through Parity Act of 2026",
           "introducedDate": "2026-07-23",
           "latestAction": "Referred to the House Committee on Education and Workforce.",
           "policyArea": "",
@@ -96743,7 +96743,7 @@
           "title": "Protecting Access to Spiritual Treatment and Organized Religion Act of 2026",
           "introducedDate": "2026-07-22",
           "latestAction": "Referred to the Committee on Ways and Means, and in addition to the Committee on Energy and Commerce, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
-          "policyArea": "",
+          "policyArea": "Health",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/9851"
@@ -98709,7 +98709,7 @@
       "bills": [
         {
           "billNumber": "HR 9936",
-          "title": "To amend title 39, United States Code, to limit bonuses to the Postmaster General, and for other purposes.",
+          "title": "PERFORM Act",
           "introducedDate": "2026-07-23",
           "latestAction": "Referred to the House Committee on Oversight and Government Reform.",
           "policyArea": "",
@@ -99280,7 +99280,7 @@
           "title": "AIR CARE for Vets Act of 2026",
           "introducedDate": "2026-07-14",
           "latestAction": "Referred to the House Committee on Veterans' Affairs.",
-          "policyArea": "",
+          "policyArea": "Armed Forces and National Security",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/9666"
@@ -99574,7 +99574,7 @@
           "title": "Biomass Facility Construction Act",
           "introducedDate": "2026-07-16",
           "latestAction": "Referred to the House Committee on Ways and Means.",
-          "policyArea": "",
+          "policyArea": "Taxation",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/9746"
@@ -100152,7 +100152,7 @@
           "title": "Judicial Integrity Act",
           "introducedDate": "2026-07-20",
           "latestAction": "Referred to the House Committee on the Judiciary.",
-          "policyArea": "",
+          "policyArea": "Crime and Law Enforcement",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/9786"
@@ -100981,7 +100981,7 @@
       "bills": [
         {
           "billNumber": "HR 9895",
-          "title": "To amend the Internal Revenue Code of 1986 to create American dream accounts.",
+          "title": "American Dream Accounts Act of 2026",
           "introducedDate": "2026-07-23",
           "latestAction": "Referred to the House Committee on Ways and Means.",
           "policyArea": "",
@@ -102685,7 +102685,7 @@
       "bills": [
         {
           "billNumber": "HR 9919",
-          "title": "To amend the Immigration and Nationality Act to provide for the inadmissibility of certain aliens seeking citizenship for children by giving birth in the United States, and for other purposes.",
+          "title": "Ban Birth Tourism Act of 2026",
           "introducedDate": "2026-07-23",
           "latestAction": "Referred to the House Committee on the Judiciary.",
           "policyArea": "",
@@ -103253,7 +103253,7 @@
       "bills": [
         {
           "billNumber": "HR 9923",
-          "title": "To demonstrate United States leadership and to engage successfully in biotechnology diplomacy by recruiting and training biotechnology experts that can advocate for United States biotechnology priorities internationally, to ensure that Regional Technology Officers receive specialized training in biotechnology, and for other purposes.",
+          "title": "Biotechnology Diplomacy and Expertise Enhancement Act of 2026",
           "introducedDate": "2026-07-23",
           "latestAction": "Referred to the House Committee on Foreign Affairs.",
           "policyArea": "",
@@ -103844,7 +103844,7 @@
           "title": "FARM AI Act of 2026",
           "introducedDate": "2026-07-14",
           "latestAction": "Referred to the House Committee on Agriculture.",
-          "policyArea": "",
+          "policyArea": "Agriculture and Food",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/9686"
@@ -105221,7 +105221,7 @@
       "bills": [
         {
           "billNumber": "HR 9908",
-          "title": "To require the development of a comprehensive rural hospital cybersecurity workforce development strategy, and for other purposes.",
+          "title": "Rural Hospital Cybersecurity Enhancement Act",
           "introducedDate": "2026-07-23",
           "latestAction": "Referred to the House Committee on Energy and Commerce.",
           "policyArea": "",
@@ -106590,7 +106590,7 @@
         },
         {
           "billNumber": "HR 9882",
-          "title": "To amend the Homeland Security Act of 2002 to provide for requirements relating to documentation for major acquisition programs, and for other purposes.",
+          "title": "DHS Acquisition Documentation Integrity Act",
           "introducedDate": "2026-07-22",
           "latestAction": "Referred to the House Committee on Homeland Security.",
           "policyArea": "",
@@ -107475,7 +107475,7 @@
           "title": "United States Coast Guard Corrosion Control Assistance Team Pilot Program Act",
           "introducedDate": "2026-07-14",
           "latestAction": "Referred to the House Committee on Transportation and Infrastructure.",
-          "policyArea": "",
+          "policyArea": "Transportation and Public Works",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/9674"
@@ -108571,7 +108571,7 @@
           "title": "Expressing support for maintaining the designation of the Delaware Water Gap National Recreation Area.",
           "introducedDate": "2026-07-21",
           "latestAction": "Referred to the House Committee on Natural Resources.",
-          "policyArea": "",
+          "policyArea": "Public Lands and Natural Resources",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/hres/1444"
@@ -109136,7 +109136,7 @@
       "bills": [
         {
           "billNumber": "HR 9884",
-          "title": "To amend the Federal Agriculture Improvement and Reform Act of 1996 to establish a specialty crop emergency assistance framework, and for other purposes.",
+          "title": "CHILE Act of 2026",
           "introducedDate": "2026-07-22",
           "latestAction": "Referred to the House Committee on Agriculture.",
           "policyArea": "",
@@ -109704,7 +109704,7 @@
       "bills": [
         {
           "billNumber": "HR 9906",
-          "title": "To amend the Internal Revenue Code of 1986 to provide an elective exception from the volume cap on tax-exempt bonds for certain exempt facility bonds for qualified residential rental projects, and for other purposes.",
+          "title": "FIXER Act",
           "introducedDate": "2026-07-23",
           "latestAction": "Referred to the House Committee on Ways and Means.",
           "policyArea": "",
@@ -109727,7 +109727,7 @@
           "title": "Judicial FOIA Expansion Act",
           "introducedDate": "2026-07-20",
           "latestAction": "Referred to the House Committee on Oversight and Government Reform.",
-          "policyArea": "",
+          "policyArea": "Law",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/9778"
@@ -109857,9 +109857,9 @@
       "sourceUrl": "https://www.congress.gov/member/_/G000599",
       "finance": {
         "financeCycle": 2026,
-        "totalRaised": 8363609,
+        "totalRaised": 8365109,
         "fromPacs": 484364,
-        "fromIndividuals": 4996393,
+        "fromIndividuals": 4997893,
         "pacPct": 9,
         "individualPct": 91,
         "cashOnHand": 1158530,
@@ -110071,7 +110071,7 @@
           "title": "Replace UNRWA with Real Humanitarian Assistance Act",
           "introducedDate": "2026-07-14",
           "latestAction": "Referred to the House Committee on Foreign Affairs.",
-          "policyArea": "",
+          "policyArea": "International Affairs",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/9680"
@@ -113406,7 +113406,7 @@
         },
         {
           "billNumber": "HR 9868",
-          "title": "To provide for certain conditions on the enforcement of surrogacy contracts.",
+          "title": "Preventing Forced Abortions Act of 2026",
           "introducedDate": "2026-07-22",
           "latestAction": "Referred to the House Committee on the Judiciary.",
           "policyArea": "",
@@ -113680,7 +113680,7 @@
       "bills": [
         {
           "billNumber": "HR 9921",
-          "title": "To amend the Internal Revenue Code of 1986 to support the national defense and economic security of the United States by incentivizing the construction of United States shipyards.",
+          "title": "American Shipyard Investment Act of 2026",
           "introducedDate": "2026-07-23",
           "latestAction": "Referred to the House Committee on Ways and Means.",
           "policyArea": "",
@@ -113974,7 +113974,7 @@
         },
         {
           "billNumber": "HR 9879",
-          "title": "To amend the Statutory Pay-As-You-Go Act of 2010 to strengthen and enhance budgetary savings by providing for super PAYGO reductions, and for other purposes.",
+          "title": "Super Pay-As-You-Go Act of 2026",
           "introducedDate": "2026-07-22",
           "latestAction": "Referred to the Committee on the Budget, and in addition to the Committee on Rules, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
           "policyArea": "",
@@ -114107,7 +114107,7 @@
           "title": "PRIVACY Act",
           "introducedDate": "2026-07-15",
           "latestAction": "Referred to the Committee on the Judiciary, and in addition to the Committee on Oversight and Government Reform, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
-          "policyArea": "",
+          "policyArea": "Crime and Law Enforcement",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/9716"
@@ -116258,7 +116258,7 @@
           "title": "Protecting Columbia River Salmon Act of 2026",
           "introducedDate": "2026-07-09",
           "latestAction": "Referred to the House Committee on Natural Resources.",
-          "policyArea": "",
+          "policyArea": "Native Americans",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/9637"
@@ -116552,7 +116552,7 @@
           "title": "K\u20139 Hero Act of 2026",
           "introducedDate": "2026-07-14",
           "latestAction": "Referred to the House Committee on Oversight and Government Reform.",
-          "policyArea": "",
+          "policyArea": "Government Operations and Politics",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/9664"
@@ -116562,7 +116562,7 @@
           "title": "VA Police Security Enhancement Act",
           "introducedDate": "2026-07-14",
           "latestAction": "Referred to the House Committee on Veterans' Affairs.",
-          "policyArea": "",
+          "policyArea": "Armed Forces and National Security",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/9665"
@@ -120100,7 +120100,7 @@
       "bills": [
         {
           "billNumber": "HR 9937",
-          "title": "To amend the Controlled Substances Act and the Controlled Substances Import and Export Act to modify the offenses relating to fentanyl, and for other purposes.",
+          "title": "No Leniency for Fentanyl Dealers Act",
           "introducedDate": "2026-07-23",
           "latestAction": "Referred to the Committee on the Judiciary, and in addition to the Committees on Energy and Commerce, and Oversight and Government Reform, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
           "policyArea": "",
@@ -120668,7 +120668,7 @@
       "bills": [
         {
           "billNumber": "S 5089",
-          "title": "A bill to amend title XVIII of the Social Security Act to provide for coverage of dental services under the Medicare program.",
+          "title": "Medicare Dental Benefit Act of 2026",
           "introducedDate": "2026-07-22",
           "latestAction": "Read twice and referred to the Committee on Finance.",
           "policyArea": "",
@@ -120688,7 +120688,7 @@
         },
         {
           "billNumber": "S 5088",
-          "title": "A bill to amend title XXI of the Social Security Act to prohibit lifetime or annual limits on dental coverage under the Children's Health Insurance Program, and to require wraparound coverage of dental services for certain children under such program.",
+          "title": "Ensuring Kids Have Access to Medically Necessary Dental Care Act",
           "introducedDate": "2026-07-22",
           "latestAction": "Read twice and referred to the Committee on Finance.",
           "policyArea": "",
@@ -120698,7 +120698,7 @@
         },
         {
           "billNumber": "S 5080",
-          "title": "A bill to amend title 49, United States Code, to clarify the assistance available for recipients of assistance under chapter 53 of such title for acquisition of real property interests, and for other purposes.",
+          "title": "Modal Parity in Permitting Act",
           "introducedDate": "2026-07-22",
           "latestAction": "Read twice and referred to the Committee on Banking, Housing, and Urban Affairs.",
           "policyArea": "",
@@ -120851,7 +120851,7 @@
       "bills": [
         {
           "billNumber": "S 5097",
-          "title": "A bill to amend the Immigration and Nationality Act to provide for a pause on the issuance of H-1B visas until certain limitations on the issuance thereof are implemented.",
+          "title": "End H\u20131B Visa Abuse Act of 2026",
           "introducedDate": "2026-07-23",
           "latestAction": "Read twice and referred to the Committee on the Judiciary.",
           "policyArea": "",
@@ -123288,7 +123288,7 @@
         },
         {
           "billNumber": "HR 9889",
-          "title": "To direct the Secretary of Defense to report to Congress on the potential expansion of pathways for graduates of civilian test pilot schools to serve as test pilots and flight test engineers in support of military testing activities, and for other purposes.",
+          "title": "PILOT Act",
           "introducedDate": "2026-07-22",
           "latestAction": "Referred to the House Committee on Armed Services.",
           "policyArea": "",
@@ -124070,7 +124070,7 @@
       "bills": [
         {
           "billNumber": "HR 9883",
-          "title": "To create a private right of action to hold private detention centers liable for the wrongful death of any person being held in such private detention center, and for other purposes.",
+          "title": "Private Detention Corporate Accountability Act of 2026",
           "introducedDate": "2026-07-22",
           "latestAction": "Referred to the House Committee on the Judiciary.",
           "policyArea": "",
@@ -124344,7 +124344,7 @@
       "bills": [
         {
           "billNumber": "HR 9860",
-          "title": "To require the President to publish a statement of reasons for pardons, and for other purposes.",
+          "title": "Pardon Transparency and Accountability Act of 2026",
           "introducedDate": "2026-07-22",
           "latestAction": "Referred to the House Committee on the Judiciary.",
           "policyArea": "",
@@ -124641,7 +124641,7 @@
           "title": "Honoring the lives and service of Emily Barker, Nick Hutcherson, Sydney Watson, Nicholas Dale, and all those who serve on the front lines of America's wildland firefighting efforts.",
           "introducedDate": "2026-07-22",
           "latestAction": "Referred to the House Committee on Oversight and Government Reform.",
-          "policyArea": "",
+          "policyArea": "Emergency Management",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/hres/1446"
@@ -125654,7 +125654,7 @@
       "bills": [
         {
           "billNumber": "HR 9907",
-          "title": "To enable the Department of Labor to promote the necessity of artificial intelligence to safeguard the welfare and job security of apprentices.",
+          "title": "LEARN AI Act",
           "introducedDate": "2026-07-23",
           "latestAction": "Referred to the House Committee on Education and Workforce.",
           "policyArea": "",
@@ -126072,7 +126072,7 @@
         },
         {
           "billNumber": "HR 9880",
-          "title": "To direct the President to accelerate the modernization of the Global Positioning System Enterprise, including the development and deployment of the Global Positioning System III generation satellites, a more secure and capable control system, and the broadcast of new signals, such as L1C and L5 to enhance the resilience and security of the Global Positioning System, and for other purposes.",
+          "title": "GPS Modernization Acceleration Act",
           "introducedDate": "2026-07-22",
           "latestAction": "Referred to the Committee on Armed Services, and in addition to the Committee on Transportation and Infrastructure, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
           "policyArea": "",
@@ -126346,7 +126346,7 @@
       "bills": [
         {
           "billNumber": "HR 9859",
-          "title": "To require the Secretary of Labor to enter into adverse interest agreements if the Secretary shares information with an individual that is related to a potential civil action, and for other purposes.",
+          "title": "Ethical Investigations and Integrity Act",
           "introducedDate": "2026-07-22",
           "latestAction": "Referred to the House Committee on Education and Workforce.",
           "policyArea": "",
@@ -128357,7 +128357,7 @@
           "title": "Voter Choice Act",
           "introducedDate": "2026-07-09",
           "latestAction": "Referred to the House Committee on House Administration.",
-          "policyArea": "",
+          "policyArea": "Government Operations and Politics",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/9634"
@@ -129199,7 +129199,7 @@
           "title": "Northern Marianas VA Community-Based Outpatient Clinic Authorization Act of 2026",
           "introducedDate": "2026-07-13",
           "latestAction": "Referred to the House Committee on Veterans' Affairs.",
-          "policyArea": "",
+          "policyArea": "Armed Forces and National Security",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/9652"
@@ -130783,7 +130783,7 @@
           "title": "FEMA Caseworker Accountability Act",
           "introducedDate": "2026-07-14",
           "latestAction": "Referred to the House Committee on Transportation and Infrastructure.",
-          "policyArea": "",
+          "policyArea": "Emergency Management",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/9683"
@@ -132650,7 +132650,7 @@
           "title": "Protecting Childcare from Private Equity Act",
           "introducedDate": "2026-07-22",
           "latestAction": "Referred to the Committee on Financial Services, and in addition to the Committee on Education and Workforce, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
-          "policyArea": "",
+          "policyArea": "Finance and Financial Sector",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/9875"
@@ -133178,7 +133178,7 @@
           "title": "Expressing support for continued efforts to safeguard the supplemental nutrition assistance program under the Food and Nutrition Act of 2008 from fraud, waste, and abuse for the Nation's most vulnerable.",
           "introducedDate": "2026-07-14",
           "latestAction": "Referred to the House Committee on Agriculture.",
-          "policyArea": "",
+          "policyArea": "Agriculture and Food",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/hres/1429"
@@ -134090,7 +134090,7 @@
           "title": "Fit Future Act",
           "introducedDate": "2026-07-16",
           "latestAction": "Ordered to be Reported (Amended) by the Yeas and Nays: 33 - 0.",
-          "policyArea": "",
+          "policyArea": "Sports and Recreation",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/9723"
@@ -134578,7 +134578,7 @@
           "title": "Sergeant First Class Jorge Otero Barreto Medal of Honor Act",
           "introducedDate": "2026-07-06",
           "latestAction": "Referred to the House Committee on Armed Services.",
-          "policyArea": "",
+          "policyArea": "Armed Forces and National Security",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/9595"
@@ -135387,7 +135387,7 @@
       "bills": [
         {
           "billNumber": "HR 9904",
-          "title": "To amend title 18, United States Code, to prohibit the trafficking in catalytic converters.",
+          "title": "Deputy Darren Almendarez Act",
           "introducedDate": "2026-07-23",
           "latestAction": "Referred to the House Committee on the Judiciary.",
           "policyArea": "",
@@ -138472,7 +138472,7 @@
       "bills": [
         {
           "billNumber": "HR 9869",
-          "title": "To amend chapter 81 of title 5, United States Code, to improve outcomes for injured Federal workers and reduce costs and fraud, and for other purposes.",
+          "title": "FECA Modernization and Cost Containment Act of 2026",
           "introducedDate": "2026-07-22",
           "latestAction": "Referred to the House Committee on Education and Workforce.",
           "policyArea": "",
@@ -139040,7 +139040,7 @@
       "bills": [
         {
           "billNumber": "HR 9888",
-          "title": "To direct the Secretary of Defense to ensure regular data collection on the costs and effects of extreme weather and incremental change at military installations, and for other purposes.",
+          "title": "Military Installation Readiness and Resilience Act of 2026",
           "introducedDate": "2026-07-22",
           "latestAction": "Referred to the House Committee on Armed Services.",
           "policyArea": "",
@@ -139050,7 +139050,7 @@
         },
         {
           "billNumber": "HR 9887",
-          "title": "To establish a registry to reduce swatting, and for other purposes.",
+          "title": "Swatting Registry Best Practices Act",
           "introducedDate": "2026-07-22",
           "latestAction": "Referred to the House Committee on the Judiciary.",
           "policyArea": "",
@@ -139060,7 +139060,7 @@
         },
         {
           "billNumber": "HR 9886",
-          "title": "To direct the Comptroller General of the United States to conduct a comprehensive review of indoor air quality conditions across all Federal buildings, facilities, and real property, and for other purposes.",
+          "title": "Federal Facilities Indoor Air Quality Assessment Act",
           "introducedDate": "2026-07-22",
           "latestAction": "Referred to the House Committee on Transportation and Infrastructure.",
           "policyArea": "",
@@ -139981,7 +139981,7 @@
           "title": "Proposing an amendment to the Constitution of the United States to require that certain individuals are natural born citizens.",
           "introducedDate": "2026-07-21",
           "latestAction": "Referred to the House Committee on the Judiciary.",
-          "policyArea": "",
+          "policyArea": "Law",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/hjres/204"
