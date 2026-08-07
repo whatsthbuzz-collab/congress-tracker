@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-08-06T11:33:45.040348+00:00",
+  "lastUpdated": "2026-08-07T06:41:23.720604+00:00",
   "totalMembers": 537,
   "billsIncluded": true,
   "financeIncluded": true,
@@ -940,7 +940,7 @@
           "billNumber": "SRES 831",
           "title": "A resolution recognizing the 100th anniversary of Northwest Mississippi Community College and celebrating a century of educational excellence, workforce development, student success, and service to the people of Mississippi and the United States.",
           "introducedDate": "2026-08-05",
-          "latestAction": "Submitted in the Senate, considered, and agreed to without amendment and with a preamble by Unanimous Consent.",
+          "latestAction": "Submitted in the Senate, considered, and agreed to without amendment and with a preamble by Unanimous Consent. (consideration: CR S4480; text: CR S4478-4479)",
           "policyArea": "",
           "role": "sponsor",
           "source": "Congress.gov API",
@@ -1123,7 +1123,7 @@
           "billNumber": "S 5250",
           "title": "A bill to amend title XVIII of the Social Security Act to decrease fraud related to home health agencies in Medicare, and for other purposes.",
           "introducedDate": "2026-08-05",
-          "latestAction": "Read twice and referred to the Committee on Finance.",
+          "latestAction": "Read twice and referred to the Committee on Finance. (Sponsor introductory remarks on measure: CR S4477-4478)",
           "policyArea": "",
           "role": "sponsor",
           "source": "Congress.gov API",
@@ -1133,7 +1133,7 @@
           "billNumber": "Measure 6732",
           "title": "",
           "introducedDate": "2026-08-04",
-          "latestAction": "",
+          "latestAction": "Cloture motion on amendment SA 6732 presented in Senate.",
           "policyArea": "",
           "role": "sponsor",
           "source": "Congress.gov API",
@@ -1507,7 +1507,7 @@
         },
         {
           "billNumber": "S 5060",
-          "title": "A bill to comprehensively combat child marriage in the United States.",
+          "title": "Child Marriage Prevention Act of 2026",
           "introducedDate": "2026-07-21",
           "latestAction": "Read twice and referred to the Committee on the Judiciary. (text: CR S4190-4194)",
           "policyArea": "",
@@ -2038,7 +2038,7 @@
           "billNumber": "S 5264",
           "title": "A bill to amend title 49, United States Code. to set requirements for certain operator workstations for fixed route buses, and for other purposes.",
           "introducedDate": "2026-08-05",
-          "latestAction": "Read twice and referred to the Committee on Banking, Housing, and Urban Affairs.",
+          "latestAction": "Read twice and referred to the Committee on Banking, Housing, and Urban Affairs. (Sponsor introductory remarks on measure: CR S4478)",
           "policyArea": "",
           "role": "sponsor",
           "source": "Congress.gov API",
@@ -2049,7 +2049,7 @@
           "title": "A joint resolution providing for congressional disapproval under chapter 8 of title 5, United States Code, of the rule submitted by the Office of the Comptroller of the Currency relating to \"Preemption Determination: State Interest-on-Escrow Laws\".",
           "introducedDate": "2026-07-29",
           "latestAction": "Read twice and referred to the Committee on Banking, Housing, and Urban Affairs.",
-          "policyArea": "",
+          "policyArea": "Finance and Financial Sector",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/sjres/203"
@@ -2595,7 +2595,7 @@
         },
         {
           "billNumber": "S 5223",
-          "title": "A bill to prohibit the purchase or sale of securities while aware of nonpublic information contained in certain social media accounts controlled by Government officials, and for other purposes.",
+          "title": "NO PROFIT Act",
           "introducedDate": "2026-08-03",
           "latestAction": "Read twice and referred to the Committee on Banking, Housing, and Urban Affairs.",
           "policyArea": "",
@@ -2605,7 +2605,7 @@
         },
         {
           "billNumber": "S 5217",
-          "title": "A bill to amend the Consolidated Appropriations Act, 2017 to extend the availability of identity protection coverage to individuals whose personally identifiable information was compromised during recent data breaches at Federal agencies, and for other purposes.",
+          "title": "RECOVER PII Act",
           "introducedDate": "2026-08-03",
           "latestAction": "Read twice and referred to the Committee on Homeland Security and Governmental Affairs.",
           "policyArea": "",
@@ -2628,7 +2628,7 @@
           "title": "Data Center Tax Accountability and Disclosure Act of 2026",
           "introducedDate": "2026-07-21",
           "latestAction": "Read twice and referred to the Committee on Finance.",
-          "policyArea": "",
+          "policyArea": "Taxation",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/s/5054"
@@ -2771,7 +2771,7 @@
           "title": "PROKID Act",
           "introducedDate": "2026-07-22",
           "latestAction": "Read twice and referred to the Committee on the Judiciary.",
-          "policyArea": "",
+          "policyArea": "Immigration",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/s/5093"
@@ -2781,7 +2781,7 @@
           "title": "Real Courts, Rule of Law Act of 2026",
           "introducedDate": "2026-07-22",
           "latestAction": "Read twice and referred to the Committee on the Judiciary.",
-          "policyArea": "",
+          "policyArea": "Immigration",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/s/5094"
@@ -3664,7 +3664,7 @@
           "title": "Glenwood Hot Springs Protection Act",
           "introducedDate": "2026-07-23",
           "latestAction": "Read twice and referred to the Committee on Energy and Natural Resources.",
-          "policyArea": "",
+          "policyArea": "Energy",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/s/5101"
@@ -4395,7 +4395,7 @@
           "title": "Enhancing K\u201312 Cybersecurity Act",
           "introducedDate": "2026-07-23",
           "latestAction": "Read twice and referred to the Committee on Homeland Security and Governmental Affairs.",
-          "policyArea": "",
+          "policyArea": "Education",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/s/5098"
@@ -4537,7 +4537,7 @@
           "billNumber": "SRES 828",
           "title": "A resolution expressing the sense of the Senate that President Trump's lawsuit against the Internal Revenue Service, the resulting settlement from that lawsuit, the purported \"Anti-Weaponization Fund\", and the purported grant of immunity from tax investigations to the plaintiffs in President Trump's lawsuit, should be rejected, equal protection arguments by others with similar claims should be forestalled, and this settlement should not serve as a precedent and should never be repeated.",
           "introducedDate": "2026-08-04",
-          "latestAction": "Referred to the Committee on the Judiciary.",
+          "latestAction": "Referred to the Committee on the Judiciary. (text: CR S4436)",
           "policyArea": "",
           "role": "sponsor",
           "source": "Congress.gov API",
@@ -4545,7 +4545,7 @@
         },
         {
           "billNumber": "S 5219",
-          "title": "A bill to improve end-of-life care.",
+          "title": "Compassionate Care Act",
           "introducedDate": "2026-08-03",
           "latestAction": "Read twice and referred to the Committee on Health, Education, Labor, and Pensions.",
           "policyArea": "",
@@ -5188,7 +5188,7 @@
           "title": "National Security Interstate Pipeline Act",
           "introducedDate": "2026-07-22",
           "latestAction": "Referred to the Committee on Energy and Commerce, and in addition to the Committees on Transportation and Infrastructure, and Natural Resources, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
-          "policyArea": "",
+          "policyArea": "Energy",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/9838"
@@ -5479,7 +5479,7 @@
         },
         {
           "billNumber": "S 5207",
-          "title": "A bill to amend the Public Health Service Act to maintain the Rural Communities Opioid Response Program, and for other purposes.",
+          "title": "RCORP Authorization Act",
           "introducedDate": "2026-08-03",
           "latestAction": "Read twice and referred to the Committee on Health, Education, Labor, and Pensions.",
           "policyArea": "",
@@ -6290,7 +6290,7 @@
         },
         {
           "billNumber": "S 4965",
-          "title": "Railroad Retirement Board Stability Act of 2026",
+          "title": "Railroad Retirement Board Stability Act",
           "introducedDate": "2026-07-14",
           "latestAction": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 540.",
           "policyArea": "Transportation and Public Works",
@@ -11971,7 +11971,7 @@
       "bills": [
         {
           "billNumber": "HR 9980",
-          "title": "To amend the Richard B. Russell National School Lunch Act to require a school food authority to make publicly available any waiver of the Buy American requirement, and for other purposes.",
+          "title": "American Food for American Schools Act of 2026",
           "introducedDate": "2026-07-30",
           "latestAction": "Referred to the House Committee on Education and Workforce.",
           "policyArea": "",
@@ -12552,7 +12552,7 @@
           "title": "A resolution recognizing the importance of trademarks in the economy and the role of trademarks in protecting consumer safety by designating the month of July as \"National Anti-Counterfeiting and Consumer Education and Awareness Month\".",
           "introducedDate": "2026-07-29",
           "latestAction": "Submitted in the Senate, considered, and agreed to without amendment and with a preamble by Unanimous Consent. (consideration: CR S4351; text: CR S4338-4339)",
-          "policyArea": "",
+          "policyArea": "Commerce",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/sres/818"
@@ -18234,7 +18234,7 @@
           "title": "Cyber Letters of Marque and Reprisal Act",
           "introducedDate": "2026-07-15",
           "latestAction": "Read twice and referred to the Committee on Foreign Relations.",
-          "policyArea": "Crime and Law Enforcement",
+          "policyArea": "International Affairs",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/s/5000"
@@ -19442,7 +19442,7 @@
           "title": "Green New Deal for Health Act",
           "introducedDate": "2026-07-27",
           "latestAction": "Read twice and referred to the Committee on Health, Education, Labor, and Pensions.",
-          "policyArea": "",
+          "policyArea": "Health",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/s/5134"
@@ -19585,7 +19585,7 @@
           "title": "Enhancing K\u201312 Cybersecurity Act",
           "introducedDate": "2026-07-23",
           "latestAction": "Referred to the Committee on Homeland Security, and in addition to the Committee on Education and Workforce, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
-          "policyArea": "",
+          "policyArea": "Education",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/9918"
@@ -21580,7 +21580,7 @@
         },
         {
           "billNumber": "S 5224",
-          "title": "A bill to improve training for airport drivers in the movement area at commercial service airports through the establishment of a task force and the use of technology, and for other purposes.",
+          "title": "Runway SAFE-T Act",
           "introducedDate": "2026-08-04",
           "latestAction": "Read twice and referred to the Committee on Commerce, Science, and Transportation.",
           "policyArea": "",
@@ -21590,7 +21590,7 @@
         },
         {
           "billNumber": "S 5218",
-          "title": "A bill to amend the Agricultural Research, Extension, and Education Reform Act of 1998 to direct the Secretary of Agriculture to establish a program under which the Secretary will award competitive grants to eligible entities for the purpose of establishing and enhancing farming and ranching opportunities for veterans.",
+          "title": "Colonel Gary LaGrange AgVets Act of 2026",
           "introducedDate": "2026-08-03",
           "latestAction": "Read twice and referred to the Committee on Agriculture, Nutrition, and Forestry.",
           "policyArea": "",
@@ -21949,7 +21949,7 @@
           "title": "Luxury JET Act",
           "introducedDate": "2026-07-15",
           "latestAction": "Read twice and referred to the Committee on Armed Services.",
-          "policyArea": "Armed Forces and National Security",
+          "policyArea": "International Affairs",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/s/4999"
@@ -25955,7 +25955,7 @@
       "bills": [
         {
           "billNumber": "S 5212",
-          "title": "A bill to amend title 18, United States Code, to reform executive clemency.",
+          "title": "No Payoffs for Pardons Act",
           "introducedDate": "2026-08-03",
           "latestAction": "Read twice and referred to the Committee on the Judiciary. (text: CR S4409-4410; Sponsor introductory remarks on measure: CR S4409-4410)",
           "policyArea": "",
@@ -25965,7 +25965,7 @@
         },
         {
           "billNumber": "S 5183",
-          "title": "A bill to establish the Anti-Corruption Bureau, and for other purposes.",
+          "title": "Anti-Corruption Bureau Creation Act",
           "introducedDate": "2026-07-30",
           "latestAction": "Read twice and referred to the Committee on Finance. (text: CR S4372-4385; Sponsor introductory remarks on measure: CR S4371-4372)",
           "policyArea": "",
@@ -29721,7 +29721,7 @@
           "title": "Young Farmer Success Act",
           "introducedDate": "2026-07-27",
           "latestAction": "Referred to the House Committee on Education and Workforce.",
-          "policyArea": "",
+          "policyArea": "Education",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/9974"
@@ -30004,7 +30004,7 @@
           "billNumber": "Measure 6741",
           "title": "",
           "introducedDate": "2026-08-05",
-          "latestAction": "Amendment SA 6741 proposed by Senator Thune to Amendment SA 6740 (the instructions of the motion to commit). To improve the bill.",
+          "latestAction": "Amendment SA 6741 proposed by Senator Thune to Amendment SA 6740 (the instructions of the motion to commit). (consideration: CR S4449)",
           "policyArea": "",
           "role": "sponsor",
           "source": "Congress.gov API",
@@ -30014,7 +30014,7 @@
           "billNumber": "Measure 6740",
           "title": "",
           "introducedDate": "2026-08-05",
-          "latestAction": "Amendment SA 6740 proposed by Senator Thune. To improve the bill.",
+          "latestAction": "Amendment SA 6740 proposed by Senator Thune. (consideration: CR S4449)",
           "policyArea": "",
           "role": "sponsor",
           "source": "Congress.gov API",
@@ -30024,7 +30024,7 @@
           "billNumber": "Measure 6742",
           "title": "",
           "introducedDate": "2026-08-05",
-          "latestAction": "Amendment SA 6742 proposed by Senator Thune to Amendment SA 6741. To improve the bill.",
+          "latestAction": "Amendment SA 6742 proposed by Senator Thune to Amendment SA 6741. (consideration: CR S4449)",
           "policyArea": "",
           "role": "sponsor",
           "source": "Congress.gov API",
@@ -30034,7 +30034,7 @@
           "billNumber": "Measure 6738",
           "title": "",
           "introducedDate": "2026-08-05",
-          "latestAction": "Amendment SA 6738 proposed by Senator Thune to language proposed to be stricken by amendment no. 6732. To improve the bill.",
+          "latestAction": "Amendment SA 6738 proposed by Senator Thune to language proposed to be stricken by amendment no. 6732. (consideration: CR S4449)",
           "policyArea": "",
           "role": "sponsor",
           "source": "Congress.gov API",
@@ -30044,7 +30044,7 @@
           "billNumber": "Measure 6739",
           "title": "",
           "introducedDate": "2026-08-05",
-          "latestAction": "Amendment SA 6739 proposed by Senator Thune to Amendment SA 6738. To improve the bill.",
+          "latestAction": "Amendment SA 6739 proposed by Senator Thune to Amendment SA 6738. (consideration: CR S4449)",
           "policyArea": "",
           "role": "sponsor",
           "source": "Congress.gov API",
@@ -30054,7 +30054,7 @@
           "billNumber": "Measure 6737",
           "title": "",
           "introducedDate": "2026-08-05",
-          "latestAction": "Amendment SA 6737 proposed by Senator Thune to Amendment SA 6736. To improve the bill.",
+          "latestAction": "Amendment SA 6737 proposed by Senator Thune to Amendment SA 6736. (consideration: CR S4448)",
           "policyArea": "",
           "role": "sponsor",
           "source": "Congress.gov API",
@@ -30064,7 +30064,7 @@
           "billNumber": "Measure 6736",
           "title": "",
           "introducedDate": "2026-08-05",
-          "latestAction": "Amendment SA 6736 proposed by Senator Thune to Amendment SA 6732. To improve the bill.",
+          "latestAction": "Amendment SA 6736 proposed by Senator Thune to Amendment SA 6732. (consideration: CR S4448)",
           "policyArea": "",
           "role": "sponsor",
           "source": "Congress.gov API",
@@ -31496,7 +31496,7 @@
           "title": "No PREJUDICE Act",
           "introducedDate": "2026-07-30",
           "latestAction": "Referred to the Committee on the Judiciary, and in addition to the Committee on Homeland Security, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
-          "policyArea": "",
+          "policyArea": "Immigration",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/10011"
@@ -32408,7 +32408,7 @@
           "title": "Fairness for Small-Scale Farmers and Ranchers Act of 2026",
           "introducedDate": "2026-07-15",
           "latestAction": "Read twice and referred to the Committee on Agriculture, Nutrition, and Forestry.",
-          "policyArea": "",
+          "policyArea": "Agriculture and Food",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/s/4996"
@@ -35166,7 +35166,7 @@
       "bills": [
         {
           "billNumber": "S 5193",
-          "title": "A bill to amend the Public Health Service Act to expand the capacity to improve health outcomes and increase access to specialized care.",
+          "title": "Expanding Capacity for Health Outcomes Act of 2026",
           "introducedDate": "2026-07-30",
           "latestAction": "Read twice and referred to the Committee on Health, Education, Labor, and Pensions.",
           "policyArea": "",
@@ -38851,7 +38851,7 @@
           "title": "CDC Tribal Public Health Security and Preparedness Act",
           "introducedDate": "2026-07-21",
           "latestAction": "Read twice and referred to the Committee on Health, Education, Labor, and Pensions.",
-          "policyArea": "",
+          "policyArea": "Native Americans",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/s/5056"
@@ -39011,7 +39011,7 @@
       "bills": [
         {
           "billNumber": "S 5213",
-          "title": "A bill to support programs for mosquito-borne and other vector-borne disease surveillance and control.",
+          "title": "SMASH 2.0 Act",
           "introducedDate": "2026-08-03",
           "latestAction": "Read twice and referred to the Committee on Health, Education, Labor, and Pensions.",
           "policyArea": "",
@@ -41450,7 +41450,7 @@
           "title": "No Discounts for Foreigners Act",
           "introducedDate": "2026-07-23",
           "latestAction": "Referred to the House Committee on the Judiciary.",
-          "policyArea": "",
+          "policyArea": "Immigration",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/9928"
@@ -41733,7 +41733,7 @@
           "billNumber": "SRES 829",
           "title": "A resolution reaffirming the policy of the United States to support a peaceful democratic transition in Venezuela through free and fair elections.",
           "introducedDate": "2026-08-04",
-          "latestAction": "",
+          "latestAction": "Referred to the Committee on Foreign Relations. (text: CR S4436)",
           "policyArea": "",
           "role": "sponsor",
           "source": "Congress.gov API",
@@ -41774,7 +41774,7 @@
           "title": "Improving America's Literacy Act",
           "introducedDate": "2026-07-23",
           "latestAction": "Read twice and referred to the Committee on Health, Education, Labor, and Pensions.",
-          "policyArea": "",
+          "policyArea": "Education",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/s/5110"
@@ -43823,7 +43823,7 @@
           "billNumber": "HR 6500",
           "title": "AGOA Extension Act",
           "introducedDate": "2025-12-09",
-          "latestAction": "Cloture motion on the measure presented in Senate.",
+          "latestAction": "Cloture motion on the measure presented in Senate. (CR S4449)",
           "policyArea": "Foreign Trade and International Finance",
           "role": "sponsor",
           "source": "Congress.gov API",
@@ -44098,7 +44098,7 @@
           "title": "A bill to designate the facility of the United States Postal Service located at 16 Rev Dr Martin Luther King Drive in Willingboro, New Jersey, as the \"James A. Cotten Post Office\".",
           "introducedDate": "2026-07-28",
           "latestAction": "Read twice and referred to the Committee on Homeland Security and Governmental Affairs.",
-          "policyArea": "",
+          "policyArea": "Government Operations and Politics",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/s/5149"
@@ -45982,7 +45982,7 @@
         },
         {
           "billNumber": "S 5226",
-          "title": "A bill to require social media platform providers to obtain parental consent with respect to children creating or maintaining accounts or profiles on their platforms, and for other purposes.",
+          "title": "Parental Approval for Youth Social Media Act of 2026",
           "introducedDate": "2026-08-04",
           "latestAction": "Read twice and referred to the Committee on Commerce, Science, and Transportation.",
           "policyArea": "",
@@ -46005,7 +46005,7 @@
           "title": "State of Men\u2019s Health Act",
           "introducedDate": "2026-07-23",
           "latestAction": "Read twice and referred to the Committee on Health, Education, Labor, and Pensions.",
-          "policyArea": "",
+          "policyArea": "Health",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/s/5113"
@@ -52729,7 +52729,7 @@
       "bills": [
         {
           "billNumber": "S 5214",
-          "title": "A bill to amend title 18, United States Code, to punish criminal offenses targeting law enforcement officers, and for other purposes.",
+          "title": "Protect and Serve Act of 2026",
           "introducedDate": "2026-08-03",
           "latestAction": "Read twice and referred to the Committee on the Judiciary.",
           "policyArea": "",
@@ -54525,7 +54525,7 @@
         },
         {
           "billNumber": "S 5210",
-          "title": "A bill to allow Members of Congress to display works of art that are currently held in storage.",
+          "title": "Display America's Art Act",
           "introducedDate": "2026-08-03",
           "latestAction": "Read twice and referred to the Committee on Rules and Administration.",
           "policyArea": "",
@@ -54891,7 +54891,7 @@
         },
         {
           "billNumber": "S 5215",
-          "title": "A bill to amend the Internal Revenue Code of 1986 to extend and enhance certain tax credits for electric vehicles, and for other purposes.",
+          "title": "Cleaner Transportation Access for All Act",
           "introducedDate": "2026-08-03",
           "latestAction": "Read twice and referred to the Committee on Finance.",
           "policyArea": "",
@@ -54901,7 +54901,7 @@
         },
         {
           "billNumber": "S 5222",
-          "title": "A bill to establish the Cleaner Transportation at Recreational Areas to Improve our Landmarks and Sites (Cleaner TRAILS) Initiative to facilitate the installation of zero-emission vehicle fueling infrastructure on National Forest System land, National Park System land, and certain related land, and for other purposes.",
+          "title": "DRIVE Across America Act of 2026",
           "introducedDate": "2026-08-03",
           "latestAction": "Read twice and referred to the Committee on Energy and Natural Resources.",
           "policyArea": "",
@@ -55665,7 +55665,7 @@
           "title": "No Campaign Funded Cover-Ups Act",
           "introducedDate": "2026-07-27",
           "latestAction": "Referred to the House Committee on House Administration.",
-          "policyArea": "",
+          "policyArea": "Congress",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/9961"
@@ -58838,7 +58838,7 @@
       "bills": [
         {
           "billNumber": "S 5228",
-          "title": "A bill to amend the Revised Statutes to provide that a person who refuses to answer certain questions or is finally convicted of perjury before either House of Congress shall be debarred from Federal employment, and for other purposes.",
+          "title": "STOP the SWAMP Act",
           "introducedDate": "2026-08-04",
           "latestAction": "Read twice and referred to the Committee on Homeland Security and Governmental Affairs.",
           "policyArea": "",
@@ -60627,7 +60627,7 @@
           "title": "Foodborne Illness Rapid Response Act",
           "introducedDate": "2026-07-30",
           "latestAction": "Referred to the House Committee on Energy and Commerce.",
-          "policyArea": "",
+          "policyArea": "Health",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/9981"
@@ -63941,7 +63941,7 @@
         },
         {
           "billNumber": "S 5197",
-          "title": "A bill to amend the Immigration and Nationality Act to provide for a State-sponsored nonimmigrant pilot program, and for other purposes.",
+          "title": "State-Sponsored Visa Pilot Program Act of 2026",
           "introducedDate": "2026-07-30",
           "latestAction": "Read twice and referred to the Committee on the Judiciary.",
           "policyArea": "",
@@ -64300,7 +64300,7 @@
           "title": "A resolution commending Mississippi Christian University for 200 years of service to the State of Mississippi and the United States.",
           "introducedDate": "2026-07-30",
           "latestAction": "Submitted in the Senate, considered, and agreed to without amendment and with a preamble by Unanimous Consent. (consideration: CR S4365; text: CR S4392-4393)",
-          "policyArea": "",
+          "policyArea": "Education",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/sres/825"
@@ -67343,7 +67343,7 @@
           "title": "Local Input Act",
           "introducedDate": "2026-07-23",
           "latestAction": "Referred to the House Committee on Natural Resources.",
-          "policyArea": "",
+          "policyArea": "Energy",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/9924"
@@ -67891,7 +67891,7 @@
           "title": "Time for Completion Act",
           "introducedDate": "2026-07-27",
           "latestAction": "Referred to the House Committee on Education and Workforce.",
-          "policyArea": "",
+          "policyArea": "Education",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/9957"
@@ -70447,7 +70447,7 @@
           "title": "Right to IVF Act of 2026",
           "introducedDate": "2026-07-23",
           "latestAction": "Referred to the Committee on Energy and Commerce, and in addition to the Committees on Veterans' Affairs, Armed Services, Education and Workforce, Ways and Means, and Oversight and Government Reform, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
-          "policyArea": "",
+          "policyArea": "Health",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/9941"
@@ -70748,7 +70748,7 @@
         },
         {
           "billNumber": "HR 9817",
-          "title": "To end the shackling of pregnant individuals, and for other purposes.",
+          "title": "Justice for Incarcerated Moms Act",
           "introducedDate": "2026-07-21",
           "latestAction": "Referred to the House Committee on the Judiciary.",
           "policyArea": "",
@@ -76269,7 +76269,7 @@
           "title": "Cyber Letters of Marque and Reprisal Act",
           "introducedDate": "2026-07-15",
           "latestAction": "Referred to the House Committee on Foreign Affairs.",
-          "policyArea": "Crime and Law Enforcement",
+          "policyArea": "International Affairs",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/9697"
@@ -79647,7 +79647,7 @@
           "title": "Coast Guard Leadership Modernization Act",
           "introducedDate": "2026-07-22",
           "latestAction": "Read twice and referred to the Committee on Commerce, Science, and Transportation.",
-          "policyArea": "",
+          "policyArea": "Transportation and Public Works",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/s/5069"
@@ -79657,7 +79657,7 @@
           "title": "Service Academy Parity Act",
           "introducedDate": "2026-07-22",
           "latestAction": "Read twice and referred to the Committee on Commerce, Science, and Transportation.",
-          "policyArea": "",
+          "policyArea": "Transportation and Public Works",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/s/5068"
@@ -83461,7 +83461,7 @@
         },
         {
           "billNumber": "HR 9858",
-          "title": "To establish the Critical Minerals Innovation Partnership, and for other purposes.",
+          "title": "STRATA Act of 2026",
           "introducedDate": "2026-07-22",
           "latestAction": "Referred to the House Committee on Foreign Affairs.",
           "policyArea": "",
@@ -89144,7 +89144,7 @@
           "title": "Advancing International and Foreign Language Education Act",
           "introducedDate": "2026-07-27",
           "latestAction": "Referred to the House Committee on Education and Workforce.",
-          "policyArea": "",
+          "policyArea": "Education",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/9971"
@@ -90838,7 +90838,7 @@
           "title": "Wildfire Reduction Market Expansion Act of 2026",
           "introducedDate": "2026-07-22",
           "latestAction": "Referred to the House Committee on Energy and Commerce.",
-          "policyArea": "",
+          "policyArea": "Energy",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/9827"
@@ -91974,7 +91974,7 @@
           "title": "RESCUE Act of 2026",
           "introducedDate": "2026-07-27",
           "latestAction": "Referred to the Committee on Energy and Commerce, and in addition to the Committee on Ways and Means, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
-          "policyArea": "",
+          "policyArea": "Health",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/9970"
@@ -93394,7 +93394,7 @@
           "title": "PATH Act",
           "introducedDate": "2026-07-23",
           "latestAction": "Referred to the House Committee on Transportation and Infrastructure.",
-          "policyArea": "",
+          "policyArea": "Transportation and Public Works",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/9926"
@@ -94253,7 +94253,7 @@
         },
         {
           "billNumber": "S 5221",
-          "title": "A bill to prohibit the purchase, sale, or exchange of nonpublic information, and for other purposes.",
+          "title": "Stop Corrupt Trading Act",
           "introducedDate": "2026-08-03",
           "latestAction": "Read the second time. Placed on Senate Legislative Calendar under General Orders. Calendar No. 536.",
           "policyArea": "",
@@ -94276,7 +94276,7 @@
           "title": "A resolution designating July 2026 as \"American Grown Flower and Foliage Month\".",
           "introducedDate": "2026-07-30",
           "latestAction": "Submitted in the Senate, considered, and agreed to without amendment and with a preamble by Unanimous Consent. (consideration: CR S4365; text: CR S4391-4392)",
-          "policyArea": "Congress",
+          "policyArea": "Agriculture and Food",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/sres/822"
@@ -98160,7 +98160,7 @@
       "bills": [
         {
           "billNumber": "S 5209",
-          "title": "A bill to amend title 39, United States Code, to limit bonuses to the Postmaster General, and for other purposes.",
+          "title": "PERFORM Act",
           "introducedDate": "2026-08-03",
           "latestAction": "Read twice and referred to the Committee on Homeland Security and Governmental Affairs.",
           "policyArea": "",
@@ -100142,7 +100142,7 @@
           "title": "Higher Education Access and Success for Homeless and Foster Youth Act of 2026",
           "introducedDate": "2026-07-27",
           "latestAction": "Referred to the House Committee on Education and Workforce.",
-          "policyArea": "",
+          "policyArea": "Education",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/9960"
@@ -102685,7 +102685,7 @@
       "bills": [
         {
           "billNumber": "HR 9991",
-          "title": "To amend section 102 of the Revised Statutes of the United States to provide that a person who refuses to answer certain questions or is finally convicted of perjury before either House of Congress shall be debarred from Federal employment, and for other purposes.",
+          "title": "STOP the SWAMP Act",
           "introducedDate": "2026-07-30",
           "latestAction": "Referred to the Committee on the Judiciary, and in addition to the Committees on Oversight and Government Reform, and Rules, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
           "policyArea": "",
@@ -106603,7 +106603,7 @@
           "title": "DHS Acquisition Documentation Integrity Act",
           "introducedDate": "2026-07-22",
           "latestAction": "Referred to the House Committee on Homeland Security.",
-          "policyArea": "",
+          "policyArea": "Government Operations and Politics",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/9882"
@@ -108003,7 +108003,7 @@
           "title": "Seizure Safe Schools Act of 2026",
           "introducedDate": "2026-07-27",
           "latestAction": "Referred to the House Committee on Education and Workforce.",
-          "policyArea": "",
+          "policyArea": "Education",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/9956"
@@ -108013,7 +108013,7 @@
           "title": "Stop Prison Price Gouging Act of 2026",
           "introducedDate": "2026-07-23",
           "latestAction": "Referred to the House Committee on the Judiciary.",
-          "policyArea": "",
+          "policyArea": "Crime and Law Enforcement",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/9903"
@@ -112547,14 +112547,14 @@
           "title": "Pathway to Trades Act",
           "introducedDate": "2026-07-27",
           "latestAction": "Referred to the House Committee on Education and Workforce.",
-          "policyArea": "",
+          "policyArea": "Education",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/9955"
         },
         {
           "billNumber": "HR 9954",
-          "title": "To establish the Manufacturing Sovereign Wealth Fund, and for other purposes.",
+          "title": "Build America Fund Act",
           "introducedDate": "2026-07-27",
           "latestAction": "Referred to the Committee on Financial Services, and in addition to the Committee on Ways and Means, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
           "policyArea": "",
@@ -113977,7 +113977,7 @@
           "title": "Super Pay-As-You-Go Act of 2026",
           "introducedDate": "2026-07-22",
           "latestAction": "Referred to the Committee on the Budget, and in addition to the Committee on Rules, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
-          "policyArea": "",
+          "policyArea": "Economics and Public Finance",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/9879"
@@ -115944,7 +115944,7 @@
           "title": "Addictive Design Act of 2026",
           "introducedDate": "2026-07-27",
           "latestAction": "Referred to the Committee on Energy and Commerce, and in addition to the Committee on Education and Workforce, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
-          "policyArea": "",
+          "policyArea": "Health",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/9948"
@@ -115964,7 +115964,7 @@
           "title": "Online Sellers\u2019 Bill of Rights Act of 2026",
           "introducedDate": "2026-07-21",
           "latestAction": "Referred to the House Committee on the Judiciary.",
-          "policyArea": "",
+          "policyArea": "Commerce",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/9799"
@@ -120668,7 +120668,7 @@
       "bills": [
         {
           "billNumber": "S 5216",
-          "title": "A bill to amend the Internal Revenue Code of 1986 to allow a credit against tax for qualified accessible housing expenses, and for other purposes.",
+          "title": "Senior Accessible Housing Tax Credit Act of 2026",
           "introducedDate": "2026-08-03",
           "latestAction": "Read twice and referred to the Committee on Finance.",
           "policyArea": "",
@@ -120861,7 +120861,7 @@
         },
         {
           "billNumber": "S 5225",
-          "title": "A bill to amend the Elementary and Secondary Education Act of 1965 to include certain curriculum expenses as permissible use of funds, and for other purposes.",
+          "title": "K\u201312 AI Literacy and Readiness Act of 2026",
           "introducedDate": "2026-08-04",
           "latestAction": "Read twice and referred to the Committee on Health, Education, Labor, and Pensions.",
           "policyArea": "",
@@ -120871,7 +120871,7 @@
         },
         {
           "billNumber": "S 5208",
-          "title": "A bill to amend title 18, United States Code, to provide concealed carry privileges to qualified special operators.",
+          "title": "Special Operations Forces Concealed Carry Act",
           "introducedDate": "2026-08-03",
           "latestAction": "Read twice and referred to the Committee on the Judiciary.",
           "policyArea": "",
@@ -123291,7 +123291,7 @@
           "title": "Lowering Energy Costs through Grid Modernization Act",
           "introducedDate": "2026-07-23",
           "latestAction": "Referred to the Committee on Energy and Commerce, and in addition to the Committee on Ways and Means, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
-          "policyArea": "",
+          "policyArea": "Energy",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/9945"
@@ -124073,7 +124073,7 @@
           "title": "Private Detention Corporate Accountability Act of 2026",
           "introducedDate": "2026-07-22",
           "latestAction": "Referred to the House Committee on the Judiciary.",
-          "policyArea": "",
+          "policyArea": "Law",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/9883"
@@ -125657,7 +125657,7 @@
           "title": "LEARN AI Act",
           "introducedDate": "2026-07-23",
           "latestAction": "Referred to the House Committee on Education and Workforce.",
-          "policyArea": "",
+          "policyArea": "Labor and Employment",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/9907"
@@ -127796,7 +127796,7 @@
         },
         {
           "billNumber": "HR 9952",
-          "title": "To amend the Elementary and Secondary Education Act of 1965 to encourage local educational agencies to provide students with at least one hour of physical activity time during each school day, and for other purposes.",
+          "title": "Healthy Access for Learning Act",
           "introducedDate": "2026-07-27",
           "latestAction": "Referred to the House Committee on Education and Workforce.",
           "policyArea": "",
@@ -135390,7 +135390,7 @@
           "title": "Deputy Darren Almendarez Act",
           "introducedDate": "2026-07-23",
           "latestAction": "Referred to the House Committee on the Judiciary.",
-          "policyArea": "",
+          "policyArea": "Crime and Law Enforcement",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/9904"
@@ -135400,7 +135400,7 @@
           "title": "Citizenship Act of 2026",
           "introducedDate": "2026-07-22",
           "latestAction": "Referred to the House Committee on the Judiciary.",
-          "policyArea": "",
+          "policyArea": "Immigration",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/9854"
@@ -138126,7 +138126,7 @@
         },
         {
           "billNumber": "S 5227",
-          "title": "A bill to amend the Internal Revenue Code of 1986 to allow certain distributions from long-term qualified tuition programs for first home purchases, and for other purposes.",
+          "title": "First-Time Home Buyer Empowerment Act",
           "introducedDate": "2026-08-04",
           "latestAction": "Read twice and referred to the Committee on Finance.",
           "policyArea": "",
@@ -138759,7 +138759,7 @@
           "title": "No Deliveries Act",
           "introducedDate": "2026-07-22",
           "latestAction": "Referred to the House Committee on the Judiciary.",
-          "policyArea": "",
+          "policyArea": "Crime and Law Enforcement",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/9850"
@@ -139053,7 +139053,7 @@
           "title": "Swatting Registry Best Practices Act",
           "introducedDate": "2026-07-22",
           "latestAction": "Referred to the House Committee on the Judiciary.",
-          "policyArea": "",
+          "policyArea": "Crime and Law Enforcement",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/9887"
@@ -139063,7 +139063,7 @@
           "title": "Federal Facilities Indoor Air Quality Assessment Act",
           "introducedDate": "2026-07-22",
           "latestAction": "Referred to the House Committee on Transportation and Infrastructure.",
-          "policyArea": "",
+          "policyArea": "Government Operations and Politics",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/9886"
@@ -139130,7 +139130,7 @@
         },
         {
           "billNumber": "HR 9113",
-          "title": "To require the Secretary of Homeland Security to notify Congress of any serious injury or death of any individual in the custody of the Department of Homeland Security, and for other purposes.",
+          "title": "Department of Homeland Security Accountability Act of 2026",
           "introducedDate": "2026-06-02",
           "latestAction": "Referred to the Subcommittee on Border Security and Enforcement.",
           "policyArea": "",
