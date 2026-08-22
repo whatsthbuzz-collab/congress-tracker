@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-08-21T03:29:28.145297+00:00",
+  "lastUpdated": "2026-08-22T03:23:32.852264+00:00",
   "totalMembers": 537,
   "billsIncluded": true,
   "financeIncluded": true,
@@ -724,13 +724,13 @@
       "source": "unitedstates/congress-legislators",
       "sourceUrl": "https://www.congress.gov/member/_/W000802",
       "finance": {
-        "financeCycle": 2030,
-        "totalRaised": 500288,
-        "fromPacs": 53940,
-        "fromIndividuals": 436293,
-        "pacPct": 11,
-        "individualPct": 89,
-        "cashOnHand": 1059879,
+        "financeCycle": 2006,
+        "totalRaised": 6587257,
+        "fromPacs": 795830,
+        "fromIndividuals": 5243697,
+        "pacPct": 13,
+        "individualPct": 87,
+        "cashOnHand": 158304,
         "fecId": "S6RI00221",
         "financeSourceUrl": "https://www.fec.gov/data/candidate/S6RI00221/",
         "source": "OpenFEC API"
@@ -3783,6 +3783,16 @@
       "phone": "202-225-5755",
       "bills": [
         {
+          "billNumber": "HR 10121",
+          "title": "To obtain and direct the placement in the Capitol or on the Capitol Grounds of a statue to honor American humanitarian and star athlete Roberto Clemente of Puerto Rico.",
+          "introducedDate": "2026-08-20",
+          "latestAction": "Referred to the House Committee on House Administration.",
+          "policyArea": "",
+          "role": "sponsor",
+          "source": "Congress.gov API",
+          "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/10121"
+        },
+        {
           "billNumber": "HR 9978",
           "title": "Homeowners Premium Tax Reduction Act of 2026",
           "introducedDate": "2026-07-30",
@@ -3921,16 +3931,6 @@
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/6128"
-        },
-        {
-          "billNumber": "HR 4837",
-          "title": "Written Informed Consent Act",
-          "introducedDate": "2025-08-01",
-          "latestAction": "Referred to the Subcommittee on Health.",
-          "policyArea": "Armed Forces and National Security",
-          "role": "sponsor",
-          "source": "Congress.gov API",
-          "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/4837"
         }
       ],
       "source": "unitedstates/congress-legislators",
@@ -4504,13 +4504,13 @@
       "source": "unitedstates/congress-legislators",
       "sourceUrl": "https://www.congress.gov/member/_/B001243",
       "finance": {
-        "financeCycle": 2030,
-        "totalRaised": 3087690,
-        "fromPacs": 132500,
-        "fromIndividuals": 246615,
-        "pacPct": 35,
-        "individualPct": 65,
-        "cashOnHand": 433701,
+        "financeCycle": 2018,
+        "totalRaised": 14634620,
+        "fromPacs": 2631250,
+        "fromIndividuals": 9763518,
+        "pacPct": 21,
+        "individualPct": 79,
+        "cashOnHand": 614100,
         "fecId": "S8TN00337",
         "financeSourceUrl": "https://www.fec.gov/data/candidate/S8TN00337/",
         "source": "OpenFEC API"
@@ -7680,13 +7680,13 @@
       "source": "unitedstates/congress-legislators",
       "sourceUrl": "https://www.congress.gov/member/_/C000537",
       "finance": {
-        "financeCycle": 2012,
-        "totalRaised": 2405515,
-        "fromPacs": 1884202,
-        "fromIndividuals": 502242,
-        "pacPct": 79,
-        "individualPct": 21,
-        "cashOnHand": 946040,
+        "financeCycle": 2026,
+        "totalRaised": 1225051,
+        "fromPacs": 720491,
+        "fromIndividuals": 457422,
+        "pacPct": 61,
+        "individualPct": 39,
+        "cashOnHand": 1634793,
         "fecId": "H2SC02042",
         "financeSourceUrl": "https://www.fec.gov/data/candidate/H2SC02042/",
         "source": "OpenFEC API"
@@ -14324,6 +14324,16 @@
       "phone": "202-225-5541",
       "bills": [
         {
+          "billNumber": "HR 10125",
+          "title": "NO PROFIT Act",
+          "introducedDate": "2026-08-20",
+          "latestAction": "Referred to the Committee on Financial Services, and in addition to the Committees on Agriculture, and Energy and Commerce, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+          "policyArea": "Finance and Financial Sector",
+          "role": "sponsor",
+          "source": "Congress.gov API",
+          "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/10125"
+        },
+        {
           "billNumber": "HR 9983",
           "title": "Lori Jackson-Nicolette Elias Domestic Violence Survivor Protection Act",
           "introducedDate": "2026-07-30",
@@ -14462,16 +14472,6 @@
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/117th-congress/hr/4267"
-        },
-        {
-          "billNumber": "HR 5334",
-          "title": "PRIA Act of 2021",
-          "introducedDate": "2021-09-22",
-          "latestAction": "Referred to the House Committee on Ways and Means.",
-          "policyArea": "Labor and Employment",
-          "role": "sponsor",
-          "source": "Congress.gov API",
-          "sourceUrl": "https://www.congress.gov/bill/117th-congress/hr/5334"
         }
       ],
       "source": "unitedstates/congress-legislators",
@@ -16731,12 +16731,12 @@
       "sourceUrl": "https://www.congress.gov/member/_/K000375",
       "finance": {
         "financeCycle": 2026,
-        "totalRaised": 380085,
-        "fromPacs": 154600,
-        "fromIndividuals": 225485,
-        "pacPct": 41,
-        "individualPct": 59,
-        "cashOnHand": 518530,
+        "totalRaised": 422462,
+        "fromPacs": 170100,
+        "fromIndividuals": 252362,
+        "pacPct": 40,
+        "individualPct": 60,
+        "cashOnHand": 495522,
         "fecId": "H0MA10082",
         "financeSourceUrl": "https://www.fec.gov/data/candidate/H0MA10082/",
         "source": "OpenFEC API"
@@ -19268,12 +19268,12 @@
       "sourceUrl": "https://www.congress.gov/member/_/L000562",
       "finance": {
         "financeCycle": 2026,
-        "totalRaised": 817344,
-        "fromPacs": 308600,
-        "fromIndividuals": 493331,
+        "totalRaised": 910160,
+        "fromPacs": 339200,
+        "fromIndividuals": 555542,
         "pacPct": 38,
         "individualPct": 62,
-        "cashOnHand": 1241118,
+        "cashOnHand": 642256,
         "fecId": "H2MA09072",
         "financeSourceUrl": "https://www.fec.gov/data/candidate/H2MA09072/",
         "source": "OpenFEC API"
@@ -20149,6 +20149,16 @@
       "phone": "202-225-2511",
       "bills": [
         {
+          "billNumber": "HR 10128",
+          "title": "To codify Secretary's Order 3434 of the Department of the Interior.",
+          "introducedDate": "2026-08-20",
+          "latestAction": "Referred to the House Committee on Natural Resources.",
+          "policyArea": "",
+          "role": "sponsor",
+          "source": "Congress.gov API",
+          "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/10128"
+        },
+        {
           "billNumber": "HR 8454",
           "title": "To provide for the transfer of administrative jurisdiction over certain Federal land in the State of California, and for other purposes.",
           "introducedDate": "2026-04-22",
@@ -20287,16 +20297,6 @@
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/hjres/8"
-        },
-        {
-          "billNumber": "HR 176",
-          "title": "No Immigration Benefits for Hamas Terrorists Act of 2025",
-          "introducedDate": "2025-01-03",
-          "latestAction": "Received in the Senate and Read twice and referred to the Committee on the Judiciary.",
-          "policyArea": "Immigration",
-          "role": "sponsor",
-          "source": "Congress.gov API",
-          "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/176"
         }
       ],
       "source": "unitedstates/congress-legislators",
@@ -22454,13 +22454,13 @@
       "source": "unitedstates/congress-legislators",
       "sourceUrl": "https://www.congress.gov/member/_/N000002",
       "finance": {
-        "financeCycle": 2026,
-        "totalRaised": 258402,
-        "fromPacs": 70500,
-        "fromIndividuals": 181827,
-        "pacPct": 28,
-        "individualPct": 72,
-        "cashOnHand": 139682,
+        "financeCycle": 1992,
+        "totalRaised": 54685,
+        "fromPacs": 37750,
+        "fromIndividuals": 8035,
+        "pacPct": 82,
+        "individualPct": 18,
+        "cashOnHand": 9178,
         "fecId": "H2NY17071",
         "financeSourceUrl": "https://www.fec.gov/data/candidate/H2NY17071/",
         "source": "OpenFEC API"
@@ -22869,6 +22869,16 @@
       "phone": "202-225-8050",
       "bills": [
         {
+          "billNumber": "HRES 1485",
+          "title": "Expressing support for the designation of August 22, 2026, as \"Chuck Brown Day\", and honoring Chuck Brown's contributions to music and to the District of Columbia.",
+          "introducedDate": "2026-08-20",
+          "latestAction": "Referred to the House Committee on Oversight and Government Reform.",
+          "policyArea": "Arts, Culture, Religion",
+          "role": "sponsor",
+          "source": "Congress.gov API",
+          "sourceUrl": "https://www.congress.gov/bill/119th-congress/hres/1485"
+        },
+        {
           "billNumber": "HRES 1480",
           "title": "Honoring the lives, work, and sacrifice of Joseph Curseen, Jr., and Thomas Morris, Jr., the 2 United States Postal Service employees who died as a result of their contact with anthrax while working at the United States Postal facility located at 900 Brentwood Road NE, Washington, DC, during the anthrax attack in the fall of 2001; United States Postal Service employees, who have continued to work diligently in service to the people of the United States notwithstanding the anthrax attack; as well as the other 3 Americans who died and the 17 who became ill in the attack.",
           "introducedDate": "2026-08-10",
@@ -23007,16 +23017,6 @@
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/9685"
-        },
-        {
-          "billNumber": "HR 9654",
-          "title": "National Capital Revitalization and Self-Government Improvement Act of 1997 Technical Corrections Act of 2026",
-          "introducedDate": "2026-07-13",
-          "latestAction": "Referred to the House Committee on Oversight and Government Reform.",
-          "policyArea": "Government Operations and Politics",
-          "role": "sponsor",
-          "source": "Congress.gov API",
-          "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/9654"
         }
       ],
       "source": "unitedstates/congress-legislators",
@@ -25640,13 +25640,13 @@
       "source": "unitedstates/congress-legislators",
       "sourceUrl": "https://www.congress.gov/member/_/S001145",
       "finance": {
-        "financeCycle": 1998,
-        "totalRaised": 1448368,
-        "fromPacs": 224691,
-        "fromIndividuals": 1214630,
-        "pacPct": 16,
-        "individualPct": 84,
-        "cashOnHand": 7761,
+        "financeCycle": 2026,
+        "totalRaised": 412978,
+        "fromPacs": 87651,
+        "fromIndividuals": 324675,
+        "pacPct": 21,
+        "individualPct": 79,
+        "cashOnHand": 244946,
         "fecId": "H8IL09067",
         "financeSourceUrl": "https://www.fec.gov/data/candidate/H8IL09067/",
         "source": "OpenFEC API"
@@ -25924,13 +25924,13 @@
       "source": "unitedstates/congress-legislators",
       "sourceUrl": "https://www.congress.gov/member/_/S001150",
       "finance": {
-        "financeCycle": 2024,
-        "totalRaised": 48149197,
-        "fromPacs": 1015703,
-        "fromIndividuals": 45110629,
-        "pacPct": 2,
-        "individualPct": 98,
-        "cashOnHand": 6381027,
+        "financeCycle": 2030,
+        "totalRaised": 8832154,
+        "fromPacs": 69401,
+        "fromIndividuals": 7218133,
+        "pacPct": 1,
+        "individualPct": 99,
+        "cashOnHand": 10252461,
         "fecId": "S4CA00555",
         "financeSourceUrl": "https://www.fec.gov/data/candidate/S4CA00555/",
         "source": "OpenFEC API"
@@ -26707,7 +26707,7 @@
           "billNumber": "HR 6893",
           "title": "Chesapeake Bay Watershed Advancement for Training, Education, Restoration, and Science (WATERS) Act",
           "introducedDate": "2025-12-18",
-          "latestAction": "Ordered to be Reported in the Nature of a Substitute (Amended) by Unanimous Consent.",
+          "latestAction": "Placed on the Union Calendar, Calendar No. 664.",
           "policyArea": "Environmental Protection",
           "role": "sponsor",
           "source": "Congress.gov API",
@@ -29717,6 +29717,16 @@
       "phone": "202-225-5121",
       "bills": [
         {
+          "billNumber": "HR 10135",
+          "title": "To prohibit the exercise of eminent domain over agricultural land, and for other purposes.",
+          "introducedDate": "2026-08-20",
+          "latestAction": "Referred to the House Committee on the Judiciary.",
+          "policyArea": "",
+          "role": "sponsor",
+          "source": "Congress.gov API",
+          "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/10135"
+        },
+        {
           "billNumber": "HR 9974",
           "title": "Young Farmer Success Act",
           "introducedDate": "2026-07-27",
@@ -29855,16 +29865,6 @@
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/7891"
-        },
-        {
-          "billNumber": "HR 7885",
-          "title": "Cybersecurity Skills Integration Act",
-          "introducedDate": "2026-03-09",
-          "latestAction": "Referred to the House Committee on Education and Workforce.",
-          "policyArea": "Education",
-          "role": "sponsor",
-          "source": "Congress.gov API",
-          "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/7885"
         }
       ],
       "source": "unitedstates/congress-legislators",
@@ -30154,13 +30154,13 @@
       "source": "unitedstates/congress-legislators",
       "sourceUrl": "https://www.congress.gov/member/_/T000250",
       "finance": {
-        "financeCycle": 2002,
-        "totalRaised": 5514226,
-        "fromPacs": 1628353,
-        "fromIndividuals": 3573720,
-        "pacPct": 31,
-        "individualPct": 69,
-        "cashOnHand": 7716,
+        "financeCycle": 2028,
+        "totalRaised": 8305883,
+        "fromPacs": 1313700,
+        "fromIndividuals": 2644792,
+        "pacPct": 33,
+        "individualPct": 67,
+        "cashOnHand": 17713892,
         "fecId": "S2SD00068",
         "financeSourceUrl": "https://www.fec.gov/data/candidate/S2SD00068/",
         "source": "OpenFEC API"
@@ -31929,13 +31929,13 @@
       "source": "unitedstates/congress-legislators",
       "sourceUrl": "https://www.congress.gov/member/_/W000187",
       "finance": {
-        "financeCycle": 2026,
-        "totalRaised": 863683,
-        "fromPacs": 400500,
-        "fromIndividuals": 338657,
-        "pacPct": 54,
-        "individualPct": 46,
-        "cashOnHand": 269669,
+        "financeCycle": 1986,
+        "totalRaised": 4506,
+        "fromPacs": 0,
+        "fromIndividuals": 0,
+        "pacPct": null,
+        "individualPct": null,
+        "cashOnHand": 16954,
         "fecId": "H4CA23011",
         "financeSourceUrl": "https://www.fec.gov/data/candidate/H4CA23011/",
         "source": "OpenFEC API"
@@ -33118,7 +33118,7 @@
           "billNumber": "HR 7889",
           "title": "AWRC Act of 2025",
           "introducedDate": "2026-03-09",
-          "latestAction": "Ordered to be Reported by Unanimous Consent.",
+          "latestAction": "Placed on the Union Calendar, Calendar No. 665.",
           "policyArea": "Water Resources Development",
           "role": "sponsor",
           "source": "Congress.gov API",
@@ -36069,13 +36069,13 @@
       "source": "unitedstates/congress-legislators",
       "sourceUrl": "https://www.congress.gov/member/_/C001095",
       "finance": {
-        "financeCycle": 2026,
-        "totalRaised": 13601049,
-        "fromPacs": 1495000,
-        "fromIndividuals": 8068457,
-        "pacPct": 16,
-        "individualPct": 84,
-        "cashOnHand": 9931885,
+        "financeCycle": 2014,
+        "totalRaised": 13911690,
+        "fromPacs": 1918693,
+        "fromIndividuals": 10892504,
+        "pacPct": 15,
+        "individualPct": 85,
+        "cashOnHand": 215874,
         "fecId": "S4AR00103",
         "financeSourceUrl": "https://www.fec.gov/data/candidate/S4AR00103/",
         "source": "OpenFEC API"
@@ -37672,13 +37672,13 @@
       "source": "unitedstates/congress-legislators",
       "sourceUrl": "https://www.congress.gov/member/_/V000130",
       "finance": {
-        "financeCycle": 2006,
-        "totalRaised": 1051850,
-        "fromPacs": 170560,
-        "fromIndividuals": 816812,
-        "pacPct": 17,
-        "individualPct": 83,
-        "cashOnHand": 2320,
+        "financeCycle": 2026,
+        "totalRaised": 568520,
+        "fromPacs": 431200,
+        "fromIndividuals": 136003,
+        "pacPct": 76,
+        "individualPct": 24,
+        "cashOnHand": 163676,
         "fecId": "H2CA50026",
         "financeSourceUrl": "https://www.fec.gov/data/candidate/H2CA50026/",
         "source": "OpenFEC API"
@@ -40310,6 +40310,16 @@
       "phone": "202-225-2601",
       "bills": [
         {
+          "billNumber": "HR 10129",
+          "title": "To authorize the Director of the Bureau of Prisons to provide postage stamps to indigent inmates.",
+          "introducedDate": "2026-08-20",
+          "latestAction": "Referred to the House Committee on the Judiciary.",
+          "policyArea": "",
+          "role": "sponsor",
+          "source": "Congress.gov API",
+          "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/10129"
+        },
+        {
           "billNumber": "HR 10057",
           "title": "Early Childhood Educator Professional Improvement Act of 2026",
           "introducedDate": "2026-08-06",
@@ -40448,16 +40458,6 @@
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/6880"
-        },
-        {
-          "billNumber": "HR 6212",
-          "title": "Good Samaritan Menstrual Products Act",
-          "introducedDate": "2025-11-20",
-          "latestAction": "Referred to the House Committee on the Judiciary.",
-          "policyArea": "Health",
-          "role": "sponsor",
-          "source": "Congress.gov API",
-          "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/6212"
         }
       ],
       "source": "unitedstates/congress-legislators",
@@ -42634,13 +42634,13 @@
       "source": "unitedstates/congress-legislators",
       "sourceUrl": "https://www.congress.gov/member/_/W000816",
       "finance": {
-        "financeCycle": 2026,
-        "totalRaised": 1424050,
-        "fromPacs": 454978,
-        "fromIndividuals": 69715,
-        "pacPct": 87,
-        "individualPct": 13,
-        "cashOnHand": 1076189,
+        "financeCycle": 2012,
+        "totalRaised": 3297683,
+        "fromPacs": 278121,
+        "fromIndividuals": 1356575,
+        "pacPct": 17,
+        "individualPct": 83,
+        "cashOnHand": 67609,
         "fecId": "H2TX33040",
         "financeSourceUrl": "https://www.fec.gov/data/candidate/H2TX33040/",
         "source": "OpenFEC API"
@@ -43385,13 +43385,13 @@
       "source": "unitedstates/congress-legislators",
       "sourceUrl": "https://www.congress.gov/member/_/P000607",
       "finance": {
-        "financeCycle": 2026,
-        "totalRaised": 814874,
-        "fromPacs": 401660,
-        "fromIndividuals": 369281,
-        "pacPct": 52,
-        "individualPct": 48,
-        "cashOnHand": 884043,
+        "financeCycle": 2012,
+        "totalRaised": 1153296,
+        "fromPacs": 499598,
+        "fromIndividuals": 637958,
+        "pacPct": 44,
+        "individualPct": 56,
+        "cashOnHand": 52936,
         "fecId": "H2WI02124",
         "financeSourceUrl": "https://www.fec.gov/data/candidate/H2WI02124/",
         "source": "OpenFEC API"
@@ -44421,12 +44421,12 @@
       "sourceUrl": "https://www.congress.gov/member/_/C001101",
       "finance": {
         "financeCycle": 2026,
-        "totalRaised": 4236009,
-        "fromPacs": 1725007,
-        "fromIndividuals": 1050963,
+        "totalRaised": 4503671,
+        "fromPacs": 1838507,
+        "fromIndividuals": 1136007,
         "pacPct": 62,
         "individualPct": 38,
-        "cashOnHand": 2212416,
+        "cashOnHand": 2047792,
         "fecId": "H4MA05084",
         "financeSourceUrl": "https://www.fec.gov/data/candidate/H4MA05084/",
         "source": "OpenFEC API"
@@ -45687,6 +45687,16 @@
       "phone": "202-225-3772",
       "bills": [
         {
+          "billNumber": "HR 10136",
+          "title": "To require the Secretary of Agriculture to convey the Crossett Experimental Forest to the State of Arkansas, and for other purposes.",
+          "introducedDate": "2026-08-20",
+          "latestAction": "Referred to the House Committee on Natural Resources.",
+          "policyArea": "",
+          "role": "sponsor",
+          "source": "Congress.gov API",
+          "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/10136"
+        },
+        {
           "billNumber": "HR 8840",
           "title": "Fair Care Act of 2026",
           "introducedDate": "2026-05-14",
@@ -45825,16 +45835,6 @@
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/471"
-        },
-        {
-          "billNumber": "HR 10409",
-          "title": "Fair Care Act of 2024",
-          "introducedDate": "2024-12-12",
-          "latestAction": "Referred to the Committee on Energy and Commerce, and in addition to the Committees on Ways and Means, Education and the Workforce, the Judiciary, Oversight and Accountability, Rules, the Budget, Armed Services, and House Administration, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
-          "policyArea": "Health",
-          "role": "sponsor",
-          "source": "Congress.gov API",
-          "sourceUrl": "https://www.congress.gov/bill/118th-congress/hr/10409"
         }
       ],
       "source": "unitedstates/congress-legislators",
@@ -50982,6 +50982,16 @@
       "phone": "202-225-4376",
       "bills": [
         {
+          "billNumber": "HR 10120",
+          "title": "To establish a National Flood Impact Reduction and Resilience Program to achieve major measurable reductions in the losses of life and property from floods through a coordinated Federal effort, and for other purposes.",
+          "introducedDate": "2026-08-20",
+          "latestAction": "Referred to the House Committee on Transportation and Infrastructure.",
+          "policyArea": "",
+          "role": "sponsor",
+          "source": "Congress.gov API",
+          "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/10120"
+        },
+        {
           "billNumber": "HR 10014",
           "title": "Restoring Accountability in Appropriations Act",
           "introducedDate": "2026-08-03",
@@ -51120,16 +51130,6 @@
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/9261"
-        },
-        {
-          "billNumber": "HR 9213",
-          "title": "American Electric Rail Mapping Act of 2026",
-          "introducedDate": "2026-06-09",
-          "latestAction": "Referred to the House Committee on Transportation and Infrastructure.",
-          "policyArea": "Transportation and Public Works",
-          "role": "sponsor",
-          "source": "Congress.gov API",
-          "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/9213"
         }
       ],
       "source": "unitedstates/congress-legislators",
@@ -54667,13 +54667,13 @@
       "source": "unitedstates/congress-legislators",
       "sourceUrl": "https://www.congress.gov/member/_/K000393",
       "finance": {
-        "financeCycle": 2028,
-        "totalRaised": 25577144,
-        "fromPacs": 202775,
-        "fromIndividuals": 22306034,
-        "pacPct": 1,
-        "individualPct": 99,
-        "cashOnHand": 18589497,
+        "financeCycle": 2004,
+        "totalRaised": 1919879,
+        "fromPacs": 122570,
+        "fromIndividuals": 1544360,
+        "pacPct": 7,
+        "individualPct": 93,
+        "cashOnHand": 4,
         "fecId": "S4LA00065",
         "financeSourceUrl": "https://www.fec.gov/data/candidate/S4LA00065/",
         "source": "OpenFEC API"
@@ -66751,6 +66751,16 @@
       "phone": "202-225-4540",
       "bills": [
         {
+          "billNumber": "HR 10124",
+          "title": "To improve coordination and prosecution of organized mail theft and related fraud offenses, to direct the United States Sentencing Commission to review and amend sentencing guidelines applicable to such offenses, and for other purposes.",
+          "introducedDate": "2026-08-20",
+          "latestAction": "Referred to the House Committee on the Judiciary.",
+          "policyArea": "",
+          "role": "sponsor",
+          "source": "Congress.gov API",
+          "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/10124"
+        },
+        {
           "billNumber": "HR 4671",
           "title": "Ensuring Casualty Assistance for our Firefighters Act",
           "introducedDate": "2025-07-23",
@@ -66889,16 +66899,6 @@
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/6862"
-        },
-        {
-          "billNumber": "HR 6747",
-          "title": "Olive Oil Standards Act",
-          "introducedDate": "2025-12-16",
-          "latestAction": "Referred to the House Committee on Energy and Commerce.",
-          "policyArea": "Health",
-          "role": "sponsor",
-          "source": "Congress.gov API",
-          "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/6747"
         }
       ],
       "source": "unitedstates/congress-legislators",
@@ -70028,13 +70028,13 @@
       "source": "unitedstates/congress-legislators",
       "sourceUrl": "https://www.congress.gov/member/_/B001307",
       "finance": {
-        "financeCycle": 2026,
-        "totalRaised": 358293,
-        "fromPacs": 197200,
-        "fromIndividuals": 159100,
-        "pacPct": 55,
-        "individualPct": 45,
-        "cashOnHand": 91561,
+        "financeCycle": 2022,
+        "totalRaised": 434680,
+        "fromPacs": 243380,
+        "fromIndividuals": 187414,
+        "pacPct": 56,
+        "individualPct": 44,
+        "cashOnHand": 340742,
         "fecId": "H8IN04199",
         "financeSourceUrl": "https://www.fec.gov/data/candidate/H8IN04199/",
         "source": "OpenFEC API"
@@ -70596,13 +70596,13 @@
       "source": "unitedstates/congress-legislators",
       "sourceUrl": "https://www.congress.gov/member/_/T000482",
       "finance": {
-        "financeCycle": 2018,
-        "totalRaised": 2642929,
-        "fromPacs": 297483,
-        "fromIndividuals": 1819342,
-        "pacPct": 14,
-        "individualPct": 86,
-        "cashOnHand": 69097,
+        "financeCycle": 2026,
+        "totalRaised": 1580068,
+        "fromPacs": 775250,
+        "fromIndividuals": 780983,
+        "pacPct": 50,
+        "individualPct": 50,
+        "cashOnHand": 1777088,
         "fecId": "H8MA03106",
         "financeSourceUrl": "https://www.fec.gov/data/candidate/H8MA03106/",
         "source": "OpenFEC API"
@@ -77909,6 +77909,16 @@
       "phone": "202-225-4236",
       "bills": [
         {
+          "billNumber": "HR 10132",
+          "title": "To provide for congressional approval of national emergency declarations.",
+          "introducedDate": "2026-08-20",
+          "latestAction": "Referred to the Committee on Transportation and Infrastructure, and in addition to the Committees on Foreign Affairs, and Rules, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+          "policyArea": "",
+          "role": "sponsor",
+          "source": "Congress.gov API",
+          "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/10132"
+        },
+        {
           "billNumber": "HR 9773",
           "title": "Permanent Trump Secure Border Act",
           "introducedDate": "2026-07-20",
@@ -78047,16 +78057,6 @@
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/9230"
-        },
-        {
-          "billNumber": "HR 9200",
-          "title": "To secure the borders of the United States, and for other purposes.",
-          "introducedDate": "2026-06-08",
-          "latestAction": "Referred to the Subcommittee on Transportation and Maritime Security.",
-          "policyArea": "",
-          "role": "sponsor",
-          "source": "Congress.gov API",
-          "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/9200"
         }
       ],
       "source": "unitedstates/congress-legislators",
@@ -80984,13 +80984,13 @@
       "source": "unitedstates/congress-legislators",
       "sourceUrl": "https://www.congress.gov/member/_/T000165",
       "finance": {
-        "financeCycle": 2020,
-        "totalRaised": 2652455,
-        "fromPacs": 375284,
-        "fromIndividuals": 2235626,
-        "pacPct": 14,
-        "individualPct": 86,
-        "cashOnHand": 122719,
+        "financeCycle": 2022,
+        "totalRaised": 1181269,
+        "fromPacs": 228417,
+        "fromIndividuals": 946223,
+        "pacPct": 19,
+        "individualPct": 81,
+        "cashOnHand": 339670,
         "fecId": "H0WI07101",
         "financeSourceUrl": "https://www.fec.gov/data/candidate/H0WI07101/",
         "source": "OpenFEC API"
@@ -83299,7 +83299,7 @@
           "billNumber": "HR 3925",
           "title": "Yuhaaviatam of San Manuel Nation Land Exchange Act",
           "introducedDate": "2025-06-11",
-          "latestAction": "Ordered to be Reported in the Nature of a Substitute (Amended) by Unanimous Consent.",
+          "latestAction": "Placed on the Union Calendar, Calendar No. 661.",
           "policyArea": "Native Americans",
           "role": "sponsor",
           "source": "Congress.gov API",
@@ -83319,13 +83319,13 @@
       "source": "unitedstates/congress-legislators",
       "sourceUrl": "https://www.congress.gov/member/_/O000019",
       "finance": {
-        "financeCycle": 2026,
-        "totalRaised": 1455868,
-        "fromPacs": 863371,
-        "fromIndividuals": 498760,
-        "pacPct": 63,
-        "individualPct": 37,
-        "cashOnHand": 1644222,
+        "financeCycle": 2020,
+        "totalRaised": 2028339,
+        "fromPacs": 155998,
+        "fromIndividuals": 421167,
+        "pacPct": 27,
+        "individualPct": 73,
+        "cashOnHand": 69583,
         "fecId": "H0CA08135",
         "financeSourceUrl": "https://www.fec.gov/data/candidate/H0CA08135/",
         "source": "OpenFEC API"
@@ -85591,13 +85591,13 @@
       "source": "unitedstates/congress-legislators",
       "sourceUrl": "https://www.congress.gov/member/_/S000168",
       "finance": {
-        "financeCycle": 2018,
-        "totalRaised": 2069164,
-        "fromPacs": 375016,
-        "fromIndividuals": 1682148,
-        "pacPct": 18,
-        "individualPct": 82,
-        "cashOnHand": 12763,
+        "financeCycle": 2026,
+        "totalRaised": 1999399,
+        "fromPacs": 533179,
+        "fromIndividuals": 550315,
+        "pacPct": 49,
+        "individualPct": 51,
+        "cashOnHand": 2259547,
         "fecId": "H8FL27185",
         "financeSourceUrl": "https://www.fec.gov/data/candidate/H8FL27185/",
         "source": "OpenFEC API"
@@ -88432,12 +88432,12 @@
       "sourceUrl": "https://www.congress.gov/member/_/A000148",
       "finance": {
         "financeCycle": 2026,
-        "totalRaised": 3535358,
-        "fromPacs": 669750,
-        "fromIndividuals": 2189397,
-        "pacPct": 23,
-        "individualPct": 77,
-        "cashOnHand": 7408604,
+        "totalRaised": 3630329,
+        "fromPacs": 727250,
+        "fromIndividuals": 2270535,
+        "pacPct": 24,
+        "individualPct": 76,
+        "cashOnHand": 7341766,
         "fecId": "H0MA04192",
         "financeSourceUrl": "https://www.fec.gov/data/candidate/H0MA04192/",
         "source": "OpenFEC API"
@@ -91118,6 +91118,16 @@
       "phone": "202-225-3176",
       "bills": [
         {
+          "billNumber": "HR 10127",
+          "title": "To prohibit the use of Federal funds to conduct, support, or fund research that studies the effects of gender-related medical treatment, and for other purposes.",
+          "introducedDate": "2026-08-20",
+          "latestAction": "Referred to the House Committee on Energy and Commerce.",
+          "policyArea": "",
+          "role": "sponsor",
+          "source": "Congress.gov API",
+          "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/10127"
+        },
+        {
           "billNumber": "HR 10098",
           "title": "Restoring the Death Penalty in DC Act",
           "introducedDate": "2026-08-13",
@@ -91256,16 +91266,6 @@
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/9710"
-        },
-        {
-          "billNumber": "HR 9154",
-          "title": "SHRIMP Act of 2026",
-          "introducedDate": "2026-06-04",
-          "latestAction": "Referred to the Committee on Natural Resources, and in addition to the Committee on Science, Space, and Technology, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
-          "policyArea": "Public Lands and Natural Resources",
-          "role": "sponsor",
-          "source": "Congress.gov API",
-          "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/9154"
         }
       ],
       "source": "unitedstates/congress-legislators",
@@ -92254,6 +92254,16 @@
       "phone": "202-225-3706",
       "bills": [
         {
+          "billNumber": "HR 10126",
+          "title": "To direct the Secretary of Defense to include projected demand for foreign military sales into industrial base planning.",
+          "introducedDate": "2026-08-20",
+          "latestAction": "Referred to the Committee on Armed Services, and in addition to the Committee on Foreign Affairs, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+          "policyArea": "",
+          "role": "sponsor",
+          "source": "Congress.gov API",
+          "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/10126"
+        },
+        {
           "billNumber": "HR 9909",
           "title": "Small Unmanned Aircraft Systems Operational Test, Evaluation, and Training Corridor Act",
           "introducedDate": "2026-07-23",
@@ -92392,16 +92402,6 @@
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/5633"
-        },
-        {
-          "billNumber": "HR 5466",
-          "title": "GUARD Act",
-          "introducedDate": "2025-09-18",
-          "latestAction": "Referred to the House Committee on Armed Services.",
-          "policyArea": "Armed Forces and National Security",
-          "role": "sponsor",
-          "source": "Congress.gov API",
-          "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/5466"
         }
       ],
       "source": "unitedstates/congress-legislators",
@@ -95359,6 +95359,16 @@
       "phone": "202-225-6636",
       "bills": [
         {
+          "billNumber": "HR 10122",
+          "title": "To establish a Fortified Roof revolving loan fund to assist State agencies in making grants for the installation of Fortified Roofs, and for other purposes.",
+          "introducedDate": "2026-08-20",
+          "latestAction": "Referred to the House Committee on Transportation and Infrastructure.",
+          "policyArea": "",
+          "role": "sponsor",
+          "source": "Congress.gov API",
+          "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/10122"
+        },
+        {
           "billNumber": "HR 9842",
           "title": "State Offices of Women\u2019s Health Support and Expansion Act",
           "introducedDate": "2026-07-22",
@@ -95497,16 +95507,6 @@
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/6560"
-        },
-        {
-          "billNumber": "HRES 926",
-          "title": "RESPECT Resolution",
-          "introducedDate": "2025-12-04",
-          "latestAction": "Referred to the Committee on Energy and Commerce, and in addition to the Committees on the Judiciary, Education and Workforce, Foreign Affairs, and Transportation and Infrastructure, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
-          "policyArea": "Crime and Law Enforcement",
-          "role": "sponsor",
-          "source": "Congress.gov API",
-          "sourceUrl": "https://www.congress.gov/bill/119th-congress/hres/926"
         }
       ],
       "source": "unitedstates/congress-legislators",
@@ -99844,6 +99844,16 @@
       "phone": "202-225-3531",
       "bills": [
         {
+          "billNumber": "HR 10131",
+          "title": "To amend title 44, United States Code, to prohibit the closure of Federal records centers, and for other purposes.",
+          "introducedDate": "2026-08-20",
+          "latestAction": "Referred to the House Committee on Oversight and Government Reform.",
+          "policyArea": "",
+          "role": "sponsor",
+          "source": "Congress.gov API",
+          "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/10131"
+        },
+        {
           "billNumber": "HR 10033",
           "title": "AV Emergency Response Coordination Act",
           "introducedDate": "2026-08-03",
@@ -99982,16 +99992,6 @@
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/6276"
-        },
-        {
-          "billNumber": "HR 6218",
-          "title": "HEAR Act of 2025",
-          "introducedDate": "2025-11-20",
-          "latestAction": "Referred to the Committee on Energy and Commerce, and in addition to the Committee on Ways and Means, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
-          "policyArea": "Health",
-          "role": "sponsor",
-          "source": "Congress.gov API",
-          "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/6218"
         }
       ],
       "source": "unitedstates/congress-legislators",
@@ -106011,6 +106011,26 @@
       "phone": "202-225-3831",
       "bills": [
         {
+          "billNumber": "HR 10134",
+          "title": "To establish an eligibility exception for the drug discount program due to cuts to the Medicaid program.",
+          "introducedDate": "2026-08-20",
+          "latestAction": "Referred to the House Committee on Energy and Commerce.",
+          "policyArea": "",
+          "role": "sponsor",
+          "source": "Congress.gov API",
+          "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/10134"
+        },
+        {
+          "billNumber": "HR 10133",
+          "title": "To amend title XXVII of the Public Health Service Act, the Employee Retirement Income Security Act of 1974, and the Internal Revenue Code of 1986 to ensure cost sharing for a drug does not exceed the nationwide average of consumer purchase prices for such drug.",
+          "introducedDate": "2026-08-20",
+          "latestAction": "Referred to the Committee on Energy and Commerce, and in addition to the Committees on Ways and Means, and Education and Workforce, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+          "policyArea": "",
+          "role": "sponsor",
+          "source": "Congress.gov API",
+          "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/10133"
+        },
+        {
           "billNumber": "HR 10005",
           "title": "Data Center Resource Disclosure Act",
           "introducedDate": "2026-07-30",
@@ -106139,26 +106159,6 @@
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/9484"
-        },
-        {
-          "billNumber": "HR 9483",
-          "title": "Clean Ports for Commerce Act",
-          "introducedDate": "2026-06-25",
-          "latestAction": "Referred to the House Committee on Transportation and Infrastructure.",
-          "policyArea": "Environmental Protection",
-          "role": "sponsor",
-          "source": "Congress.gov API",
-          "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/9483"
-        },
-        {
-          "billNumber": "HR 9299",
-          "title": "Advancing Next-Generation Genetic Learning for Effective Resource Strategy Act",
-          "introducedDate": "2026-06-11",
-          "latestAction": "Referred to the House Committee on Natural Resources.",
-          "policyArea": "Public Lands and Natural Resources",
-          "role": "sponsor",
-          "source": "Congress.gov API",
-          "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/9299"
         }
       ],
       "source": "unitedstates/congress-legislators",
@@ -111560,13 +111560,13 @@
       "source": "unitedstates/congress-legislators",
       "sourceUrl": "https://www.congress.gov/member/_/B001317",
       "finance": {
-        "financeCycle": 2026,
-        "totalRaised": 218894,
-        "fromPacs": 110008,
-        "fromIndividuals": 108886,
-        "pacPct": 50,
-        "individualPct": 50,
-        "cashOnHand": 76064,
+        "financeCycle": 2022,
+        "totalRaised": 654619,
+        "fromPacs": 140272,
+        "fromIndividuals": 513571,
+        "pacPct": 21,
+        "individualPct": 79,
+        "cashOnHand": 73839,
         "fecId": "H2OK02315",
         "financeSourceUrl": "https://www.fec.gov/data/candidate/H2OK02315/",
         "source": "OpenFEC API"
@@ -112696,13 +112696,13 @@
       "source": "unitedstates/congress-legislators",
       "sourceUrl": "https://www.congress.gov/member/_/D000530",
       "finance": {
-        "financeCycle": 2026,
-        "totalRaised": 2776943,
-        "fromPacs": 512370,
-        "fromIndividuals": 2219098,
-        "pacPct": 19,
-        "individualPct": 81,
-        "cashOnHand": 1073975,
+        "financeCycle": 2022,
+        "totalRaised": 3293133,
+        "fromPacs": 460789,
+        "fromIndividuals": 2642755,
+        "pacPct": 15,
+        "individualPct": 85,
+        "cashOnHand": 22128,
         "fecId": "H2PA17103",
         "financeSourceUrl": "https://www.fec.gov/data/candidate/H2PA17103/",
         "source": "OpenFEC API"
@@ -112980,13 +112980,13 @@
       "source": "unitedstates/congress-legislators",
       "sourceUrl": "https://www.congress.gov/member/_/M001223",
       "finance": {
-        "financeCycle": 2026,
-        "totalRaised": 1249772,
-        "fromPacs": 471500,
-        "fromIndividuals": 696730,
-        "pacPct": 40,
-        "individualPct": 60,
-        "cashOnHand": 1588340,
+        "financeCycle": 2022,
+        "totalRaised": 3904869,
+        "fromPacs": 639128,
+        "fromIndividuals": 3188707,
+        "pacPct": 17,
+        "individualPct": 83,
+        "cashOnHand": 40623,
         "fecId": "H2RI02184",
         "financeSourceUrl": "https://www.fec.gov/data/candidate/H2RI02184/",
         "source": "OpenFEC API"
@@ -116792,6 +116792,16 @@
       "phone": "202-225-2311",
       "bills": [
         {
+          "billNumber": "HR 10123",
+          "title": "To require the Administrator of the Federal Motor Carrier Safety Administration to audit the issuance procedures for non-domiciled commercial driver's licenses for each State, and for other purposes.",
+          "introducedDate": "2026-08-20",
+          "latestAction": "Referred to the House Committee on Transportation and Infrastructure.",
+          "policyArea": "",
+          "role": "sponsor",
+          "source": "Congress.gov API",
+          "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/10123"
+        },
+        {
           "billNumber": "HR 10090",
           "title": "To amend the Internal Revenue Code of 1986 to impose an excise tax on certain institutions of higher education that allow male participation in female intercollegiate athletic programs or events.",
           "introducedDate": "2026-08-13",
@@ -116930,16 +116940,6 @@
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/7695"
-        },
-        {
-          "billNumber": "HR 7539",
-          "title": "SAFE Act",
-          "introducedDate": "2026-02-12",
-          "latestAction": "Referred to the Subcommittee on Highways and Transit.",
-          "policyArea": "Transportation and Public Works",
-          "role": "sponsor",
-          "source": "Congress.gov API",
-          "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/7539"
         }
       ],
       "source": "unitedstates/congress-legislators",
@@ -117229,13 +117229,13 @@
       "source": "unitedstates/congress-legislators",
       "sourceUrl": "https://www.congress.gov/member/_/R000618",
       "finance": {
-        "financeCycle": 2026,
-        "totalRaised": 11233507,
-        "fromPacs": 1701815,
-        "fromIndividuals": 2224230,
-        "pacPct": 43,
-        "individualPct": 57,
-        "cashOnHand": 6910970,
+        "financeCycle": 2006,
+        "totalRaised": 13424896,
+        "fromPacs": 199800,
+        "fromIndividuals": 1192585,
+        "pacPct": 14,
+        "individualPct": 86,
+        "cashOnHand": 7204,
         "fecId": "S6NE00129",
         "financeSourceUrl": "https://www.fec.gov/data/candidate/S6NE00129/",
         "source": "OpenFEC API"
@@ -120820,13 +120820,13 @@
       "source": "unitedstates/congress-legislators",
       "sourceUrl": "https://www.congress.gov/member/_/A000382",
       "finance": {
-        "financeCycle": 2030,
-        "totalRaised": 1768461,
-        "fromPacs": 433250,
-        "fromIndividuals": 848882,
-        "pacPct": 34,
-        "individualPct": 66,
-        "cashOnHand": 686549,
+        "financeCycle": 2024,
+        "totalRaised": 31077806,
+        "fromPacs": 1253219,
+        "fromIndividuals": 23764486,
+        "pacPct": 5,
+        "individualPct": 95,
+        "cashOnHand": 49845,
         "fecId": "S4MD00327",
         "financeSourceUrl": "https://www.fec.gov/data/candidate/S4MD00327/",
         "source": "OpenFEC API"
@@ -120913,7 +120913,7 @@
           "billNumber": "S 5123",
           "title": "Lunar Landing Day Act",
           "introducedDate": "2026-07-23",
-          "latestAction": "Message on Senate action sent to the House.",
+          "latestAction": "Held at the desk.",
           "policyArea": "Science, Technology, Communications",
           "role": "sponsor",
           "source": "Congress.gov API",
@@ -122121,12 +122121,12 @@
       "sourceUrl": "https://www.congress.gov/member/_/A000381",
       "finance": {
         "financeCycle": 2026,
-        "totalRaised": 1435713,
+        "totalRaised": 1436333,
         "fromPacs": 226033,
         "fromIndividuals": 1122770,
         "pacPct": 17,
         "individualPct": 83,
-        "cashOnHand": 549683,
+        "cashOnHand": 547321,
         "fecId": "H4AZ03109",
         "financeSourceUrl": "https://www.fec.gov/data/candidate/H4AZ03109/",
         "source": "OpenFEC API"
@@ -122648,13 +122648,13 @@
       "source": "unitedstates/congress-legislators",
       "sourceUrl": "https://www.congress.gov/member/_/S001231",
       "finance": {
-        "financeCycle": 2026,
-        "totalRaised": 1449191,
-        "fromPacs": 261421,
-        "fromIndividuals": 1127684,
-        "pacPct": 19,
-        "individualPct": 81,
-        "cashOnHand": 777590,
+        "financeCycle": 2024,
+        "totalRaised": 2231456,
+        "fromPacs": 270574,
+        "fromIndividuals": 1913405,
+        "pacPct": 12,
+        "individualPct": 88,
+        "cashOnHand": 285655,
         "fecId": "H4CA12154",
         "financeSourceUrl": "https://www.fec.gov/data/candidate/H4CA12154/",
         "source": "OpenFEC API"
@@ -123277,6 +123277,16 @@
       "phone": "202-225-1956",
       "bills": [
         {
+          "billNumber": "HR 10137",
+          "title": "To direct the Inspector General of the Department of Defense to report to Congress regarding complaints of insider trading on prediction and energy markets during Operation Epic Fury, and for other purposes.",
+          "introducedDate": "2026-08-20",
+          "latestAction": "Referred to the House Committee on Armed Services.",
+          "policyArea": "",
+          "role": "sponsor",
+          "source": "Congress.gov API",
+          "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/10137"
+        },
+        {
           "billNumber": "HR 10069",
           "title": "Military Readiness Through Resilient Lands Act",
           "introducedDate": "2026-08-06",
@@ -123415,16 +123425,6 @@
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/hres/810"
-        },
-        {
-          "billNumber": "HR 5615",
-          "title": "To amend title 32, United States Code, to establish the FireGuard Program as a program of record of the National Guard.",
-          "introducedDate": "2025-09-26",
-          "latestAction": "Referred to the House Committee on Armed Services.",
-          "policyArea": "Armed Forces and National Security",
-          "role": "sponsor",
-          "source": "Congress.gov API",
-          "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/5615"
         }
       ],
       "source": "unitedstates/congress-legislators",
@@ -124232,13 +124232,13 @@
       "source": "unitedstates/congress-legislators",
       "sourceUrl": "https://www.congress.gov/member/_/T000491",
       "finance": {
-        "financeCycle": 2026,
-        "totalRaised": 4981277,
-        "fromPacs": 1107439,
-        "fromIndividuals": 3582678,
-        "pacPct": 24,
-        "individualPct": 76,
-        "cashOnHand": 3257398,
+        "financeCycle": 2024,
+        "totalRaised": 6514155,
+        "fromPacs": 599557,
+        "fromIndividuals": 4767925,
+        "pacPct": 11,
+        "individualPct": 89,
+        "cashOnHand": 327323,
         "fecId": "H4CA45170",
         "financeSourceUrl": "https://www.fec.gov/data/candidate/H4CA45170/",
         "source": "OpenFEC API"
@@ -124516,13 +124516,13 @@
       "source": "unitedstates/congress-legislators",
       "sourceUrl": "https://www.congress.gov/member/_/M001241",
       "finance": {
-        "financeCycle": 2026,
-        "totalRaised": 3381161,
-        "fromPacs": 599642,
-        "fromIndividuals": 2584624,
-        "pacPct": 19,
-        "individualPct": 81,
-        "cashOnHand": 1889360,
+        "financeCycle": 2024,
+        "totalRaised": 6835943,
+        "fromPacs": 678227,
+        "fromIndividuals": 5757172,
+        "pacPct": 11,
+        "individualPct": 89,
+        "cashOnHand": 173066,
         "fecId": "H4CA47085",
         "financeSourceUrl": "https://www.fec.gov/data/candidate/H4CA47085/",
         "source": "OpenFEC API"
@@ -127795,6 +127795,26 @@
       "phone": "202-225-4872",
       "bills": [
         {
+          "billNumber": "HR 10119",
+          "title": "To prohibit the preemption of State or local land-use, zoning, siting, or permitting authority for data centers on non-Federal land, and for other purposes.",
+          "introducedDate": "2026-08-20",
+          "latestAction": "Referred to the House Committee on Energy and Commerce.",
+          "policyArea": "",
+          "role": "sponsor",
+          "source": "Congress.gov API",
+          "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/10119"
+        },
+        {
+          "billNumber": "HR 10118",
+          "title": "To prohibit Members of Congress from signing certain nondisclosure agreements related to data centers, and for other purposes.",
+          "introducedDate": "2026-08-20",
+          "latestAction": "Referred to the House Committee on House Administration.",
+          "policyArea": "",
+          "role": "sponsor",
+          "source": "Congress.gov API",
+          "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/10118"
+        },
+        {
           "billNumber": "HR 9949",
           "title": "Safe Baby Formula Act of 2026",
           "introducedDate": "2026-07-27",
@@ -127923,26 +127943,6 @@
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/9620"
-        },
-        {
-          "billNumber": "HR 9570",
-          "title": "To designate the facility of the United States Postal Service located at 117 West Lovett Street in Charlotte, Michigan, as the \"Francis C. Flaherty Post Office Building\".",
-          "introducedDate": "2026-07-02",
-          "latestAction": "Ordered to be Reported by Voice Vote.",
-          "policyArea": "Government Operations and Politics",
-          "role": "sponsor",
-          "source": "Congress.gov API",
-          "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/9570"
-        },
-        {
-          "billNumber": "HRES 1334",
-          "title": "Reaffirming the Nation's commitment to one Nation Under God in the Pledge of Allegiance.",
-          "introducedDate": "2026-06-03",
-          "latestAction": "Referred to the House Committee on the Judiciary.",
-          "policyArea": "Government Operations and Politics",
-          "role": "sponsor",
-          "source": "Congress.gov API",
-          "sourceUrl": "https://www.congress.gov/bill/119th-congress/hres/1334"
         }
       ],
       "source": "unitedstates/congress-legislators",
@@ -130809,6 +130809,16 @@
       "phone": "202-225-5634",
       "bills": [
         {
+          "billNumber": "HR 10130",
+          "title": "To direct the Secretary of the Army to establish an Army Quantum Readiness and Advanced Computing Initiative, and for other purposes.",
+          "introducedDate": "2026-08-20",
+          "latestAction": "Referred to the House Committee on Armed Services.",
+          "policyArea": "",
+          "role": "sponsor",
+          "source": "Congress.gov API",
+          "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/10130"
+        },
+        {
           "billNumber": "HRES 1482",
           "title": "Recognizing 100 years of American Legion Baseball and the American Legion World Series, and honoring the city of Shelby, North Carolina, for serving as the permanent home of the American Legion World Series.",
           "introducedDate": "2026-08-13",
@@ -130947,16 +130957,6 @@
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/6659"
-        },
-        {
-          "billNumber": "HR 6582",
-          "title": "Flight Risk Reduction Act",
-          "introducedDate": "2025-12-10",
-          "latestAction": "Referred to the House Committee on the Judiciary.",
-          "policyArea": "Crime and Law Enforcement",
-          "role": "sponsor",
-          "source": "Congress.gov API",
-          "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/6582"
         }
       ],
       "source": "unitedstates/congress-legislators",
@@ -138492,12 +138492,12 @@
       "sourceUrl": "https://www.congress.gov/member/_/M001244",
       "finance": {
         "financeCycle": 2026,
-        "totalRaised": 11259074,
+        "totalRaised": 11270805,
         "fromPacs": 2083000,
-        "fromIndividuals": 4941622,
+        "fromIndividuals": 4953353,
         "pacPct": 30,
         "individualPct": 70,
-        "cashOnHand": 8482821,
+        "cashOnHand": 8491175,
         "fecId": "S6FL00640",
         "financeSourceUrl": "https://www.fec.gov/data/candidate/S6FL00640/",
         "source": "OpenFEC API"
@@ -138858,7 +138858,7 @@
           "billNumber": "HR 8476",
           "title": "No Antisemitism in Education Act of 2026",
           "introducedDate": "2026-04-23",
-          "latestAction": "Ordered to be Reported (Amended) by the Yeas and Nays: 20 - 12.",
+          "latestAction": "Placed on the Union Calendar, Calendar No. 660.",
           "policyArea": "Education",
           "role": "sponsor",
           "source": "Congress.gov API",
