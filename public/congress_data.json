@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-08-28T14:41:03.332698+00:00",
+  "lastUpdated": "2026-08-29T09:25:15.582930+00:00",
   "totalMembers": 537,
   "billsIncluded": true,
   "financeIncluded": true,
@@ -13009,7 +13009,7 @@
           "title": "Honoring the life and legacy of Congressman Sylvester Turner, a tireless champion of Houston's diverse communities.",
           "introducedDate": "2026-08-27",
           "latestAction": "Referred to the House Committee on House Administration.",
-          "policyArea": "",
+          "policyArea": "Congress",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/hres/1495"
@@ -13029,7 +13029,7 @@
           "title": "Honoring the life and enduring public service of Congresswoman Sheila Jackson Lee, a fearless advocate for justice, equality, and the people of the United States.",
           "introducedDate": "2026-08-27",
           "latestAction": "Referred to the House Committee on House Administration.",
-          "policyArea": "",
+          "policyArea": "Congress",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/hres/1494"
@@ -26708,7 +26708,7 @@
           "title": "Chesapeake Bay Watershed Advancement for Training, Education, Restoration, and Science (WATERS) Act",
           "introducedDate": "2025-12-18",
           "latestAction": "Placed on the Union Calendar, Calendar No. 664.",
-          "policyArea": "Environmental Protection",
+          "policyArea": "Public Lands and Natural Resources",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/6893"
@@ -44839,7 +44839,7 @@
           "title": "Expressing support for the designation of the week of August 25 through August 31, 2026, as \"Black Breastfeeding Week\".",
           "introducedDate": "2026-08-27",
           "latestAction": "Referred to the House Committee on Energy and Commerce.",
-          "policyArea": "",
+          "policyArea": "Health",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/hres/1491"
@@ -45691,7 +45691,7 @@
           "title": "Crossett Experimental Forest Act of 2026",
           "introducedDate": "2026-08-20",
           "latestAction": "Referred to the Subcommittee on Federal Lands.",
-          "policyArea": "",
+          "policyArea": "Public Lands and Natural Resources",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/10136"
@@ -50986,7 +50986,7 @@
           "title": "National Flood Impact Reduction and Resilience Act of 2026",
           "introducedDate": "2026-08-20",
           "latestAction": "Referred to the House Committee on Transportation and Infrastructure.",
-          "policyArea": "",
+          "policyArea": "Transportation and Public Works",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/10120"
@@ -66765,7 +66765,7 @@
           "title": "Mail Theft and Postal Key Crime Prevention Act of 2026",
           "introducedDate": "2026-08-20",
           "latestAction": "Referred to the House Committee on the Judiciary.",
-          "policyArea": "",
+          "policyArea": "Crime and Law Enforcement",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/10124"
@@ -72614,6 +72614,16 @@
       "phone": "202-225-5031",
       "bills": [
         {
+          "billNumber": "HRES 1498",
+          "title": "In the matter of allegations relating to Representative Chuck Edwards.",
+          "introducedDate": "2026-08-03",
+          "latestAction": "Placed on the House Calendar, Calendar No. 87.",
+          "policyArea": "",
+          "role": "sponsor",
+          "source": "Congress.gov API",
+          "sourceUrl": "https://www.congress.gov/bill/119th-congress/hres/1498"
+        },
+        {
           "billNumber": "HRES 1252",
           "title": "Resolution memorializing law enforcement officers killed in the line of duty.",
           "introducedDate": "2026-05-04",
@@ -72752,16 +72762,6 @@
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/118th-congress/hres/1255"
-        },
-        {
-          "billNumber": "HRES 1252",
-          "title": "Honoring the commitment and care of emergency medical services personnel.",
-          "introducedDate": "2024-05-22",
-          "latestAction": "Referred to the Subcommittee on Health.",
-          "policyArea": "Health",
-          "role": "sponsor",
-          "source": "Congress.gov API",
-          "sourceUrl": "https://www.congress.gov/bill/118th-congress/hres/1252"
         }
       ],
       "source": "unitedstates/congress-legislators",
@@ -74783,7 +74783,158 @@
       "nextElection": "2026",
       "website": "https://meuser.house.gov",
       "phone": "202-225-6511",
-      "bills": [],
+      "bills": [
+        {
+          "billNumber": "HR 10168",
+          "title": "To authorize the Secretary of Housing and Urban Development to establish a pilot program to recapture and reallocate rental assistance for veterans, and for other purposes.",
+          "introducedDate": "2026-08-27",
+          "latestAction": "Referred to the House Committee on Financial Services.",
+          "policyArea": "",
+          "role": "sponsor",
+          "source": "Congress.gov API",
+          "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/10168"
+        },
+        {
+          "billNumber": "HR 8489",
+          "title": "HUD Payment Integrity and Accountability Act of 2026",
+          "introducedDate": "2026-04-23",
+          "latestAction": "Referred to the House Committee on Financial Services.",
+          "policyArea": "Housing and Community Development",
+          "role": "sponsor",
+          "source": "Congress.gov API",
+          "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/8489"
+        },
+        {
+          "billNumber": "HR 8162",
+          "title": "Regulatory Review Improvement Act of 2026",
+          "introducedDate": "2026-03-30",
+          "latestAction": "Referred to the Committee on the Judiciary, and in addition to the Committee on Small Business, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+          "policyArea": "Government Operations and Politics",
+          "role": "sponsor",
+          "source": "Congress.gov API",
+          "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/8162"
+        },
+        {
+          "billNumber": "HR 8114",
+          "title": "Endless Mountains National Heritage Area Act",
+          "introducedDate": "2026-03-26",
+          "latestAction": "Referred to the House Committee on Natural Resources.",
+          "policyArea": "Public Lands and Natural Resources",
+          "role": "sponsor",
+          "source": "Congress.gov API",
+          "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/8114"
+        },
+        {
+          "billNumber": "HR 8088",
+          "title": "Growing Deposit Insurance for the Future Act",
+          "introducedDate": "2026-03-25",
+          "latestAction": "Referred to the House Committee on Financial Services.",
+          "policyArea": "Finance and Financial Sector",
+          "role": "sponsor",
+          "source": "Congress.gov API",
+          "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/8088"
+        },
+        {
+          "billNumber": "HR 7837",
+          "title": "Most Favored Patient Act of 2026",
+          "introducedDate": "2026-03-05",
+          "latestAction": "Referred to the Committee on Energy and Commerce, and in addition to the Committee on Ways and Means, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+          "policyArea": "Health",
+          "role": "sponsor",
+          "source": "Congress.gov API",
+          "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/7837"
+        },
+        {
+          "billNumber": "HR 7548",
+          "title": "SCAM Act",
+          "introducedDate": "2026-02-12",
+          "latestAction": "Referred to the House Committee on Energy and Commerce.",
+          "policyArea": "Commerce",
+          "role": "sponsor",
+          "source": "Congress.gov API",
+          "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/7548"
+        },
+        {
+          "billNumber": "HR 7401",
+          "title": "Small Business Lending Fraud Prevention Act",
+          "introducedDate": "2026-02-05",
+          "latestAction": "Received in the Senate and Read twice and referred to the Committee on Small Business and Entrepreneurship.",
+          "policyArea": "Commerce",
+          "role": "sponsor",
+          "source": "Congress.gov API",
+          "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/7401"
+        },
+        {
+          "billNumber": "HR 7127",
+          "title": "Restoring the Secondary Trading Market Act",
+          "introducedDate": "2026-01-16",
+          "latestAction": "Placed on the Union Calendar, Calendar No. 493.",
+          "policyArea": "Finance and Financial Sector",
+          "role": "sponsor",
+          "source": "Congress.gov API",
+          "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/7127"
+        },
+        {
+          "billNumber": "HR 4460",
+          "title": "SAFE Guidance Act",
+          "introducedDate": "2025-07-16",
+          "latestAction": "Placed on the Union Calendar, Calendar No. 208.",
+          "policyArea": "Finance and Financial Sector",
+          "role": "sponsor",
+          "source": "Congress.gov API",
+          "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/4460"
+        },
+        {
+          "billNumber": "HR 3645",
+          "title": "ACCESS Act of 2025",
+          "introducedDate": "2025-05-29",
+          "latestAction": "Placed on the Union Calendar, Calendar No. 166.",
+          "policyArea": "Finance and Financial Sector",
+          "role": "sponsor",
+          "source": "Congress.gov API",
+          "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/3645"
+        },
+        {
+          "billNumber": "Measure 729",
+          "title": "",
+          "introducedDate": "2023-11-14",
+          "latestAction": "On agreeing to the Meuser amendment (A005) Agreed to by voice vote.",
+          "policyArea": "",
+          "role": "sponsor",
+          "source": "Congress.gov API",
+          "sourceUrl": null
+        },
+        {
+          "billNumber": "Measure 695",
+          "title": "",
+          "introducedDate": "2023-11-08",
+          "latestAction": "On agreeing to the Meuser amendment (A040) Agreed to by voice vote.",
+          "policyArea": "",
+          "role": "sponsor",
+          "source": "Congress.gov API",
+          "sourceUrl": null
+        },
+        {
+          "billNumber": "HRES 364",
+          "title": "Calling upon local communities to support organizations that provide resources and aid Gold Shield Families in their time of need.",
+          "introducedDate": "2025-04-30",
+          "latestAction": "Motion to reconsider laid on the table Agreed to without objection.",
+          "policyArea": "Emergency Management",
+          "role": "sponsor",
+          "source": "Congress.gov API",
+          "sourceUrl": "https://www.congress.gov/bill/119th-congress/hres/364"
+        },
+        {
+          "billNumber": "HR 2513",
+          "title": "CFPB\u2013IG Reform Act of 2025",
+          "introducedDate": "2025-03-31",
+          "latestAction": "Referred to the Committee on Oversight and Government Reform, and in addition to the Committee on Financial Services, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+          "policyArea": "Finance and Financial Sector",
+          "role": "sponsor",
+          "source": "Congress.gov API",
+          "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/2513"
+        }
+      ],
       "source": "unitedstates/congress-legislators",
       "sourceUrl": "https://www.congress.gov/member/_/M001204",
       "finance": {
@@ -86424,7 +86575,7 @@
       "bills": [
         {
           "billNumber": "HR 10170",
-          "title": "To require the Secretary of Commerce to conduct a study on the marketplace for advanced memory technology, and for other purposes.",
+          "title": "Memory Chip Competitiveness Assessment Act of 2026",
           "introducedDate": "2026-08-27",
           "latestAction": "Referred to the House Committee on Energy and Commerce.",
           "policyArea": "",
@@ -91262,7 +91413,7 @@
         },
         {
           "billNumber": "HR 10158",
-          "title": "To require the Secretary of Commerce to conduct a study on the national and economic security risks posed by foreign adversaries to the automotive industry of the United States, and for other purposes.",
+          "title": "Automotive National and Economic Security Act of 2026",
           "introducedDate": "2026-08-27",
           "latestAction": "Referred to the Committee on Energy and Commerce, and in addition to the Committee on Science, Space, and Technology, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
           "policyArea": "",
@@ -110121,7 +110272,7 @@
       "bills": [
         {
           "billNumber": "HR 10163",
-          "title": "To direct the Secretary of Commerce to promote trusted quantum supply chains and the commercial leadership of the United States with respect to quantum technology, and for other purposes.",
+          "title": "American Quantum Competitiveness Act",
           "introducedDate": "2026-08-27",
           "latestAction": "Referred to the House Committee on Energy and Commerce.",
           "policyArea": "",
@@ -116939,7 +117090,7 @@
           "title": "BINSA Act",
           "introducedDate": "2026-08-06",
           "latestAction": "Read twice and referred to the Committee on Banking, Housing, and Urban Affairs.",
-          "policyArea": "Armed Forces and National Security",
+          "policyArea": "International Affairs",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/s/5316"
@@ -120893,7 +121044,7 @@
         },
         {
           "billNumber": "S 5383",
-          "title": "A bill to amend the Controlled Substances Act to schedule MGM-15 and MGM-16 as schedule I controlled substances, and to amend the controlled Substances Act to schedule synthetic 7-hydroxymitragynine, and Mitragynine Pseudoindoxyl, as a Schedule I above a specific threshold under the controlled substance act, and to expand enforcement actions against drug manufacturers and distributors of emerging synthetic opioids, commonly known as gas station heroin.",
+          "title": "End Gas Station Heroin Act",
           "introducedDate": "2026-08-08",
           "latestAction": "Read twice and referred to the Committee on the Judiciary.",
           "policyArea": "",
@@ -124794,7 +124945,7 @@
           "title": "Providing for the condemnation and denouncement of socialism in all its forms, and for other purposes.",
           "introducedDate": "2026-08-27",
           "latestAction": "Referred to the Committee on House Administration, and in addition to the Committee on Financial Services, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
-          "policyArea": "",
+          "policyArea": "Government Operations and Politics",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/hres/1490"
@@ -125035,7 +125186,7 @@
       "bills": [
         {
           "billNumber": "HR 10152",
-          "title": "To direct the Secretary of Commerce to support the adoption and use of American open artificial intelligence models, and for other purposes.",
+          "title": "Open-Source AI Leadership Act",
           "introducedDate": "2026-08-27",
           "latestAction": "Referred to the House Committee on Energy and Commerce.",
           "policyArea": "",
@@ -127668,7 +127819,7 @@
           "title": "Protecting Local Control of Data Centers Act",
           "introducedDate": "2026-08-20",
           "latestAction": "Referred to the House Committee on Energy and Commerce.",
-          "policyArea": "",
+          "policyArea": "Science, Technology, Communications",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/10119"
@@ -130702,7 +130853,7 @@
           "title": "HUD Disaster Information Improvement Act",
           "introducedDate": "2026-07-30",
           "latestAction": "Referred to the House Committee on Financial Services.",
-          "policyArea": "",
+          "policyArea": "Housing and Community Development",
           "role": "sponsor",
           "source": "Congress.gov API",
           "sourceUrl": "https://www.congress.gov/bill/119th-congress/hr/9992"
