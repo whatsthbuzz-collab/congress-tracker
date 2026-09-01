@@ -38,6 +38,7 @@ yields None and looks like "no data".
 """
 
 import os
+import re
 import sys
 import json
 import time
@@ -236,30 +237,56 @@ def fetch_top_pac_donors(fetcher: "FECFetcher", committee_ids: List[str]) -> Lis
 # readers can see the actual cases; we make no judgment about them (matters
 # include settled, dismissed, and decades-old cases).
 #
-# Matching is by name-as-reported on Schedule A, which can undercount when a
-# committee donates under an acronym (e.g. "NRSC") but its MURs use the full
-# legal name. Undercounting is acceptable; the display simply omits the tag.
-# Better a missing number than a wrong one.
+# Matching is by name-as-reported on Schedule A. IMPORTANT: the API's
+# case_respondents filter word-OR-matches by default (the word "COMMITTEE"
+# alone matches thousands of cases), so every query MUST be a quoted phrase.
+# Reported names are often mashups ("X COMMITTEE (EPEC)/SOME UNION"), so we
+# split on separators and search each segment as its own phrase, keeping the
+# best match. Counts above SANITY_CAP are discarded as bad matches. Phrase
+# matching can still undercount when a committee donates under an acronym;
+# undercounting is acceptable -- the display simply omits the tag. Better a
+# missing number than a wrong one.
 # ---------------------------------------------------------------------------
+SANITY_CAP = 100  # no single committee has this many MURs; above = bad match
+
+
+def _name_phrases(name: str) -> List[str]:
+    """Split a reported contributor name into searchable org-name phrases."""
+    cleaned = re.sub(r"\([^)]*\)", " ", name)          # drop parentheticals: (EPEC)
+    parts = re.split(r"[/;]| - ", cleaned)             # split glued-together names
+    phrases = []
+    for p in parts:
+        p = re.sub(r"\s+", " ", p).strip(" ,.")
+        if len(p) >= 8 and p not in phrases:           # skip fragments/acronyms
+            phrases.append(p)
+    return phrases[:3]
+
+
 def fetch_enforcement_counts(fetcher: "FECFetcher", donors: List[Dict[str, Any]],
-                             cache: Dict[str, int]) -> None:
+                             cache: Dict[str, Optional[int]]) -> None:
     """Annotate donor dicts in place with FEC MUR respondent counts."""
     for d in donors:
-        name = d["name"]
-        if len(name) < 5:
-            continue  # very short names over-match; skip rather than risk noise
-        if name not in cache:
-            data = fetcher._get("/legal/search/",
-                                {"type": "murs", "case_respondents": name,
-                                 "hits_returned": 1})
-            if data is None:
-                continue  # request failed; leave unannotated, don't cache
-            cache[name] = int(data.get("total_murs") or 0)
-        n = cache.get(name, 0)
-        if n > 0:
-            d["fecMurs"] = n
+        best_count, best_phrase = 0, None
+        for phrase in _name_phrases(d["name"]):
+            if phrase not in cache:
+                data = fetcher._get("/legal/search/",
+                                    {"type": "murs",
+                                     "case_respondents": f'"{phrase}"',  # exact phrase
+                                     "hits_returned": 1})
+                if data is None:
+                    continue  # request failed; don't cache
+                n = int(data.get("total_murs") or 0)
+                if n > SANITY_CAP:
+                    print(f"  [warn] enforcement match for '{phrase}' returned {n} "
+                          f"-- discarding as a bad match", file=sys.stderr)
+                    n = 0
+                cache[phrase] = n
+            if (cache.get(phrase) or 0) > best_count:
+                best_count, best_phrase = cache[phrase], phrase
+        if best_count > 0:
+            d["fecMurs"] = best_count
             d["fecMursUrl"] = ("https://www.fec.gov/data/legal/search/enforcement/"
-                               "?case_respondents=" + quote_plus(name))
+                               "?case_respondents=" + quote_plus(f'"{best_phrase}"'))
 
 
 def fetch_candidate_finance(fetcher: FECFetcher, committee_ids: List[str]) -> Dict[str, Any]:
