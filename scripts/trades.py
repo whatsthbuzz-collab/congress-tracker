@@ -93,8 +93,9 @@ def _parse_date(s: str) -> Optional[str]:
 
 
 SENATE_BASE = "https://efdsearch.senate.gov"
-SENATE_PTR_TYPE = "11"   # report_types code for Periodic Transaction Report
-SENATE_FILER = "1"       # filer_types code for Senator
+SENATE_PTR_TYPE = "11"      # report_types code for Periodic Transaction Report
+SENATE_ANNUAL_TYPE = "7"    # report_types code for Annual Report
+SENATE_FILER = "1"          # filer_types code for Senator
 
 
 def _norm(s: str) -> str:
@@ -103,10 +104,11 @@ def _norm(s: str) -> str:
     return re.sub(r"[^a-z]", "", s.lower())
 
 
-def _fetch_senate_ptrs(since_mmddyyyy: str) -> Optional[List[Dict[str, str]]]:
+def _fetch_senate_ptrs(since_mmddyyyy: str,
+                       report_type: str = SENATE_PTR_TYPE) -> Optional[List[Dict[str, str]]]:
     """
-    Return a list of {first, last, title, url, date} for every Senate PTR
-    received since `since`, or None if the flow failed.
+    Return a list of {first, last, title, url, date} for every Senate filing
+    of `report_type` received since `since`, or None if the flow failed.
     """
     sess = requests.Session()
     sess.headers.update({
@@ -148,7 +150,7 @@ def _fetch_senate_ptrs(since_mmddyyyy: str) -> Optional[List[Dict[str, str]]]:
         form = {
             "draw": str(start // length + 1),
             "start": str(start), "length": str(length),
-            "report_types": f"[{SENATE_PTR_TYPE}]",
+            "report_types": f"[{report_type}]",
             "filer_types": f"[{SENATE_FILER}]",
             "submitted_start_date": f"{since_mmddyyyy} 00:00:00",
             "submitted_end_date": "",
@@ -238,6 +240,7 @@ def add_trades(members: List[Dict[str, Any]], congress: int) -> bool:
     print(f"Fetching House stock-trade disclosures (years {years})...")
 
     all_rows: List[Dict[str, str]] = []
+    all_annual_rows: List[Dict[str, str]] = []
     dumped = False
     for y in years:
         rows = _fetch_index(y)
@@ -249,8 +252,11 @@ def add_trades(members: List[Dict[str, Any]], congress: int) -> bool:
             print("\n  [debug] index record keys:", list(rows[0].keys()))
             print("  [debug] first record:", rows[0], "\n")
         ptrs = [r for r in rows if (r.get("FilingType") or "").upper() == "P"]
-        print(f"  {y}: {len(rows)} filings, {len(ptrs)} periodic transaction reports")
+        annuals = [r for r in rows if (r.get("FilingType") or "").upper() == "O"]
+        print(f"  {y}: {len(rows)} filings, {len(ptrs)} periodic transaction reports, "
+              f"{len(annuals)} annual reports")
         all_rows.extend(ptrs)
+        all_annual_rows.extend(annuals)
 
     # Index PTRs by StateDst, de-duplicated by DocID (a filing should never
     # appear twice, but the cost of guarding is zero).
@@ -272,6 +278,23 @@ def add_trades(members: List[Dict[str, Any]], congress: int) -> bool:
             "url": f"{BASE}/ptr-pdfs/{year}/{doc}.pdf" if year and doc else None,
         })
 
+    # Latest House annual report per seat (annual PDFs live under financial-pdfs).
+    annual_by_seat: Dict[str, Dict[str, Any]] = {}
+    for r in all_annual_rows:
+        seat = (r.get("StateDst") or "").upper()
+        year = r.get("Year") or ""; doc = r.get("DocID") or ""
+        if not (seat and year and doc):
+            continue
+        d = _parse_date(r.get("FilingDate") or "") or ""
+        cur = annual_by_seat.get(seat)
+        if cur is None or d > (cur["date"] or ""):
+            annual_by_seat[seat] = {
+                "title": f"Annual financial disclosure, {year}",
+                "date": d or None,
+                "url": f"{BASE}/financial-pdfs/{year}/{doc}.pdf",
+                "last": (r.get("Last") or "").strip().lower(),
+            }
+
     # ---- Senate ----
     senators = [m for m in members if m.get("chamber") == "Senate"]
     since = f"01/01/{first_year}"
@@ -289,6 +312,27 @@ def add_trades(members: List[Dict[str, Any]], congress: int) -> bool:
         print(f"  Senate: {len(senate_rows)} PTRs, {unmatched} unmatched to a sitting senator")
     else:
         print("  Senate: fetch unavailable; senators will link to eFD search")
+
+    senate_annual_by_bioguide: Dict[str, Dict[str, Any]] = {}
+    if senate_rows is not None:
+        annual_rows = _fetch_senate_ptrs(since, SENATE_ANNUAL_TYPE) or []
+        # Sanity: if titles don't look like annual reports, the type code is
+        # wrong -- log it and skip rather than show garbage.
+        if annual_rows and not any("annual" in (r["title"] or "").lower() for r in annual_rows[:20]):
+            print("  [senate] annual-report type code returned unexpected titles; skipping. "
+                  f"Sample: {annual_rows[0]['title'][:60]}")
+            annual_rows = []
+        for r in annual_rows:
+            m = _match_senator(senators, r["first"], r["last"])
+            if not m:
+                continue
+            cur = senate_annual_by_bioguide.get(m["bioguideId"])
+            if cur is None or (r["date"] or "") > (cur["date"] or ""):
+                senate_annual_by_bioguide[m["bioguideId"]] = {
+                    "title": r["title"], "date": r["date"], "url": r["url"],
+                }
+        print(f"  Senate: {len(annual_rows)} annual reports, "
+              f"{len(senate_annual_by_bioguide)} senators matched")
 
     house_hits = 0
     senate_hits = 0
@@ -316,6 +360,7 @@ def add_trades(members: List[Dict[str, Any]], congress: int) -> bool:
                             for r in rows[:RECENT_FILINGS]],
                 "source": "U.S. Senate Electronic Financial Disclosure",
                 "sourceUrl": SENATE_SEARCH,
+                "annual": senate_annual_by_bioguide.get(m["bioguideId"]),
                 "note": ("Counts Periodic Transaction Reports filed this Congress. "
                          "Each report discloses one or more trades as amount ranges; "
                          "no dollar totals or gains are inferred."),
@@ -345,10 +390,15 @@ def add_trades(members: List[Dict[str, Any]], congress: int) -> bool:
         if matched:
             house_hits += 1
 
+        annual = annual_by_seat.get(seat)
+        if annual and annual.get("last") and not (annual["last"] in last or last in annual["last"]):
+            annual = None  # seat changed hands; don't attribute a predecessor's report
         m["trades"] = {
             "chamber": "House",
             "ptrCount": len(matched),
             "latestFilingDate": matched[0]["filingDate"] if matched else None,
+            "annual": ({"title": annual["title"], "date": annual["date"], "url": annual["url"]}
+                       if annual else None),
             "filings": [
                 {"date": f["filingDate"], "url": f["url"], "docId": f["docId"]}
                 for f in matched[:RECENT_FILINGS]

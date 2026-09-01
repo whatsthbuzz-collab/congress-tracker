@@ -493,7 +493,24 @@ function MemberProfile({ member: m, onClose, onCompare, inCompare }) {
                   </div>
                 ) : (
                   <p className="scope-note" style={{ margin: 0 }}>
-                    No periodic transaction reports on file this Congress.
+                    No trade reports filed this Congress — no reportable stock
+                    transactions on record.
+                  </p>
+                )}
+                {m.trades.annual && (
+                  <p className="annual-line">
+                    Latest annual financial disclosure:{' '}
+                    <a
+                      href={m.trades.annual.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="source-link"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      {m.trades.annual.title}
+                      {m.trades.annual.date ? ` · filed ${fmtDate(m.trades.annual.date)}` : ''} ↗
+                    </a>
+                    <span className="annual-hint"> (lists assets and holdings)</span>
                   </p>
                 )}
                 <p className="scope-note" style={{ marginTop: '0.75rem', marginBottom: '0.5rem' }}>

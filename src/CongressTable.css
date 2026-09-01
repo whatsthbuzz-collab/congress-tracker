@@ -662,3 +662,5 @@ a.comm-name:hover { color: var(--navy); text-decoration: underline; }
   .hero-emblem { display: none; }
   .hero { padding-top: 0; }
 }
+.annual-line { margin: 0.85rem 0 0; font-size: 0.84rem; color: var(--ink-2); }
+.annual-hint { color: var(--ink-3); font-size: 0.78rem; }
