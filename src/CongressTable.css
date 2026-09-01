@@ -55,7 +55,7 @@ body {
 }
 
 .ct-shell {
-  max-width: 1240px;
+  max-width: 1360px;
   margin: 0 auto;
   padding: 3rem 1.5rem 4rem;
 }
@@ -327,7 +327,7 @@ body {
 .ledger {
   width: 100%;
   border-collapse: collapse;
-  font-size: 0.92rem;
+  font-size: 0.86rem;
 }
 
 .ledger thead th {
@@ -338,12 +338,12 @@ body {
   color: #fff;
   text-align: left;
   font-family: var(--font-data);
-  font-size: 0.72rem;
+  font-size: 0.64rem;
   font-weight: 600;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  padding: 0.8rem 1rem;
-  white-space: nowrap;
+  padding: 0.65rem 0.7rem;
+  line-height: 1.25;
   user-select: none;
 }
 
@@ -365,7 +365,7 @@ body {
 .ledger thead th.sortable:hover .sort-mark { opacity: 0.8; }
 
 .ledger tbody td {
-  padding: 0.9rem 1rem;
+  padding: 0.65rem 0.7rem;
   border-top: 1px solid var(--line);
   vertical-align: middle;
 }
@@ -388,12 +388,6 @@ body {
 
 /* member cell */
 
-.member-cell {
-  display: flex;
-  flex-direction: column;
-  gap: 0.1rem;
-  min-width: 160px;
-}
 
 .member-name {
   font-weight: 700;
@@ -418,7 +412,7 @@ body {
 
 .num-main {
   font-weight: 600;
-  font-size: 0.9rem;
+  font-size: 0.86rem;
   color: var(--ink);
 }
 
@@ -451,7 +445,7 @@ body {
   background: var(--dem-soft);
   border: 1px solid transparent;
   border-radius: 999px;
-  padding: 0.35rem 0.8rem;
+  padding: 0.3rem 0.65rem;
   cursor: pointer;
   transition: background 0.15s, color 0.15s;
   white-space: nowrap;
@@ -574,8 +568,8 @@ body {
 .fund-cell {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  min-width: 90px;
+  gap: 0.4rem;
+  min-width: 78px;
 }
 
 .fund-bar {
@@ -584,7 +578,7 @@ body {
   background: var(--line);
   border-radius: 999px;
   overflow: hidden;
-  min-width: 44px;
+  min-width: 34px;
 }
 
 .fund-fill {
@@ -851,22 +845,23 @@ body {
      7 PartyLine 8 PAC-Funded 9 Record.
      Drop Chamber(3), Current Term(5), and Record(9) first. The
      accountability columns -- party, tenure, bills, party-line, PAC -- stay. */
-  .ledger th:nth-child(3),
-  .ledger td:nth-child(3),
-  .ledger th:nth-child(5),
-  .ledger td:nth-child(5),
-  .ledger th:nth-child(9),
-  .ledger td:nth-child(9) {
+  /* Visible cols: 1 Member 2 Party 3 Tenure 4 Term 5 Bills 6 PartyLine
+     7 PAC 8 Record. Drop Current Term(4) and Record(8) first. */
+  .ledger th:nth-child(4),
+  .ledger td:nth-child(4),
+  .ledger th:nth-child(8),
+  .ledger td:nth-child(8) {
     display: none;
   }
 }
 
 @media (max-width: 560px) {
   /* Also drop Tenure(4) and Bills(6); keep Member, Party, Party-line, PAC. */
-  .ledger th:nth-child(4),
-  .ledger td:nth-child(4),
-  .ledger th:nth-child(6),
-  .ledger td:nth-child(6) {
+  /* Also drop Tenure(3) and Bills(5); keep Member, Party, PartyLine, PAC. */
+  .ledger th:nth-child(3),
+  .ledger td:nth-child(3),
+  .ledger th:nth-child(5),
+  .ledger td:nth-child(5) {
     display: none;
   }
 
@@ -903,7 +898,7 @@ body {
   font-weight: 700;
   color: #fff;
 }
-.ph-sm { width: 44px; height: 54px; }
+.ph-sm { width: 38px; height: 46px; }
 .ph-lg { width: 96px; height: 118px; }
 
 .member-photo.ph-fallback { background: var(--ink-soft); }
@@ -916,9 +911,10 @@ body {
 /* member cell now has photo + text side by side */
 .member-cell {
   display: flex;
+  flex-direction: row;
   align-items: center;
-  gap: 0.7rem;
-  min-width: 210px;
+  gap: 0.6rem;
+  min-width: 190px;
 }
 .member-ident {
   display: flex;

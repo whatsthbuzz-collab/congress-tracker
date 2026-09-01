@@ -32,6 +32,17 @@ const fmtMoney = (n) => {
   return `$${n}`;
 };
 
+
+// Human text for a vote row. The API list endpoint sometimes lacks a real
+// question, and an older fallback stored the bill type ("HR") there — treat
+// that as empty and show the result instead.
+const voteText = (rv) => {
+  const q = (rv.question || '').trim();
+  const looksLikeType = /^(H|S)(R|RES|JRES|CONRES)?$/i.test(q);
+  if (q && !looksLikeType) return q;
+  return rv.result || 'Recorded vote';
+};
+
 const partyClass = (party) =>
   (party || '').toLowerCase().replace(/[^a-z]/g, '-');
 
@@ -277,7 +288,7 @@ function MemberProfile({ member: m, onClose }) {
                     </span>
                     <span className="vote-desc">
                       {rv.bill ? `${rv.bill} — ` : ''}
-                      {rv.question || rv.result}
+                      {voteText(rv)}
                     </span>
                     <span className="vote-date">{rv.date}</span>
                     {rv.billUrl && (
@@ -456,7 +467,7 @@ export default function CongressTable() {
           const seat =
             m.chamber === 'House' && m.district != null
               ? `${m.state} · District ${m.district}`
-              : m.state;
+              : `${m.state} · ${m.chamber}`;
           return (
             <div className="member-cell">
               <MemberPhoto member={m} size="sm" />
@@ -627,9 +638,10 @@ export default function CongressTable() {
               target="_blank"
               rel="noopener noreferrer"
               className="source-link"
+              title="View on Congress.gov"
               onClick={(e) => e.stopPropagation()}
             >
-              Congress.gov ↗
+              View ↗
             </a>
           ) : (
             '—'
@@ -697,7 +709,12 @@ export default function CongressTable() {
     getCoreRowModel: getCoreRowModel(),
     getSortedRowModel: getSortedRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
-    initialState: { pagination: { pageSize: 25 } },
+    initialState: {
+      pagination: { pageSize: 25 },
+      // Chamber now appears in the Member seat line; hide the column to
+      // save width. The Senate/House pills still filter on it.
+      columnVisibility: { chamber: false },
+    },
   });
 
   const parties = useMemo(
@@ -1065,7 +1082,7 @@ export default function CongressTable() {
                                         </span>
                                         <span className="vote-desc">
                                           {rv.bill ? `${rv.bill} — ` : ''}
-                                          {rv.question || rv.result}
+                                          {voteText(rv)}
                                         </span>
                                         <span className="vote-date">{rv.date}</span>
                                         {rv.billUrl && (

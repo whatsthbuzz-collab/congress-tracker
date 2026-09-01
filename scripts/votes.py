@@ -243,8 +243,10 @@ def add_votes(members: List[Dict[str, Any]], congress: int) -> bool:
                     "date": (v.get("startDate") or v.get("updateDate")
                              or v.get("date") or "")[:10],
                     "result": v.get("result") or v.get("voteResult") or "",
+                    # Don't fall back to legislationType -- that just echoes
+                    # "HR" as the description. Leave empty; UI shows result.
                     "question": (v.get("voteQuestion") or v.get("question")
-                                 or v.get("legislationType", "")),
+                                 or ""),
                     "bill": _bill_label(v),
                     "billUrl": _bill_url(v),
                 })
