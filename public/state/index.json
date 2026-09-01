@@ -1,5 +1,5 @@
 {
- "lastUpdated": "2026-09-01T14:55:53.927030+00:00",
+ "lastUpdated": "2026-09-01T15:10:57.531686+00:00",
  "states": [
   {
    "code": "AL",
@@ -15,9 +15,11 @@
    "counts": {
     "legislators": 140,
     "bills": 1531,
-    "rollCalls": 3541
+    "rollCalls": 3541,
+    "former": 0,
+    "multiMemberDistricts": false
    },
-   "schemaVersion": 2
+   "schemaVersion": 3
   },
   {
    "code": "AK",
@@ -31,11 +33,13 @@
    "datasetHash": "51e5a1d82bb922a845dafa310f16386d",
    "datasetDate": "2026-08-30",
    "counts": {
-    "legislators": 62,
+    "legislators": 61,
     "bills": 848,
-    "rollCalls": 1068
+    "rollCalls": 1068,
+    "former": 1,
+    "multiMemberDistricts": false
    },
-   "schemaVersion": 2
+   "schemaVersion": 3
   },
   {
    "code": "AZ",
@@ -51,9 +55,11 @@
    "counts": {
     "legislators": 92,
     "bills": 2190,
-    "rollCalls": 7283
+    "rollCalls": 7283,
+    "former": 0,
+    "multiMemberDistricts": true
    },
-   "schemaVersion": 2
+   "schemaVersion": 3
   },
   {
    "code": "AR",
@@ -69,9 +75,11 @@
    "counts": {
     "legislators": 134,
     "bills": 279,
-    "rollCalls": 387
+    "rollCalls": 387,
+    "former": 0,
+    "multiMemberDistricts": false
    },
-   "schemaVersion": 2
+   "schemaVersion": 3
   },
   {
    "code": "CA",
@@ -85,11 +93,13 @@
    "datasetHash": "c150cc01b19828eb286c405147bad4df",
    "datasetDate": "2026-08-30",
    "counts": {
-    "legislators": 121,
+    "legislators": 120,
     "bills": 5060,
-    "rollCalls": 21158
+    "rollCalls": 21158,
+    "former": 1,
+    "multiMemberDistricts": false
    },
-   "schemaVersion": 2
+   "schemaVersion": 3
   },
   {
    "code": "CO",
@@ -103,11 +113,13 @@
    "datasetHash": "624c60ad0a8adfd03250961b83a0042d",
    "datasetDate": "2026-08-09",
    "counts": {
-    "legislators": 101,
+    "legislators": 92,
     "bills": 714,
-    "rollCalls": 4571
+    "rollCalls": 4571,
+    "former": 9,
+    "multiMemberDistricts": false
    },
-   "schemaVersion": 2
+   "schemaVersion": 3
   },
   {
    "code": "CT",
@@ -123,9 +135,11 @@
    "counts": {
     "legislators": 187,
     "bills": 1283,
-    "rollCalls": 1797
+    "rollCalls": 1797,
+    "former": 0,
+    "multiMemberDistricts": false
    },
-   "schemaVersion": 2
+   "schemaVersion": 3
   },
   {
    "code": "DE",
@@ -139,11 +153,13 @@
    "datasetHash": "9cf41406c648af0c27594feaba0fce50",
    "datasetDate": "2026-08-30",
    "counts": {
-    "legislators": 65,
+    "legislators": 62,
     "bills": 1296,
-    "rollCalls": 2044
+    "rollCalls": 2044,
+    "former": 3,
+    "multiMemberDistricts": false
    },
-   "schemaVersion": 2
+   "schemaVersion": 3
   },
   {
    "code": "FL",
@@ -157,11 +173,13 @@
    "datasetHash": "e14d5403e979edd340bdb488acae738a",
    "datasetDate": "2026-08-02",
    "counts": {
-    "legislators": 158,
+    "legislators": 157,
     "bills": 1897,
-    "rollCalls": 2798
+    "rollCalls": 2798,
+    "former": 1,
+    "multiMemberDistricts": false
    },
-   "schemaVersion": 2
+   "schemaVersion": 3
   },
   {
    "code": "GA",
@@ -175,11 +193,13 @@
    "datasetHash": "81d453d0bc4dcd9376d463b231b648c5",
    "datasetDate": "2026-07-05",
    "counts": {
-    "legislators": 242,
+    "legislators": 236,
     "bills": 5480,
-    "rollCalls": 2520
+    "rollCalls": 2520,
+    "former": 6,
+    "multiMemberDistricts": false
    },
-   "schemaVersion": 2
+   "schemaVersion": 3
   },
   {
    "code": "HI",
@@ -193,11 +213,13 @@
    "datasetHash": "983a65da834ebf6236d8e778124f7e9e",
    "datasetDate": "2026-07-19",
    "counts": {
-    "legislators": 79,
+    "legislators": 77,
     "bills": 6132,
-    "rollCalls": 3909
+    "rollCalls": 3909,
+    "former": 2,
+    "multiMemberDistricts": false
    },
-   "schemaVersion": 2
+   "schemaVersion": 3
   },
   {
    "code": "ID",
@@ -213,9 +235,11 @@
    "counts": {
     "legislators": 105,
     "bills": 817,
-    "rollCalls": 852
+    "rollCalls": 852,
+    "former": 0,
+    "multiMemberDistricts": false
    },
-   "schemaVersion": 2
+   "schemaVersion": 3
   },
   {
    "code": "IL",
@@ -229,11 +253,13 @@
    "datasetHash": "b467b101810145bb1ed3b7315137ad59",
    "datasetDate": "2026-08-30",
    "counts": {
-    "legislators": 181,
+    "legislators": 177,
     "bills": 12077,
-    "rollCalls": 9077
+    "rollCalls": 9077,
+    "former": 4,
+    "multiMemberDistricts": false
    },
-   "schemaVersion": 2
+   "schemaVersion": 3
   },
   {
    "code": "IN",
@@ -247,11 +273,13 @@
    "datasetHash": "a1695343d3c36b5d914e77d5694c6c7f",
    "datasetDate": "2026-06-28",
    "counts": {
-    "legislators": 151,
+    "legislators": 150,
     "bills": 935,
-    "rollCalls": 689
+    "rollCalls": 689,
+    "former": 1,
+    "multiMemberDistricts": false
    },
-   "schemaVersion": 2
+   "schemaVersion": 3
   },
   {
    "code": "IA",
@@ -265,11 +293,13 @@
    "datasetHash": "0e47d413d2d9f6c3b10dee7099c46d15",
    "datasetDate": "2026-07-19",
    "counts": {
-    "legislators": 155,
+    "legislators": 150,
     "bills": 4224,
-    "rollCalls": 3156
+    "rollCalls": 3156,
+    "former": 5,
+    "multiMemberDistricts": false
    },
-   "schemaVersion": 2
+   "schemaVersion": 3
   },
   {
    "code": "KS",
@@ -283,11 +313,13 @@
    "datasetHash": "d756f09a6267fcae9ee6c9eaaf8dac79",
    "datasetDate": "2026-06-28",
    "counts": {
-    "legislators": 171,
+    "legislators": 165,
     "bills": 1483,
-    "rollCalls": 1435
+    "rollCalls": 1435,
+    "former": 6,
+    "multiMemberDistricts": false
    },
-   "schemaVersion": 2
+   "schemaVersion": 3
   },
   {
    "code": "KY",
@@ -303,9 +335,11 @@
    "counts": {
     "legislators": 138,
     "bills": 1737,
-    "rollCalls": 917
+    "rollCalls": 917,
+    "former": 0,
+    "multiMemberDistricts": false
    },
-   "schemaVersion": 2
+   "schemaVersion": 3
   },
   {
    "code": "LA",
@@ -321,9 +355,11 @@
    "counts": {
     "legislators": 144,
     "bills": 2616,
-    "rollCalls": 3298
+    "rollCalls": 3298,
+    "former": 0,
+    "multiMemberDistricts": false
    },
-   "schemaVersion": 2
+   "schemaVersion": 3
   },
   {
    "code": "ME",
@@ -337,11 +373,13 @@
    "datasetHash": "6bf225482653010109515fd15b47391b",
    "datasetDate": "2026-08-30",
    "counts": {
-    "legislators": 188,
+    "legislators": 187,
     "bills": 2454,
-    "rollCalls": 1580
+    "rollCalls": 1580,
+    "former": 1,
+    "multiMemberDistricts": false
    },
-   "schemaVersion": 2
+   "schemaVersion": 3
   },
   {
    "code": "MD",
@@ -357,9 +395,11 @@
    "counts": {
     "legislators": 190,
     "bills": 2675,
-    "rollCalls": 2732
+    "rollCalls": 2732,
+    "former": 0,
+    "multiMemberDistricts": true
    },
-   "schemaVersion": 2
+   "schemaVersion": 3
   },
   {
    "code": "MA",
@@ -375,9 +415,11 @@
    "counts": {
     "legislators": 202,
     "bills": 8920,
-    "rollCalls": 480
+    "rollCalls": 480,
+    "former": 0,
+    "multiMemberDistricts": false
    },
-   "schemaVersion": 2
+   "schemaVersion": 3
   },
   {
    "code": "MI",
@@ -393,9 +435,11 @@
    "counts": {
     "legislators": 148,
     "bills": 4012,
-    "rollCalls": 2600
+    "rollCalls": 2600,
+    "former": 0,
+    "multiMemberDistricts": false
    },
-   "schemaVersion": 2
+   "schemaVersion": 3
   },
   {
    "code": "MN",
@@ -409,11 +453,13 @@
    "datasetHash": "844c8ac087598b942d1d34c10a549767",
    "datasetDate": "2026-08-16",
    "counts": {
-    "legislators": 206,
+    "legislators": 201,
     "bills": 10590,
-    "rollCalls": 277
+    "rollCalls": 277,
+    "former": 5,
+    "multiMemberDistricts": false
    },
-   "schemaVersion": 2
+   "schemaVersion": 3
   },
   {
    "code": "MS",
@@ -427,11 +473,13 @@
    "datasetHash": "a3c931c5c8ac245b682de5d560c67fa2",
    "datasetDate": "2026-06-28",
    "counts": {
-    "legislators": 174,
+    "legislators": 173,
     "bills": 4006,
-    "rollCalls": 1725
+    "rollCalls": 1725,
+    "former": 1,
+    "multiMemberDistricts": false
    },
-   "schemaVersion": 2
+   "schemaVersion": 3
   },
   {
    "code": "MO",
@@ -447,9 +495,11 @@
    "counts": {
     "legislators": 193,
     "bills": 3146,
-    "rollCalls": 604
+    "rollCalls": 604,
+    "former": 0,
+    "multiMemberDistricts": false
    },
-   "schemaVersion": 2
+   "schemaVersion": 3
   },
   {
    "code": "MT",
@@ -463,11 +513,13 @@
    "datasetHash": "a29791d2ff1a47ddd2f4c907dea35155",
    "datasetDate": "2025-12-07",
    "counts": {
-    "legislators": 151,
+    "legislators": 115,
     "bills": 1761,
-    "rollCalls": 9209
+    "rollCalls": 9209,
+    "former": 36,
+    "multiMemberDistricts": false
    },
-   "schemaVersion": 2
+   "schemaVersion": 3
   },
   {
    "code": "NE",
@@ -483,9 +535,11 @@
    "counts": {
     "legislators": 50,
     "bills": 1847,
-    "rollCalls": 1774
+    "rollCalls": 1774,
+    "former": 0,
+    "multiMemberDistricts": false
    },
-   "schemaVersion": 2
+   "schemaVersion": 3
   },
   {
    "code": "NV",
@@ -499,11 +553,13 @@
    "datasetHash": "eacfdd7636859032904d485f5c7d069a",
    "datasetDate": "2025-12-07",
    "counts": {
-    "legislators": 75,
+    "legislators": 65,
     "bills": 1210,
-    "rollCalls": 1333
+    "rollCalls": 1333,
+    "former": 10,
+    "multiMemberDistricts": false
    },
-   "schemaVersion": 2
+   "schemaVersion": 3
   },
   {
    "code": "NH",
@@ -519,9 +575,11 @@
    "counts": {
     "legislators": 426,
     "bills": 1394,
-    "rollCalls": 403
+    "rollCalls": 403,
+    "former": 0,
+    "multiMemberDistricts": true
    },
-   "schemaVersion": 2
+   "schemaVersion": 3
   },
   {
    "code": "NJ",
@@ -537,9 +595,11 @@
    "counts": {
     "legislators": 120,
     "bills": 10707,
-    "rollCalls": 1539
+    "rollCalls": 1539,
+    "former": 0,
+    "multiMemberDistricts": true
    },
-   "schemaVersion": 2
+   "schemaVersion": 3
   },
   {
    "code": "NM",
@@ -555,9 +615,11 @@
    "counts": {
     "legislators": 112,
     "bills": 812,
-    "rollCalls": 256
+    "rollCalls": 256,
+    "former": 0,
+    "multiMemberDistricts": false
    },
-   "schemaVersion": 2
+   "schemaVersion": 3
   },
   {
    "code": "NY",
@@ -571,11 +633,13 @@
    "datasetHash": "4cda5eadf7309bf25cd348fc01f24d55",
    "datasetDate": "2026-08-30",
    "counts": {
-    "legislators": 219,
+    "legislators": 213,
     "bills": 25313,
-    "rollCalls": 14737
+    "rollCalls": 14737,
+    "former": 6,
+    "multiMemberDistricts": false
    },
-   "schemaVersion": 2
+   "schemaVersion": 3
   },
   {
    "code": "NC",
@@ -589,11 +653,13 @@
    "datasetHash": "57d859c5f128483eee1de521b16b26f0",
    "datasetDate": "2026-08-30",
    "counts": {
-    "legislators": 178,
+    "legislators": 171,
     "bills": 2338,
-    "rollCalls": 1493
+    "rollCalls": 1493,
+    "former": 7,
+    "multiMemberDistricts": false
    },
-   "schemaVersion": 2
+   "schemaVersion": 3
   },
   {
    "code": "ND",
@@ -609,9 +675,11 @@
    "counts": {
     "legislators": 142,
     "bills": 1089,
-    "rollCalls": 2184
+    "rollCalls": 2184,
+    "former": 0,
+    "multiMemberDistricts": true
    },
-   "schemaVersion": 2
+   "schemaVersion": 3
   },
   {
    "code": "OH",
@@ -625,11 +693,13 @@
    "datasetHash": "aa042f29dd96bee6d85685aaf2af3a75",
    "datasetDate": "2026-08-30",
    "counts": {
-    "legislators": 134,
+    "legislators": 130,
     "bills": 2504,
-    "rollCalls": 1083
+    "rollCalls": 1083,
+    "former": 4,
+    "multiMemberDistricts": false
    },
-   "schemaVersion": 2
+   "schemaVersion": 3
   },
   {
    "code": "OK",
@@ -643,11 +713,13 @@
    "datasetHash": "db88059ef132c22a545def5d4bea62ab",
    "datasetDate": "2026-06-28",
    "counts": {
-    "legislators": 153,
+    "legislators": 145,
     "bills": 6008,
-    "rollCalls": 8604
+    "rollCalls": 8604,
+    "former": 8,
+    "multiMemberDistricts": false
    },
-   "schemaVersion": 2
+   "schemaVersion": 3
   },
   {
    "code": "OR",
@@ -661,11 +733,13 @@
    "datasetHash": "6f8a4bb495681282ad830474dd16e520",
    "datasetDate": "2026-06-28",
    "counts": {
-    "legislators": 90,
+    "legislators": 84,
     "bills": 304,
-    "rollCalls": 724
+    "rollCalls": 724,
+    "former": 6,
+    "multiMemberDistricts": false
    },
-   "schemaVersion": 2
+   "schemaVersion": 3
   },
   {
    "code": "PA",
@@ -679,11 +753,13 @@
    "datasetHash": "cd32ae927ce81c07aca8417e21110d16",
    "datasetDate": "2026-08-30",
    "counts": {
-    "legislators": 260,
+    "legislators": 253,
     "bills": 4954,
-    "rollCalls": 5038
+    "rollCalls": 5038,
+    "former": 7,
+    "multiMemberDistricts": false
    },
-   "schemaVersion": 2
+   "schemaVersion": 3
   },
   {
    "code": "RI",
@@ -699,9 +775,11 @@
    "counts": {
     "legislators": 113,
     "bills": 3013,
-    "rollCalls": 3085
+    "rollCalls": 3085,
+    "former": 0,
+    "multiMemberDistricts": false
    },
-   "schemaVersion": 2
+   "schemaVersion": 3
   },
   {
    "code": "SC",
@@ -715,11 +793,13 @@
    "datasetHash": "c8a6a9b4d7e6a9166ed906df5747fea7",
    "datasetDate": "2026-08-30",
    "counts": {
-    "legislators": 175,
+    "legislators": 170,
     "bills": 4032,
-    "rollCalls": 2054
+    "rollCalls": 2054,
+    "former": 5,
+    "multiMemberDistricts": false
    },
-   "schemaVersion": 2
+   "schemaVersion": 3
   },
   {
    "code": "SD",
@@ -735,9 +815,11 @@
    "counts": {
     "legislators": 106,
     "bills": 666,
-    "rollCalls": 1652
+    "rollCalls": 1652,
+    "former": 0,
+    "multiMemberDistricts": true
    },
-   "schemaVersion": 2
+   "schemaVersion": 3
   },
   {
    "code": "TN",
@@ -751,11 +833,13 @@
    "datasetHash": "19b5943b15045c84220e5ef21f1cc8eb",
    "datasetDate": "2026-08-02",
    "counts": {
-    "legislators": 136,
+    "legislators": 131,
     "bills": 9159,
-    "rollCalls": 15468
+    "rollCalls": 15468,
+    "former": 5,
+    "multiMemberDistricts": false
    },
-   "schemaVersion": 2
+   "schemaVersion": 3
   },
   {
    "code": "TX",
@@ -769,11 +853,13 @@
    "datasetHash": "50fa5378d5ee1e608e3e438bddec47e7",
    "datasetDate": "2026-08-30",
    "counts": {
-    "legislators": 181,
+    "legislators": 180,
     "bills": 11503,
-    "rollCalls": 9726
+    "rollCalls": 9726,
+    "former": 1,
+    "multiMemberDistricts": false
    },
-   "schemaVersion": 2
+   "schemaVersion": 3
   },
   {
    "code": "UT",
@@ -789,9 +875,11 @@
    "counts": {
     "legislators": 104,
     "bills": 1016,
-    "rollCalls": 4049
+    "rollCalls": 4049,
+    "former": 0,
+    "multiMemberDistricts": false
    },
-   "schemaVersion": 2
+   "schemaVersion": 3
   },
   {
    "code": "VT",
@@ -807,9 +895,11 @@
    "counts": {
     "legislators": 189,
     "bills": 1717,
-    "rollCalls": 148
+    "rollCalls": 148,
+    "former": 0,
+    "multiMemberDistricts": true
    },
-   "schemaVersion": 2
+   "schemaVersion": 3
   },
   {
    "code": "VA",
@@ -823,11 +913,13 @@
    "datasetHash": "df03341902d3dbf851eda79097e9d34f",
    "datasetDate": "2026-06-28",
    "counts": {
-    "legislators": 146,
+    "legislators": 139,
     "bills": 3637,
-    "rollCalls": 11437
+    "rollCalls": 11437,
+    "former": 7,
+    "multiMemberDistricts": false
    },
-   "schemaVersion": 2
+   "schemaVersion": 3
   },
   {
    "code": "WA",
@@ -843,9 +935,11 @@
    "counts": {
     "legislators": 151,
     "bills": 3413,
-    "rollCalls": 5038
+    "rollCalls": 5038,
+    "former": 0,
+    "multiMemberDistricts": true
    },
-   "schemaVersion": 2
+   "schemaVersion": 3
   },
   {
    "code": "WV",
@@ -861,9 +955,11 @@
    "counts": {
     "legislators": 134,
     "bills": 2975,
-    "rollCalls": 1432
+    "rollCalls": 1432,
+    "former": 0,
+    "multiMemberDistricts": true
    },
-   "schemaVersion": 2
+   "schemaVersion": 3
   },
   {
    "code": "WI",
@@ -879,9 +975,11 @@
    "counts": {
     "legislators": 132,
     "bills": 2749,
-    "rollCalls": 572
+    "rollCalls": 572,
+    "former": 0,
+    "multiMemberDistricts": false
    },
-   "schemaVersion": 2
+   "schemaVersion": 3
   },
   {
    "code": "WY",
@@ -895,11 +993,13 @@
    "datasetHash": "f309021563d657f668d2755b859fbb11",
    "datasetDate": "2026-06-28",
    "counts": {
-    "legislators": 93,
+    "legislators": 84,
     "bills": 335,
-    "rollCalls": 1252
+    "rollCalls": 1252,
+    "former": 9,
+    "multiMemberDistricts": false
    },
-   "schemaVersion": 2
+   "schemaVersion": 3
   }
  ]
 }
