@@ -43,6 +43,7 @@ import json
 import time
 from datetime import datetime, timezone
 from typing import Any, Dict, List, Optional
+from urllib.parse import quote_plus
 
 import requests
 
@@ -225,6 +226,42 @@ def fetch_top_pac_donors(fetcher: "FECFetcher", committee_ids: List[str]) -> Lis
     return [{"name": name, "amount": round(amt)} for name, amt in ranked]
 
 
+# ---------------------------------------------------------------------------
+# FEC enforcement history for donor committees.
+#
+# The FEC's own legal-search API (/legal/search/?type=murs) counts Matters
+# Under Review where a name appears as a RESPONDENT (the party the matter was
+# against). That's an official, factual record -- deliberately NOT a
+# "nefarious" score. We attach the count plus a link to the FEC's search so
+# readers can see the actual cases; we make no judgment about them (matters
+# include settled, dismissed, and decades-old cases).
+#
+# Matching is by name-as-reported on Schedule A, which can undercount when a
+# committee donates under an acronym (e.g. "NRSC") but its MURs use the full
+# legal name. Undercounting is acceptable; the display simply omits the tag.
+# Better a missing number than a wrong one.
+# ---------------------------------------------------------------------------
+def fetch_enforcement_counts(fetcher: "FECFetcher", donors: List[Dict[str, Any]],
+                             cache: Dict[str, int]) -> None:
+    """Annotate donor dicts in place with FEC MUR respondent counts."""
+    for d in donors:
+        name = d["name"]
+        if len(name) < 5:
+            continue  # very short names over-match; skip rather than risk noise
+        if name not in cache:
+            data = fetcher._get("/legal/search/",
+                                {"type": "murs", "case_respondents": name,
+                                 "hits_returned": 1})
+            if data is None:
+                continue  # request failed; leave unannotated, don't cache
+            cache[name] = int(data.get("total_murs") or 0)
+        n = cache.get(name, 0)
+        if n > 0:
+            d["fecMurs"] = n
+            d["fecMursUrl"] = ("https://www.fec.gov/data/legal/search/enforcement/"
+                               "?case_respondents=" + quote_plus(name))
+
+
 def fetch_candidate_finance(fetcher: FECFetcher, committee_ids: List[str]) -> Dict[str, Any]:
     """Sum totals across every committee a candidate has authorized."""
     raised = pacs = individuals = cash = 0.0
@@ -265,14 +302,18 @@ def fetch_candidate_finance(fetcher: FECFetcher, committee_ids: List[str]) -> Di
     }
 
 
-def build_race(fetcher: FECFetcher, race: Dict[str, Any]) -> Dict[str, Any]:
+def build_race(fetcher: FECFetcher, race: Dict[str, Any],
+               enforcement_cache: Dict[str, int]) -> Dict[str, Any]:
     print(f"\n=== {race['id']} ===")
     candidates = []
     for c in race["candidates"]:
         print(f"  Fetching finance for {c['name']} ({len(c['committees'])} committee[s])...")
         finance = fetch_candidate_finance(fetcher, c["committees"])
         top_pacs = fetch_top_pac_donors(fetcher, c["committees"])
-        print(f"    {c['name']}: {len(top_pacs)} named PAC donors found")
+        fetch_enforcement_counts(fetcher, top_pacs, enforcement_cache)
+        flagged = sum(1 for d in top_pacs if d.get("fecMurs"))
+        print(f"    {c['name']}: {len(top_pacs)} named PAC donors found, "
+              f"{flagged} with FEC enforcement history")
         candidates.append({
             **c,
             "financeUrl": f"https://www.fec.gov/data/candidate/{c['fecId']}/",
@@ -299,9 +340,10 @@ def main():
     fetcher = FECFetcher(FEC_API_KEY)
     index_entries = []
     any_finance = False
+    enforcement_cache: Dict[str, int] = {}
 
     for race in RACES:
-        built = build_race(fetcher, race)
+        built = build_race(fetcher, race, enforcement_cache)
         if any(c["finance"].get("available") for c in built["candidates"]):
             any_finance = True
         with open(os.path.join(OUT_DIR, f"{race['id']}.json"), "w") as f:
