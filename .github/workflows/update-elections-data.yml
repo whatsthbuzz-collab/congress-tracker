@@ -1,0 +1,42 @@
+name: Update Elections Data
+
+on:
+  schedule:
+    - cron: '0 10 * * *'
+  workflow_dispatch:
+
+jobs:
+  fetch-elections:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: write
+    env:
+      PYTHONUNBUFFERED: "1"
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Fetch elections data
+        env:
+          FEC_API_KEY: ${{ secrets.FEC_API_KEY }}
+        run: python scripts/elections.py
+
+      - name: Commit changes
+        run: |
+          git config user.name "Congress Bot"
+          git config user.email "bot@congress-tracker.local"
+          git add public/elections
+          if git diff --cached --quiet; then
+            echo "No changes to elections data"
+          else
+            git commit -m "chore: update elections data [$(date -u +'%Y-%m-%d %H:%M UTC')]"
+            git push
+          fi
