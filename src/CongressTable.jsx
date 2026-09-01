@@ -216,7 +216,7 @@ function MemberCard({ member, onOpen, index = 0, onCompare, inCompare }) {
           {inCompare ? '✓' : '+'}
         </span>
       )}
-      {m.trades?.chamber === 'House' && (m.trades.ptrCount || 0) > 0 && (
+      {(m.trades?.ptrCount || 0) > 0 && (
         <span className="trade-badge" title="Periodic transaction reports filed this Congress">
           {m.trades.ptrCount} trade {m.trades.ptrCount === 1 ? 'report' : 'reports'}
         </span>
@@ -421,7 +421,7 @@ function MemberProfile({ member: m, onClose, onCompare, inCompare }) {
         {m.trades && (
           <section className="profile-section">
             <p className="bill-panel-title">Stock trade disclosures</p>
-            {m.trades.chamber === 'House' ? (
+            {m.trades.ptrCount != null ? (
               <>
                 <div className="finance-grid">
                   <div className="finance-stat">
@@ -469,7 +469,7 @@ function MemberProfile({ member: m, onClose, onCompare, inCompare }) {
             )}
             {m.trades.sourceUrl && (
               <a href={m.trades.sourceUrl} target="_blank" rel="noopener noreferrer" className="source-link finance-source">
-                {m.trades.chamber === 'House' ? 'House Clerk disclosures ↗' : 'Search Senate disclosures ↗'}
+                {m.trades.chamber === 'House' ? 'House Clerk disclosures ↗' : 'Senate eFD disclosures ↗'}
               </a>
             )}
           </section>
@@ -918,12 +918,15 @@ export default function CongressTable() {
         (g) => g.reduce((a, m) => a + (m.finance?.totalRaised || 0), 0) || null),
     ];
 
-    const anyTrades = data.some((m) => m.trades?.chamber === 'House');
+    const anyTrades = data.some((m) => m.trades?.ptrCount != null);
     if (anyTrades) {
+      const senateCovered = data.some((m) => m.chamber === 'Senate' && m.trades?.ptrCount != null);
       rows.push(
-        row('House members disclosing stock trades', (v) => v,
-          (g) => g.filter((m) => m.trades?.chamber === 'House' && (m.trades.ptrCount || 0) > 0).length,
-          'This Congress, per House Clerk filings. Senate not automatable.')
+        row('Members disclosing stock trades', (v) => v,
+          (g) => g.filter((m) => (m.trades?.ptrCount || 0) > 0).length,
+          senateCovered
+            ? 'This Congress, per House Clerk and Senate eFD filings.'
+            : 'This Congress, per House Clerk filings. Senate data unavailable this run.')
       );
     }
 
@@ -1861,7 +1864,7 @@ export default function CongressTable() {
                   <div><dt>Total raised</dt><dd>{m.finance ? fmtMoney(m.finance.totalRaised) : '—'}</dd></div>
                   <div><dt>Bills sponsored</dt><dd>{m.billsTotal ?? (m.bills?.length || 0)}</dd></div>
                   <div><dt>Laws enacted</dt><dd>{m.lawsEnacted ?? 0}</dd></div>
-                  <div><dt>Trade reports</dt><dd>{m.trades?.chamber === 'House' ? (m.trades.ptrCount ?? 0) : <small>Senate n/a</small>}</dd></div>
+                  <div><dt>Trade reports</dt><dd>{m.trades?.ptrCount != null ? m.trades.ptrCount : <small>n/a</small>}</dd></div>
                   <div><dt>Committees</dt><dd>{m.committees?.length || 0}</dd></div>
                 </dl>
               </div>
