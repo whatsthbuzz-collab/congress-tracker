@@ -728,13 +728,16 @@ a.comm-name:hover { color: var(--navy); text-decoration: underline; }
   .fact-row { grid-template-columns: 1fr; gap: 0.1rem; }
 }
 
-/* --- FEC enforcement tag on donor chips (neutral, informational) --- */
-.donor-enforcement {
-  font-family: var(--font-data); font-size: 0.62rem; font-weight: 500;
-  text-transform: uppercase; letter-spacing: 0.05em;
-  color: var(--navy); background: var(--gold-soft);
-  padding: 0.12rem 0.45rem; border-radius: 999px;
-  text-decoration: none; white-space: nowrap;
+/* --- Donor chip links + phone-width hardening --- */
+.donor-chip { overflow-wrap: anywhere; }
+.donor-chip-link { text-decoration: none; cursor: pointer; }
+.donor-chip-link:hover { border-color: var(--line-2); color: var(--ink); }
+.donor-chip-link span[aria-hidden] { color: var(--ink-3); font-size: 0.7rem; }
+
+@media (max-width: 480px) {
+  .compare2-card { padding: 0.85rem 0.8rem 0.85rem 0.95rem; }
+  .finance-grid { grid-template-columns: repeat(auto-fit, minmax(96px, 1fr)); gap: 0.6rem; }
+  .finance-num { font-size: 1.2rem; }
+  .fact-value { overflow-wrap: anywhere; }
+  .mcard-name { overflow-wrap: anywhere; }
 }
-.donor-enforcement:hover { text-decoration: underline; }
-:root[data-theme='dark'] .donor-enforcement { color: var(--gold); }

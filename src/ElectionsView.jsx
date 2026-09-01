@@ -83,22 +83,22 @@ function CandidateCard({ c, onOpenState }) {
       {c.topPacDonors?.length > 0 && (
         <div className="donor-list">
           <span className="donor-label">Named PAC donors on record:</span>
-          {c.topPacDonors.map((d, i) => (
-            <span key={i} className="donor-chip">
-              {d.name} <strong>{fmtMoney(d.amount)}</strong>
-              {d.fecMurs > 0 && (
-                <a
-                  href={d.fecMursUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="donor-enforcement"
-                  title="FEC Matters Under Review naming this contributor as a respondent. Includes settled, dismissed, and historical cases — click to read them at fec.gov."
-                >
-                  {d.fecMurs} FEC enforcement matter{d.fecMurs === 1 ? '' : 's'} ↗
-                </a>
-              )}
-            </span>
-          ))}
+          {c.topPacDonors.map((d, i) =>
+            d.fecUrl ? (
+              <a
+                key={i}
+                href={d.fecUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="donor-chip donor-chip-link"
+                title="View this committee's profile on fec.gov"
+              >
+                {d.name} <strong>{fmtMoney(d.amount)}</strong> <span aria-hidden="true">↗</span>
+              </a>
+            ) : (
+              <span key={i} className="donor-chip">{d.name} <strong>{fmtMoney(d.amount)}</strong></span>
+            )
+          )}
         </div>
       )}
 
@@ -183,12 +183,6 @@ export default function ElectionsView({ onOpenStateProfile }) {
 
       <footer className="colophon">
         <p>Candidate finance: <a href="https://www.fec.gov" target="_blank" rel="noopener noreferrer">FEC</a> · Background: Ballotpedia (linked per candidate) · Updated daily</p>
-        <p className="colophon-note">
-          "FEC enforcement matters" counts Matters Under Review at the FEC naming a
-          contributor as a respondent, matched by the contributor's name as reported.
-          It includes settled, dismissed, and historical cases and implies no judgment —
-          each tag links to the FEC's records so you can read the cases yourself.
-        </p>
         <p className="colophon-note">
           This page is a preview build being tested with a small group before wider release.
           It shows facts only: no ratings, scores, or endorsements of any candidate.
