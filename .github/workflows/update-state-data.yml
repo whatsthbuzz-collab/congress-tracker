@@ -9,13 +9,13 @@ on:
 jobs:
   fetch-state:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 150
     permissions:
       contents: write
     env:
       PYTHONUNBUFFERED: "1"
       # Two-letter codes, comma-separated. Add states here.
-      STATES: "TX,CA,FL,NY"
+      STATES: "AL,AK,AZ,AR,CA,CO,CT,DE,FL,GA,HI,ID,IL,IN,IA,KS,KY,LA,ME,MD,MA,MI,MN,MS,MO,MT,NE,NV,NH,NJ,NM,NY,NC,ND,OH,OK,OR,PA,RI,SC,SD,TN,TX,UT,VT,VA,WA,WV,WI,WY"
 
     steps:
       - uses: actions/checkout@v4
