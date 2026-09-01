@@ -2,7 +2,7 @@
 
 A transparent, searchable database of U.S. federal politicians with real-time bill tracking, voting records, and more.
 
-**Live Demo:** [Add your deployed URL]  
+**Live Demo:** (https://whatsthbuzz-collab.github.io/congress-tracker/)
 **Data Updates:** Nightly via GitHub Actions  
 **Data Source:** [Congress.gov API](https://api.congress.gov/)
 
