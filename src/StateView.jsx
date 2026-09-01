@@ -329,11 +329,20 @@ export default function StateView({ theme }) {
         </header>
       </div>
 
-      {stateList.length > 1 && (
+      {stateList.length > 1 && stateList.length <= 8 && (
         <div className="pill-group state-picker" role="group" aria-label="Choose a state">
           {stateList.map((x) => (
             <button key={x.code} type="button" className={`pill ${code === x.code ? 'active' : ''}`} onClick={() => setCode(x.code)}>{x.name}</button>
           ))}
+        </div>
+      )}
+      {stateList.length > 8 && (
+        <div className="state-picker state-picker-select">
+          <label className="picker-label" htmlFor="state-pick">State</label>
+          <select id="state-pick" className="state-select" value={code} onChange={(e) => setCode(e.target.value)}>
+            {stateList.map((x) => <option key={x.code} value={x.code}>{x.name}</option>)}
+          </select>
+          <span className="result-count">{stateList.length} states loaded</span>
         </div>
       )}
 

@@ -190,7 +190,7 @@ STATE_NAMES = {
     "WV": "West Virginia", "WI": "Wisconsin", "WY": "Wyoming", "DC": "District of Columbia",
 }
 PARTY_FULL = {"D": "Democratic", "R": "Republican", "I": "Independent", "L": "Libertarian",
-              "G": "Green", "N": "Nonpartisan"}
+              "G": "Green", "N": "Nonpartisan", "P": "Progressive", "": "Nonpartisan"}
 
 
 class LegiScan:
@@ -511,7 +511,8 @@ def main():
             "counts": state["counts"], "schemaVersion": SCHEMA_VERSION,
         })
         changed += 1
-        time.sleep(1)
+        del blob  # free the ZIP before the next state; some are hundreds of MB
+        time.sleep(2)
 
     index_entries.sort(key=lambda e: e["name"])
     with open(INDEX, "w") as f:

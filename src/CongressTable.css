@@ -674,3 +674,6 @@ a.comm-name:hover { color: var(--navy); text-decoration: underline; }
 .level-switch .pill { border: none; }
 @media (max-width: 560px) { .level-switch { margin-top: 2.6rem; } }
 .state-picker { margin-bottom: 1rem; }
+.state-picker-select { display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; }
+.picker-label { font-size: 0.8rem; font-weight: 700; color: var(--ink-2); }
+.state-picker-select .result-count { margin-left: 0; }
