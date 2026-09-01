@@ -22,19 +22,13 @@
    },
    "background": "Public school teacher before entering the Texas Legislature in 2019; B.A. in Government, University of Texas at Austin; M.Ed., Harvard University.",
    "backgroundSourceUrl": "https://ballotpedia.org/James_Talarico",
+   "campaignSiteUrl": "https://jamestalarico.com",
    "incumbent": false,
    "financeUrl": "https://www.fec.gov/data/candidate/S6TX00479/",
    "finance": {
-    "available": true,
-    "cycle": 2026,
-    "totalRaised": 68555930,
-    "fromPacs": 343408,
-    "fromIndividuals": 65585742,
-    "pacPct": 1,
-    "individualPct": 99,
-    "cashOnHand": 0,
-    "source": "OpenFEC API"
-   }
+    "available": false
+   },
+   "topPacDonors": []
   },
   {
    "name": "Ken Paxton",
@@ -48,19 +42,13 @@
    "stateProfile": null,
    "background": "Texas Attorney General since 2015; previously served in the Texas House (2003-2013) and Texas Senate (2013-2015).",
    "backgroundSourceUrl": "https://ballotpedia.org/Ken_Paxton",
+   "campaignSiteUrl": "https://kenpaxton.com",
    "incumbent": false,
    "financeUrl": "https://www.fec.gov/data/candidate/S6TX00388/",
    "finance": {
-    "available": true,
-    "cycle": 2026,
-    "totalRaised": 9248699,
-    "fromPacs": 219500,
-    "fromIndividuals": 9020178,
-    "pacPct": 2,
-    "individualPct": 98,
-    "cashOnHand": 0,
-    "source": "OpenFEC API"
-   }
+    "available": false
+   },
+   "topPacDonors": []
   }
  ]
 }
