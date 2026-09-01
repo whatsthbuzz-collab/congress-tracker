@@ -26,9 +26,34 @@
    "incumbent": false,
    "financeUrl": "https://www.fec.gov/data/candidate/S6TX00479/",
    "finance": {
-    "available": false
+    "available": true,
+    "cycle": 2026,
+    "totalRaised": 68555930,
+    "fromPacs": 343408,
+    "fromIndividuals": 65585742,
+    "pacPct": 1,
+    "individualPct": 99,
+    "cashOnHand": 21548155,
+    "source": "OpenFEC API"
    },
-   "topPacDonors": []
+   "topPacDonors": [
+    {
+     "name": "APWU COPA",
+     "amount": 5000
+    },
+    {
+     "name": "ENGINEERS POLITICAL EDUCATION COMMITTEE (EPEC)/INTERNATIONAL UNION OF OPERATING ENGINEERS",
+     "amount": 5000
+    },
+    {
+     "name": "A NEW DIRECTION PAC",
+     "amount": 5000
+    },
+    {
+     "name": "ALL FOR OUR COUNTRY LEADERSHIP PAC",
+     "amount": 5000
+    }
+   ]
   },
   {
    "name": "Ken Paxton",
@@ -46,9 +71,50 @@
    "incumbent": false,
    "financeUrl": "https://www.fec.gov/data/candidate/S6TX00388/",
    "finance": {
-    "available": false
+    "available": true,
+    "cycle": 2026,
+    "totalRaised": 9248699,
+    "fromPacs": 219500,
+    "fromIndividuals": 9020178,
+    "pacPct": 2,
+    "individualPct": 98,
+    "cashOnHand": 1755294,
+    "source": "OpenFEC API"
    },
-   "topPacDonors": []
+   "topPacDonors": [
+    {
+     "name": "NRSC",
+     "amount": 62000
+    },
+    {
+     "name": "SENATE CONSERVATIVES FUND",
+     "amount": 10000
+    },
+    {
+     "name": "BEST AT BRINGING ENTREPRENEURIAL RESULTS NEVER IMAGINED OR E",
+     "amount": 10000
+    },
+    {
+     "name": "USAP PAC",
+     "amount": 10000
+    },
+    {
+     "name": "LAXALT FOR SENATE",
+     "amount": 6000
+    },
+    {
+     "name": "VALERO POLTIICAL ACTION COMMITTEE",
+     "amount": 5000
+    },
+    {
+     "name": "TEXTRON POLITICAL ACTION COMMITTEE",
+     "amount": 5000
+    },
+    {
+     "name": "FLORIDA LEADS",
+     "amount": 5000
+    }
+   ]
   }
  ]
 }
