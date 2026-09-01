@@ -479,7 +479,15 @@ export default function StateView({ theme }) {
         </p>
         <p className="colophon-note">
           Party-line is measured against each party&rsquo;s majority on each roll call; missed votes include
-          &ldquo;not voting&rdquo; and absences. For official records, verify at your state legislature&rsquo;s site.
+          &ldquo;not voting&rdquo; and absences.
+          {st.counts?.former > 0 && (
+            <> {st.counts.former} {st.counts.former === 1 ? 'member' : 'members'} who left office during this
+            session {st.counts.former === 1 ? 'is' : 'are'} not shown; their replacements are.</>
+          )}
+          {st.counts?.multiMemberDistricts && (
+            <> This state has multi-member districts, so members who left mid-session may still appear.</>
+          )}
+          {' '}For official records, verify at your state legislature&rsquo;s site.
         </p>
       </footer>
 

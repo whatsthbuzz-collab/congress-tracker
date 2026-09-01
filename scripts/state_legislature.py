@@ -174,7 +174,7 @@ def openstates_match(idx: Dict[tuple, List[Dict]], chamber: str, district: Optio
 
 RECENT_PER_MEMBER = 10
 SPONSOR_PRIMARY = 1
-SCHEMA_VERSION = 2  # bump when the parser/output changes; forces a refresh  # sponsor_type_id 1 = primary sponsor in LegiScan
+SCHEMA_VERSION = 3  # bump when the parser/output changes; forces a refresh  # sponsor_type_id 1 = primary sponsor in LegiScan
 
 STATE_NAMES = {
     "AL": "Alabama", "AK": "Alaska", "AZ": "Arizona", "AR": "Arkansas", "CA": "California",
@@ -351,6 +351,37 @@ def build_state(code: str, session: Dict, data: Dict[str, List[Dict]],
     print(f"  {code}: {matched}/{len(legs)} matched to OpenStates profiles (photos); "
           f"{skipped_committees} committee records excluded")
 
+    # ---- departed members: LegiScan's session roster keeps everyone who served
+    # at any point (a member who resigned in March AND their replacement). When
+    # two people share one single-member seat, OpenStates (which tracks who is
+    # currently seated) tells us which one is current; the other is marked
+    # former. Skipped for states with multi-member districts, where a shared
+    # district is normal.
+    multi_member = any(len(v) > 1 for v in os_idx.values())
+    former = 0
+    if not multi_member:
+        by_seat: Dict[tuple, List[Dict]] = defaultdict(list)
+        for leg in legs.values():
+            if leg["district"]:
+                by_seat[(leg["chamber"], str(leg["district"]))].append(leg)
+        for seat, group in by_seat.items():
+            if len(group) < 2:
+                continue
+            current = os_idx.get(seat) or []
+            cur_last = {c["lastName"] for c in current if c.get("lastName")}
+            if not cur_last:
+                continue  # OpenStates has nobody here; leave everyone as-is
+            keep = [g for g in group if (g["lastName"] or "").lower() in cur_last]
+            if len(keep) == 1:
+                for g in group:
+                    if g is not keep[0]:
+                        g["former"] = True
+                        former += 1
+    for leg in legs.values():
+        leg.setdefault("former", False)
+    print(f"  {code}: {former} members who left during the session set aside"
+          + (" (multi-member districts; skipped)" if multi_member else ""))
+
     # ---- bills by id, sponsorship ----
     bill_by_id = {b.get("bill_id"): b for b in bills if b.get("bill_id")}
     sponsored: Dict[int, List[Dict]] = defaultdict(list)
@@ -433,7 +464,8 @@ def build_state(code: str, session: Dict, data: Dict[str, List[Dict]],
         }
         with_votes += 1
 
-    legislators = sorted(legs.values(), key=lambda l: (l["chamber"], l["lastName"] or l["name"]))
+    legislators = sorted((l for l in legs.values() if not l.get("former")),
+                         key=lambda l: (l["chamber"], l["lastName"] or l["name"]))
     print(f"  {code}: {len(legislators)} legislators, {with_votes} with vote data, "
           f"{analyzed} roll calls analyzed")
 
@@ -447,7 +479,8 @@ def build_state(code: str, session: Dict, data: Dict[str, List[Dict]],
         },
         "datasetHash": session.get("dataset_hash"),
         "datasetDate": session.get("dataset_date"),
-        "counts": {"legislators": len(legislators), "bills": len(bills), "rollCalls": len(votes)},
+        "counts": {"legislators": len(legislators), "bills": len(bills), "rollCalls": len(votes),
+                   "former": former, "multiMemberDistricts": multi_member},
         "legislators": legislators,
         "source": "LegiScan (CC BY 4.0)",
         "sourceUrl": f"https://legiscan.com/{code}",
