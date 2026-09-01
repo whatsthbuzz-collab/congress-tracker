@@ -1,5 +1,5 @@
 {
- "lastUpdated": "2026-09-01T15:10:57.531686+00:00",
+ "lastUpdated": "2026-09-01T15:24:38.673805+00:00",
  "states": [
   {
    "code": "AL",
@@ -19,7 +19,7 @@
     "former": 0,
     "multiMemberDistricts": false
    },
-   "schemaVersion": 3
+   "schemaVersion": 4
   },
   {
    "code": "AK",
@@ -39,7 +39,7 @@
     "former": 1,
     "multiMemberDistricts": false
    },
-   "schemaVersion": 3
+   "schemaVersion": 4
   },
   {
    "code": "AZ",
@@ -59,7 +59,7 @@
     "former": 0,
     "multiMemberDistricts": true
    },
-   "schemaVersion": 3
+   "schemaVersion": 4
   },
   {
    "code": "AR",
@@ -79,7 +79,7 @@
     "former": 0,
     "multiMemberDistricts": false
    },
-   "schemaVersion": 3
+   "schemaVersion": 4
   },
   {
    "code": "CA",
@@ -99,7 +99,7 @@
     "former": 1,
     "multiMemberDistricts": false
    },
-   "schemaVersion": 3
+   "schemaVersion": 4
   },
   {
    "code": "CO",
@@ -119,7 +119,7 @@
     "former": 9,
     "multiMemberDistricts": false
    },
-   "schemaVersion": 3
+   "schemaVersion": 4
   },
   {
    "code": "CT",
@@ -139,7 +139,7 @@
     "former": 0,
     "multiMemberDistricts": false
    },
-   "schemaVersion": 3
+   "schemaVersion": 4
   },
   {
    "code": "DE",
@@ -159,7 +159,7 @@
     "former": 3,
     "multiMemberDistricts": false
    },
-   "schemaVersion": 3
+   "schemaVersion": 4
   },
   {
    "code": "FL",
@@ -179,7 +179,7 @@
     "former": 1,
     "multiMemberDistricts": false
    },
-   "schemaVersion": 3
+   "schemaVersion": 4
   },
   {
    "code": "GA",
@@ -199,7 +199,7 @@
     "former": 6,
     "multiMemberDistricts": false
    },
-   "schemaVersion": 3
+   "schemaVersion": 4
   },
   {
    "code": "HI",
@@ -219,7 +219,7 @@
     "former": 2,
     "multiMemberDistricts": false
    },
-   "schemaVersion": 3
+   "schemaVersion": 4
   },
   {
    "code": "ID",
@@ -239,7 +239,7 @@
     "former": 0,
     "multiMemberDistricts": false
    },
-   "schemaVersion": 3
+   "schemaVersion": 4
   },
   {
    "code": "IL",
@@ -259,7 +259,7 @@
     "former": 4,
     "multiMemberDistricts": false
    },
-   "schemaVersion": 3
+   "schemaVersion": 4
   },
   {
    "code": "IN",
@@ -279,7 +279,7 @@
     "former": 1,
     "multiMemberDistricts": false
    },
-   "schemaVersion": 3
+   "schemaVersion": 4
   },
   {
    "code": "IA",
@@ -299,7 +299,7 @@
     "former": 5,
     "multiMemberDistricts": false
    },
-   "schemaVersion": 3
+   "schemaVersion": 4
   },
   {
    "code": "KS",
@@ -319,7 +319,7 @@
     "former": 6,
     "multiMemberDistricts": false
    },
-   "schemaVersion": 3
+   "schemaVersion": 4
   },
   {
    "code": "KY",
@@ -339,7 +339,7 @@
     "former": 0,
     "multiMemberDistricts": false
    },
-   "schemaVersion": 3
+   "schemaVersion": 4
   },
   {
    "code": "LA",
@@ -359,7 +359,7 @@
     "former": 0,
     "multiMemberDistricts": false
    },
-   "schemaVersion": 3
+   "schemaVersion": 4
   },
   {
    "code": "ME",
@@ -379,7 +379,7 @@
     "former": 1,
     "multiMemberDistricts": false
    },
-   "schemaVersion": 3
+   "schemaVersion": 4
   },
   {
    "code": "MD",
@@ -399,7 +399,7 @@
     "former": 0,
     "multiMemberDistricts": true
    },
-   "schemaVersion": 3
+   "schemaVersion": 4
   },
   {
    "code": "MA",
@@ -419,7 +419,7 @@
     "former": 0,
     "multiMemberDistricts": false
    },
-   "schemaVersion": 3
+   "schemaVersion": 4
   },
   {
    "code": "MI",
@@ -439,7 +439,7 @@
     "former": 0,
     "multiMemberDistricts": false
    },
-   "schemaVersion": 3
+   "schemaVersion": 4
   },
   {
    "code": "MN",
@@ -459,7 +459,7 @@
     "former": 5,
     "multiMemberDistricts": false
    },
-   "schemaVersion": 3
+   "schemaVersion": 4
   },
   {
    "code": "MS",
@@ -479,7 +479,7 @@
     "former": 1,
     "multiMemberDistricts": false
    },
-   "schemaVersion": 3
+   "schemaVersion": 4
   },
   {
    "code": "MO",
@@ -499,7 +499,7 @@
     "former": 0,
     "multiMemberDistricts": false
    },
-   "schemaVersion": 3
+   "schemaVersion": 4
   },
   {
    "code": "MT",
@@ -519,7 +519,7 @@
     "former": 36,
     "multiMemberDistricts": false
    },
-   "schemaVersion": 3
+   "schemaVersion": 4
   },
   {
    "code": "NE",
@@ -539,7 +539,7 @@
     "former": 0,
     "multiMemberDistricts": false
    },
-   "schemaVersion": 3
+   "schemaVersion": 4
   },
   {
    "code": "NV",
@@ -559,7 +559,7 @@
     "former": 10,
     "multiMemberDistricts": false
    },
-   "schemaVersion": 3
+   "schemaVersion": 4
   },
   {
    "code": "NH",
@@ -579,7 +579,7 @@
     "former": 0,
     "multiMemberDistricts": true
    },
-   "schemaVersion": 3
+   "schemaVersion": 4
   },
   {
    "code": "NJ",
@@ -599,7 +599,7 @@
     "former": 0,
     "multiMemberDistricts": true
    },
-   "schemaVersion": 3
+   "schemaVersion": 4
   },
   {
    "code": "NM",
@@ -619,7 +619,7 @@
     "former": 0,
     "multiMemberDistricts": false
    },
-   "schemaVersion": 3
+   "schemaVersion": 4
   },
   {
    "code": "NY",
@@ -639,7 +639,7 @@
     "former": 6,
     "multiMemberDistricts": false
    },
-   "schemaVersion": 3
+   "schemaVersion": 4
   },
   {
    "code": "NC",
@@ -659,7 +659,7 @@
     "former": 7,
     "multiMemberDistricts": false
    },
-   "schemaVersion": 3
+   "schemaVersion": 4
   },
   {
    "code": "ND",
@@ -679,7 +679,7 @@
     "former": 0,
     "multiMemberDistricts": true
    },
-   "schemaVersion": 3
+   "schemaVersion": 4
   },
   {
    "code": "OH",
@@ -699,7 +699,7 @@
     "former": 4,
     "multiMemberDistricts": false
    },
-   "schemaVersion": 3
+   "schemaVersion": 4
   },
   {
    "code": "OK",
@@ -719,7 +719,7 @@
     "former": 8,
     "multiMemberDistricts": false
    },
-   "schemaVersion": 3
+   "schemaVersion": 4
   },
   {
    "code": "OR",
@@ -739,7 +739,7 @@
     "former": 6,
     "multiMemberDistricts": false
    },
-   "schemaVersion": 3
+   "schemaVersion": 4
   },
   {
    "code": "PA",
@@ -759,7 +759,7 @@
     "former": 7,
     "multiMemberDistricts": false
    },
-   "schemaVersion": 3
+   "schemaVersion": 4
   },
   {
    "code": "RI",
@@ -779,7 +779,7 @@
     "former": 0,
     "multiMemberDistricts": false
    },
-   "schemaVersion": 3
+   "schemaVersion": 4
   },
   {
    "code": "SC",
@@ -799,7 +799,7 @@
     "former": 5,
     "multiMemberDistricts": false
    },
-   "schemaVersion": 3
+   "schemaVersion": 4
   },
   {
    "code": "SD",
@@ -819,7 +819,7 @@
     "former": 0,
     "multiMemberDistricts": true
    },
-   "schemaVersion": 3
+   "schemaVersion": 4
   },
   {
    "code": "TN",
@@ -839,7 +839,7 @@
     "former": 5,
     "multiMemberDistricts": false
    },
-   "schemaVersion": 3
+   "schemaVersion": 4
   },
   {
    "code": "TX",
@@ -859,7 +859,7 @@
     "former": 1,
     "multiMemberDistricts": false
    },
-   "schemaVersion": 3
+   "schemaVersion": 4
   },
   {
    "code": "UT",
@@ -879,7 +879,7 @@
     "former": 0,
     "multiMemberDistricts": false
    },
-   "schemaVersion": 3
+   "schemaVersion": 4
   },
   {
    "code": "VT",
@@ -899,7 +899,7 @@
     "former": 0,
     "multiMemberDistricts": true
    },
-   "schemaVersion": 3
+   "schemaVersion": 4
   },
   {
    "code": "VA",
@@ -919,7 +919,7 @@
     "former": 7,
     "multiMemberDistricts": false
    },
-   "schemaVersion": 3
+   "schemaVersion": 4
   },
   {
    "code": "WA",
@@ -939,7 +939,7 @@
     "former": 0,
     "multiMemberDistricts": true
    },
-   "schemaVersion": 3
+   "schemaVersion": 4
   },
   {
    "code": "WV",
@@ -959,7 +959,7 @@
     "former": 0,
     "multiMemberDistricts": true
    },
-   "schemaVersion": 3
+   "schemaVersion": 4
   },
   {
    "code": "WI",
@@ -979,7 +979,7 @@
     "former": 0,
     "multiMemberDistricts": false
    },
-   "schemaVersion": 3
+   "schemaVersion": 4
   },
   {
    "code": "WY",
@@ -999,7 +999,7 @@
     "former": 9,
     "multiMemberDistricts": false
    },
-   "schemaVersion": 3
+   "schemaVersion": 4
   }
  ]
 }
