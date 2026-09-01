@@ -34,6 +34,7 @@ from fec_finance import add_finance
 from votes import add_votes
 from committees import add_committees
 from laws import add_laws
+from trades import add_trades
 
 # ---------- config ----------
 
@@ -320,6 +321,9 @@ def main():
     # ---- enacted laws this Congress, by sponsor party ----
     laws_summary = add_laws(members, current_congress)
 
+    # ---- STOCK Act trade disclosures (House Clerk index, no key) ----
+    trades_enabled = add_trades(members, current_congress)
+
     # Sanity checks. A silent parse regression should be loud, not invisible.
     total = len(members)
     have_party = sum(1 for m in members if m["party"] != "Unknown")
@@ -346,6 +350,7 @@ def main():
         "votesIncluded": votes_enabled,
         "committeesIncluded": committees_enabled,
         "lawsByParty": laws_summary,
+        "tradesIncluded": trades_enabled,
         "members": members,
         "metadata": {
             "memberSource": "unitedstates/congress-legislators (public domain)",

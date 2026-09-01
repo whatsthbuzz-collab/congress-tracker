@@ -43,6 +43,90 @@ const voteText = (rv) => {
   return rv.result || 'Recorded vote';
 };
 
+
+// Draws a clean, neutral share card for one member onto a canvas and returns
+// a PNG blob. No server, no image service -- runs entirely in the browser.
+async function renderShareCard(m, theme) {
+  const W = 1200, H = 630;
+  const c = document.createElement('canvas');
+  c.width = W; c.height = H;
+  const x = c.getContext('2d');
+  const dark = theme === 'dark';
+  const bg = dark ? '#0d1218' : '#f3f4f1';
+  const ink = dark ? '#eef2f6' : '#0f1720';
+  const ink2 = dark ? '#b6c0cb' : '#4b5563';
+  const partyColor = m.party === 'Democratic' ? '#2952cc' : m.party === 'Republican' ? '#c0332b' : '#7a6bae';
+
+  x.fillStyle = bg; x.fillRect(0, 0, W, H);
+  x.fillStyle = partyColor; x.fillRect(0, 0, 14, H);
+
+  // photo (may fail cross-origin; fall back to initials)
+  const px = 70, py = 90, pw = 220, ph = 268;
+  try {
+    const img = await new Promise((res, rej) => {
+      const i = new Image(); i.crossOrigin = 'anonymous';
+      i.onload = () => res(i); i.onerror = rej;
+      i.src = `https://unitedstates.github.io/images/congress/450x550/${m.bioguideId}.jpg`;
+    });
+    x.save();
+    roundRect(x, px, py, pw, ph, 18); x.clip();
+    x.drawImage(img, px, py, pw, ph);
+    x.restore();
+  } catch {
+    x.fillStyle = partyColor; roundRect(x, px, py, pw, ph, 18); x.fill();
+    x.fillStyle = '#fff'; x.font = '800 96px "Libre Franklin", sans-serif';
+    x.textAlign = 'center'; x.textBaseline = 'middle';
+    const initials = (m.name || '').split(/\s+/).map((w) => w[0]).slice(0, 2).join('').toUpperCase();
+    x.fillText(initials, px + pw / 2, py + ph / 2);
+    x.textAlign = 'left'; x.textBaseline = 'alphabetic';
+  }
+
+  const tx = 340;
+  x.fillStyle = '#c39a1a'; x.font = '600 20px "IBM Plex Mono", monospace';
+  const seat = m.chamber === 'House' && m.district != null ? `${m.state} · District ${m.district}` : `${m.state} · ${m.chamber}`;
+  x.fillText(seat.toUpperCase(), tx, 120);
+
+  x.fillStyle = ink; x.font = '900 62px "Libre Franklin", sans-serif';
+  wrapText(x, m.name, tx, 190, W - tx - 60, 66);
+
+  x.fillStyle = partyColor; x.font = '700 26px "Public Sans", sans-serif';
+  x.fillText(m.party, tx, 290);
+
+  const stats = [
+    [String(m.termsServed ?? '—'), m.termsServed === 1 ? 'term' : 'terms'],
+    [m.nextElection || '—', 'on ballot'],
+    [m.voting?.partyLinePct != null ? `${m.voting.partyLinePct}%` : '—', 'party line'],
+    [m.finance?.pacPct != null ? `${m.finance.pacPct}%` : '—', 'PAC money'],
+  ];
+  const colW = (W - tx - 60) / 4;
+  stats.forEach(([n, l], i) => {
+    const sx = tx + i * colW;
+    x.fillStyle = ink; x.font = '800 54px "Libre Franklin", sans-serif';
+    x.fillText(n, sx, 420);
+    x.fillStyle = ink2; x.font = '500 22px "Public Sans", sans-serif';
+    x.fillText(l, sx, 456);
+  });
+
+  x.fillStyle = ink2; x.font = '500 20px "Public Sans", sans-serif';
+  x.fillText('congress-tracker · sourced from Congress.gov, FEC, House Clerk', tx, 570);
+
+  return new Promise((res) => c.toBlob(res, 'image/png'));
+}
+function roundRect(x, X, Y, W, H, r) {
+  x.beginPath();
+  x.moveTo(X + r, Y); x.arcTo(X + W, Y, X + W, Y + H, r); x.arcTo(X + W, Y + H, X, Y + H, r);
+  x.arcTo(X, Y + H, X, Y, r); x.arcTo(X, Y, X + W, Y, r); x.closePath();
+}
+function wrapText(x, text, X, Y, maxW, lh) {
+  const words = (text || '').split(' '); let line = ''; let y = Y;
+  for (const w of words) {
+    const t = line ? `${line} ${w}` : w;
+    if (x.measureText(t).width > maxW && line) { x.fillText(line, X, y); line = w; y += lh; }
+    else line = t;
+  }
+  if (line) x.fillText(line, X, y);
+}
+
 const partyClass = (party) =>
   (party || '').toLowerCase().replace(/[^a-z]/g, '-');
 
@@ -79,7 +163,7 @@ function MemberPhoto({ member, size = 'sm' }) {
   );
 }
 
-function MemberCard({ member, onOpen, index = 0 }) {
+function MemberCard({ member, onOpen, index = 0, onCompare, inCompare }) {
   const m = member;
   const seat =
     m.chamber === 'House' && m.district != null
@@ -105,6 +189,23 @@ function MemberCard({ member, onOpen, index = 0 }) {
           </span>
         </div>
       </div>
+      {onCompare && (
+        <span
+          role="button"
+          tabIndex={0}
+          className={`mcard-compare ${inCompare ? 'on' : ''}`}
+          title={inCompare ? 'Remove from comparison' : 'Add to comparison'}
+          onClick={(e) => { e.stopPropagation(); onCompare(m.bioguideId); }}
+          onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); e.stopPropagation(); onCompare(m.bioguideId); } }}
+        >
+          {inCompare ? '✓' : '+'}
+        </span>
+      )}
+      {m.trades?.chamber === 'House' && (m.trades.ptrCount || 0) > 0 && (
+        <span className="trade-badge" title="Periodic transaction reports filed this Congress">
+          {m.trades.ptrCount} trade {m.trades.ptrCount === 1 ? 'report' : 'reports'}
+        </span>
+      )}
       <div className="mcard-stats">
         <div className="mstat">
           <span className="mstat-num">{m.termsServed ?? '—'}</span>
@@ -142,7 +243,7 @@ function MemberCard({ member, onOpen, index = 0 }) {
 
 // Full profile for one member: a slide-over panel. Everything we know, in
 // one place, every figure linked to its source. Neutral by design.
-function MemberProfile({ member: m, onClose }) {
+function MemberProfile({ member: m, onClose, onCompare, inCompare }) {
   const seat =
     m.chamber === 'House' && m.district != null
       ? `${m.state} · District ${m.district}`
@@ -151,6 +252,28 @@ function MemberProfile({ member: m, onClose }) {
   const comms = m.committees || [];
   const shareUrl = `${window.location.origin}${window.location.pathname}#${m.bioguideId}`;
   const [copied, setCopied] = useState(false);
+
+  const [sharing, setSharing] = useState(false);
+  const shareCard = async () => {
+    setSharing(true);
+    try {
+      const blob = await renderShareCard(m, document.documentElement.dataset.theme);
+      const file = new File([blob], `${m.bioguideId}.png`, { type: 'image/png' });
+      if (navigator.share && navigator.canShare?.({ files: [file] })) {
+        await navigator.share({ files: [file], title: m.name, text: shareUrl, url: shareUrl });
+      } else {
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = `${m.name.replace(/[^a-z0-9]+/gi, '-').toLowerCase()}-congress-tracker.png`;
+        a.click();
+        setTimeout(() => URL.revokeObjectURL(a.href), 2000);
+      }
+    } catch (e) {
+      console.error('share failed', e);
+    } finally {
+      setSharing(false);
+    }
+  };
 
   const copyLink = async () => {
     try {
@@ -195,6 +318,18 @@ function MemberProfile({ member: m, onClose }) {
               <button type="button" className="pill pill-sm" onClick={copyLink}>
                 {copied ? 'Link copied' : 'Copy link'}
               </button>
+              <button type="button" className="pill pill-sm" onClick={shareCard} disabled={sharing}>
+                {sharing ? 'Preparing…' : 'Share card'}
+              </button>
+              {onCompare && (
+                <button
+                  type="button"
+                  className={`pill pill-sm ${inCompare ? 'active' : ''}`}
+                  onClick={() => onCompare(m.bioguideId)}
+                >
+                  {inCompare ? 'In comparison ✓' : 'Compare'}
+                </button>
+              )}
             </div>
           </div>
         </div>
@@ -258,6 +393,64 @@ function MemberProfile({ member: m, onClose }) {
                 </li>
               ))}
             </ul>
+          </section>
+        )}
+
+        {/* stock trade disclosures */}
+        {m.trades && (
+          <section className="profile-section">
+            <p className="bill-panel-title">Stock trade disclosures</p>
+            {m.trades.chamber === 'House' ? (
+              <>
+                <div className="finance-grid">
+                  <div className="finance-stat">
+                    <span className="finance-num">{m.trades.ptrCount ?? 0}</span>
+                    <span className="finance-label">
+                      {m.trades.ptrCount === 1 ? 'trade report' : 'trade reports'} this Congress
+                    </span>
+                  </div>
+                  {m.trades.latestFilingDate && (
+                    <div className="finance-stat">
+                      <span className="finance-num">{fmtDate(m.trades.latestFilingDate)}</span>
+                      <span className="finance-label">most recent filing</span>
+                    </div>
+                  )}
+                </div>
+                {m.trades.filings?.length > 0 ? (
+                  <div className="filing-list">
+                    {m.trades.filings.map((f, i) => (
+                      <a
+                        key={f.docId || i}
+                        href={f.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="filing-chip"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        {f.date ? new Date(`${f.date}T00:00:00Z`).toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC' }) : 'Filing'} ↗
+                      </a>
+                    ))}
+                    {m.trades.ptrCount > m.trades.filings.length && (
+                      <span className="filing-more">+{m.trades.ptrCount - m.trades.filings.length} more</span>
+                    )}
+                  </div>
+                ) : (
+                  <p className="scope-note" style={{ margin: 0 }}>
+                    No periodic transaction reports on file this Congress.
+                  </p>
+                )}
+                <p className="scope-note" style={{ marginTop: '0.75rem', marginBottom: '0.5rem' }}>
+                  {m.trades.note}
+                </p>
+              </>
+            ) : (
+              <p className="scope-note" style={{ margin: '0 0 0.5rem' }}>{m.trades.note}</p>
+            )}
+            {m.trades.sourceUrl && (
+              <a href={m.trades.sourceUrl} target="_blank" rel="noopener noreferrer" className="source-link finance-source">
+                {m.trades.chamber === 'House' ? 'House Clerk disclosures ↗' : 'Search Senate disclosures ↗'}
+              </a>
+            )}
           </section>
         )}
 
@@ -378,6 +571,133 @@ function MemberProfile({ member: m, onClose }) {
   );
 }
 
+
+// "How well do you know Congress?" — a short quiz generated from the live
+// data. It tests the reader's *knowledge of the record*, never ranks members,
+// and every answer reveals the sourced fact. Questions are built fresh each
+// time from a random sample so it stays interesting.
+function CongressQuiz({ data, onOpenProfile }) {
+  const [open, setOpen] = useState(false);
+  const [qs, setQs] = useState([]);
+  const [i, setI] = useState(0);
+  const [picked, setPicked] = useState(null);
+  const [score, setScore] = useState(0);
+
+  const pick = (arr, n) => [...arr].sort(() => Math.random() - 0.5).slice(0, n);
+
+  const build = () => {
+    const pool = data.filter((m) => m.name && m.party);
+    const withPL = pool.filter((m) => m.voting?.partyLinePct != null);
+    const withPac = pool.filter((m) => m.finance?.pacPct != null);
+    const out = [];
+
+    // Q type 1: which state does X represent?
+    for (const m of pick(pool, 2)) {
+      const wrong = pick([...new Set(pool.map((x) => x.state))].filter((st) => st !== m.state), 3);
+      out.push({ kind: 'state', m, prompt: `Which state does ${m.name} represent?`,
+        options: pick([m.state, ...wrong], 4), answer: m.state,
+        reveal: `${m.name} represents ${m.state} in the ${m.chamber}.` });
+    }
+    // Q type 2: who has served longer?
+    const [a, b] = pick(pool.filter((m) => m.termsServed), 2);
+    if (a && b && a.termsServed !== b.termsServed) {
+      const w = a.termsServed > b.termsServed ? a : b; const l = w === a ? b : a;
+      out.push({ kind: 'tenure', m: w, prompt: 'Who has served more terms in Congress?',
+        options: [a.name, b.name], answer: w.name,
+        reveal: `${w.name}: ${w.termsServed} terms (since ${w.firstYearServed}). ${l.name}: ${l.termsServed} (since ${l.firstYearServed}).` });
+    }
+    // Q type 3: party-line guess (bucketed)
+    if (withPL.length) {
+      const m = pick(withPL, 1)[0];
+      const v = m.voting.partyLinePct;
+      const bucket = v >= 95 ? '95–100%' : v >= 85 ? '85–94%' : v >= 70 ? '70–84%' : 'Under 70%';
+      out.push({ kind: 'pl', m, prompt: `How often does ${m.name} vote with their party on House roll calls?`,
+        options: ['Under 70%', '70–84%', '85–94%', '95–100%'], answer: bucket,
+        reveal: `${m.name} voted with the ${m.party} majority ${v}% of the time across the last ${m.voting.votesTotal} House roll calls.` });
+    }
+    // Q type 4: PAC share guess
+    if (withPac.length) {
+      const m = pick(withPac, 1)[0];
+      const v = m.finance.pacPct;
+      const bucket = v >= 50 ? 'Half or more' : v >= 25 ? 'About a quarter to half' : v > 0 ? 'Some, under a quarter' : 'None';
+      out.push({ kind: 'pac', m, prompt: `How much of ${m.name}'s campaign money comes from PACs?`,
+        options: ['None', 'Some, under a quarter', 'About a quarter to half', 'Half or more'], answer: bucket,
+        reveal: `${v}% of ${m.name}'s ${m.finance.financeCycle || ''} cycle money came from PACs (${fmtMoney(m.finance.fromPacs)} of ${fmtMoney(m.finance.totalRaised)} raised).` });
+    }
+    // Q type 5: how many members are on the ballot next?
+    const yrs = data.map((m) => parseInt(m.nextElection, 10)).filter((y) => !isNaN(y) && y % 2 === 0);
+    if (yrs.length) {
+      const ny = Math.min(...yrs);
+      const n = data.filter((m) => parseInt(m.nextElection, 10) === ny).length;
+      const opts = pick([n, Math.round(n * 0.5), Math.round(n * 0.75), Math.min(537, Math.round(n * 1.15))].map(String), 4);
+      out.push({ kind: 'ballot', prompt: `How many members of Congress are on the ballot in ${ny}?`,
+        options: opts.includes(String(n)) ? opts : [String(n), ...opts.slice(0, 3)], answer: String(n),
+        reveal: `${n} of ${data.length} members face voters in ${ny}: the whole House plus a third of the Senate.` });
+    }
+    return pick(out, Math.min(5, out.length));
+  };
+
+  const start = () => { setQs(build()); setI(0); setPicked(null); setScore(0); setOpen(true); };
+  const q = qs[i];
+  const done = open && qs.length > 0 && i >= qs.length;
+
+  return (
+    <section className="quiz" aria-label="How well do you know Congress">
+      {!open ? (
+        <div className="quiz-intro">
+          <div>
+            <h2 className="compare-title">How well do you know Congress?</h2>
+            <p className="compare-sub">Five quick questions, built from the live record. Every answer shows the source.</p>
+          </div>
+          <button type="button" className="pill active" onClick={start} disabled={!data.length}>Start</button>
+        </div>
+      ) : done ? (
+        <div className="quiz-intro">
+          <div>
+            <h2 className="compare-title">You got {score} of {qs.length}</h2>
+            <p className="compare-sub">
+              {score === qs.length ? 'Perfect. You should probably run for something.' :
+               score >= qs.length - 1 ? 'Sharp. The record has few surprises for you.' :
+               'The record is full of surprises. That is rather the point.'}
+            </p>
+          </div>
+          <div className="compare2-actions">
+            <button type="button" className="pill active" onClick={start}>Play again</button>
+            <button type="button" className="pill" onClick={() => setOpen(false)}>Close</button>
+          </div>
+        </div>
+      ) : q ? (
+        <div className="quiz-q">
+          <p className="masthead-eyebrow">Question {i + 1} of {qs.length}</p>
+          <h3 className="quiz-prompt">{q.prompt}</h3>
+          <div className="quiz-opts">
+            {q.options.map((o) => {
+              const state = picked == null ? '' : o === q.answer ? 'right' : o === picked ? 'wrong' : 'dim';
+              return (
+                <button key={o} type="button" className={`quiz-opt ${state}`} disabled={picked != null}
+                  onClick={() => { setPicked(o); if (o === q.answer) setScore((s) => s + 1); }}>
+                  {o}
+                </button>
+              );
+            })}
+          </div>
+          {picked != null && (
+            <div className="quiz-reveal">
+              <p>{q.reveal}</p>
+              <div className="compare2-actions">
+                {q.m && <button type="button" className="pill pill-sm" onClick={() => onOpenProfile(q.m)}>See the record</button>}
+                <button type="button" className="pill pill-sm active" onClick={() => { setI(i + 1); setPicked(null); }}>
+                  {i + 1 < qs.length ? 'Next' : 'Finish'}
+                </button>
+              </div>
+            </div>
+          )}
+        </div>
+      ) : null}
+    </section>
+  );
+}
+
 export default function CongressTable() {
   const [data, setData] = useState([]);
   const [lastUpdated, setLastUpdated] = useState(null);
@@ -415,6 +735,26 @@ export default function CongressTable() {
     window.addEventListener('hashchange', onHash);
     return () => window.removeEventListener('hashchange', onHash);
   }, []);
+
+  // Compare two members. Kept in the URL (?compare=ID,ID) so it's shareable.
+  const [compareIds, setCompareIds] = useState(() => {
+    const q = new URLSearchParams(window.location.search).get('compare') || '';
+    return q.split(',').map((x) => x.trim()).filter(Boolean).slice(0, 2);
+  });
+  useEffect(() => {
+    const url = new URL(window.location.href);
+    if (compareIds.length) url.searchParams.set('compare', compareIds.join(','));
+    else url.searchParams.delete('compare');
+    history.replaceState(null, '', url.pathname + url.search + url.hash);
+  }, [compareIds]);
+  const toggleCompare = (id) =>
+    setCompareIds((prev) =>
+      prev.includes(id) ? prev.filter((x) => x !== id) : [...prev.slice(-1), id]
+    );
+  const compareMembers = useMemo(
+    () => compareIds.map((id) => data.find((m) => m.bioguideId === id)).filter(Boolean),
+    [compareIds, data]
+  );
 
   const openProfile = (m) => {
     window.location.hash = m.bioguideId;
@@ -533,6 +873,15 @@ export default function CongressTable() {
       row('Avg. terms served', (v) => (v == null ? '—' : v.toFixed(1)),
         (g) => avg(g.filter((m) => m.termsServed).map((m) => m.termsServed))),
     ];
+
+    const anyTrades = data.some((m) => m.trades?.chamber === 'House');
+    if (anyTrades) {
+      rows.push(
+        row('House members disclosing stock trades', (v) => v,
+          (g) => g.filter((m) => m.trades?.chamber === 'House' && (m.trades.ptrCount || 0) > 0).length,
+          'This Congress, per House Clerk filings. Senate not automatable.')
+      );
+    }
 
     if (lawsByParty && lawsByParty.total) {
       rows.push(
@@ -1133,6 +1482,8 @@ export default function CongressTable() {
               member={row.original}
               onOpen={openProfile}
               index={i}
+              onCompare={toggleCompare}
+              inCompare={compareIds.includes(row.original.bioguideId)}
             />
           ))}
         </div>
@@ -1412,6 +1763,68 @@ export default function CongressTable() {
         </select>
       </div>
 
+      {data.length > 0 && <CongressQuiz data={data} onOpenProfile={openProfile} />}
+
+      {/* ---------- compare two ---------- */}
+      {compareMembers.length > 0 && (
+        <section className="compare2" aria-label="Compare two members">
+          <div className="compare2-head">
+            <h2 className="compare-title">
+              {compareMembers.length === 2 ? 'Side by side' : 'Pick one more to compare'}
+            </h2>
+            <div className="compare2-actions">
+              {compareMembers.length === 2 && (
+                <button
+                  type="button"
+                  className="pill pill-sm"
+                  onClick={async () => {
+                    try { await navigator.clipboard.writeText(window.location.href); } catch {}
+                  }}
+                >
+                  Copy comparison link
+                </button>
+              )}
+              <button type="button" className="pill pill-sm" onClick={() => setCompareIds([])}>
+                Clear
+              </button>
+            </div>
+          </div>
+          <div className={`compare2-grid ${compareMembers.length === 2 ? 'two' : ''}`}>
+            {compareMembers.map((m) => (
+              <div key={m.bioguideId} className={`compare2-card ${partyClass(m.party)}`}>
+                <div className="mcard-head">
+                  <MemberPhoto member={m} size="lg" />
+                  <div className="mcard-ident">
+                    <button type="button" className="mcard-name member-link" onClick={() => openProfile(m)}>
+                      {m.name}
+                    </button>
+                    <span className="mcard-seat">
+                      {m.chamber === 'House' && m.district != null ? `${m.state} · District ${m.district}` : `${m.state} · ${m.chamber}`}
+                    </span>
+                    <span className={`party-tag ${partyClass(m.party)}`}>
+                      <span className="party-dot" aria-hidden="true" />{m.party}
+                    </span>
+                  </div>
+                  <button type="button" className="compare2-remove" aria-label="Remove" onClick={() => toggleCompare(m.bioguideId)}>×</button>
+                </div>
+                <dl className="compare2-facts">
+                  <div><dt>Terms served</dt><dd>{m.termsServed ?? '—'} <small>since {m.firstYearServed || '—'}</small></dd></div>
+                  <div><dt>Next election</dt><dd>{m.nextElection || '—'}</dd></div>
+                  <div><dt>Votes with party</dt><dd>{m.voting?.partyLinePct != null ? `${m.voting.partyLinePct}%` : <small>Senate n/a</small>}</dd></div>
+                  <div><dt>Votes missed</dt><dd>{m.voting?.missedPct != null ? `${m.voting.missedPct}%` : <small>—</small>}</dd></div>
+                  <div><dt>Money from PACs</dt><dd>{m.finance?.pacPct != null ? `${m.finance.pacPct}%` : '—'}</dd></div>
+                  <div><dt>Total raised</dt><dd>{m.finance ? fmtMoney(m.finance.totalRaised) : '—'}</dd></div>
+                  <div><dt>Bills sponsored</dt><dd>{m.billsTotal ?? (m.bills?.length || 0)}</dd></div>
+                  <div><dt>Laws enacted</dt><dd>{m.lawsEnacted ?? 0}</dd></div>
+                  <div><dt>Trade reports</dt><dd>{m.trades?.chamber === 'House' ? (m.trades.ptrCount ?? 0) : <small>Senate n/a</small>}</dd></div>
+                  <div><dt>Committees</dt><dd>{m.committees?.length || 0}</dd></div>
+                </dl>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
       <footer className="colophon">
         <p>
           Member data:{' '}
@@ -1436,7 +1849,12 @@ export default function CongressTable() {
       </footer>
 
       {selectedMember && (
-        <MemberProfile member={selectedMember} onClose={closeProfile} />
+        <MemberProfile
+          member={selectedMember}
+          onClose={closeProfile}
+          onCompare={toggleCompare}
+          inCompare={compareIds.includes(selectedMember.bioguideId)}
+        />
       )}
     </div>
   );
