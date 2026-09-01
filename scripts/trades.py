@@ -53,7 +53,7 @@ def _fetch_index(year: int) -> Optional[List[Dict[str, str]]]:
     """Download {year}FD.zip and parse the XML index into dict rows."""
     url = f"{BASE}/financial-pdfs/{year}FD.zip"
     try:
-        r = requests.get(url, timeout=120,
+        r = requests.get(url, timeout=(10, 120),
                          headers={"User-Agent": "congress-tracker/1.0"})
         if r.status_code == 404:
             return None
@@ -114,8 +114,10 @@ def _fetch_senate_ptrs(since_mmddyyyy: str) -> Optional[List[Dict[str, str]]]:
         "Accept": "text/html,application/json;q=0.9,*/*;q=0.8",
     })
     home = f"{SENATE_BASE}/search/home/"
+    # (connect, read) timeouts: fail fast if the host silently drops us.
+    T = (10, 25)
     try:
-        r = sess.get(home, timeout=60)
+        r = sess.get(home, timeout=T)
         r.raise_for_status()
         m = re.search(r'name="csrfmiddlewaretoken"\s+value="([^"]+)"', r.text)
         if not m:
@@ -125,7 +127,7 @@ def _fetch_senate_ptrs(since_mmddyyyy: str) -> Optional[List[Dict[str, str]]]:
         # Accept the prohibition agreement (what the checkbox does).
         r2 = sess.post(home, data={"csrfmiddlewaretoken": token,
                                    "prohibition_agreement": "1"},
-                       headers={"Referer": home}, timeout=60, allow_redirects=True)
+                       headers={"Referer": home}, timeout=T, allow_redirects=True)
         r2.raise_for_status()
     except requests.exceptions.RequestException as e:
         print(f"  [senate] agreement step failed: {e}", file=sys.stderr)
@@ -139,7 +141,10 @@ def _fetch_senate_ptrs(since_mmddyyyy: str) -> Optional[List[Dict[str, str]]]:
     rows: List[Dict[str, str]] = []
     start, length = 0, 100
     dumped = False
-    while start < 5000:
+    MAX_PAGES = 15  # 1,500 PTRs is more than a Congress produces
+    pages = 0
+    while pages < MAX_PAGES:
+        pages += 1
         form = {
             "draw": str(start // length + 1),
             "start": str(start), "length": str(length),
@@ -160,14 +165,15 @@ def _fetch_senate_ptrs(since_mmddyyyy: str) -> Optional[List[Dict[str, str]]]:
             form[f"columns[{i}][search][value]"] = ""
             form[f"columns[{i}][search][regex]"] = "false"
         try:
-            r = sess.post(data_url, data=form, headers=hdr, timeout=60)
+            r = sess.post(data_url, data=form, headers=hdr, timeout=T)
             r.raise_for_status()
             payload = r.json()
         except Exception as e:
-            print(f"  [senate] data request failed: {e}", file=sys.stderr)
-            return rows or None
+            print(f"  [senate] data request failed on page {pages}: {e}", file=sys.stderr)
+            return rows or None  # partial results are still useful
 
         batch = payload.get("data") or []
+        total = payload.get("recordsFiltered") or payload.get("recordsTotal")
         if not dumped:
             dumped = True
             print("  [debug] senate response keys:", list(payload.keys()),
@@ -190,6 +196,8 @@ def _fetch_senate_ptrs(since_mmddyyyy: str) -> Optional[List[Dict[str, str]]]:
         if len(batch) < length:
             break
         start += length
+        if isinstance(total, int) and start >= total:
+            break
     return rows
 
 

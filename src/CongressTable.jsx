@@ -378,7 +378,7 @@ function MemberProfile({ member: m, onClose, onCompare, inCompare }) {
           {m.voting?.partyLinePct != null && (
             <div className="finance-stat">
               <span className="finance-num">{m.voting.partyLinePct}%</span>
-              <span className="finance-label">votes with party (House)</span>
+              <span className="finance-label">votes with party</span>
             </div>
           )}
           {m.finance?.pacPct != null && (
@@ -510,7 +510,7 @@ function MemberProfile({ member: m, onClose, onCompare, inCompare }) {
         {/* votes */}
         {m.voting && (
           <section className="profile-section">
-            <p className="bill-panel-title">Voting record · House · last {m.voting.votesTotal} roll calls</p>
+            <p className="bill-panel-title">Voting record · {m.voting.chamberScope || m.chamber} · last {m.voting.votesTotal} roll calls</p>
             <div className="finance-grid">
               <div className="finance-stat">
                 <span className="finance-num">{m.voting.partyLinePct ?? '—'}%</span>
@@ -552,8 +552,8 @@ function MemberProfile({ member: m, onClose, onCompare, inCompare }) {
           <section className="profile-section">
             <p className="bill-panel-title">Voting record</p>
             <p className="scope-note" style={{ margin: 0 }}>
-              Senate roll-call votes aren&rsquo;t yet available through the
-              Congress.gov API. This will fill in automatically when they are.
+              Senate roll-call data wasn&rsquo;t available on the last update.
+              It fills in automatically on the next successful run.
             </p>
           </section>
         )}
@@ -632,9 +632,9 @@ function CongressQuiz({ data, onOpenProfile }) {
       const m = pick(withPL, 1)[0];
       const v = m.voting.partyLinePct;
       const bucket = v >= 95 ? '95–100%' : v >= 85 ? '85–94%' : v >= 70 ? '70–84%' : 'Under 70%';
-      out.push({ kind: 'pl', m, prompt: `How often does ${m.name} vote with their party on House roll calls?`,
+      out.push({ kind: 'pl', m, prompt: `How often does ${m.name} vote with their party on roll-call votes?`,
         options: ['Under 70%', '70–84%', '85–94%', '95–100%'], answer: bucket,
-        reveal: `${m.name} voted with the ${m.party} majority ${v}% of the time across the last ${m.voting.votesTotal} House roll calls.` });
+        reveal: `${m.name} voted with the ${m.party} majority ${v}% of the time across the last ${m.voting.votesTotal} ${m.voting.chamberScope || m.chamber} roll calls.` });
     }
     // Q type 4: PAC share guess
     if (withPac.length) {
@@ -751,6 +751,7 @@ export default function CongressTable() {
     try { localStorage.setItem('ct-theme', theme); } catch { /* ignore */ }
   }, [theme]);
 
+  const [compareTab, setCompareTab] = useState('overview');
   const [myState, setMyState] = useState('');
   const [myDistrict, setMyDistrict] = useState('');
   // Profile panel. Synced to the URL hash (#S000148) so any member's page is
@@ -880,9 +881,18 @@ export default function CongressTable() {
     const groups = Object.fromEntries(parties.map((p) => [p, data.filter((m) => m.party === p)]));
     const avg = (arr) => (arr.length ? arr.reduce((a, b) => a + b, 0) / arr.length : null);
 
-    const row = (label, fmt, pick, note) => ({
+    const houseVotes = data.some((m) => m.chamber === 'House' && m.voting);
+    const senateVotes = data.some((m) => m.chamber === 'Senate' && m.voting);
+    const voteScopeNote =
+      houseVotes && senateVotes ? 'Recent House and Senate roll calls'
+      : houseVotes ? 'House roll calls only — Senate data unavailable on last update'
+      : senateVotes ? 'Senate roll calls only — House data unavailable on last update'
+      : undefined;
+
+    const row = (label, fmt, pick, note, group = 'overview') => ({
       label,
       note,
+      group,
       values: Object.fromEntries(parties.map((p) => [p, pick(groups[p])])),
       fmt,
     });
@@ -891,9 +901,9 @@ export default function CongressTable() {
       row('Seats held', (v) => v, (g) => g.length),
       row('On the ballot in 2026', (v) => v,
         (g) => g.filter((m) => m.nextElection === '2026').length),
-      row('Avg. votes with party (House)', (v) => (v == null ? '—' : `${Math.round(v)}%`),
+      row('Avg. votes with party', (v) => (v == null ? '—' : `${Math.round(v)}%`),
         (g) => avg(g.filter((m) => m.voting?.partyLinePct != null).map((m) => m.voting.partyLinePct)),
-        'House roll calls only'),
+        voteScopeNote),
       row('Share of money from PACs', (v) => (v == null ? '—' : `${Math.round(v)}%`),
         (g) => {
           const pac = g.reduce((a, m) => a + (m.finance?.fromPacs || 0), 0);
@@ -901,21 +911,30 @@ export default function CongressTable() {
           return pac + ind ? (pac / (pac + ind)) * 100 : null;
         }),
       row('Avg. terms served', (v) => (v == null ? '—' : v.toFixed(1)),
-        (g) => avg(g.filter((m) => m.termsServed).map((m) => m.termsServed))),
+        (g) => avg(g.filter((m) => m.termsServed).map((m) => m.termsServed)), undefined, 'people'),
       row('Avg. age', (v) => (v == null ? '—' : v.toFixed(1)),
-        (g) => avg(g.map((m) => ageOf(m.birthday)).filter((a) => a != null))),
+        (g) => avg(g.map((m) => ageOf(m.birthday)).filter((a) => a != null)), undefined, 'people'),
       row('First-term members', (v) => v,
-        (g) => g.filter((m) => m.termsServed === 1).length),
-      row('Avg. votes missed (House)', (v) => (v == null ? '—' : `${v.toFixed(1)}%`),
+        (g) => g.filter((m) => m.termsServed === 1).length, undefined, 'people'),
+      row('Avg. votes missed', (v) => (v == null ? '—' : `${v.toFixed(1)}%`),
         (g) => avg(g.filter((m) => m.voting?.missedPct != null).map((m) => m.voting.missedPct)),
-        'House roll calls only — Senate attendance is not yet in the Congress.gov API'),
-      row('Members missing 10%+ of votes (House)', (v) => v,
+        voteScopeNote, 'voting'),
+      row('Avg. votes with party', (v) => (v == null ? '—' : `${Math.round(v)}%`),
+        (g) => avg(g.filter((m) => m.voting?.partyLinePct != null).map((m) => m.voting.partyLinePct)),
+        voteScopeNote, 'voting'),
+      row('Members missing 10%+ of votes', (v) => v,
         (g) => g.filter((m) => m.voting?.missedPct != null && m.voting.missedPct >= 10).length,
-        'House only'),
+        voteScopeNote, 'voting'),
+      row('Share of money from PACs', (v) => (v == null ? '—' : `${Math.round(v)}%`),
+        (g) => {
+          const pac = g.reduce((a, m) => a + (m.finance?.fromPacs || 0), 0);
+          const ind = g.reduce((a, m) => a + (m.finance?.fromIndividuals || 0), 0);
+          return pac + ind ? (pac / (pac + ind)) * 100 : null;
+        }, undefined, 'money'),
       row('Members taking zero PAC money', (v) => v,
-        (g) => g.filter((m) => m.finance?.pacPct === 0).length),
+        (g) => g.filter((m) => m.finance?.pacPct === 0).length, undefined, 'money'),
       row('Total raised this cycle', (v) => (v == null ? '—' : fmtMoney(v)),
-        (g) => g.reduce((a, m) => a + (m.finance?.totalRaised || 0), 0) || null),
+        (g) => g.reduce((a, m) => a + (m.finance?.totalRaised || 0), 0) || null, undefined, 'money'),
     ];
 
     const anyTrades = data.some((m) => m.trades?.ptrCount != null);
@@ -926,7 +945,8 @@ export default function CongressTable() {
           (g) => g.filter((m) => (m.trades?.ptrCount || 0) > 0).length,
           senateCovered
             ? 'This Congress, per House Clerk and Senate eFD filings.'
-            : 'This Congress, per House Clerk filings. Senate data unavailable this run.')
+            : 'This Congress, per House Clerk filings. Senate data unavailable this run.',
+          'money')
       );
     }
 
@@ -1060,12 +1080,7 @@ export default function CongressTable() {
       }),
       columnHelper.accessor((row) => row.voting?.partyLinePct ?? -1, {
         id: 'partyline',
-        header: () => (
-          <span className="th-with-note">
-            Party Line
-            <span className="th-note">House only</span>
-          </span>
-        ),
+        header: 'Party Line',
         cell: (info) => {
           const v = info.row.original.voting;
           if (!v || v.partyLinePct == null) {
@@ -1325,21 +1340,33 @@ export default function CongressTable() {
       {data.length > 0 && (
         <section className="compare" aria-label="How the parties compare">
           <div className="compare-head">
-            <h2 className="compare-title">How the parties compare</h2>
-            <p className="compare-sub">
-              Same facts, side by side. No scores — just the record.
-            </p>
+            <div>
+              <h2 className="compare-title">How the parties compare</h2>
+              <p className="compare-sub">Same facts, side by side. No scores — just the record.</p>
+            </div>
+            <div className="pill-group compare-tabs" role="tablist" aria-label="Comparison category">
+              {[['overview', 'Overview'], ['voting', 'Voting'], ['money', 'Money'], ['people', 'People']].map(([k, label]) => (
+                <button
+                  key={k}
+                  type="button"
+                  role="tab"
+                  aria-selected={compareTab === k}
+                  className={`pill pill-sm ${compareTab === k ? 'active' : ''}`}
+                  onClick={() => setCompareTab(k)}
+                >
+                  {label}
+                </button>
+              ))}
+            </div>
           </div>
+
           <div className="compare-cols">
-            <span className="compare-col democratic">
-              <span className="party-dot" aria-hidden="true" /> Democrats
-            </span>
+            <span className="compare-col democratic"><span className="party-dot" aria-hidden="true" /> Democrats</span>
             <span />
-            <span className="compare-col republican">
-              Republicans <span className="party-dot" aria-hidden="true" />
-            </span>
+            <span className="compare-col republican">Republicans <span className="party-dot" aria-hidden="true" /></span>
           </div>
-          {partyCompare.rows.map((r) => {
+
+          {partyCompare.rows.filter((r) => r.group === compareTab).map((r) => {
             const d = r.values.Democratic;
             const rp = r.values.Republican;
             const dn = typeof d === 'number' ? d : 0;
@@ -1347,29 +1374,38 @@ export default function CongressTable() {
             const tot = dn + rn || 1;
             return (
               <div key={r.label} className="compare-row">
+                <span className="compare-label">{r.label}</span>
                 <span className="compare-val democratic">{r.fmt(d)}</span>
-                <div className="compare-mid">
-                  <span className="compare-label">{r.label}</span>
-                  <span className="compare-bar" aria-hidden="true">
-                    <span className="compare-fill democratic" style={{ width: `${(dn / tot) * 100}%` }} />
-                    <span className="compare-fill republican" style={{ width: `${(rn / tot) * 100}%` }} />
-                  </span>
-                  {r.note && <span className="compare-note">{r.note}</span>}
-                </div>
+                <span className="compare-bar" aria-hidden="true">
+                  <span className="compare-fill democratic" style={{ width: `${(dn / tot) * 100}%` }} />
+                  <span className="compare-fill republican" style={{ width: `${(rn / tot) * 100}%` }} />
+                </span>
                 <span className="compare-val republican">{r.fmt(rp)}</span>
               </div>
             );
           })}
-          {lawsByParty?.sourceUrl && (
-            <p className="compare-foot">
-              Laws enacted:{' '}
-              <a href={lawsByParty.sourceUrl} target="_blank" rel="noopener noreferrer">
-                Congress.gov public laws, {lawsByParty.congress}th Congress ↗
-              </a>
-              {lawsByParty.Independent ? ` · ${lawsByParty.Independent} sponsored by Independents` : ''}
-              {lawsByParty.Unknown ? ` · ${lawsByParty.Unknown} by former members` : ''}
-            </p>
-          )}
+
+          {(() => {
+            const notes = [...new Set(partyCompare.rows.filter((r) => r.group === compareTab && r.note).map((r) => r.note))];
+            const showLaws = compareTab === 'overview' && lawsByParty?.sourceUrl;
+            if (!notes.length && !showLaws) return null;
+            return (
+              <p className="compare-foot">
+                {notes.join(' · ')}
+                {showLaws && (
+                  <>
+                    {notes.length ? ' · ' : ''}
+                    Laws:{' '}
+                    <a href={lawsByParty.sourceUrl} target="_blank" rel="noopener noreferrer">
+                      Congress.gov public laws, {lawsByParty.congress}th Congress ↗
+                    </a>
+                    {lawsByParty.Independent ? ` · ${lawsByParty.Independent} by Independents` : ''}
+                    {lawsByParty.Unknown ? ` · ${lawsByParty.Unknown} by former members` : ''}
+                  </>
+                )}
+              </p>
+            );
+          })()}
         </section>
       )}
 
@@ -1599,12 +1635,7 @@ export default function CongressTable() {
                           {m.voting && (
                             <div className="finance-block">
                               <p className="bill-panel-title">
-                                Voting record · House · last {m.voting.votesTotal} roll calls
-                              </p>
-                              <p className="scope-note">
-                                Party-line and attendance reflect recent House
-                                floor votes. Senate roll-call data isn&rsquo;t yet
-                                available in the Congress.gov API.
+                                Voting record · {m.voting.chamberScope || m.chamber} · last {m.voting.votesTotal} roll calls
                               </p>
                               <div className="finance-grid">
                                 <div className="finance-stat">
@@ -1858,7 +1889,7 @@ export default function CongressTable() {
                   <div><dt>Terms served</dt><dd>{m.termsServed ?? '—'} <small>since {m.firstYearServed || '—'}</small></dd></div>
                   <div><dt>Age</dt><dd>{ageOf(m.birthday) ?? '—'}</dd></div>
                   <div><dt>Next election</dt><dd>{m.nextElection || '—'}</dd></div>
-                  <div><dt>Votes with party</dt><dd>{m.voting?.partyLinePct != null ? `${m.voting.partyLinePct}%` : <small>Senate n/a</small>}</dd></div>
+                  <div><dt>Votes with party</dt><dd>{m.voting?.partyLinePct != null ? `${m.voting.partyLinePct}%` : <small>n/a</small>}</dd></div>
                   <div><dt>Votes missed</dt><dd>{m.voting?.missedPct != null ? `${m.voting.missedPct}%` : <small>—</small>}</dd></div>
                   <div><dt>Money from PACs</dt><dd>{m.finance?.pacPct != null ? `${m.finance.pacPct}%` : '—'}</dd></div>
                   <div><dt>Total raised</dt><dd>{m.finance ? fmtMoney(m.finance.totalRaised) : '—'}</dd></div>

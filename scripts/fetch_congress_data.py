@@ -157,6 +157,7 @@ def build_member(person: Dict[str, Any]) -> Optional[Dict[str, Any]]:
         "firstYearServed": str(first_start.year) if first_start else None,
         "nextElection": str(next_election) if next_election else None,
         "birthday": (person.get("bio") or {}).get("birthday"),
+        "lisId": ids.get("lis"),
         "firstName": name_obj.get("first"),
         "lastName": name_obj.get("last"),
         "nickname": name_obj.get("nickname"),

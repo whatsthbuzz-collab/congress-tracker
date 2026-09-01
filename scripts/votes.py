@@ -11,10 +11,15 @@ bills. No new secret.
   Members: /house-vote/{congress}/{session}/{voteNumber}/members
            -> how each Representative voted, keyed by Bioguide ID.
 
-IMPORTANT SCOPE LIMIT: these endpoints are HOUSE ONLY. The Senate does not yet
-publish roll-call votes through the Congress.gov API (expected in a later
-phase). So senators get voting == None, and the UI labels the column
-"House only" so the gap is honest rather than looking broken.
+SENATE: the Congress.gov API still has no Senate roll calls, but the Senate
+publishes its own XML (see https://www.senate.gov/general/XML.htm):
+  Menu:  /legislative/LIS/roll_call_lists/vote_menu_{congress}_{session}.xml
+  Vote:  /legislative/LIS/roll_call_votes/vote{congress}{session}/
+             vote_{congress}_{session}_{number:05d}.xml
+Each vote lists every senator with party, vote_cast, and lis_member_id. Our
+roster carries the same LIS id for all 100 senators, so the join is exact.
+If senate.gov ever refuses automated requests, senators degrade to
+voting == None and the UI says so; nothing else breaks.
 
 Because the API default response is XML, every call explicitly requests
 format=json.
@@ -32,9 +37,12 @@ no clear party majority are excluded from the party-line denominator.
 """
 
 import os
+import re
 import sys
 import json
 import time
+import xml.etree.ElementTree as ET
+from datetime import datetime
 from collections import Counter
 from typing import Any, Dict, List, Optional
 
@@ -215,6 +223,107 @@ def _majority(records: List[Dict], party_letter: str) -> Optional[str]:
     return "Yea" if yea > nay else "Nay"
 
 
+
+SENATE_BASE = "https://www.senate.gov/legislative/LIS"
+SENATE_TYPE_SLUG = {
+    "S.": "s", "H.R.": "hr", "S.J.Res.": "sjres", "H.J.Res.": "hjres",
+    "S.Res.": "sres", "H.Res.": "hres", "S.Con.Res.": "sconres",
+    "H.Con.Res.": "hconres",
+}
+
+
+class SenateVoteFetcher:
+    def __init__(self):
+        self.session = requests.Session()
+        # A browser-like UA: senate.gov has been reported to refuse bare
+        # script user agents. Plain HTTPS otherwise.
+        self.session.headers.update({
+            "User-Agent": "Mozilla/5.0 (compatible; congress-tracker/1.0)",
+            "Accept": "application/xml,text/xml;q=0.9,*/*;q=0.8",
+        })
+        self.failures = 0
+        self._dumped = False
+
+    def _get_xml(self, url: str) -> Optional[ET.Element]:
+        time.sleep(REQUEST_DELAY)
+        try:
+            r = self.session.get(url, timeout=(10, 30))
+            if r.status_code == 404:
+                return None
+            r.raise_for_status()
+            return ET.fromstring(r.content)
+        except Exception as e:
+            print(f"  [senate-votes] failed {url.rsplit('/', 1)[-1]}: {e}",
+                  file=sys.stderr)
+            self.failures += 1
+            return None
+
+    def list_votes(self, congress: int, session: int) -> List[int]:
+        root = self._get_xml(f"{SENATE_BASE}/roll_call_lists/vote_menu_{congress}_{session}.xml")
+        if root is None:
+            return []
+        nums = []
+        for v in root.iter("vote"):
+            n = (v.findtext("vote_number") or "").strip()
+            if n.isdigit():
+                nums.append(int(n))
+        return sorted(set(nums), reverse=True)
+
+    def fetch_vote(self, congress: int, session: int, number: int) -> Optional[Dict]:
+        url = (f"{SENATE_BASE}/roll_call_votes/vote{congress}{session}/"
+               f"vote_{congress}_{session}_{number:05d}.xml")
+        root = self._get_xml(url)
+        if root is None:
+            return None
+
+        if not self._dumped:
+            self._dumped = True
+            first = root.find("members/member")
+            print("  [debug] senate vote root tag:", root.tag,
+                  "| members:", len(root.findall("members/member")))
+            if first is not None:
+                print("  [debug] senate member fields:",
+                      {c.tag: (c.text or "").strip() for c in first})
+
+        # Date: "June 24, 2026,  10:30 PM" -> 2026-06-24
+        raw_date = (root.findtext("vote_date") or "").strip()
+        iso = ""
+        m = re.match(r"([A-Za-z]+ \d{1,2}, \d{4})", raw_date)
+        if m:
+            try:
+                iso = datetime.strptime(m.group(1), "%B %d, %Y").date().isoformat()
+            except ValueError:
+                iso = ""
+
+        doc_type = (root.findtext("document/document_type") or "").strip()
+        doc_num = (root.findtext("document/document_number") or "").strip()
+        doc_cong = (root.findtext("document/document_congress") or "").strip()
+        bill = f"{doc_type} {doc_num}".strip() if doc_type and doc_num else None
+        slug = SENATE_TYPE_SLUG.get(doc_type)
+        bill_url = (f"https://www.congress.gov/bill/{doc_cong}th-congress/{slug}/{doc_num}"
+                    if slug and doc_num and doc_cong else None)
+
+        members = []
+        for mem in root.findall("members/member"):
+            members.append({
+                "lis": (mem.findtext("lis_member_id") or "").strip(),
+                "party": (mem.findtext("party") or "").strip()[:1].upper(),
+                "position": (mem.findtext("vote_cast") or "").strip(),
+            })
+
+        return {
+            "number": number,
+            "session": session,
+            "date": iso,
+            "question": (root.findtext("question") or root.findtext("vote_question_text") or "").strip(),
+            "result": (root.findtext("vote_result") or "").strip(),
+            "bill": bill,
+            "billUrl": bill_url,
+            "sourceUrl": url.replace(".xml", ".htm"),
+            "members": members,
+        }
+
+
 def add_votes(members: List[Dict[str, Any]], congress: int) -> bool:
     """
     Enrich HOUSE members with voting behavior from Congress.gov. Senators get
@@ -258,13 +367,9 @@ def add_votes(members: List[Dict[str, Any]], congress: int) -> bool:
     vote_refs = vote_refs[:VOTE_CAP]
 
     if not vote_refs:
-        print("  No House votes retrieved. Leaving vote fields empty.")
-        print(f"  Failed requests: {fetcher.failures}")
-        for m in members:
-            m["voting"] = None
-        return False
-
-    print(f"  Analyzing {len(vote_refs)} House roll-call votes.")
+        print("  No House votes retrieved this run; continuing to Senate.")
+    else:
+        print(f"  Analyzing {len(vote_refs)} House roll-call votes.")
 
     by_bioguide = {m["bioguideId"]: m for m in members}
     tally = {bid: {"with": 0, "against": 0, "missed": 0,
@@ -314,13 +419,65 @@ def add_votes(members: List[Dict[str, Any]], congress: int) -> bool:
             if len(t["recent"]) < RECENT_PER_MEMBER:
                 t["recent"].append({**meta, "position": pos})
 
-    enriched = 0
+    # ---------------- Senate (senate.gov XML) ----------------
+    print(f"Fetching Senate roll-call votes (Congress {congress})...")
+    sfetch = SenateVoteFetcher()
+    lis_to_bid = {m.get("lisId"): m["bioguideId"] for m in members if m.get("lisId")}
+    senate_votes: List[Dict] = []
+    for session in (2, 1):
+        nums = sfetch.list_votes(congress, session)
+        if not nums:
+            continue
+        take = nums[: max(0, VOTE_CAP - len(senate_votes))]
+        print(f"  Session {session}: {len(nums)} roll calls listed, pulling {len(take)}")
+        for n in take:
+            v = sfetch.fetch_vote(congress, session, n)
+            if v:
+                senate_votes.append(v)
+        if len(senate_votes) >= VOTE_CAP:
+            break
+
+    senate_scope = bool(senate_votes)
+    for v in senate_votes:
+        records = [{"bioguide": lis_to_bid.get(mm["lis"]), "position": mm["position"],
+                    "party": mm["party"]} for mm in v["members"] if mm["lis"]]
+        records = [r for r in records if r["bioguide"]]
+        if not records:
+            continue
+        maj = {"D": _majority(records, "D"), "R": _majority(records, "R")}
+        meta = {"date": v["date"], "question": v["question"], "result": v["result"],
+                "chamber": "Senate"}
+        if v["bill"]:
+            meta["bill"] = v["bill"]
+        if v["billUrl"]:
+            meta["billUrl"] = v["billUrl"]
+        for rec in records:
+            t = tally.get(rec["bioguide"])
+            if t is None:
+                continue
+            pos = _norm_position(rec["position"])
+            t["eligible"] += 1
+            if pos == "Not Voting":
+                t["missed"] += 1
+            elif pos in ("Yea", "Nay"):
+                pl = maj.get(rec["party"])
+                if pl is not None:
+                    if pos == pl:
+                        t["with"] += 1
+                    else:
+                        t["against"] += 1
+            if len(t["recent"]) < RECENT_PER_MEMBER:
+                t["recent"].append({**meta, "position": pos})
+
+    # ---------------- fold both chambers ----------------
+    enriched_h = enriched_s = 0
     for bid, m in by_bioguide.items():
         t = tally[bid]
         if t["eligible"] == 0:
             m["voting"] = None
             continue
         partisan = t["with"] + t["against"]
+        is_senate = m.get("chamber") == "Senate"
         m["voting"] = {
             "partyLinePct": round(t["with"] / partisan * 100) if partisan else None,
             "missedPct": round(t["missed"] / t["eligible"] * 100),
@@ -328,17 +485,25 @@ def add_votes(members: List[Dict[str, Any]], congress: int) -> bool:
             "votesWithParty": t["with"],
             "votesAgainstParty": t["against"],
             "recentVotes": t["recent"],
-            "chamberScope": "House",
-            "source": "Congress.gov House Roll Call Votes API (beta)",
-            "sourceUrl": "https://www.congress.gov/roll-call-votes",
+            "chamberScope": "Senate" if is_senate else "House",
+            "source": ("Senate.gov roll-call XML" if is_senate
+                       else "Congress.gov House Roll Call Votes API (beta)"),
+            "sourceUrl": ("https://www.senate.gov/legislative/votes_new.htm" if is_senate
+                          else "https://www.congress.gov/roll-call-votes"),
         }
-        enriched += 1
+        if is_senate:
+            enriched_s += 1
+        else:
+            enriched_h += 1
 
-    print("\n--- Voting data quality (House only) ---")
-    print(f"  Representatives with vote data: {enriched}")
-    print(f"  Roll calls analyzed:            {len(vote_refs)}")
-    print(f"  Failed requests:                {fetcher.failures}")
-    print("  (Senators intentionally blank: Senate votes not yet in the API)")
+    print("\n--- Voting data quality ---")
+    print(f"  Representatives with vote data: {enriched_h}")
+    print(f"  House roll calls analyzed:      {len(vote_refs)}")
+    print(f"  Senators with vote data:        {enriched_s}/{sum(1 for m in members if m.get('chamber') == 'Senate')}")
+    print(f"  Senate roll calls analyzed:     {len(senate_votes)}")
+    print(f"  Failed requests (House/Senate): {fetcher.failures}/{sfetch.failures}")
+    if not senate_scope:
+        print("  Senate: unavailable this run; senators left blank")
 
     return True
 
