@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-votes.py — add federal HOUSE roll-call voting behavior to each member.
+votes.py. add federal HOUSE roll-call voting behavior to each member.
 
 Source: the official Congress.gov beta "House Roll Call Votes" endpoints
 (https://api.congress.gov/v3/house-vote/...), released 2025 in partnership

@@ -29,7 +29,7 @@ const fmtDate = (iso) => {
 
 // Compact money: 1_234_567 -> "$1.2M", 45_000 -> "$45K".
 const fmtMoney = (n) => {
-  if (n == null || isNaN(n)) return '—';
+  if (n == null || isNaN(n)) return 'n/a';
   const abs = Math.abs(n);
   if (abs >= 1_000_000) return `$${(n / 1_000_000).toFixed(1)}M`;
   if (abs >= 1_000) return `$${Math.round(n / 1_000)}K`;
@@ -38,7 +38,7 @@ const fmtMoney = (n) => {
 
 
 // Human text for a vote row. The API list endpoint sometimes lacks a real
-// question, and an older fallback stored the bill type ("HR") there — treat
+// question, and an older fallback stored the bill type ("HR") there, treat
 // that as empty and show the result instead.
 const voteText = (rv) => {
   const q = (rv.question || '').trim();
@@ -97,10 +97,10 @@ async function renderShareCard(m, theme) {
   x.fillText(m.party, tx, 290);
 
   const stats = [
-    [String(m.termsServed ?? '—'), m.termsServed === 1 ? 'term' : 'terms'],
-    [m.nextElection || '—', 'on ballot'],
-    [m.voting?.partyLinePct != null ? `${m.voting.partyLinePct}%` : '—', 'party line'],
-    [m.finance?.pacPct != null ? `${m.finance.pacPct}%` : '—', 'PAC money'],
+    [String(m.termsServed ?? 'n/a'), m.termsServed === 1 ? 'term' : 'terms'],
+    [m.nextElection || 'n/a', 'on ballot'],
+    [m.voting?.partyLinePct != null ? `${m.voting.partyLinePct}%` : 'n/a', 'party line'],
+    [m.finance?.pacPct != null ? `${m.finance.pacPct}%` : 'n/a', 'PAC money'],
   ];
   const colW = (W - tx - 60) / 4;
   stats.forEach(([n, l], i) => {
@@ -260,15 +260,15 @@ function MemberCard({ member, onOpen, index = 0, onCompare, inCompare }) {
       )}
       <div className="mcard-stats">
         <div className="mstat">
-          <span className="mstat-num">{m.termsServed ?? '—'}</span>
+          <span className="mstat-num">{m.termsServed ?? 'n/a'}</span>
           <span className="mstat-label">{m.termsServed === 1 ? 'term' : 'terms'}</span>
         </div>
         <div className="mstat">
-          <span className="mstat-num">{m.nextElection || '—'}</span>
+          <span className="mstat-num">{m.nextElection || 'n/a'}</span>
           <span className="mstat-label">on ballot</span>
         </div>
         <div className="mstat">
-          <span className="mstat-num">{pl != null ? `${pl}%` : '—'}</span>
+          <span className="mstat-num">{pl != null ? `${pl}%` : 'n/a'}</span>
           <span className="mstat-label">party line</span>
           {pl != null && (
             <span className="mini-bar" aria-hidden="true">
@@ -277,7 +277,7 @@ function MemberCard({ member, onOpen, index = 0, onCompare, inCompare }) {
           )}
         </div>
         <div className="mstat">
-          <span className="mstat-num">{pac != null ? `${pac}%` : '—'}</span>
+          <span className="mstat-num">{pac != null ? `${pac}%` : 'n/a'}</span>
           <span className="mstat-label">PAC money</span>
           {pac != null && (
             <span className="mini-bar" aria-hidden="true">
@@ -389,9 +389,9 @@ function MemberProfile({ member: m, onClose, onCompare, inCompare }) {
         {/* headline facts */}
         <div className="finance-grid profile-facts">
           <div className="finance-stat">
-            <span className="finance-num">{m.termsServed ?? '—'}</span>
+            <span className="finance-num">{m.termsServed ?? 'n/a'}</span>
             <span className="finance-label">
-              {m.termsServed === 1 ? 'term' : 'terms'} · since {m.firstYearServed || '—'}
+              {m.termsServed === 1 ? 'term' : 'terms'} · since {m.firstYearServed || 'n/a'}
             </span>
           </div>
           {ageOf(m.birthday) != null && (
@@ -401,7 +401,7 @@ function MemberProfile({ member: m, onClose, onCompare, inCompare }) {
             </div>
           )}
           <div className="finance-stat">
-            <span className="finance-num">{m.nextElection || '—'}</span>
+            <span className="finance-num">{m.nextElection || 'n/a'}</span>
             <span className="finance-label">next on the ballot</span>
           </div>
           {m.lawsEnacted > 0 && (
@@ -494,7 +494,7 @@ function MemberProfile({ member: m, onClose, onCompare, inCompare }) {
                   </div>
                 ) : (
                   <p className="scope-note" style={{ margin: 0 }}>
-                    No trade reports filed this Congress — no reportable stock
+                    No trade reports filed this Congress. No reportable stock
                     transactions on record.
                   </p>
                 )}
@@ -542,11 +542,11 @@ function MemberProfile({ member: m, onClose, onCompare, inCompare }) {
               </div>
               <div className="finance-stat">
                 <span className="finance-num">{fmtMoney(m.finance.fromPacs)}</span>
-                <span className="finance-label">from PACs ({m.finance.pacPct ?? '—'}%)</span>
+                <span className="finance-label">from PACs ({m.finance.pacPct ?? 'n/a'}%)</span>
               </div>
               <div className="finance-stat">
                 <span className="finance-num">{fmtMoney(m.finance.fromIndividuals)}</span>
-                <span className="finance-label">from individuals ({m.finance.individualPct ?? '—'}%)</span>
+                <span className="finance-label">from individuals ({m.finance.individualPct ?? 'n/a'}%)</span>
               </div>
               <div className="finance-stat">
                 <span className="finance-num">{fmtMoney(m.finance.cashOnHand)}</span>
@@ -567,15 +567,15 @@ function MemberProfile({ member: m, onClose, onCompare, inCompare }) {
             <p className="bill-panel-title">Voting record · {m.voting.chamberScope || m.chamber} · last {m.voting.votesTotal} roll calls</p>
             <div className="finance-grid">
               <div className="finance-stat">
-                <span className="finance-num">{m.voting.partyLinePct ?? '—'}%</span>
+                <span className="finance-num">{m.voting.partyLinePct ?? 'n/a'}%</span>
                 <span className="finance-label">with their party</span>
               </div>
               <div className="finance-stat">
-                <span className="finance-num">{m.voting.missedPct ?? '—'}%</span>
+                <span className="finance-num">{m.voting.missedPct ?? 'n/a'}%</span>
                 <span className="finance-label">votes missed</span>
               </div>
               <div className="finance-stat">
-                <span className="finance-num">{m.voting.votesAgainstParty ?? '—'}</span>
+                <span className="finance-num">{m.voting.votesAgainstParty ?? 'n/a'}</span>
                 <span className="finance-label">broke with party</span>
               </div>
             </div>
@@ -587,7 +587,7 @@ function MemberProfile({ member: m, onClose, onCompare, inCompare }) {
                       {rv.position}
                     </span>
                     <span className="vote-desc">
-                      {rv.bill ? `${rv.bill} — ` : ''}
+                      {rv.bill ? `${rv.bill}: ` : ''}
                       {voteText(rv)}
                     </span>
                     <span className="vote-date">{rv.date}</span>
@@ -647,7 +647,7 @@ function MemberProfile({ member: m, onClose, onCompare, inCompare }) {
 }
 
 
-// "How well do you know Congress?" — a short quiz generated from the live
+// "How well do you know Congress?", a short quiz generated from the live
 // data. It tests the reader's *knowledge of the record*, never ranks members,
 // and every answer reveals the sourced fact. Questions are built fresh each
 // time from a random sample so it stays interesting.
@@ -818,7 +818,7 @@ export default function CongressTable() {
   const [myState, setMyState] = useState('');
   const [myDistrict, setMyDistrict] = useState('');
   // Profile panel. Synced to the URL hash (#S000148) so any member's page is
-  // linkable and shareable — the foundation for share cards later.
+  // linkable and shareable, the foundation for share cards later.
   const [selectedId, setSelectedId] = useState(() =>
     (window.location.hash || '').replace(/^#/, '') || null
   );
@@ -884,7 +884,7 @@ export default function CongressTable() {
         if (!response.ok) {
           throw new Error(
             `Could not load congress_data.json (HTTP ${response.status}). ` +
-            `The data file may not exist yet — check the "Update Congressional Data" ` +
+            `The data file may not exist yet. Check the "Update Congressional Data" ` +
             `workflow in the Actions tab.`
           );
         }
@@ -921,7 +921,7 @@ export default function CongressTable() {
     for (const m of data) {
       byParty[m.party] = (byParty[m.party] || 0) + 1;
       const y = parseInt(m.nextElection, 10);
-      // Skip odd years — federal general elections are even years; an odd year
+      // Skip odd years, federal general elections are even years; an odd year
       // catches only a few special elections and misleads (showed "2").
       if (!isNaN(y) && y % 2 === 0) {
         if (nextYear === null || y < nextYear) nextYear = y;
@@ -948,8 +948,8 @@ export default function CongressTable() {
     const senateVotes = data.some((m) => m.chamber === 'Senate' && m.voting);
     const voteScopeNote =
       houseVotes && senateVotes ? 'Recent House and Senate roll calls'
-      : houseVotes ? 'House roll calls only — Senate data unavailable on last update'
-      : senateVotes ? 'Senate roll calls only — House data unavailable on last update'
+      : houseVotes ? 'House roll calls only. Senate data unavailable on last update'
+      : senateVotes ? 'Senate roll calls only. House data unavailable on last update'
       : undefined;
 
     const row = (label, fmt, pick, note, group = 'overview') => ({
@@ -964,31 +964,31 @@ export default function CongressTable() {
       row('Seats held', (v) => v, (g) => g.length),
       row('On the ballot in 2026', (v) => v,
         (g) => g.filter((m) => m.nextElection === '2026').length),
-      row('Avg. votes with party', (v) => (v == null ? '—' : `${Math.round(v)}%`),
+      row('Avg. votes with party', (v) => (v == null ? 'n/a' : `${Math.round(v)}%`),
         (g) => avg(g.filter((m) => m.voting?.partyLinePct != null).map((m) => m.voting.partyLinePct)),
         voteScopeNote),
-      row('Share of money from PACs', (v) => (v == null ? '—' : `${Math.round(v)}%`),
+      row('Share of money from PACs', (v) => (v == null ? 'n/a' : `${Math.round(v)}%`),
         (g) => {
           const pac = g.reduce((a, m) => a + (m.finance?.fromPacs || 0), 0);
           const ind = g.reduce((a, m) => a + (m.finance?.fromIndividuals || 0), 0);
           return pac + ind ? (pac / (pac + ind)) * 100 : null;
         }),
-      row('Avg. terms served', (v) => (v == null ? '—' : v.toFixed(1)),
+      row('Avg. terms served', (v) => (v == null ? 'n/a' : v.toFixed(1)),
         (g) => avg(g.filter((m) => m.termsServed).map((m) => m.termsServed)), undefined, 'people'),
-      row('Avg. age', (v) => (v == null ? '—' : v.toFixed(1)),
+      row('Avg. age', (v) => (v == null ? 'n/a' : v.toFixed(1)),
         (g) => avg(g.map((m) => ageOf(m.birthday)).filter((a) => a != null)), undefined, 'people'),
       row('First-term members', (v) => v,
         (g) => g.filter((m) => m.termsServed === 1).length, undefined, 'people'),
-      row('Avg. votes missed', (v) => (v == null ? '—' : `${v.toFixed(1)}%`),
+      row('Avg. votes missed', (v) => (v == null ? 'n/a' : `${v.toFixed(1)}%`),
         (g) => avg(g.filter((m) => m.voting?.missedPct != null).map((m) => m.voting.missedPct)),
         voteScopeNote, 'voting'),
-      row('Avg. votes with party', (v) => (v == null ? '—' : `${Math.round(v)}%`),
+      row('Avg. votes with party', (v) => (v == null ? 'n/a' : `${Math.round(v)}%`),
         (g) => avg(g.filter((m) => m.voting?.partyLinePct != null).map((m) => m.voting.partyLinePct)),
         voteScopeNote, 'voting'),
       row('Members missing 10%+ of votes', (v) => v,
         (g) => g.filter((m) => m.voting?.missedPct != null && m.voting.missedPct >= 10).length,
         voteScopeNote, 'voting'),
-      row('Share of money from PACs', (v) => (v == null ? '—' : `${Math.round(v)}%`),
+      row('Share of money from PACs', (v) => (v == null ? 'n/a' : `${Math.round(v)}%`),
         (g) => {
           const pac = g.reduce((a, m) => a + (m.finance?.fromPacs || 0), 0);
           const ind = g.reduce((a, m) => a + (m.finance?.fromIndividuals || 0), 0);
@@ -996,7 +996,7 @@ export default function CongressTable() {
         }, undefined, 'money'),
       row('Members taking zero PAC money', (v) => v,
         (g) => g.filter((m) => m.finance?.pacPct === 0).length, undefined, 'money'),
-      row('Total raised this cycle', (v) => (v == null ? '—' : fmtMoney(v)),
+      row('Total raised this cycle', (v) => (v == null ? 'n/a' : fmtMoney(v)),
         (g) => g.reduce((a, m) => a + (m.finance?.totalRaised || 0), 0) || null, undefined, 'money'),
     ];
 
@@ -1061,7 +1061,7 @@ export default function CongressTable() {
           return (
             <span className={`party-tag ${partyClass(party)}`}>
               <span className="party-dot" aria-hidden="true" />
-              {party || '—'}
+              {party || 'n/a'}
             </span>
           );
         },
@@ -1069,7 +1069,7 @@ export default function CongressTable() {
       }),
       columnHelper.accessor('chamber', {
         header: 'Chamber',
-        cell: (info) => info.getValue() || '—',
+        cell: (info) => info.getValue() || 'n/a',
         filterFn: 'equalsString',
       }),
       columnHelper.accessor('termsServed', {
@@ -1081,7 +1081,7 @@ export default function CongressTable() {
           return (
             <div className="num-cell">
               <span className="num-main">
-                {terms ?? '—'}
+                {terms ?? 'n/a'}
                 <span className="num-unit"> {terms === 1 ? 'term' : 'terms'}</span>
               </span>
               {m.firstYearServed && (
@@ -1098,7 +1098,7 @@ export default function CongressTable() {
           const m = info.row.original;
           return (
             <div className="num-cell">
-              <span className="num-main">{fmtDate(m.termStart) || '—'}</span>
+              <span className="num-main">{fmtDate(m.termStart) || 'n/a'}</span>
               {m.nextElection && (
                 <span className="num-sub">on ballot {m.nextElection}</span>
               )}
@@ -1147,7 +1147,7 @@ export default function CongressTable() {
         cell: (info) => {
           const v = info.row.original.voting;
           if (!v || v.partyLinePct == null) {
-            return <span className="bills-none">—</span>;
+            return <span className="bills-none">n/a</span>;
           }
           return (
             <div
@@ -1171,7 +1171,7 @@ export default function CongressTable() {
         cell: (info) => {
           const f = info.row.original.finance;
           if (!f || f.pacPct == null) {
-            return <span className="bills-none">—</span>;
+            return <span className="bills-none">n/a</span>;
           }
           // A quick visual read: how much of their money is PAC money.
           const level =
@@ -1205,7 +1205,7 @@ export default function CongressTable() {
               View ↗
             </a>
           ) : (
-            '—'
+            'n/a'
           ),
       }),
     ],
@@ -1227,7 +1227,7 @@ export default function CongressTable() {
   );
 
   // "Find my reps": given a state (and optional House district), pull the
-  // user's own delegation — both senators plus their one representative.
+  // user's own delegation, both senators plus their one representative.
   const myReps = useMemo(() => {
     if (!myState) return [];
     return data
@@ -1334,7 +1334,7 @@ export default function CongressTable() {
 
       <nav className="level-switch" aria-label="Federal or state">
         <button type="button" className={`pill ${level === 'federal' ? 'active' : ''}`} onClick={() => setLevel('federal')}>Federal</button>
-        <button type="button" className={`pill ${level === 'state' ? 'active' : ''}`} onClick={() => setLevel('state')}>State legislatures</button>
+        <button type="button" className={`pill ${level === 'state' ? 'active' : ''}`} onClick={() => setLevel('state')}>State Legislatures</button>
       </nav>
 
       {level === 'state' ? (
@@ -1347,7 +1347,7 @@ export default function CongressTable() {
         <p className="masthead-eyebrow">The Public Record</p>
         <h1 className="masthead-title">Who&rsquo;s serving you in Congress?</h1>
         <p className="masthead-dek">
-          Every current member — their party, their tenure, what they&rsquo;ve
+          Every current member: their party, their tenure, what they&rsquo;ve
           sponsored, and when they&rsquo;re next on your ballot. Every number
           links back to the official record.
         </p>
@@ -1424,7 +1424,7 @@ export default function CongressTable() {
           <div className="compare-head">
             <div>
               <h2 className="compare-title">How the parties compare</h2>
-              <p className="compare-sub">Same facts, side by side. No scores — just the record.</p>
+              <p className="compare-sub">Same facts, side by side. No scores, just the record.</p>
             </div>
             <div className="pill-group compare-tabs" role="tablist" aria-label="Comparison category">
               {[['overview', 'Overview'], ['voting', 'Voting'], ['money', 'Money'], ['people', 'People']].map(([k, label]) => (
@@ -1496,7 +1496,7 @@ export default function CongressTable() {
         <div className="findreps-head">
           <h2 className="findreps-title">Find your representatives</h2>
           <p className="findreps-sub">
-            Pick your state — and your House district — to see the three people
+            Pick your state and your House district to see the three people
             who represent you in Washington.
           </p>
         </div>
@@ -1724,7 +1724,7 @@ export default function CongressTable() {
                               <div className="finance-grid">
                                 <div className="finance-stat">
                                   <span className="finance-num">
-                                    {m.voting.partyLinePct ?? '—'}%
+                                    {m.voting.partyLinePct ?? 'n/a'}%
                                   </span>
                                   <span className="finance-label">
                                     votes with their party
@@ -1732,13 +1732,13 @@ export default function CongressTable() {
                                 </div>
                                 <div className="finance-stat">
                                   <span className="finance-num">
-                                    {m.voting.missedPct ?? '—'}%
+                                    {m.voting.missedPct ?? 'n/a'}%
                                   </span>
                                   <span className="finance-label">votes missed</span>
                                 </div>
                                 <div className="finance-stat">
                                   <span className="finance-num">
-                                    {m.voting.votesAgainstParty ?? '—'}
+                                    {m.voting.votesAgainstParty ?? 'n/a'}
                                   </span>
                                   <span className="finance-label">
                                     times broke with party
@@ -1758,7 +1758,7 @@ export default function CongressTable() {
                                           {rv.position}
                                         </span>
                                         <span className="vote-desc">
-                                          {rv.bill ? `${rv.bill} — ` : ''}
+                                          {rv.bill ? `${rv.bill}: ` : ''}
                                           {voteText(rv)}
                                         </span>
                                         <span className="vote-date">{rv.date}</span>
@@ -1808,7 +1808,7 @@ export default function CongressTable() {
                                     {fmtMoney(m.finance.fromPacs)}
                                   </span>
                                   <span className="finance-label">
-                                    from PACs ({m.finance.pacPct ?? '—'}%)
+                                    from PACs ({m.finance.pacPct ?? 'n/a'}%)
                                   </span>
                                 </div>
                                 <div className="finance-stat">
@@ -1816,7 +1816,7 @@ export default function CongressTable() {
                                     {fmtMoney(m.finance.fromIndividuals)}
                                   </span>
                                   <span className="finance-label">
-                                    from individuals ({m.finance.individualPct ?? '—'}%)
+                                    from individuals ({m.finance.individualPct ?? 'n/a'}%)
                                   </span>
                                 </div>
                                 <div className="finance-stat">
@@ -1970,13 +1970,13 @@ export default function CongressTable() {
                   <button type="button" className="compare2-remove" aria-label="Remove" onClick={() => toggleCompare(m.bioguideId)}>×</button>
                 </div>
                 <dl className="compare2-facts">
-                  <div><dt>Terms served</dt><dd>{m.termsServed ?? '—'} <small>since {m.firstYearServed || '—'}</small></dd></div>
-                  <div><dt>Age</dt><dd>{ageOf(m.birthday) ?? '—'}</dd></div>
-                  <div><dt>Next election</dt><dd>{m.nextElection || '—'}</dd></div>
+                  <div><dt>Terms served</dt><dd>{m.termsServed ?? 'n/a'} <small>since {m.firstYearServed || 'n/a'}</small></dd></div>
+                  <div><dt>Age</dt><dd>{ageOf(m.birthday) ?? 'n/a'}</dd></div>
+                  <div><dt>Next election</dt><dd>{m.nextElection || 'n/a'}</dd></div>
                   <div><dt>Votes with party</dt><dd>{m.voting?.partyLinePct != null ? `${m.voting.partyLinePct}%` : <small>n/a</small>}</dd></div>
-                  <div><dt>Votes missed</dt><dd>{m.voting?.missedPct != null ? `${m.voting.missedPct}%` : <small>—</small>}</dd></div>
-                  <div><dt>Money from PACs</dt><dd>{m.finance?.pacPct != null ? `${m.finance.pacPct}%` : '—'}</dd></div>
-                  <div><dt>Total raised</dt><dd>{m.finance ? fmtMoney(m.finance.totalRaised) : '—'}</dd></div>
+                  <div><dt>Votes missed</dt><dd>{m.voting?.missedPct != null ? `${m.voting.missedPct}%` : <small>n/a</small>}</dd></div>
+                  <div><dt>Money from PACs</dt><dd>{m.finance?.pacPct != null ? `${m.finance.pacPct}%` : 'n/a'}</dd></div>
+                  <div><dt>Total raised</dt><dd>{m.finance ? fmtMoney(m.finance.totalRaised) : 'n/a'}</dd></div>
                   <div><dt>Bills sponsored</dt><dd>{m.billsTotal ?? (m.bills?.length || 0)}</dd></div>
                   <div><dt>Laws enacted</dt><dd>{m.lawsEnacted ?? 0}</dd></div>
                   <div><dt>Trade reports</dt><dd>{m.trades?.ptrCount != null ? m.trades.ptrCount : <small>n/a</small>}</dd></div>

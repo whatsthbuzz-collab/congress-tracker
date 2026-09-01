@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-state_legislature.py — state legislators, votes, and bills via LegiScan.
+state_legislature.py. state legislators, votes, and bills via LegiScan.
 
 Follows LegiScan's own guidance: use the weekly bulk datasets, and use the
 hashes. Per state, per run:
@@ -107,7 +107,7 @@ def term_info(code: str, chamber: str) -> Dict[str, Any]:
             nxt += years
         return {"termYears": years, "nextElection": nxt, "electionNote": "All seats elected together"}
     return {"termYears": years, "nextElection": None,
-            "electionNote": f"{years}-year terms, staggered — see Ballotpedia for this seat"}
+            "electionNote": f"{years}-year terms, staggered. See Ballotpedia for this seat"}
 
 
 def fetch_openstates(states: List[str]) -> Dict[str, Dict[tuple, Dict[str, Any]]]:
@@ -201,19 +201,25 @@ class LegiScan:
 
     def op(self, operation: str, **params) -> Optional[Dict[str, Any]]:
         p = {"key": self.key, "op": operation, **params}
-        self.calls += 1
-        try:
-            r = self.s.get(API, params=p, timeout=(10, 120))
-            r.raise_for_status()
-            data = r.json()
-        except Exception as e:
-            print(f"  [legiscan] {operation} failed: {e}", file=sys.stderr)
-            return None
-        if data.get("status") != "OK":
-            print(f"  [legiscan] {operation} returned status {data.get('status')}: "
-                  f"{str(data.get('alert', ''))[:200]}", file=sys.stderr)
-            return None
-        return data
+        for attempt in range(3):
+            self.calls += 1
+            try:
+                r = self.s.get(API, params=p, timeout=(10, 180))
+                r.raise_for_status()
+                data = r.json()
+            except Exception as e:
+                print(f"  [legiscan] {operation} attempt {attempt + 1} failed: {e}", file=sys.stderr)
+                time.sleep(5 * (attempt + 1))
+                continue
+            if data.get("status") == "OK":
+                return data
+            # LegiScan puts the reason in "alert"; print it so the log explains itself.
+            print(f"  [legiscan] {operation} status={data.get('status')} "
+                  f"alert={json.dumps(data.get('alert'))[:300]}", file=sys.stderr)
+            if str(data.get("status")).upper() == "ERROR":
+                return None  # a real error (bad key, bad state) won't fix itself
+            time.sleep(5 * (attempt + 1))
+        return None
 
 
 def pick_session(datasets: List[Dict]) -> Optional[Dict]:

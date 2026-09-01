@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-laws.py — enacted laws this Congress, by sponsor party and per member.
+laws.py. enacted laws this Congress, by sponsor party and per member.
 
 Source: Congress.gov API (same CONGRESS_API_KEY).
   List:   /law/{congress}/pub          every bill that became PUBLIC law
@@ -171,7 +171,7 @@ def add_laws(members: List[Dict[str, Any]], congress: int) -> Optional[Dict[str,
         "congress": congress,
         "total": len(laws),
         **tally,
-        "source": "Congress.gov API — enacted public laws",
+        "source": "Congress.gov API. enacted public laws",
         "sourceUrl": f"https://www.congress.gov/public-laws/{congress}th-congress",
     }
 

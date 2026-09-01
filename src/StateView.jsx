@@ -67,20 +67,20 @@ function StateCard({ m, index = 0, onOpen, onCompare, inCompare }) {
       </div>
       <div className="mcard-stats">
         <div className="mstat">
-          <span className="mstat-num">{m.billsTotal ?? '—'}</span>
+          <span className="mstat-num">{m.billsTotal ?? 'n/a'}</span>
           <span className="mstat-label">bills</span>
         </div>
         <div className="mstat">
-          <span className="mstat-num">{m.billsPrimary ?? '—'}</span>
+          <span className="mstat-num">{m.billsPrimary ?? 'n/a'}</span>
           <span className="mstat-label">as primary</span>
         </div>
         <div className="mstat">
-          <span className="mstat-num">{pl != null ? `${pl}%` : '—'}</span>
+          <span className="mstat-num">{pl != null ? `${pl}%` : 'n/a'}</span>
           <span className="mstat-label">party line</span>
           {pl != null && <span className="mini-bar"><span className="mini-fill partyline" style={{ width: `${pl}%` }} /></span>}
         </div>
         <div className="mstat">
-          <span className="mstat-num">{missed != null ? `${missed}%` : '—'}</span>
+          <span className="mstat-num">{missed != null ? `${missed}%` : 'n/a'}</span>
           <span className="mstat-label">votes missed</span>
           {missed != null && <span className="mini-bar"><span className={`mini-fill ${missed >= 20 ? 'high' : missed >= 10 ? 'mid' : 'low'}`} style={{ width: `${Math.min(100, missed)}%` }} /></span>}
         </div>
@@ -119,10 +119,10 @@ function StateProfile({ m, stateName, sessionName, onClose, onCompare, inCompare
 
         <div className="finance-grid profile-facts">
           <div className="finance-stat">
-            <span className="finance-num">{m.nextElection || (m.termYears ? `${m.termYears}y` : '—')}</span>
+            <span className="finance-num">{m.nextElection || (m.termYears ? `${m.termYears}y` : 'n/a')}</span>
             <span className="finance-label">{m.nextElection ? 'next on the ballot' : m.electionNote || 'term'}</span>
           </div>
-          <div className="finance-stat"><span className="finance-num">{m.billsTotal ?? '—'}</span><span className="finance-label">bills sponsored · {m.billsPrimary ?? 0} as primary</span></div>
+          <div className="finance-stat"><span className="finance-num">{m.billsTotal ?? 'n/a'}</span><span className="finance-label">bills sponsored · {m.billsPrimary ?? 0} as primary</span></div>
           {v?.partyLinePct != null && <div className="finance-stat"><span className="finance-num">{v.partyLinePct}%</span><span className="finance-label">votes with party</span></div>}
           {v?.missedPct != null && <div className="finance-stat"><span className="finance-num">{v.missedPct}%</span><span className="finance-label">votes missed</span></div>}
           {v && <div className="finance-stat"><span className="finance-num">{v.votesTotal}</span><span className="finance-label">roll calls this session</span></div>}
@@ -132,16 +132,16 @@ function StateProfile({ m, stateName, sessionName, onClose, onCompare, inCompare
           <section className="profile-section">
             <p className="bill-panel-title">Voting record · {sessionName}</p>
             <div className="finance-grid">
-              <div className="finance-stat"><span className="finance-num">{v.partyLinePct ?? '—'}%</span><span className="finance-label">with their party</span></div>
-              <div className="finance-stat"><span className="finance-num">{v.missedPct ?? '—'}%</span><span className="finance-label">votes missed</span></div>
-              <div className="finance-stat"><span className="finance-num">{v.votesAgainstParty ?? '—'}</span><span className="finance-label">broke with party</span></div>
+              <div className="finance-stat"><span className="finance-num">{v.partyLinePct ?? 'n/a'}%</span><span className="finance-label">with their party</span></div>
+              <div className="finance-stat"><span className="finance-num">{v.missedPct ?? 'n/a'}%</span><span className="finance-label">votes missed</span></div>
+              <div className="finance-stat"><span className="finance-num">{v.votesAgainstParty ?? 'n/a'}</span><span className="finance-label">broke with party</span></div>
             </div>
             {v.recentVotes?.length > 0 && (
               <div className="vote-list">
                 {v.recentVotes.map((rv, i) => (
                   <div key={i} className="vote-row">
                     <span className={`vote-pos vote-${(rv.position || '').toLowerCase().replace(/[^a-z]/g, '')}`}>{rv.position}</span>
-                    <span className="vote-desc">{rv.bill ? `${rv.bill} — ` : ''}{rv.billTitle || rv.question || rv.result}</span>
+                    <span className="vote-desc">{rv.bill ? `${rv.bill}: ` : ''}{rv.billTitle || rv.question || rv.result}</span>
                     <span className="vote-date">{rv.date}</span>
                     {rv.billUrl && <a href={rv.billUrl} target="_blank" rel="noopener noreferrer" className="source-link vote-link" onClick={(e) => e.stopPropagation()}>bill ↗</a>}
                   </div>
@@ -176,7 +176,7 @@ function StateProfile({ m, stateName, sessionName, onClose, onCompare, inCompare
           <p className="bill-panel-title">Not yet on this page</p>
           <p className="scope-note" style={{ margin: 0 }}>
             Campaign finance and committee assignments for state legislators aren&rsquo;t
-            included yet — each comes from a different state-specific source. Votes and
+            included yet. Each comes from a different state-specific source. Votes and
             bills are from LegiScan; photos and contact links from OpenStates; term
             lengths from NCSL. For staggered senates, the exact election year for a seat
             is on Ballotpedia.
@@ -283,9 +283,9 @@ export default function StateView({ theme }) {
     const row = (label, fmt, pick, group = 'overview', note) => ({ label, fmt, group, note, values: Object.fromEntries(parties.map((p) => [p, pick(g[p])])) });
     return [
       row('Seats held', (v) => v, (x) => x.length),
-      row('Avg. votes with party', (v) => (v == null ? '—' : `${Math.round(v)}%`), (x) => avg(x.filter((m) => m.voting?.partyLinePct != null).map((m) => m.voting.partyLinePct))),
-      row('Avg. votes missed', (v) => (v == null ? '—' : `${v.toFixed(1)}%`), (x) => avg(x.filter((m) => m.voting?.missedPct != null).map((m) => m.voting.missedPct))),
-      row('Avg. bills sponsored', (v) => (v == null ? '—' : v.toFixed(1)), (x) => avg(x.map((m) => m.billsTotal || 0))),
+      row('Avg. votes with party', (v) => (v == null ? 'n/a' : `${Math.round(v)}%`), (x) => avg(x.filter((m) => m.voting?.partyLinePct != null).map((m) => m.voting.partyLinePct))),
+      row('Avg. votes missed', (v) => (v == null ? 'n/a' : `${v.toFixed(1)}%`), (x) => avg(x.filter((m) => m.voting?.missedPct != null).map((m) => m.voting.missedPct))),
+      row('Avg. bills sponsored', (v) => (v == null ? 'n/a' : v.toFixed(1)), (x) => avg(x.map((m) => m.billsTotal || 0))),
       row('Members missing 10%+ of votes', (v) => v, (x) => x.filter((m) => m.voting?.missedPct != null && m.voting.missedPct >= 10).length, 'voting'),
       row('Members who broke with party 10+ times', (v) => v, (x) => x.filter((m) => (m.voting?.votesAgainstParty || 0) >= 10).length, 'voting'),
       row('Total bills sponsored', (v) => v, (x) => x.reduce((a, m) => a + (m.billsTotal || 0), 0), 'bills'),
@@ -318,7 +318,7 @@ export default function StateView({ theme }) {
           <p className="masthead-eyebrow">State legislature</p>
           <h1 className="masthead-title">Who&rsquo;s serving you in {st.name}?</h1>
           <p className="masthead-dek">
-            Every current member of the {st.name} Legislature — {st.session?.name} — with their
+            Every current member of the {st.name} Legislature ({st.session?.name}) with their
             party, what they&rsquo;ve sponsored, and how they vote. Sourced from LegiScan.
           </p>
           {payload.lastUpdated && (
@@ -352,13 +352,13 @@ export default function StateView({ theme }) {
           <div className="stat"><span className="stat-num">{stats.total}</span><span className="stat-label">legislators</span></div>
           <div className="stat"><span className="stat-num">{stats.senate}</span><span className="stat-label">state senators</span></div>
           <div className="stat"><span className="stat-num">{stats.house}</span><span className="stat-label">state representatives</span></div>
-          <div className="stat stat-accent"><span className="stat-num">{st.counts?.rollCalls ?? '—'}</span><span className="stat-label">roll calls this session</span></div>
+          <div className="stat stat-accent"><span className="stat-num">{st.counts?.rollCalls ?? 'n/a'}</span><span className="stat-label">roll calls this session</span></div>
         </div>
       </section>
 
       <section className="compare" aria-label="How the parties compare">
         <div className="compare-head">
-          <div><h2 className="compare-title">How the parties compare</h2><p className="compare-sub">Same facts, side by side. No scores — just the record.</p></div>
+          <div><h2 className="compare-title">How the parties compare</h2><p className="compare-sub">Same facts, side by side. No scores, just the record.</p></div>
           <div className="pill-group compare-tabs" role="tablist">
             {[['overview', 'Overview'], ['voting', 'Voting'], ['bills', 'Bills']].map(([k, l]) => (
               <button key={k} type="button" role="tab" aria-selected={tab === k} className={`pill pill-sm ${tab === k ? 'active' : ''}`} onClick={() => setTab(k)}>{l}</button>
@@ -453,9 +453,9 @@ export default function StateView({ theme }) {
                 </div>
                 <dl className="compare2-facts">
                   <div><dt>Bills sponsored</dt><dd>{m.billsTotal ?? 0} <small>{m.billsPrimary ?? 0} primary</small></dd></div>
-                  <div><dt>Votes with party</dt><dd>{m.voting?.partyLinePct != null ? `${m.voting.partyLinePct}%` : '—'}</dd></div>
-                  <div><dt>Votes missed</dt><dd>{m.voting?.missedPct != null ? `${m.voting.missedPct}%` : '—'}</dd></div>
-                  <div><dt>Broke with party</dt><dd>{m.voting?.votesAgainstParty ?? '—'}</dd></div>
+                  <div><dt>Votes with party</dt><dd>{m.voting?.partyLinePct != null ? `${m.voting.partyLinePct}%` : 'n/a'}</dd></div>
+                  <div><dt>Votes missed</dt><dd>{m.voting?.missedPct != null ? `${m.voting.missedPct}%` : 'n/a'}</dd></div>
+                  <div><dt>Broke with party</dt><dd>{m.voting?.votesAgainstParty ?? 'n/a'}</dd></div>
                 </dl>
               </div>
             ))}
@@ -466,7 +466,7 @@ export default function StateView({ theme }) {
       <footer className="colophon">
         <p>
           State data: <a href="https://legiscan.com" target="_blank" rel="noopener noreferrer">LegiScan</a> (CC BY 4.0) ·
-          {' '}{st.session?.name} · dataset {st.datasetDate || '—'} · updated weekly
+          {' '}{st.session?.name} · dataset {st.datasetDate || 'n/a'} · updated weekly
         </p>
         <p className="colophon-note">
           Party-line is measured against each party&rsquo;s majority on each roll call; missed votes include

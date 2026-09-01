@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-trades.py — stock-trade disclosure filings (STOCK Act) per member.
+trades.py. stock-trade disclosure filings (STOCK Act) per member.
 
 Source (official, no key): the Clerk of the House publishes a daily ZIP of
 every financial disclosure filing, with an XML index:
@@ -403,7 +403,7 @@ def add_trades(members: List[Dict[str, Any]], congress: int) -> bool:
                 {"date": f["filingDate"], "url": f["url"], "docId": f["docId"]}
                 for f in matched[:RECENT_FILINGS]
             ],
-            "source": "Clerk of the U.S. House — Financial Disclosure Reports",
+            "source": "Clerk of the U.S. House. Financial Disclosure Reports",
             "sourceUrl": "https://disclosures-clerk.house.gov/FinancialDisclosure",
             "note": ("Counts Periodic Transaction Reports filed this Congress. "
                      "Each report discloses one or more trades as amount ranges; "
