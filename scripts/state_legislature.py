@@ -173,7 +173,8 @@ def openstates_match(idx: Dict[tuple, List[Dict]], chamber: str, district: Optio
     return None
 
 RECENT_PER_MEMBER = 10
-SPONSOR_PRIMARY = 1  # sponsor_type_id 1 = primary sponsor in LegiScan
+SPONSOR_PRIMARY = 1
+SCHEMA_VERSION = 2  # bump when the parser/output changes; forces a refresh  # sponsor_type_id 1 = primary sponsor in LegiScan
 
 STATE_NAMES = {
     "AL": "Alabama", "AK": "Alaska", "AZ": "Arizona", "AR": "Arkansas", "CA": "California",
@@ -297,9 +298,18 @@ def build_state(code: str, session: Dict, data: Dict[str, List[Dict]],
 
     # ---- legislators ----
     legs: Dict[int, Dict[str, Any]] = {}
+    skipped_committees = 0
     for p in people:
         pid = p.get("people_id")
         if not pid:
+            continue
+        # LegiScan records committees as "people" so they can appear as bill
+        # sponsors (California's Committee on Budget authors dozens of bills).
+        # They have no party, district, or votes. Exclude them.
+        if p.get("committee_sponsor") or p.get("committee_id") or \
+                not (p.get("last_name") or "").strip() or \
+                (p.get("name") or "").lower().startswith("committee"):
+            skipped_committees += 1
             continue
         role = (p.get("role") or "").strip()
         chamber = "Senate" if role.lower().startswith("sen") else "House"
@@ -338,7 +348,8 @@ def build_state(code: str, session: Dict, data: Dict[str, List[Dict]],
             if not leg["ballotpedia"] and rec.get("ballotpedia"):
                 leg["ballotpedia"] = rec["ballotpedia"]
             matched += 1
-    print(f"  {code}: {matched}/{len(legs)} matched to OpenStates profiles (photos)")
+    print(f"  {code}: {matched}/{len(legs)} matched to OpenStates profiles (photos); "
+          f"{skipped_committees} committee records excluded")
 
     # ---- bills by id, sponsorship ----
     bill_by_id = {b.get("bill_id"): b for b in bills if b.get("bill_id")}
@@ -471,10 +482,13 @@ def main():
               f"hash {str(session.get('dataset_hash'))[:10]}…, date {session.get('dataset_date')})")
         old = prev_index.get(code) or {}
         if old.get("datasetHash") == session.get("dataset_hash") and \
+                old.get("schemaVersion") == SCHEMA_VERSION and \
                 os.path.exists(os.path.join(OUT_DIR, f"{code}.json")):
             print(f"  {code}: dataset unchanged -- skipping (hash match)")
             index_entries.append(old)
             continue
+        if old.get("datasetHash") == session.get("dataset_hash"):
+            print(f"  {code}: parser updated (schema v{SCHEMA_VERSION}); rebuilding from a fresh download")
         plan.append((code, session))
 
     os_idx = fetch_openstates([c for c, _ in plan]) if plan else {}
@@ -494,7 +508,7 @@ def main():
         index_entries.append({
             "code": code, "name": state["name"], "session": state["session"],
             "datasetHash": state["datasetHash"], "datasetDate": state["datasetDate"],
-            "counts": state["counts"],
+            "counts": state["counts"], "schemaVersion": SCHEMA_VERSION,
         })
         changed += 1
         time.sleep(1)
