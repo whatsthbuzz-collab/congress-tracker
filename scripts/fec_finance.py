@@ -110,23 +110,34 @@ class FinanceFetcher:
         We don't hardcode a cycle -- we ask for totals sorted newest-first
         and take the top row, so this keeps working every election.
         """
-        data = self._get(
-            f"/candidate/{fec_id}/totals/",
-            {"per_page": 1, "sort": "-cycle"},
-        )
-        if not data:
+        # Ask for the CURRENT two-year cycle explicitly. "sort=-cycle" is not
+        # honored when the cycle field is null (it is, in practice), which
+        # let decades-old rows through -- e.g. a 1988 cycle for a sitting
+        # member. Try this cycle, then fall back one cycle.
+        from datetime import datetime, timezone
+        y = datetime.now(timezone.utc).year
+        current_cycle = y if y % 2 == 0 else y + 1
+        results = []
+        for cyc in (current_cycle, current_cycle - 2):
+            data = self._get(
+                f"/candidate/{fec_id}/totals/",
+                {"per_page": 1, "cycle": cyc},
+            )
+            if data and (data.get("results") or []):
+                results = data["results"]
+                # Trust the cycle we asked for over the row's own (often null).
+                results[0].setdefault("cycle", cyc)
+                if not results[0].get("cycle"):
+                    results[0]["cycle"] = cyc
+                break
+        if not results:
             return None
-
-        results = data.get("results") or []
 
         if not self._dumped_totals and results:
             self._dumped_totals = True
             print("\n  [debug] raw candidate totals row:")
             print("  " + json.dumps(results[0], indent=2)[:900].replace("\n", "\n  "))
             print()
-
-        if not results:
-            return None
 
         t = results[0]
 
