@@ -82,7 +82,7 @@ RACES: List[Dict[str, Any]] = [
                     "M.Ed., Harvard University."
                 ),
                 "backgroundSourceUrl": "https://ballotpedia.org/James_Talarico",
-                "campaignSiteUrl": "https://jamestalarico.com",
+                "campaignSiteUrl": "https://jamestalarico.com/issues/",
                 "incumbent": False,
             },
             {
@@ -97,7 +97,7 @@ RACES: List[Dict[str, Any]] = [
                     "Texas House (2003-2013) and Texas Senate (2013-2015)."
                 ),
                 "backgroundSourceUrl": "https://ballotpedia.org/Ken_Paxton",
-                "campaignSiteUrl": "https://kenpaxton.com",
+                "campaignSiteUrl": "https://www.kenpaxton.com/issues",
                 "incumbent": False,
             },
         ],
