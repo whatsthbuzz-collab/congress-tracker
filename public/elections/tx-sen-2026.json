@@ -1,0 +1,66 @@
+{
+ "id": "tx-sen-2026",
+ "office": "U.S. Senate",
+ "state": "Texas",
+ "stateCode": "TX",
+ "electionDate": "2026-11-03",
+ "seatNote": "Open seat \u2014 Sen. John Cornyn did not win renomination.",
+ "sourceUrl": "https://en.wikipedia.org/wiki/2026_United_States_Senate_election_in_Texas",
+ "candidates": [
+  {
+   "name": "James Talarico",
+   "party": "Democratic",
+   "fecId": "S6TX00479",
+   "committees": [
+    "C00919084"
+   ],
+   "currentOffice": "Texas House of Representatives, District 50",
+   "stateProfile": {
+    "code": "TX",
+    "chamber": "House",
+    "district": "50"
+   },
+   "background": "Public school teacher before entering the Texas Legislature in 2019; B.A. in Government, University of Texas at Austin; M.Ed., Harvard University.",
+   "backgroundSourceUrl": "https://ballotpedia.org/James_Talarico",
+   "incumbent": false,
+   "financeUrl": "https://www.fec.gov/data/candidate/S6TX00479/",
+   "finance": {
+    "available": true,
+    "cycle": 2026,
+    "totalRaised": 68555930,
+    "fromPacs": 343408,
+    "fromIndividuals": 65585742,
+    "pacPct": 1,
+    "individualPct": 99,
+    "cashOnHand": 0,
+    "source": "OpenFEC API"
+   }
+  },
+  {
+   "name": "Ken Paxton",
+   "party": "Republican",
+   "fecId": "S6TX00388",
+   "committees": [
+    "C00901918",
+    "C00930446"
+   ],
+   "currentOffice": "Texas Attorney General",
+   "stateProfile": null,
+   "background": "Texas Attorney General since 2015; previously served in the Texas House (2003-2013) and Texas Senate (2013-2015).",
+   "backgroundSourceUrl": "https://ballotpedia.org/Ken_Paxton",
+   "incumbent": false,
+   "financeUrl": "https://www.fec.gov/data/candidate/S6TX00388/",
+   "finance": {
+    "available": true,
+    "cycle": 2026,
+    "totalRaised": 9248699,
+    "fromPacs": 219500,
+    "fromIndividuals": 9020178,
+    "pacPct": 2,
+    "individualPct": 98,
+    "cashOnHand": 0,
+    "source": "OpenFEC API"
+   }
+  }
+ ]
+}
