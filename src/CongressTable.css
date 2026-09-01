@@ -727,3 +727,14 @@ a.comm-name:hover { color: var(--navy); text-decoration: underline; }
 @media (max-width: 560px) {
   .fact-row { grid-template-columns: 1fr; gap: 0.1rem; }
 }
+
+/* --- FEC enforcement tag on donor chips (neutral, informational) --- */
+.donor-enforcement {
+  font-family: var(--font-data); font-size: 0.62rem; font-weight: 500;
+  text-transform: uppercase; letter-spacing: 0.05em;
+  color: var(--navy); background: var(--gold-soft);
+  padding: 0.12rem 0.45rem; border-radius: 999px;
+  text-decoration: none; white-space: nowrap;
+}
+.donor-enforcement:hover { text-decoration: underline; }
+:root[data-theme='dark'] .donor-enforcement { color: var(--gold); }
