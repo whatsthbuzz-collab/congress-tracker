@@ -211,6 +211,14 @@ function MemberProfile({ member: m, onClose }) {
             <span className="finance-num">{m.nextElection || '—'}</span>
             <span className="finance-label">next on the ballot</span>
           </div>
+          {m.lawsEnacted > 0 && (
+            <div className="finance-stat">
+              <span className="finance-num">{m.lawsEnacted}</span>
+              <span className="finance-label">
+                {m.lawsEnacted === 1 ? 'law enacted' : 'laws enacted'} this Congress
+              </span>
+            </div>
+          )}
           {m.voting?.partyLinePct != null && (
             <div className="finance-stat">
               <span className="finance-num">{m.voting.partyLinePct}%</span>
@@ -373,6 +381,7 @@ function MemberProfile({ member: m, onClose }) {
 export default function CongressTable() {
   const [data, setData] = useState([]);
   const [lastUpdated, setLastUpdated] = useState(null);
+  const [lawsByParty, setLawsByParty] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [globalFilter, setGlobalFilter] = useState('');
@@ -448,6 +457,7 @@ export default function CongressTable() {
         const json = await response.json();
         setData(json.members || []);
         setLastUpdated(json.lastUpdated || null);
+        setLawsByParty(json.lawsByParty || null);
       } catch (err) {
         setError(err.message);
         console.error('Error fetching congressional data:', err);
@@ -492,6 +502,47 @@ export default function CongressTable() {
 
     return { total, byParty, upNext, nextYear, senate, house };
   }, [data]);
+
+  // Side-by-side party comparison. All neutral facts computed from the data
+  // we already hold; laws-enacted arrives from the payload when available.
+  const partyCompare = useMemo(() => {
+    const parties = ['Democratic', 'Republican'];
+    const groups = Object.fromEntries(parties.map((p) => [p, data.filter((m) => m.party === p)]));
+    const avg = (arr) => (arr.length ? arr.reduce((a, b) => a + b, 0) / arr.length : null);
+
+    const row = (label, fmt, pick, note) => ({
+      label,
+      note,
+      values: Object.fromEntries(parties.map((p) => [p, pick(groups[p])])),
+      fmt,
+    });
+
+    const rows = [
+      row('Seats held', (v) => v, (g) => g.length),
+      row('On the ballot in 2026', (v) => v,
+        (g) => g.filter((m) => m.nextElection === '2026').length),
+      row('Avg. votes with party (House)', (v) => (v == null ? '—' : `${Math.round(v)}%`),
+        (g) => avg(g.filter((m) => m.voting?.partyLinePct != null).map((m) => m.voting.partyLinePct)),
+        'House roll calls only'),
+      row('Share of money from PACs', (v) => (v == null ? '—' : `${Math.round(v)}%`),
+        (g) => {
+          const pac = g.reduce((a, m) => a + (m.finance?.fromPacs || 0), 0);
+          const ind = g.reduce((a, m) => a + (m.finance?.fromIndividuals || 0), 0);
+          return pac + ind ? (pac / (pac + ind)) * 100 : null;
+        }),
+      row('Avg. terms served', (v) => (v == null ? '—' : v.toFixed(1)),
+        (g) => avg(g.filter((m) => m.termsServed).map((m) => m.termsServed))),
+    ];
+
+    if (lawsByParty && lawsByParty.total) {
+      rows.push(
+        row('Laws enacted this Congress', (v) => v,
+          (g) => (g.length ? lawsByParty[g[0].party] ?? 0 : 0),
+          'By sponsor party. The majority party structurally passes more; some laws are ceremonial.')
+      );
+    }
+    return { parties, rows };
+  }, [data, lawsByParty]);
 
   const columns = useMemo(
     () => [
@@ -873,6 +924,58 @@ export default function CongressTable() {
           )}
         </div>
       </section>
+
+      {/* ---------- party comparison ---------- */}
+      {data.length > 0 && (
+        <section className="compare" aria-label="How the parties compare">
+          <div className="compare-head">
+            <h2 className="compare-title">How the parties compare</h2>
+            <p className="compare-sub">
+              Same facts, side by side. No scores — just the record.
+            </p>
+          </div>
+          <div className="compare-cols">
+            <span className="compare-col democratic">
+              <span className="party-dot" aria-hidden="true" /> Democrats
+            </span>
+            <span />
+            <span className="compare-col republican">
+              Republicans <span className="party-dot" aria-hidden="true" />
+            </span>
+          </div>
+          {partyCompare.rows.map((r) => {
+            const d = r.values.Democratic;
+            const rp = r.values.Republican;
+            const dn = typeof d === 'number' ? d : 0;
+            const rn = typeof rp === 'number' ? rp : 0;
+            const tot = dn + rn || 1;
+            return (
+              <div key={r.label} className="compare-row">
+                <span className="compare-val democratic">{r.fmt(d)}</span>
+                <div className="compare-mid">
+                  <span className="compare-label">{r.label}</span>
+                  <span className="compare-bar" aria-hidden="true">
+                    <span className="compare-fill democratic" style={{ width: `${(dn / tot) * 100}%` }} />
+                    <span className="compare-fill republican" style={{ width: `${(rn / tot) * 100}%` }} />
+                  </span>
+                  {r.note && <span className="compare-note">{r.note}</span>}
+                </div>
+                <span className="compare-val republican">{r.fmt(rp)}</span>
+              </div>
+            );
+          })}
+          {lawsByParty?.sourceUrl && (
+            <p className="compare-foot">
+              Laws enacted:{' '}
+              <a href={lawsByParty.sourceUrl} target="_blank" rel="noopener noreferrer">
+                Congress.gov public laws, {lawsByParty.congress}th Congress ↗
+              </a>
+              {lawsByParty.Independent ? ` · ${lawsByParty.Independent} sponsored by Independents` : ''}
+              {lawsByParty.Unknown ? ` · ${lawsByParty.Unknown} by former members` : ''}
+            </p>
+          )}
+        </section>
+      )}
 
       {/* ---------- find my reps ---------- */}
       <section className="findreps" aria-label="Find your representatives">

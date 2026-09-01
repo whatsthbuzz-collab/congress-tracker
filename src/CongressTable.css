@@ -493,3 +493,44 @@ a.comm-name:hover { color: var(--navy); text-decoration: underline; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
   html { scroll-behavior: auto; }
 }
+
+/* ---------- party comparison ---------- */
+.compare {
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-md);
+  box-shadow: var(--shadow-1); padding: 1.5rem 1.6rem; margin-bottom: 1.25rem;
+}
+.compare-head { margin-bottom: 1rem; }
+.compare-title { font-family: var(--font-display); font-weight: 900; font-size: 1.3rem; letter-spacing: -0.01em; margin: 0 0 0.2rem; color: var(--ink); }
+.compare-sub { margin: 0; font-size: 0.88rem; color: var(--ink-2); }
+
+.compare-cols, .compare-row {
+  display: grid; grid-template-columns: 110px 1fr 110px; gap: 1rem; align-items: center;
+}
+.compare-cols { padding-bottom: 0.5rem; margin-bottom: 0.25rem; border-bottom: 1px solid var(--line); font-size: 0.8rem; font-weight: 700; }
+.compare-col { display: inline-flex; align-items: center; gap: 0.4rem; }
+.compare-col.democratic { color: var(--dem); }
+.compare-col.republican { color: var(--rep); justify-content: flex-end; }
+
+.compare-row { padding: 0.75rem 0; border-bottom: 1px solid var(--line); }
+.compare-row:last-of-type { border-bottom: none; }
+.compare-val {
+  font-family: var(--font-display); font-weight: 800; font-size: 1.35rem; letter-spacing: -0.01em;
+  font-variant-numeric: tabular-nums; line-height: 1;
+}
+.compare-val.democratic { color: var(--dem); }
+.compare-val.republican { color: var(--rep); text-align: right; }
+.compare-mid { display: flex; flex-direction: column; gap: 0.35rem; min-width: 0; }
+.compare-label { font-size: 0.85rem; font-weight: 600; color: var(--ink); text-align: center; }
+.compare-bar { display: flex; height: 8px; border-radius: 999px; overflow: hidden; background: var(--bg-2); }
+.compare-fill { display: block; height: 100%; transition: width 0.6s var(--ease); }
+.compare-fill.democratic { background: var(--dem); }
+.compare-fill.republican { background: var(--rep); }
+.compare-note { font-size: 0.72rem; color: var(--ink-3); text-align: center; font-style: italic; }
+.compare-foot { margin: 0.9rem 0 0; font-size: 0.78rem; color: var(--ink-3); }
+.compare-foot a { color: var(--navy); font-weight: 600; text-decoration: none; }
+.compare-foot a:hover { text-decoration: underline; }
+
+@media (max-width: 560px) {
+  .compare-cols, .compare-row { grid-template-columns: 70px 1fr 70px; gap: 0.6rem; }
+  .compare-val { font-size: 1.05rem; }
+}

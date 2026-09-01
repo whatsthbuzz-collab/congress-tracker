@@ -33,6 +33,7 @@ import requests
 from fec_finance import add_finance
 from votes import add_votes
 from committees import add_committees
+from laws import add_laws
 
 # ---------- config ----------
 
@@ -316,6 +317,9 @@ def main():
     current_congress = (current_year - 2025) // 2 + 119
     votes_enabled = add_votes(members, current_congress)
 
+    # ---- enacted laws this Congress, by sponsor party ----
+    laws_summary = add_laws(members, current_congress)
+
     # Sanity checks. A silent parse regression should be loud, not invisible.
     total = len(members)
     have_party = sum(1 for m in members if m["party"] != "Unknown")
@@ -341,6 +345,7 @@ def main():
         "financeIncluded": finance_enabled,
         "votesIncluded": votes_enabled,
         "committeesIncluded": committees_enabled,
+        "lawsByParty": laws_summary,
         "members": members,
         "metadata": {
             "memberSource": "unitedstates/congress-legislators (public domain)",
