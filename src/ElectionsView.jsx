@@ -37,6 +37,17 @@ function CandidateCard({ c, onOpenState }) {
         )}
       </p>
 
+      {c.facts?.length > 0 && (
+        <ul className="fact-list">
+          {c.facts.map((f, i) => (
+            <li key={i} className="fact-row">
+              <span className="fact-label">{f.label}</span>
+              <span className="fact-value">{f.value}</span>
+            </li>
+          ))}
+        </ul>
+      )}
+
       <div className="election-links">
         {c.campaignSiteUrl && (
           <a href={c.campaignSiteUrl} target="_blank" rel="noopener noreferrer" className="pill pill-sm">

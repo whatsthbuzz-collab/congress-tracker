@@ -705,3 +705,25 @@ a.comm-name:hover { color: var(--navy); text-decoration: underline; }
   font-weight: 700; color: var(--ink);
   font-variant-numeric: tabular-nums; white-space: nowrap;
 }
+
+/* --- Candidate quick-fact rows (elections view) --- */
+.fact-list {
+  list-style: none; margin: 0.85rem 0 0; padding: 0.7rem 0 0;
+  border-top: 1px solid var(--line);
+  display: flex; flex-direction: column; gap: 0.35rem;
+}
+.fact-row {
+  display: grid; grid-template-columns: 8.5rem 1fr; gap: 0.6rem;
+  align-items: baseline;
+}
+.fact-label {
+  font-family: var(--font-data); font-size: 0.66rem; font-weight: 500;
+  text-transform: uppercase; letter-spacing: 0.07em; color: var(--ink-3);
+}
+.fact-value {
+  font-family: var(--font-ui); font-size: 0.82rem; color: var(--ink);
+  line-height: 1.4; font-variant-numeric: tabular-nums;
+}
+@media (max-width: 560px) {
+  .fact-row { grid-template-columns: 1fr; gap: 0.1rem; }
+}
