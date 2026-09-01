@@ -107,6 +107,7 @@ function StateProfile({ m, stateName, sessionName, onClose, onCompare, inCompare
               {m.sourceUrl && <a href={m.sourceUrl} target="_blank" rel="noopener noreferrer" className="source-link">LegiScan ↗</a>}
               {m.ballotpedia && <a href={m.ballotpedia} target="_blank" rel="noopener noreferrer" className="source-link">Ballotpedia ↗</a>}
               {m.email && <a href={`mailto:${m.email}`} className="source-link">Email ↗</a>}
+              {m.financeUrl && <a href={m.financeUrl} target="_blank" rel="noopener noreferrer" className="source-link">Campaign finance ↗</a>}
               {m.links?.[0] && <a href={m.links[0]} target="_blank" rel="noopener noreferrer" className="source-link">Official site ↗</a>}
               {onCompare && (
                 <button type="button" className={`pill pill-sm ${inCompare ? 'active' : ''}`} onClick={() => onCompare(m.id)}>
@@ -126,7 +127,31 @@ function StateProfile({ m, stateName, sessionName, onClose, onCompare, inCompare
           {v?.partyLinePct != null && <div className="finance-stat"><span className="finance-num">{v.partyLinePct}%</span><span className="finance-label">votes with party</span></div>}
           {v?.missedPct != null && <div className="finance-stat"><span className="finance-num">{v.missedPct}%</span><span className="finance-label">votes missed</span></div>}
           {v && <div className="finance-stat"><span className="finance-num">{v.votesTotal}</span><span className="finance-label">roll calls this session</span></div>}
+          {m.committees?.length > 0 && <div className="finance-stat"><span className="finance-num">{m.committees.length}</span><span className="finance-label">{m.committees.length === 1 ? 'committee' : 'committees'}{m.committees.some((c) => c.role !== 'Member') ? ' · leads one' : ''}</span></div>}
         </div>
+
+        {m.committees?.length > 0 && (
+          <section className="profile-section">
+            <p className="bill-panel-title">Committees</p>
+            <ul className="comm-list">
+              {m.committees.map((c, i) => (
+                <li key={i} className="comm-item">
+                  <div className="comm-head">
+                    {c.url ? (
+                      <a href={c.url} target="_blank" rel="noopener noreferrer" className="comm-name">{c.name}</a>
+                    ) : (
+                      <span className="comm-name">{c.name}</span>
+                    )}
+                    <span className={`comm-role ${c.role !== 'Member' ? 'lead' : ''}`}>{c.role}</span>
+                  </div>
+                  {(c.kind === 'subcommittee' || c.chamber === 'Joint') && (
+                    <p className="comm-subs">{c.kind === 'subcommittee' ? 'Subcommittee' : 'Joint committee'}</p>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
 
         {v && (
           <section className="profile-section">
@@ -173,13 +198,13 @@ function StateProfile({ m, stateName, sessionName, onClose, onCompare, inCompare
         )}
 
         <section className="profile-section">
-          <p className="bill-panel-title">Not yet on this page</p>
+          <p className="bill-panel-title">About this page</p>
           <p className="scope-note" style={{ margin: 0 }}>
-            Campaign finance and committee assignments for state legislators aren&rsquo;t
-            included yet. Each comes from a different state-specific source. Votes and
-            bills are from LegiScan; photos and contact links from OpenStates; term
-            lengths from NCSL. For staggered senates, the exact election year for a seat
-            is on Ballotpedia.
+            Votes and bills are from LegiScan; photos, contact links, and committees from
+            OpenStates; term lengths from NCSL. Campaign finance is a link rather than a
+            figure: every state runs its own disclosure system, and there is no single
+            source that adds them up honestly. Stock-trade reporting (the STOCK Act) applies
+            to Congress only, so there is no state equivalent to show.
           </p>
         </section>
       </aside>
@@ -465,6 +490,7 @@ export default function StateView({ theme }) {
                   <div><dt>Votes with party</dt><dd>{m.voting?.partyLinePct != null ? `${m.voting.partyLinePct}%` : 'n/a'}</dd></div>
                   <div><dt>Votes missed</dt><dd>{m.voting?.missedPct != null ? `${m.voting.missedPct}%` : 'n/a'}</dd></div>
                   <div><dt>Broke with party</dt><dd>{m.voting?.votesAgainstParty ?? 'n/a'}</dd></div>
+                  <div><dt>Committees</dt><dd>{m.committees?.length ?? 0}{m.committees?.some((c) => c.role !== 'Member') ? <small> incl. leadership</small> : null}</dd></div>
                 </dl>
               </div>
             ))}

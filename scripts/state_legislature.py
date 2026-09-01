@@ -129,7 +129,24 @@ def fetch_openstates(states: List[str]) -> Dict[str, Dict[tuple, Dict[str, Any]]
         print(f"  [openstates] bad archive: {e}", file=sys.stderr)
         return out
     wanted = {c.lower() for c in states}
+    committees: Dict[str, List[Dict[str, Any]]] = {c: [] for c in states}
     for member in tf.getmembers():
+        cm = re.match(r"[^/]+/data/([a-z]{2})/committees/[^/]+\.yml$", member.name)
+        if cm and cm.group(1) in wanted:
+            try:
+                d = yaml.safe_load(tf.extractfile(member).read()) or {}
+            except Exception:
+                continue
+            committees[cm.group(1).upper()].append({
+                "name": d.get("name"),
+                "chamber": {"upper": "Senate", "lower": "House"}.get(d.get("chamber"), "Joint"),
+                "kind": d.get("classification") or "committee",
+                "parent": d.get("parent"),
+                "url": next((l.get("url") for l in (d.get("links") or []) if l.get("url")), None),
+                "members": [{"personId": x.get("person_id"), "role": (x.get("role") or "member")}
+                            for x in (d.get("members") or []) if x.get("person_id")],
+            })
+            continue
         m = re.match(r"[^/]+/data/([a-z]{2})/legislature/[^/]+\.yml$", member.name)
         if not m or m.group(1) not in wanted:
             continue
@@ -146,6 +163,7 @@ def fetch_openstates(states: List[str]) -> Dict[str, Dict[tuple, Dict[str, Any]]
         code = m.group(1).upper()
         bp = next((s.get("url") for s in (d.get("sources") or []) if "ballotpedia.org" in (s.get("url") or "")), None)
         rec = {
+            "osId": d.get("id"),
             "image": d.get("image"), "email": d.get("email"), "ballotpedia": bp,
             "links": [l.get("url") for l in (d.get("links") or []) if l.get("url")][:3],
             "lastName": (d.get("family_name") or "").lower(),
@@ -155,7 +173,11 @@ def fetch_openstates(states: List[str]) -> Dict[str, Dict[tuple, Dict[str, Any]]
         # Multi-member districts: keep a list, resolve by last name later.
         out[code].setdefault(key, []).append(rec)
     for c in states:
-        print(f"  OpenStates {c}: {sum(len(v) for v in out[c].values())} legislators with profiles")
+        print(f"  OpenStates {c}: {sum(len(v) for v in out[c].values())} legislators with profiles, "
+              f"{len(committees[c])} committees")
+    # Stash committees on the index under a reserved key.
+    for c in states:
+        out[c][("__committees__", "")] = committees[c]
     return out
 
 
@@ -174,7 +196,7 @@ def openstates_match(idx: Dict[tuple, List[Dict]], chamber: str, district: Optio
 
 RECENT_PER_MEMBER = 10
 SPONSOR_PRIMARY = 1
-SCHEMA_VERSION = 3  # bump when the parser/output changes; forces a refresh  # sponsor_type_id 1 = primary sponsor in LegiScan
+SCHEMA_VERSION = 4  # bump when the parser/output changes; forces a refresh  # sponsor_type_id 1 = primary sponsor in LegiScan
 
 STATE_NAMES = {
     "AL": "Alabama", "AK": "Alaska", "AZ": "Arizona", "AR": "Arkansas", "CA": "California",
@@ -342,6 +364,7 @@ def build_state(code: str, session: Dict, data: Dict[str, List[Dict]],
     for leg in legs.values():
         rec = openstates_match(os_idx, leg["chamber"], leg["district"], leg["lastName"] or "")
         if rec:
+            leg["osId"] = rec.get("osId")
             leg["photo"] = rec.get("image") or None
             leg["email"] = rec.get("email") or None
             leg["links"] = rec.get("links") or []
@@ -351,13 +374,46 @@ def build_state(code: str, session: Dict, data: Dict[str, List[Dict]],
     print(f"  {code}: {matched}/{len(legs)} matched to OpenStates profiles (photos); "
           f"{skipped_committees} committee records excluded")
 
+    # ---- committees (OpenStates rosters, joined on the person id) ----
+    LEAD = {"chair", "co-chair", "vice chair", "vice-chair", "ranking member", "chairman", "chairwoman"}
+    by_os_id = {leg["osId"]: leg for leg in legs.values() if leg.get("osId")}
+    comm_list = os_idx.get(("__committees__", "")) or []
+    for leg in legs.values():
+        leg["committees"] = []
+    for c in comm_list:
+        for mem in c["members"]:
+            leg = by_os_id.get(mem["personId"])
+            if not leg:
+                continue
+            role = (mem["role"] or "member").strip().lower()
+            leg["committees"].append({
+                "name": c["name"], "chamber": c["chamber"], "kind": c["kind"],
+                "role": role.title() if role in LEAD else "Member", "url": c["url"],
+            })
+    for leg in legs.values():
+        leg["committees"].sort(key=lambda x: (0 if x["role"] != "Member" else 1, x["name"] or ""))
+    with_comms = sum(1 for leg in legs.values() if leg["committees"])
+    print(f"  {code}: {with_comms}/{len(legs)} legislators with committee assignments")
+
+    # ---- campaign finance: a link, not a number. State disclosure systems differ
+    # in all 50 states; FollowTheMoney (now part of OpenSecrets) is the one place
+    # that unifies them, and LegiScan carries each legislator's id there.
+    for p in people:
+        pid = p.get("people_id")
+        leg = legs.get(pid)
+        if not leg:
+            continue
+        eid = p.get("followthemoney_eid")
+        leg["financeUrl"] = (f"https://www.followthemoney.org/entity-details?eid={eid}"
+                             if eid else None)
+
     # ---- departed members: LegiScan's session roster keeps everyone who served
     # at any point (a member who resigned in March AND their replacement). When
     # two people share one single-member seat, OpenStates (which tracks who is
     # currently seated) tells us which one is current; the other is marked
     # former. Skipped for states with multi-member districts, where a shared
     # district is normal.
-    multi_member = any(len(v) > 1 for v in os_idx.values())
+    multi_member = any(len(v) > 1 for k, v in os_idx.items() if k[0] != "__committees__")
     former = 0
     if not multi_member:
         by_seat: Dict[tuple, List[Dict]] = defaultdict(list)
