@@ -127,6 +127,19 @@ function wrapText(x, text, X, Y, maxW, lh) {
   if (line) x.fillText(line, X, y);
 }
 
+
+// Age from an ISO birthday, computed at render so it never goes stale.
+const ageOf = (iso) => {
+  if (!iso) return null;
+  const b = new Date(`${iso}T00:00:00Z`);
+  if (isNaN(b)) return null;
+  const now = new Date();
+  let a = now.getUTCFullYear() - b.getUTCFullYear();
+  const m = now.getUTCMonth() - b.getUTCMonth();
+  if (m < 0 || (m === 0 && now.getUTCDate() < b.getUTCDate())) a -= 1;
+  return a;
+};
+
 const partyClass = (party) =>
   (party || '').toLowerCase().replace(/[^a-z]/g, '-');
 
@@ -182,7 +195,9 @@ function MemberCard({ member, onOpen, index = 0, onCompare, inCompare }) {
         <MemberPhoto member={m} size="lg" />
         <div className="mcard-ident">
           <span className="mcard-name">{m.name}</span>
-          <span className="mcard-seat">{seat}</span>
+          <span className="mcard-seat">
+            {seat}{ageOf(m.birthday) != null ? ` · ${ageOf(m.birthday)}` : ''}
+          </span>
           <span className={`party-tag ${partyClass(m.party)}`}>
             <span className="party-dot" aria-hidden="true" />
             {m.party}
@@ -342,6 +357,12 @@ function MemberProfile({ member: m, onClose, onCompare, inCompare }) {
               {m.termsServed === 1 ? 'term' : 'terms'} · since {m.firstYearServed || '—'}
             </span>
           </div>
+          {ageOf(m.birthday) != null && (
+            <div className="finance-stat">
+              <span className="finance-num">{ageOf(m.birthday)}</span>
+              <span className="finance-label">years old</span>
+            </div>
+          )}
           <div className="finance-stat">
             <span className="finance-num">{m.nextElection || '—'}</span>
             <span className="finance-label">next on the ballot</span>
@@ -624,6 +645,15 @@ function CongressQuiz({ data, onOpenProfile }) {
         options: ['None', 'Some, under a quarter', 'About a quarter to half', 'Half or more'], answer: bucket,
         reveal: `${v}% of ${m.name}'s ${m.finance.financeCycle || ''} cycle money came from PACs (${fmtMoney(m.finance.fromPacs)} of ${fmtMoney(m.finance.totalRaised)} raised).` });
     }
+    // Q type 4b: who is older?
+    const withAge = pool.filter((m) => ageOf(m.birthday) != null);
+    const [p1, p2] = pick(withAge, 2);
+    if (p1 && p2 && ageOf(p1.birthday) !== ageOf(p2.birthday)) {
+      const older = ageOf(p1.birthday) > ageOf(p2.birthday) ? p1 : p2; const younger = older === p1 ? p2 : p1;
+      out.push({ kind: 'age', m: older, prompt: 'Who is older?',
+        options: [p1.name, p2.name], answer: older.name,
+        reveal: `${older.name} is ${ageOf(older.birthday)}; ${younger.name} is ${ageOf(younger.birthday)}.` });
+    }
     // Q type 5: how many members are on the ballot next?
     const yrs = data.map((m) => parseInt(m.nextElection, 10)).filter((y) => !isNaN(y) && y % 2 === 0);
     if (yrs.length) {
@@ -872,6 +902,20 @@ export default function CongressTable() {
         }),
       row('Avg. terms served', (v) => (v == null ? '—' : v.toFixed(1)),
         (g) => avg(g.filter((m) => m.termsServed).map((m) => m.termsServed))),
+      row('Avg. age', (v) => (v == null ? '—' : v.toFixed(1)),
+        (g) => avg(g.map((m) => ageOf(m.birthday)).filter((a) => a != null))),
+      row('First-term members', (v) => v,
+        (g) => g.filter((m) => m.termsServed === 1).length),
+      row('Avg. votes missed (House)', (v) => (v == null ? '—' : `${v.toFixed(1)}%`),
+        (g) => avg(g.filter((m) => m.voting?.missedPct != null).map((m) => m.voting.missedPct)),
+        'House roll calls only — Senate attendance is not yet in the Congress.gov API'),
+      row('Members missing 10%+ of votes (House)', (v) => v,
+        (g) => g.filter((m) => m.voting?.missedPct != null && m.voting.missedPct >= 10).length,
+        'House only'),
+      row('Members taking zero PAC money', (v) => v,
+        (g) => g.filter((m) => m.finance?.pacPct === 0).length),
+      row('Total raised this cycle', (v) => (v == null ? '—' : fmtMoney(v)),
+        (g) => g.reduce((a, m) => a + (m.finance?.totalRaised || 0), 0) || null),
     ];
 
     const anyTrades = data.some((m) => m.trades?.chamber === 'House');
@@ -1809,6 +1853,7 @@ export default function CongressTable() {
                 </div>
                 <dl className="compare2-facts">
                   <div><dt>Terms served</dt><dd>{m.termsServed ?? '—'} <small>since {m.firstYearServed || '—'}</small></dd></div>
+                  <div><dt>Age</dt><dd>{ageOf(m.birthday) ?? '—'}</dd></div>
                   <div><dt>Next election</dt><dd>{m.nextElection || '—'}</dd></div>
                   <div><dt>Votes with party</dt><dd>{m.voting?.partyLinePct != null ? `${m.voting.partyLinePct}%` : <small>Senate n/a</small>}</dd></div>
                   <div><dt>Votes missed</dt><dd>{m.voting?.missedPct != null ? `${m.voting.missedPct}%` : <small>—</small>}</dd></div>
