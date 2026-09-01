@@ -296,7 +296,8 @@ function MemberCard({ member, onOpen, index = 0, onCompare, inCompare }) {
 
 // Full profile for one member: a slide-over panel. Everything we know, in
 // one place, every figure linked to its source. Neutral by design.
-function MemberProfile({ member: m, onClose, onCompare, inCompare }) {
+function MemberProfile({ member: m, onClose, onCompare, inCompare, allMembers = [], onCompareWith }) {
+  const [pickerOpen, setPickerOpen] = useState(false);
   const seat =
     m.chamber === 'House' && m.district != null
       ? `${m.state} · District ${m.district}`
@@ -374,16 +375,40 @@ function MemberProfile({ member: m, onClose, onCompare, inCompare }) {
               <button type="button" className="pill pill-sm" onClick={shareCard} disabled={sharing}>
                 {sharing ? 'Preparing…' : 'Share card'}
               </button>
-              {onCompare && (
+              {onCompareWith && (
                 <button
                   type="button"
-                  className={`pill pill-sm ${inCompare ? 'active' : ''}`}
-                  onClick={() => onCompare(m.bioguideId)}
+                  className={`pill pill-sm ${pickerOpen ? 'active' : ''}`}
+                  onClick={() => setPickerOpen((v) => !v)}
                 >
-                  {inCompare ? 'In comparison ✓' : 'Compare'}
+                  Compare with…
                 </button>
               )}
             </div>
+            {pickerOpen && (
+              <div className="compare-picker">
+                <label className="picker-label" htmlFor="cmp-pick">Pick someone to compare against {m.name.split(' ')[0]}</label>
+                <select
+                  id="cmp-pick"
+                  className="state-select"
+                  defaultValue=""
+                  onChange={(e) => { if (e.target.value) onCompareWith(m.bioguideId, e.target.value); }}
+                >
+                  <option value="" disabled>Choose a member…</option>
+                  {['Senate', 'House'].map((ch) => (
+                    <optgroup key={ch} label={ch}>
+                      {allMembers
+                        .filter((x) => x.chamber === ch && x.bioguideId !== m.bioguideId)
+                        .map((x) => (
+                          <option key={x.bioguideId} value={x.bioguideId}>
+                            {x.name} ({x.party?.[0] || '?'}, {x.stateCode || x.state}{x.chamber === 'House' && x.district != null ? `-${x.district}` : ''})
+                          </option>
+                        ))}
+                    </optgroup>
+                  ))}
+                </select>
+              </div>
+            )}
           </div>
         </div>
 
@@ -850,6 +875,20 @@ export default function CongressTable() {
     setCompareIds((prev) =>
       prev.includes(id) ? prev.filter((x) => x !== id) : [...prev.slice(-1), id]
     );
+  const [scrollToCompare, setScrollToCompare] = useState(false);
+  const compareWith = (a, b) => {
+    setCompareIds([a, b]);
+    setScrollToCompare(true);
+    closeProfile();
+  };
+  useEffect(() => {
+    if (!scrollToCompare) return;
+    const el = document.querySelector('.compare2');
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      setScrollToCompare(false);
+    }
+  }, [scrollToCompare, compareIds]);
   const compareMembers = useMemo(
     () => compareIds.map((id) => data.find((m) => m.bioguideId === id)).filter(Boolean),
     [compareIds, data]
@@ -2034,6 +2073,8 @@ export default function CongressTable() {
           onClose={closeProfile}
           onCompare={toggleCompare}
           inCompare={compareIds.includes(selectedMember.bioguideId)}
+          allMembers={data}
+          onCompareWith={compareWith}
         />
       )}
     </div>

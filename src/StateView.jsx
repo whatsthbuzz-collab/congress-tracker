@@ -90,7 +90,8 @@ function StateCard({ m, index = 0, onOpen, onCompare, inCompare }) {
 }
 
 // ---------- profile ----------
-function StateProfile({ m, stateName, sessionName, onClose, onCompare, inCompare }) {
+function StateProfile({ m, stateName, sessionName, onClose, onCompare, inCompare, allMembers = [], onCompareWith }) {
+  const [pickerOpen, setPickerOpen] = useState(false);
   const bills = m.bills || [];
   const v = m.voting;
   return (
@@ -109,12 +110,27 @@ function StateProfile({ m, stateName, sessionName, onClose, onCompare, inCompare
               {m.email && <a href={`mailto:${m.email}`} className="source-link">Email ↗</a>}
               {m.financeUrl && <a href={m.financeUrl} target="_blank" rel="noopener noreferrer" className="source-link">Campaign finance ↗</a>}
               {m.links?.[0] && <a href={m.links[0]} target="_blank" rel="noopener noreferrer" className="source-link">Official site ↗</a>}
-              {onCompare && (
-                <button type="button" className={`pill pill-sm ${inCompare ? 'active' : ''}`} onClick={() => onCompare(m.id)}>
-                  {inCompare ? 'In comparison ✓' : 'Compare'}
+              {onCompareWith && (
+                <button type="button" className={`pill pill-sm ${pickerOpen ? 'active' : ''}`} onClick={() => setPickerOpen((v) => !v)}>
+                  Compare with…
                 </button>
               )}
             </div>
+            {pickerOpen && (
+              <div className="compare-picker">
+                <label className="picker-label" htmlFor="cmp-pick-state">Pick someone to compare against {m.name.split(' ')[0]}</label>
+                <select id="cmp-pick-state" className="state-select" defaultValue="" onChange={(e) => { if (e.target.value) onCompareWith(m.id, e.target.value); }}>
+                  <option value="" disabled>Choose a legislator…</option>
+                  {['Senate', 'House'].map((ch) => (
+                    <optgroup key={ch} label={ch}>
+                      {allMembers.filter((x) => x.chamber === ch && x.id !== m.id).map((x) => (
+                        <option key={x.id} value={x.id}>{x.name} ({x.partyCode || '?'}{x.district ? `, D-${x.district}` : ''})</option>
+                      ))}
+                    </optgroup>
+                  ))}
+                </select>
+              </div>
+            )}
           </div>
         </div>
 
@@ -321,6 +337,13 @@ export default function StateView({ theme }) {
   const selected = legs.find((m) => m.id === selectedId) || null;
   const compareMembers = compareIds.map((id) => legs.find((m) => m.id === id)).filter(Boolean);
   const toggleCompare = (id) => setCompareIds((p) => (p.includes(id) ? p.filter((x) => x !== id) : [...p.slice(-1), id]));
+  const [scrollToCompare, setScrollToCompare] = useState(false);
+  const compareWith = (a, b) => { setCompareIds([a, b]); setScrollToCompare(true); setSelectedId(null); };
+  useEffect(() => {
+    if (!scrollToCompare) return;
+    const el = document.querySelector('.compare2');
+    if (el) { el.scrollIntoView({ behavior: 'smooth', block: 'start' }); setScrollToCompare(false); }
+  }, [scrollToCompare, compareIds]);
 
   useEffect(() => {
     if (!selected) return;
@@ -518,7 +541,7 @@ export default function StateView({ theme }) {
       </footer>
 
       {selected && (
-        <StateProfile m={selected} stateName={st.name} sessionName={st.session?.name} onClose={() => setSelectedId(null)} onCompare={toggleCompare} inCompare={compareIds.includes(selected.id)} />
+        <StateProfile m={selected} stateName={st.name} sessionName={st.session?.name} onClose={() => setSelectedId(null)} onCompare={toggleCompare} inCompare={compareIds.includes(selected.id)} allMembers={legs} onCompareWith={compareWith} />
       )}
     </>
   );

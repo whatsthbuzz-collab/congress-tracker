@@ -18,6 +18,15 @@ Money comes from the FEC (same pattern as fec_finance.py): total raised,
 PAC vs. individual split, cash on hand. A candidate can have more than one
 authorized committee (a primary committee and a separate general-election
 fund); we sum across all of them so the total is complete.
+
+Named PAC donors -- e.g. "did this candidate take AIPAC money" -- use
+/schedules/schedule_a/by_contributor/, which aggregates itemized Schedule A
+receipts by contributor. This is the same endpoint an earlier build of this
+site got a 422 from; that failure was from calling it with a candidate_id.
+It takes a committee_id, which we have here, so it should work. We ask for
+contributor_type=committee to isolate PAC-to-candidate money specifically
+(as opposed to individual donors), and report whatever names come back
+rather than pre-filtering to any org we expect to see.
 """
 
 import os
@@ -65,6 +74,7 @@ RACES: List[Dict[str, Any]] = [
                     "M.Ed., Harvard University."
                 ),
                 "backgroundSourceUrl": "https://ballotpedia.org/James_Talarico",
+                "campaignSiteUrl": "https://jamestalarico.com",
                 "incumbent": False,
             },
             {
@@ -79,6 +89,7 @@ RACES: List[Dict[str, Any]] = [
                     "Texas House (2003-2013) and Texas Senate (2013-2015)."
                 ),
                 "backgroundSourceUrl": "https://ballotpedia.org/Ken_Paxton",
+                "campaignSiteUrl": "https://kenpaxton.com",
                 "incumbent": False,
             },
         ],
@@ -116,11 +127,56 @@ class FECFetcher:
         y = datetime.now(timezone.utc).year
         cycle = y if y % 2 == 0 else y + 1
         for c in (cycle, cycle - 2):
-            data = self._get(f"/committee/{committee_id}/totals/", {"per_page": 1, "cycle": c})
+            # Sort so we get the latest coverage period explicitly -- an
+            # unsorted "first row" can be an early or amended filing with a
+            # stale/zero cash figure, the same failure mode we hit before on
+            # the candidate-level totals endpoint.
+            data = self._get(f"/committee/{committee_id}/totals/",
+                             {"per_page": 1, "cycle": c, "sort": "-coverage_end_date"})
             results = (data or {}).get("results") or []
-            if results:
+            if results and results[0].get("cash_on_hand_end_period") is not None:
                 return results[0]
         return None
+
+
+
+TOP_PAC_DONORS = 8  # named PACs to surface per candidate
+
+
+def fetch_top_pac_donors(fetcher: "FECFetcher", committee_ids: List[str]) -> List[Dict[str, Any]]:
+    """
+    Aggregate itemized Schedule A receipts by contributing PAC, across all of
+    a candidate's committees, for the current cycle. Returns [] rather than
+    raising if the endpoint is unavailable -- a transparency page should
+    never show a wrong number, only a missing one.
+    """
+    y = datetime.now(timezone.utc).year
+    cycle = y if y % 2 == 0 else y + 1
+    totals: Dict[str, float] = {}
+    dumped = False
+
+    for cid in committee_ids:
+        for c in (cycle, cycle - 2):
+            data = fetcher._get(
+                "/schedules/schedule_a/by_contributor/",
+                {"committee_id": cid, "cycle": c, "contributor_type": "committee",
+                 "per_page": 20, "sort": "-total"},
+            )
+            if not dumped and data and data.get("results"):
+                dumped = True
+                print("  [debug] raw schedule_a by_contributor row:")
+                snippet = json.dumps(data["results"][0], indent=2)[:500]
+                print("  " + snippet.replace(chr(10), chr(10) + "  "))
+            for row in (data or {}).get("results") or []:
+                name = (row.get("contributor_name") or "").strip()
+                amt = row.get("total") or 0
+                if name and amt:
+                    totals[name] = totals.get(name, 0) + amt
+            if data is not None:
+                break  # got a real response (even if empty) for this cycle; don't also try the fallback cycle
+
+    ranked = sorted(totals.items(), key=lambda kv: kv[1], reverse=True)[:TOP_PAC_DONORS]
+    return [{"name": name, "amount": round(amt)} for name, amt in ranked]
 
 
 def fetch_candidate_finance(fetcher: FECFetcher, committee_ids: List[str]) -> Dict[str, Any]:
@@ -169,10 +225,13 @@ def build_race(fetcher: FECFetcher, race: Dict[str, Any]) -> Dict[str, Any]:
     for c in race["candidates"]:
         print(f"  Fetching finance for {c['name']} ({len(c['committees'])} committee[s])...")
         finance = fetch_candidate_finance(fetcher, c["committees"])
+        top_pacs = fetch_top_pac_donors(fetcher, c["committees"])
+        print(f"    {c['name']}: {len(top_pacs)} named PAC donors found")
         candidates.append({
             **c,
             "financeUrl": f"https://www.fec.gov/data/candidate/{c['fecId']}/",
             "finance": finance,
+            "topPacDonors": top_pacs,
         })
         raised = finance.get("totalRaised")
         print(f"    {c['name']}: {'$%d raised' % raised if raised else 'no FEC data'}")

@@ -37,11 +37,18 @@ function CandidateCard({ c, onOpenState }) {
         )}
       </p>
 
-      {c.stateProfile && (
-        <button type="button" className="pill pill-sm" onClick={() => onOpenState(c.stateProfile)}>
-          See {c.stateProfile.code} legislative record →
-        </button>
-      )}
+      <div className="election-links">
+        {c.campaignSiteUrl && (
+          <a href={c.campaignSiteUrl} target="_blank" rel="noopener noreferrer" className="pill pill-sm">
+            Campaign site &amp; issues ↗
+          </a>
+        )}
+        {c.stateProfile && (
+          <button type="button" className="pill pill-sm" onClick={() => onOpenState(c.stateProfile)}>
+            See {c.stateProfile.code} legislative record →
+          </button>
+        )}
+      </div>
 
       <div className="finance-grid" style={{ marginTop: '1rem' }}>
         <div className="finance-stat">
@@ -61,6 +68,16 @@ function CandidateCard({ c, onOpenState }) {
           </>
         )}
       </div>
+
+      {c.topPacDonors?.length > 0 && (
+        <div className="donor-list">
+          <span className="donor-label">Named PAC donors on record:</span>
+          {c.topPacDonors.map((d, i) => (
+            <span key={i} className="donor-chip">{d.name} <strong>{fmtMoney(d.amount)}</strong></span>
+          ))}
+        </div>
+      )}
+
       <a href={c.financeUrl} target="_blank" rel="noopener noreferrer" className="source-link finance-source">
         Full FEC filings ↗
       </a>

@@ -677,3 +677,8 @@ a.comm-name:hover { color: var(--navy); text-decoration: underline; }
 .state-picker-select { display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; }
 .picker-label { font-size: 0.8rem; font-weight: 700; color: var(--ink-2); }
 .state-picker-select .result-count { margin-left: 0; }
+.election-bg { font-size: 0.86rem; color: var(--ink-2); line-height: 1.5; margin: 0.9rem 0 0; }
+.compare-picker { display: flex; flex-direction: column; gap: 0.35rem; margin-top: 0.75rem; padding: 0.75rem 0.9rem; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-sm); animation: card-in 0.2s var(--ease) both; }
+.compare-picker .state-select { max-width: 100%; }
+.election-links { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.75rem; }
+.election-links .pill { text-decoration: none; }
