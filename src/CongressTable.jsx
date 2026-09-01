@@ -879,7 +879,8 @@ export default function CongressTable() {
         // congress_data.json isn't masked by a stale browser/CDN copy.
         const bust = Math.floor(Date.now() / 3_600_000);
         const response = await fetch(
-          `${import.meta.env.BASE_URL}congress_data.json?v=${bust}`
+          `${import.meta.env.BASE_URL}congress_data.json?v=${bust}`,
+          { cache: 'no-cache' }
         );
         if (!response.ok) {
           throw new Error(

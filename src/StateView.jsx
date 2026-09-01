@@ -210,7 +210,7 @@ export default function StateView({ theme }) {
     (async () => {
       try {
         const bust = Math.floor(Date.now() / 3_600_000);
-        const r = await fetch(`${import.meta.env.BASE_URL}state/index.json?v=${bust}`);
+        const r = await fetch(`${import.meta.env.BASE_URL}state/index.json?v=${bust}`, { cache: 'no-cache' });
         if (!r.ok) throw new Error(`No state data yet (HTTP ${r.status}). Run the "Update State Data" workflow.`);
         const j = await r.json();
         setPayload(j);
@@ -229,7 +229,7 @@ export default function StateView({ theme }) {
     (async () => {
       try {
         const bust = Math.floor(Date.now() / 3_600_000);
-        const r = await fetch(`${import.meta.env.BASE_URL}state/${code}.json?v=${bust}`);
+        const r = await fetch(`${import.meta.env.BASE_URL}state/${code}.json?v=${bust}`, { cache: 'no-cache' });
         if (!r.ok) throw new Error(`Could not load ${code}.json (HTTP ${r.status}).`);
         setStateFile(await r.json());
         setPage(0);
