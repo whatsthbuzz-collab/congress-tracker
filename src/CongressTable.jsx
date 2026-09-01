@@ -70,7 +70,7 @@ function MemberPhoto({ member, size = 'sm' }) {
   }
   return (
     <img
-      className={`member-photo ph-${size}`}
+      className={`member-photo ph-${size} ${partyClass(member.party)}`}
       src={url}
       alt={member.name}
       loading="lazy"
@@ -79,35 +79,59 @@ function MemberPhoto({ member, size = 'sm' }) {
   );
 }
 
-function MemberCard({ member, onOpen }) {
+function MemberCard({ member, onOpen, index = 0 }) {
   const m = member;
   const seat =
     m.chamber === 'House' && m.district != null
       ? `${m.state} · District ${m.district}`
-      : m.state;
+      : `${m.state} · ${m.chamber}`;
+  const pl = m.voting?.partyLinePct;
+  const pac = m.finance?.pacPct;
   return (
-    <button type="button" className="mcard" onClick={() => onOpen && onOpen(m)}>
-      <MemberPhoto member={m} size="lg" />
-      <div className="mcard-body">
-        <span className="mcard-name">{m.name}</span>
-        <span className="mcard-seat">{seat}</span>
-        <span className={`party-tag ${partyClass(m.party)}`}>
-          <span className="party-dot" aria-hidden="true" />
-          {m.party}
-        </span>
-        <div className="mcard-stats">
-          <span>
-            <strong>{m.termsServed ?? '—'}</strong>{' '}
-            {m.termsServed === 1 ? 'term' : 'terms'}
+    <button
+      type="button"
+      className={`mcard ${partyClass(m.party)}`}
+      onClick={() => onOpen && onOpen(m)}
+      style={{ animationDelay: `${Math.min(index, 20) * 28}ms` }}
+    >
+      <div className="mcard-head">
+        <MemberPhoto member={m} size="lg" />
+        <div className="mcard-ident">
+          <span className="mcard-name">{m.name}</span>
+          <span className="mcard-seat">{seat}</span>
+          <span className={`party-tag ${partyClass(m.party)}`}>
+            <span className="party-dot" aria-hidden="true" />
+            {m.party}
           </span>
-          {m.voting?.partyLinePct != null && (
-            <span>
-              <strong>{m.voting.partyLinePct}%</strong> party line
+        </div>
+      </div>
+      <div className="mcard-stats">
+        <div className="mstat">
+          <span className="mstat-num">{m.termsServed ?? '—'}</span>
+          <span className="mstat-label">{m.termsServed === 1 ? 'term' : 'terms'}</span>
+        </div>
+        <div className="mstat">
+          <span className="mstat-num">{m.nextElection || '—'}</span>
+          <span className="mstat-label">on ballot</span>
+        </div>
+        <div className="mstat">
+          <span className="mstat-num">{pl != null ? `${pl}%` : '—'}</span>
+          <span className="mstat-label">party line</span>
+          {pl != null && (
+            <span className="mini-bar" aria-hidden="true">
+              <span className="mini-fill partyline" style={{ width: `${pl}%` }} />
             </span>
           )}
-          {m.finance?.pacPct != null && (
-            <span>
-              <strong>{m.finance.pacPct}%</strong> PAC
+        </div>
+        <div className="mstat">
+          <span className="mstat-num">{pac != null ? `${pac}%` : '—'}</span>
+          <span className="mstat-label">PAC money</span>
+          {pac != null && (
+            <span className="mini-bar" aria-hidden="true">
+              <span
+                className={`mini-fill ${pac >= 50 ? 'high' : pac >= 25 ? 'mid' : 'low'}`}
+                style={{ width: `${pac}%` }}
+              />
             </span>
           )}
         </div>
@@ -355,7 +379,19 @@ export default function CongressTable() {
   const [partyFilter, setPartyFilter] = useState('');
   const [chamberFilter, setChamberFilter] = useState('');
   const [stateFilter, setStateFilter] = useState('');
-  const [viewMode, setViewMode] = useState('table'); // 'table' | 'cards'
+  const [viewMode, setViewMode] = useState('cards'); // 'cards' | 'table'
+  const [theme, setTheme] = useState(() => {
+    try {
+      const saved = localStorage.getItem('ct-theme');
+      if (saved === 'dark' || saved === 'light') return saved;
+    } catch { /* private mode etc. */ }
+    return window.matchMedia?.('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  });
+  useEffect(() => {
+    document.documentElement.dataset.theme = theme;
+    try { localStorage.setItem('ct-theme', theme); } catch { /* ignore */ }
+  }, [theme]);
+
   const [myState, setMyState] = useState('');
   const [myDistrict, setMyDistrict] = useState('');
   // Profile panel. Synced to the URL hash (#S000148) so any member's page is
@@ -527,7 +563,7 @@ export default function CongressTable() {
       }),
       columnHelper.accessor((row) => row.nextElection || '', {
         id: 'term',
-        header: 'Current Term',
+        header: 'Term',
         cell: (info) => {
           const m = info.row.original;
           return (
@@ -541,7 +577,7 @@ export default function CongressTable() {
         },
       }),
       columnHelper.accessor('bills', {
-        header: 'Recent Bills',
+        header: 'Bills',
         enableSorting: false,
         cell: (info) => {
           const m = info.row.original;
@@ -606,7 +642,7 @@ export default function CongressTable() {
       }),
       columnHelper.accessor((row) => row.finance?.pacPct ?? -1, {
         id: 'funding',
-        header: 'PAC-Funded',
+        header: 'PAC money',
         cell: (info) => {
           const f = info.row.original.finance;
           if (!f || f.pacPct == null) {
@@ -939,6 +975,16 @@ export default function CongressTable() {
           ))}
         </select>
 
+        <button
+          type="button"
+          className="pill theme-toggle"
+          onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+          aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
+          title={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
+        >
+          {theme === 'dark' ? '☀' : '☾'}
+        </button>
+
         <div className="view-toggle" role="group" aria-label="View mode">
           <button
             type="button"
@@ -964,11 +1010,12 @@ export default function CongressTable() {
       {/* ---------- card grid view ---------- */}
       {viewMode === 'cards' && (
         <div className="cards-grid">
-          {table.getRowModel().rows.map((row) => (
+          {table.getRowModel().rows.map((row, i) => (
             <MemberCard
               key={row.id}
               member={row.original}
               onOpen={openProfile}
+              index={i}
             />
           ))}
         </div>
