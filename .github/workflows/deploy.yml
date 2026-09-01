@@ -4,7 +4,7 @@ on:
   push:
     branches: [main]
   workflow_run:
-    workflows: ["Update Congressional Data"]
+    workflows: ["Update Congressional Data", "Update State Data"]
     types: [completed]
   workflow_dispatch:
 

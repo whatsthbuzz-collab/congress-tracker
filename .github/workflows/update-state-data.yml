@@ -1,20 +1,21 @@
-name: Update Congressional Data
+name: Update State Data
 
 on:
   schedule:
-    - cron: '0 2 * * *'
+    # LegiScan rebuilds datasets Sunday ~5am ET; we pull Monday morning UTC.
+    - cron: '0 9 * * 1'
   workflow_dispatch:
 
 jobs:
-  fetch-data:
+  fetch-state:
     runs-on: ubuntu-latest
-    # A hung upstream site must never turn into a six-hour job.
-    timeout-minutes: 75
+    timeout-minutes: 30
     permissions:
       contents: write
     env:
-      # Stream Python output line-by-line instead of dumping it at the end.
       PYTHONUNBUFFERED: "1"
+      # Two-letter codes, comma-separated. Add states here.
+      STATES: "TX"
 
     steps:
       - uses: actions/checkout@v4
@@ -26,20 +27,19 @@ jobs:
       - name: Install dependencies
         run: pip install requests
 
-      - name: Fetch data
+      - name: Fetch state legislature data
         env:
-          CONGRESS_API_KEY: ${{ secrets.CONGRESS_API_KEY }}
-          FEC_API_KEY: ${{ secrets.FEC_API_KEY }}
-        run: python scripts/fetch_congress_data.py
+          LEGISCAN_API_KEY: ${{ secrets.LEGISCAN_API_KEY }}
+        run: python scripts/state_legislature.py
 
       - name: Commit changes
         run: |
           git config user.name "Congress Bot"
           git config user.email "bot@congress-tracker.local"
-          git add public/congress_data.json
+          git add public/state_data.json
           if git diff --cached --quiet; then
-            echo "No changes to data"
+            echo "No changes to state data"
           else
-            git commit -m "chore: update congressional data [$(date -u +'%Y-%m-%d %H:%M UTC')]"
+            git commit -m "chore: update state legislature data [$(date -u +'%Y-%m-%d %H:%M UTC')]"
             git push
           fi
