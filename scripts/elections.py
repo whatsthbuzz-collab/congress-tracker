@@ -19,14 +19,22 @@ PAC vs. individual split, cash on hand. A candidate can have more than one
 authorized committee (a primary committee and a separate general-election
 fund); we sum across all of them so the total is complete.
 
-Named PAC donors -- e.g. "did this candidate take AIPAC money" -- use
-/schedules/schedule_a/by_contributor/, which aggregates itemized Schedule A
-receipts by contributor. This is the same endpoint an earlier build of this
-site got a 422 from; that failure was from calling it with a candidate_id.
-It takes a committee_id, which we have here, so it should work. We ask for
-contributor_type=committee to isolate PAC-to-candidate money specifically
-(as opposed to individual donors), and report whatever names come back
-rather than pre-filtering to any org we expect to see.
+Named PAC donors -- e.g. "did this candidate take AIPAC money" -- come from
+the itemized /schedules/schedule_a/ endpoint, filtered to
+contributor_type=committee, aggregated by contributor name on our side.
+(The old /schedules/schedule_a/by_contributor/ aggregate endpoint no longer
+exists in the API -- the only surviving by_contributor route is for
+inaugural committees -- so the earlier 422/candidate_id theory is moot; the
+path itself is gone.) We keep only Form 3 lines 11B (party committees) and
+11C (other political committees, i.e. PACs) so that transfers from a
+candidate's own joint-fundraising committees (line 12) don't get miscounted
+as "donors". We report whatever names come back rather than pre-filtering
+to any org we expect to see.
+
+Note on field names: /committee/{id}/totals/ reports cash on hand as
+`last_cash_on_hand_end_period`. The unprefixed `cash_on_hand_end_period`
+only exists on the /reports/ endpoints -- reading the wrong one silently
+yields None and looks like "no data".
 """
 
 import os
@@ -134,7 +142,9 @@ class FECFetcher:
             data = self._get(f"/committee/{committee_id}/totals/",
                              {"per_page": 1, "cycle": c, "sort": "-coverage_end_date"})
             results = (data or {}).get("results") or []
-            if results and results[0].get("cash_on_hand_end_period") is not None:
+            # Totals rows name this field `last_cash_on_hand_end_period`
+            # (NOT `cash_on_hand_end_period`, which is a /reports/ field).
+            if results and results[0].get("last_cash_on_hand_end_period") is not None:
                 return results[0]
         return None
 
@@ -143,11 +153,22 @@ class FECFetcher:
 TOP_PAC_DONORS = 8  # named PACs to surface per candidate
 
 
+MAX_SCHED_A_PAGES = 15  # per committee; 100 rows/page = 1,500 receipts, plenty for committee-type receipts
+
+# Form 3 receipt lines we count as "donors": 11B = party committees,
+# 11C = other political committees (PACs). Excludes 11A (individuals),
+# 12 (transfers from the candidate's own authorized/joint committees).
+DONOR_LINES = {"11B", "11C"}
+
+
 def fetch_top_pac_donors(fetcher: "FECFetcher", committee_ids: List[str]) -> List[Dict[str, Any]]:
     """
-    Aggregate itemized Schedule A receipts by contributing PAC, across all of
-    a candidate's committees, for the current cycle. Returns [] rather than
-    raising if the endpoint is unavailable -- a transparency page should
+    Aggregate itemized Schedule A receipts from committee-type contributors,
+    across all of a candidate's committees, for the current cycle. Uses the
+    itemized endpoint (the by_contributor aggregate was removed from the API)
+    with its seek-style pagination: each page's `pagination.last_indexes`
+    values are echoed back as params to get the next page. Returns [] rather
+    than raising if anything is unavailable -- a transparency page should
     never show a wrong number, only a missing one.
     """
     y = datetime.now(timezone.utc).year
@@ -156,24 +177,34 @@ def fetch_top_pac_donors(fetcher: "FECFetcher", committee_ids: List[str]) -> Lis
     dumped = False
 
     for cid in committee_ids:
-        for c in (cycle, cycle - 2):
-            data = fetcher._get(
-                "/schedules/schedule_a/by_contributor/",
-                {"committee_id": cid, "cycle": c, "contributor_type": "committee",
-                 "per_page": 20, "sort": "-total"},
-            )
-            if not dumped and data and data.get("results"):
+        params: Dict[str, Any] = {
+            "committee_id": cid,
+            "two_year_transaction_period": cycle,
+            "contributor_type": "committee",
+            "per_page": 100,
+        }
+        for _page in range(MAX_SCHED_A_PAGES):
+            data = fetcher._get("/schedules/schedule_a/", params)
+            if data is None:
+                break  # request failed after retries; keep whatever we have
+            results = data.get("results") or []
+            if not dumped and results:
                 dumped = True
-                print("  [debug] raw schedule_a by_contributor row:")
-                snippet = json.dumps(data["results"][0], indent=2)[:500]
+                print("  [debug] raw itemized schedule_a row:")
+                snippet = json.dumps(results[0], indent=2)[:500]
                 print("  " + snippet.replace(chr(10), chr(10) + "  "))
-            for row in (data or {}).get("results") or []:
+            for row in results:
+                line = (row.get("line_number") or "").strip().upper()
+                if line and line not in DONOR_LINES:
+                    continue  # skip transfers (12), earmarks, refunds, etc.
                 name = (row.get("contributor_name") or "").strip()
-                amt = row.get("total") or 0
-                if name and amt:
+                amt = row.get("contribution_receipt_amount") or 0
+                if name and amt > 0:
                     totals[name] = totals.get(name, 0) + amt
-            if data is not None:
-                break  # got a real response (even if empty) for this cycle; don't also try the fallback cycle
+            last = (data.get("pagination") or {}).get("last_indexes") or {}
+            if not results or not last:
+                break  # no more pages
+            params = {**params, **last}  # seek pagination: echo cursor back
 
     ranked = sorted(totals.items(), key=lambda kv: kv[1], reverse=True)[:TOP_PAC_DONORS]
     return [{"name": name, "amount": round(amt)} for name, amt in ranked]
@@ -199,7 +230,7 @@ def fetch_candidate_finance(fetcher: FECFetcher, committee_ids: List[str]) -> Di
         pacs += (t.get("other_political_committee_contributions") or 0) + \
                 (t.get("political_party_committee_contributions") or 0)
         individuals += t.get("individual_contributions") or 0
-        cash = max(cash, t.get("cash_on_hand_end_period") or 0)  # most recent, not summed
+        cash = max(cash, t.get("last_cash_on_hand_end_period") or 0)  # most recent, not summed
         cycle = cycle or t.get("cycle")
 
     if not got_any:
@@ -252,9 +283,12 @@ def main():
     os.makedirs(OUT_DIR, exist_ok=True)
     fetcher = FECFetcher(FEC_API_KEY)
     index_entries = []
+    any_finance = False
 
     for race in RACES:
         built = build_race(fetcher, race)
+        if any(c["finance"].get("available") for c in built["candidates"]):
+            any_finance = True
         with open(os.path.join(OUT_DIR, f"{race['id']}.json"), "w") as f:
             json.dump(built, f, indent=1)
         index_entries.append({
@@ -271,6 +305,17 @@ def main():
     print(f"  Races built: {len(index_entries)}")
     print(f"  Failed FEC requests: {fetcher.failures}")
     print(f"Wrote {INDEX} + {len(index_entries)} race file(s)")
+
+    # If literally no candidate got finance data AND we saw request failures,
+    # something is systemically wrong (bad key, endpoint change, outage).
+    # Exit non-zero so the workflow's commit step never runs and yesterday's
+    # good data stays live. An empty page is better than a wrong one; stale
+    # is better than empty.
+    if fetcher.failures and not any_finance:
+        print("ERROR: zero candidates have finance data and there were "
+              "request failures — refusing to publish an all-empty dataset.",
+              file=sys.stderr)
+        sys.exit(1)
 
 
 if __name__ == "__main__":
