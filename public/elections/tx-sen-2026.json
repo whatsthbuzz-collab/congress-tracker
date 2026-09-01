@@ -69,15 +69,21 @@
     },
     {
      "name": "ENGINEERS POLITICAL EDUCATION COMMITTEE (EPEC)/INTERNATIONAL UNION OF OPERATING ENGINEERS",
-     "amount": 5000
+     "amount": 5000,
+     "fecMurs": 3677,
+     "fecMursUrl": "https://www.fec.gov/data/legal/search/enforcement/?case_respondents=ENGINEERS+POLITICAL+EDUCATION+COMMITTEE+%28EPEC%29%2FINTERNATIONAL+UNION+OF+OPERATING+ENGINEERS"
     },
     {
      "name": "A NEW DIRECTION PAC",
-     "amount": 5000
+     "amount": 5000,
+     "fecMurs": 1470,
+     "fecMursUrl": "https://www.fec.gov/data/legal/search/enforcement/?case_respondents=A+NEW+DIRECTION+PAC"
     },
     {
      "name": "ALL FOR OUR COUNTRY LEADERSHIP PAC",
-     "amount": 5000
+     "amount": 5000,
+     "fecMurs": 3997,
+     "fecMursUrl": "https://www.fec.gov/data/legal/search/enforcement/?case_respondents=ALL+FOR+OUR+COUNTRY+LEADERSHIP+PAC"
     }
    ]
   },
@@ -136,31 +142,45 @@
     },
     {
      "name": "SENATE CONSERVATIVES FUND",
-     "amount": 10000
+     "amount": 10000,
+     "fecMurs": 1040,
+     "fecMursUrl": "https://www.fec.gov/data/legal/search/enforcement/?case_respondents=SENATE+CONSERVATIVES+FUND"
     },
     {
      "name": "BEST AT BRINGING ENTREPRENEURIAL RESULTS NEVER IMAGINED OR E",
-     "amount": 10000
+     "amount": 10000,
+     "fecMurs": 430,
+     "fecMursUrl": "https://www.fec.gov/data/legal/search/enforcement/?case_respondents=BEST+AT+BRINGING+ENTREPRENEURIAL+RESULTS+NEVER+IMAGINED+OR+E"
     },
     {
      "name": "USAP PAC",
-     "amount": 10000
+     "amount": 10000,
+     "fecMurs": 642,
+     "fecMursUrl": "https://www.fec.gov/data/legal/search/enforcement/?case_respondents=USAP+PAC"
     },
     {
      "name": "LAXALT FOR SENATE",
-     "amount": 6000
+     "amount": 6000,
+     "fecMurs": 3629,
+     "fecMursUrl": "https://www.fec.gov/data/legal/search/enforcement/?case_respondents=LAXALT+FOR+SENATE"
     },
     {
      "name": "VALERO POLTIICAL ACTION COMMITTEE",
-     "amount": 5000
+     "amount": 5000,
+     "fecMurs": 2806,
+     "fecMursUrl": "https://www.fec.gov/data/legal/search/enforcement/?case_respondents=VALERO+POLTIICAL+ACTION+COMMITTEE"
     },
     {
      "name": "TEXTRON POLITICAL ACTION COMMITTEE",
-     "amount": 5000
+     "amount": 5000,
+     "fecMurs": 2886,
+     "fecMursUrl": "https://www.fec.gov/data/legal/search/enforcement/?case_respondents=TEXTRON+POLITICAL+ACTION+COMMITTEE"
     },
     {
      "name": "FLORIDA LEADS",
-     "amount": 5000
+     "amount": 5000,
+     "fecMurs": 77,
+     "fecMursUrl": "https://www.fec.gov/data/legal/search/enforcement/?case_respondents=FLORIDA+LEADS"
     }
    ]
   }
