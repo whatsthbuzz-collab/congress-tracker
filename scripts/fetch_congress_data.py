@@ -32,6 +32,7 @@ import requests
 
 from fec_finance import add_finance
 from votes import add_votes
+from committees import add_committees
 
 # ---------- config ----------
 
@@ -282,6 +283,10 @@ def main():
 
     print(f"Built {len(members)} member records.\n")
 
+    # ---- committee assignments (congress-legislators, no key) ----
+    committees_enabled = add_committees(members)
+    print()
+
     if not members:
         print("ERROR: No members parsed. Aborting.", file=sys.stderr)
         sys.exit(1)
@@ -335,6 +340,7 @@ def main():
         "billsIncluded": bills_enabled,
         "financeIncluded": finance_enabled,
         "votesIncluded": votes_enabled,
+        "committeesIncluded": committees_enabled,
         "members": members,
         "metadata": {
             "memberSource": "unitedstates/congress-legislators (public domain)",

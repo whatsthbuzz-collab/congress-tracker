@@ -105,6 +105,236 @@ function MemberCard({ member, onOpen }) {
   );
 }
 
+// Full profile for one member: a slide-over panel. Everything we know, in
+// one place, every figure linked to its source. Neutral by design.
+function MemberProfile({ member: m, onClose }) {
+  const seat =
+    m.chamber === 'House' && m.district != null
+      ? `${m.state} · District ${m.district}`
+      : `${m.state} · ${m.chamber}`;
+  const bills = m.bills || [];
+  const comms = m.committees || [];
+  const shareUrl = `${window.location.origin}${window.location.pathname}#${m.bioguideId}`;
+  const [copied, setCopied] = useState(false);
+
+  const copyLink = async () => {
+    try {
+      await navigator.clipboard.writeText(shareUrl);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1800);
+    } catch {
+      /* clipboard unavailable; the URL is still in the address bar */
+    }
+  };
+
+  return (
+    <div className="profile-backdrop" onClick={onClose} role="presentation">
+      <aside
+        className="profile"
+        role="dialog"
+        aria-modal="true"
+        aria-label={`${m.name} profile`}
+        onClick={(e) => e.stopPropagation()}
+      >
+        <div className="profile-top">
+          <button type="button" className="profile-close" onClick={onClose} aria-label="Close">
+            ×
+          </button>
+          <MemberPhoto member={m} size="lg" />
+          <div className="profile-ident">
+            <p className="masthead-eyebrow">{seat}</p>
+            <h2 className="profile-name">{m.name}</h2>
+            <span className={`party-tag ${partyClass(m.party)}`}>
+              <span className="party-dot" aria-hidden="true" />
+              {m.party}
+            </span>
+            <div className="profile-links">
+              <a href={m.sourceUrl} target="_blank" rel="noopener noreferrer" className="source-link">
+                Congress.gov ↗
+              </a>
+              {m.website && (
+                <a href={m.website} target="_blank" rel="noopener noreferrer" className="source-link">
+                  Official site ↗
+                </a>
+              )}
+              <button type="button" className="pill pill-sm" onClick={copyLink}>
+                {copied ? 'Link copied' : 'Copy link'}
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* headline facts */}
+        <div className="finance-grid profile-facts">
+          <div className="finance-stat">
+            <span className="finance-num">{m.termsServed ?? '—'}</span>
+            <span className="finance-label">
+              {m.termsServed === 1 ? 'term' : 'terms'} · since {m.firstYearServed || '—'}
+            </span>
+          </div>
+          <div className="finance-stat">
+            <span className="finance-num">{m.nextElection || '—'}</span>
+            <span className="finance-label">next on the ballot</span>
+          </div>
+          {m.voting?.partyLinePct != null && (
+            <div className="finance-stat">
+              <span className="finance-num">{m.voting.partyLinePct}%</span>
+              <span className="finance-label">votes with party (House)</span>
+            </div>
+          )}
+          {m.finance?.pacPct != null && (
+            <div className="finance-stat">
+              <span className="finance-num">{m.finance.pacPct}%</span>
+              <span className="finance-label">of money from PACs</span>
+            </div>
+          )}
+        </div>
+
+        {/* committees */}
+        {comms.length > 0 && (
+          <section className="profile-section">
+            <p className="bill-panel-title">Committees</p>
+            <ul className="comm-list">
+              {comms.map((c) => (
+                <li key={c.id} className="comm-item">
+                  <div className="comm-head">
+                    {c.url ? (
+                      <a href={c.url} target="_blank" rel="noopener noreferrer" className="comm-name">
+                        {c.name}
+                      </a>
+                    ) : (
+                      <span className="comm-name">{c.name}</span>
+                    )}
+                    <span className={`comm-role ${c.role !== 'Member' ? 'lead' : ''}`}>
+                      {c.role}
+                    </span>
+                  </div>
+                  {c.subcommittees?.length > 0 && (
+                    <p className="comm-subs">{c.subcommittees.join(' · ')}</p>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
+
+        {/* money */}
+        {m.finance && (
+          <section className="profile-section">
+            <p className="bill-panel-title">
+              Campaign finance{m.finance.financeCycle ? ` · ${m.finance.financeCycle} cycle` : ''}
+            </p>
+            <div className="finance-grid">
+              <div className="finance-stat">
+                <span className="finance-num">{fmtMoney(m.finance.totalRaised)}</span>
+                <span className="finance-label">total raised</span>
+              </div>
+              <div className="finance-stat">
+                <span className="finance-num">{fmtMoney(m.finance.fromPacs)}</span>
+                <span className="finance-label">from PACs ({m.finance.pacPct ?? '—'}%)</span>
+              </div>
+              <div className="finance-stat">
+                <span className="finance-num">{fmtMoney(m.finance.fromIndividuals)}</span>
+                <span className="finance-label">from individuals ({m.finance.individualPct ?? '—'}%)</span>
+              </div>
+              <div className="finance-stat">
+                <span className="finance-num">{fmtMoney(m.finance.cashOnHand)}</span>
+                <span className="finance-label">cash on hand</span>
+              </div>
+            </div>
+            {m.finance.financeSourceUrl && (
+              <a href={m.finance.financeSourceUrl} target="_blank" rel="noopener noreferrer" className="source-link finance-source">
+                Full FEC filings ↗
+              </a>
+            )}
+          </section>
+        )}
+
+        {/* votes */}
+        {m.voting && (
+          <section className="profile-section">
+            <p className="bill-panel-title">Voting record · House · last {m.voting.votesTotal} roll calls</p>
+            <div className="finance-grid">
+              <div className="finance-stat">
+                <span className="finance-num">{m.voting.partyLinePct ?? '—'}%</span>
+                <span className="finance-label">with their party</span>
+              </div>
+              <div className="finance-stat">
+                <span className="finance-num">{m.voting.missedPct ?? '—'}%</span>
+                <span className="finance-label">votes missed</span>
+              </div>
+              <div className="finance-stat">
+                <span className="finance-num">{m.voting.votesAgainstParty ?? '—'}</span>
+                <span className="finance-label">broke with party</span>
+              </div>
+            </div>
+            {m.voting.recentVotes?.length > 0 && (
+              <div className="vote-list">
+                {m.voting.recentVotes.map((rv, i) => (
+                  <div key={i} className="vote-row">
+                    <span className={`vote-pos vote-${(rv.position || '').toLowerCase().replace(/[^a-z]/g, '')}`}>
+                      {rv.position}
+                    </span>
+                    <span className="vote-desc">
+                      {rv.bill ? `${rv.bill} — ` : ''}
+                      {rv.question || rv.result}
+                    </span>
+                    <span className="vote-date">{rv.date}</span>
+                    {rv.billUrl && (
+                      <a href={rv.billUrl} target="_blank" rel="noopener noreferrer" className="source-link vote-link">
+                        bill ↗
+                      </a>
+                    )}
+                  </div>
+                ))}
+              </div>
+            )}
+          </section>
+        )}
+        {!m.voting && m.chamber === 'Senate' && (
+          <section className="profile-section">
+            <p className="bill-panel-title">Voting record</p>
+            <p className="scope-note" style={{ margin: 0 }}>
+              Senate roll-call votes aren&rsquo;t yet available through the
+              Congress.gov API. This will fill in automatically when they are.
+            </p>
+          </section>
+        )}
+
+        {/* bills */}
+        {bills.length > 0 && (
+          <section className="profile-section">
+            <p className="bill-panel-title">
+              {m.billsTotal && m.billsTotal > bills.length
+                ? `${bills.length} most recent of ${m.billsTotal} sponsored`
+                : 'Sponsored legislation'}
+            </p>
+            <div className="bill-grid">
+              {bills.map((bill, idx) => (
+                <article key={idx} className="bill-card">
+                  <p className="bill-number">{bill.billNumber}</p>
+                  <h3 className="bill-title">{bill.title || 'Untitled measure'}</h3>
+                  {bill.latestAction && <p className="bill-action">{bill.latestAction}</p>}
+                  <div className="bill-foot">
+                    {bill.introducedDate && (
+                      <span className="bill-date">Introduced {fmtDate(bill.introducedDate)}</span>
+                    )}
+                    {bill.sourceUrl && (
+                      <a href={bill.sourceUrl} target="_blank" rel="noopener noreferrer" className="source-link">
+                        Full text ↗
+                      </a>
+                    )}
+                  </div>
+                </article>
+              ))}
+            </div>
+          </section>
+        )}
+      </aside>
+    </div>
+  );
+}
+
 export default function CongressTable() {
   const [data, setData] = useState([]);
   const [lastUpdated, setLastUpdated] = useState(null);
@@ -117,6 +347,38 @@ export default function CongressTable() {
   const [viewMode, setViewMode] = useState('table'); // 'table' | 'cards'
   const [myState, setMyState] = useState('');
   const [myDistrict, setMyDistrict] = useState('');
+  // Profile panel. Synced to the URL hash (#S000148) so any member's page is
+  // linkable and shareable — the foundation for share cards later.
+  const [selectedId, setSelectedId] = useState(() =>
+    (window.location.hash || '').replace(/^#/, '') || null
+  );
+
+  useEffect(() => {
+    const onHash = () =>
+      setSelectedId((window.location.hash || '').replace(/^#/, '') || null);
+    window.addEventListener('hashchange', onHash);
+    return () => window.removeEventListener('hashchange', onHash);
+  }, []);
+
+  const openProfile = (m) => {
+    window.location.hash = m.bioguideId;
+  };
+  const closeProfile = () => {
+    // Clear the hash without leaving a "#" in the URL.
+    history.replaceState(null, '', window.location.pathname + window.location.search);
+    setSelectedId(null);
+  };
+
+  useEffect(() => {
+    if (!selectedId) return;
+    const onKey = (e) => e.key === 'Escape' && closeProfile();
+    window.addEventListener('keydown', onKey);
+    document.body.style.overflow = 'hidden';
+    return () => {
+      window.removeEventListener('keydown', onKey);
+      document.body.style.overflow = '';
+    };
+  }, [selectedId]);
   const [expanded, setExpanded] = useState(() => new Set());
 
   useEffect(() => {
@@ -199,7 +461,16 @@ export default function CongressTable() {
             <div className="member-cell">
               <MemberPhoto member={m} size="sm" />
               <div className="member-ident">
-                <span className="member-name">{info.getValue()}</span>
+                <button
+                  type="button"
+                  className="member-name member-link"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    openProfile(m);
+                  }}
+                >
+                  {info.getValue()}
+                </button>
                 <span className="member-seat">{seat}</span>
               </div>
             </div>
@@ -396,6 +667,11 @@ export default function CongressTable() {
       .sort((a, b) => (a.chamber === 'Senate' ? -1 : 1));
   }, [data, myState, myDistrict]);
 
+  const selectedMember = useMemo(
+    () => (selectedId ? data.find((m) => m.bioguideId === selectedId) || null : null),
+    [data, selectedId]
+  );
+
   const myDistricts = useMemo(() => {
     if (!myState) return [];
     return [
@@ -581,13 +857,7 @@ export default function CongressTable() {
               <MemberCard
                 key={m.bioguideId}
                 member={m}
-                onOpen={(mem) => {
-                  if (mem.bills?.length || mem.finance || mem.voting) {
-                    toggleRow(mem.bioguideId);
-                    setViewMode('table');
-                    setGlobalFilter(mem.name);
-                  }
-                }}
+                onOpen={openProfile}
               />
             ))}
           </div>
@@ -681,13 +951,7 @@ export default function CongressTable() {
             <MemberCard
               key={row.id}
               member={row.original}
-              onOpen={(m) => {
-                setViewMode('table');
-                setGlobalFilter(m.name);
-                if (m.bills?.length || m.finance || m.voting) {
-                  toggleRow(m.bioguideId);
-                }
-              }}
+              onOpen={openProfile}
             />
           ))}
         </div>
@@ -989,6 +1253,10 @@ export default function CongressTable() {
           verify at Congress.gov.
         </p>
       </footer>
+
+      {selectedMember && (
+        <MemberProfile member={selectedMember} onClose={closeProfile} />
+      )}
     </div>
   );
 }
