@@ -13,6 +13,7 @@ import './CongressTable.css';
 // single-color watermark in the hero on wide screens.
 import emblemSvg from './emblem.svg?raw';
 import StateView from './StateView';
+import ElectionsView from './ElectionsView';
 
 const columnHelper = createColumnHelper();
 
@@ -806,13 +807,17 @@ export default function CongressTable() {
   }, [theme]);
 
   const [compareTab, setCompareTab] = useState('overview');
-  const [level, setLevel] = useState(() =>
-    new URLSearchParams(window.location.search).get('view') === 'state' ? 'state' : 'federal'
-  );
+  const [level, setLevel] = useState(() => {
+    const v = new URLSearchParams(window.location.search).get('view');
+    return v === 'state' ? 'state' : v === 'elections' ? 'elections' : 'federal';
+  });
   useEffect(() => {
     const url = new URL(window.location.href);
     if (level === 'state') url.searchParams.set('view', 'state');
+    else if (level === 'elections') url.searchParams.set('view', 'elections');
     else { url.searchParams.delete('view'); url.searchParams.delete('st'); }
+    // Never keep "elections" in the URL when navigating away via the visible
+    // toggle -- it should only be reachable by a link someone was given.
     history.replaceState(null, '', url.pathname + url.search + url.hash);
   }, [level]);
   const [myState, setMyState] = useState('');
@@ -1338,7 +1343,15 @@ export default function CongressTable() {
         <button type="button" className={`pill ${level === 'state' ? 'active' : ''}`} onClick={() => setLevel('state')}>State Legislatures</button>
       </nav>
 
-      {level === 'state' ? (
+      {level === 'elections' ? (
+        <ElectionsView
+          onOpenStateProfile={(sp) => { setLevel('state'); /* StateView reads ?st= on mount */
+            const url = new URL(window.location.href);
+            url.searchParams.set('view', 'state'); url.searchParams.set('st', sp.code);
+            history.replaceState(null, '', url.pathname + url.search + url.hash);
+          }}
+        />
+      ) : level === 'state' ? (
         <StateView theme={theme} />
       ) : (
       <>
