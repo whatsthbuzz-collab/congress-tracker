@@ -238,7 +238,18 @@ body::before {
 .pill-republican.active { background: var(--rep); color: #fff; }
 .pill-independent.active { background: var(--ind); color: #fff; }
 .pill-sm { padding: 0.3rem 0.7rem; font-size: 0.78rem; }
-.theme-toggle { font-size: 0.95rem; padding: 0.4rem 0.7rem; line-height: 1; }
+.theme-toggle {
+  position: absolute; top: 1.25rem; right: 1.5rem; z-index: 30;
+  display: inline-flex; align-items: center; gap: 0.45rem;
+  font-family: var(--font-ui); font-size: 0.82rem; font-weight: 700;
+  padding: 0.5rem 0.9rem; border-radius: 999px;
+  border: 1px solid var(--line-2);
+  background: var(--surface); color: var(--ink);
+  box-shadow: var(--shadow-1); cursor: pointer;
+  transition: transform 0.15s var(--ease), box-shadow 0.15s var(--ease);
+}
+.theme-toggle:hover { transform: translateY(-1px); box-shadow: var(--shadow-2); }
+.theme-toggle svg { display: block; }
 .state-select {
   font-family: var(--font-ui); font-size: 0.9rem; padding: 0.55rem 0.8rem;
   border: 1px solid var(--line-2); border-radius: 999px;
@@ -476,6 +487,7 @@ a.comm-name:hover { color: var(--navy); text-decoration: underline; }
   .profile-top { flex-direction: column; }
   .profile-close { top: 0; }
   .toolbar { top: 0.5rem; }
+  .theme-toggle { top: 0.85rem; right: 0.9rem; padding: 0.45rem 0.75rem; }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }

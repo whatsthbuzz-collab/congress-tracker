@@ -783,6 +783,30 @@ export default function CongressTable() {
   return (
     <div className="ct-shell">
       {/* ---------- masthead ---------- */}
+      <button
+        type="button"
+        className="theme-toggle"
+        onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+        aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
+      >
+        {theme === 'dark' ? (
+          <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
+            <circle cx="12" cy="12" r="4" fill="currentColor" />
+            <g stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+              <line x1="12" y1="2" x2="12" y2="5" /><line x1="12" y1="19" x2="12" y2="22" />
+              <line x1="2" y1="12" x2="5" y2="12" /><line x1="19" y1="12" x2="22" y2="12" />
+              <line x1="4.9" y1="4.9" x2="7" y2="7" /><line x1="17" y1="17" x2="19.1" y2="19.1" />
+              <line x1="4.9" y1="19.1" x2="7" y2="17" /><line x1="17" y1="7" x2="19.1" y2="4.9" />
+            </g>
+          </svg>
+        ) : (
+          <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
+            <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" fill="currentColor" />
+          </svg>
+        )}
+        <span>{theme === 'dark' ? 'Light' : 'Dark'}</span>
+      </button>
+
       <header className="masthead">
         <p className="masthead-eyebrow">The Public Record</p>
         <h1 className="masthead-title">Who&rsquo;s serving you in Congress?</h1>
@@ -974,16 +998,6 @@ export default function CongressTable() {
             </option>
           ))}
         </select>
-
-        <button
-          type="button"
-          className="pill theme-toggle"
-          onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-          aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
-          title={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
-        >
-          {theme === 'dark' ? '☀' : '☾'}
-        </button>
 
         <div className="view-toggle" role="group" aria-label="View mode">
           <button
