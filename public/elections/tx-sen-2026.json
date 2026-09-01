@@ -65,21 +65,23 @@
    "topPacDonors": [
     {
      "name": "APWU COPA",
-     "amount": 5000
+     "amount": 5000,
+     "fecUrl": "https://www.fec.gov/data/committee/C00010322/"
     },
     {
      "name": "ENGINEERS POLITICAL EDUCATION COMMITTEE (EPEC)/INTERNATIONAL UNION OF OPERATING ENGINEERS",
      "amount": 5000,
-     "fecMurs": 18,
-     "fecMursUrl": "https://www.fec.gov/data/legal/search/enforcement/?case_respondents=%22INTERNATIONAL+UNION+OF+OPERATING+ENGINEERS%22"
+     "fecUrl": "https://www.fec.gov/data/committee/C00029504/"
     },
     {
      "name": "A NEW DIRECTION PAC",
-     "amount": 5000
+     "amount": 5000,
+     "fecUrl": "https://www.fec.gov/data/committee/C00458570/"
     },
     {
      "name": "ALL FOR OUR COUNTRY LEADERSHIP PAC",
-     "amount": 5000
+     "amount": 5000,
+     "fecUrl": "https://www.fec.gov/data/committee/C00629212/"
     }
    ]
   },
@@ -134,39 +136,43 @@
    "topPacDonors": [
     {
      "name": "NRSC",
-     "amount": 62000
+     "amount": 62000,
+     "fecUrl": "https://www.fec.gov/data/committee/C00027466/"
     },
     {
      "name": "SENATE CONSERVATIVES FUND",
      "amount": 10000,
-     "fecMurs": 3,
-     "fecMursUrl": "https://www.fec.gov/data/legal/search/enforcement/?case_respondents=%22SENATE+CONSERVATIVES+FUND%22"
+     "fecUrl": "https://www.fec.gov/data/committee/C00448696/"
     },
     {
      "name": "BEST AT BRINGING ENTREPRENEURIAL RESULTS NEVER IMAGINED OR E",
-     "amount": 10000
+     "amount": 10000,
+     "fecUrl": "https://www.fec.gov/data/committee/C00863373/"
     },
     {
      "name": "USAP PAC",
-     "amount": 10000
+     "amount": 10000,
+     "fecUrl": "https://www.fec.gov/data/committee/C00574103/"
     },
     {
      "name": "LAXALT FOR SENATE",
      "amount": 6000,
-     "fecMurs": 2,
-     "fecMursUrl": "https://www.fec.gov/data/legal/search/enforcement/?case_respondents=%22LAXALT+FOR+SENATE%22"
+     "fecUrl": "https://www.fec.gov/data/committee/C00787135/"
     },
     {
      "name": "VALERO POLTIICAL ACTION COMMITTEE",
-     "amount": 5000
+     "amount": 5000,
+     "fecUrl": "https://www.fec.gov/data/committee/C00109546/"
     },
     {
      "name": "TEXTRON POLITICAL ACTION COMMITTEE",
-     "amount": 5000
+     "amount": 5000,
+     "fecUrl": "https://www.fec.gov/data/committee/C00123612/"
     },
     {
      "name": "FLORIDA LEADS",
-     "amount": 5000
+     "amount": 5000,
+     "fecUrl": "https://www.fec.gov/data/committee/C00896092/"
     }
    ]
   }
