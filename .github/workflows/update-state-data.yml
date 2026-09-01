@@ -15,7 +15,7 @@ jobs:
     env:
       PYTHONUNBUFFERED: "1"
       # Two-letter codes, comma-separated. Add states here.
-      STATES: "TX"
+      STATES: "TX,CA,FL,NY"
 
     steps:
       - uses: actions/checkout@v4
@@ -25,7 +25,7 @@ jobs:
           python-version: '3.11'
 
       - name: Install dependencies
-        run: pip install requests
+        run: pip install requests pyyaml
 
       - name: Fetch state legislature data
         env:
@@ -36,7 +36,7 @@ jobs:
         run: |
           git config user.name "Congress Bot"
           git config user.email "bot@congress-tracker.local"
-          git add public/state_data.json
+          git add public/state
           if git diff --cached --quiet; then
             echo "No changes to state data"
           else
