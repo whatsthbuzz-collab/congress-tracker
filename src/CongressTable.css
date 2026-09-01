@@ -673,3 +673,4 @@ a.comm-name:hover { color: var(--navy); text-decoration: underline; }
 }
 .level-switch .pill { border: none; }
 @media (max-width: 560px) { .level-switch { margin-top: 2.6rem; } }
+.state-picker { margin-bottom: 1rem; }

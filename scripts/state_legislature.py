@@ -32,12 +32,145 @@ from collections import Counter, defaultdict
 from datetime import datetime, timezone
 from typing import Any, Dict, List, Optional
 
+import glob
+import re
+import tarfile
+
 import requests
+import yaml
 
 API = "https://api.legiscan.com/"
 KEY = os.environ.get("LEGISCAN_API_KEY", "").strip()
 STATES = [s.strip().upper() for s in os.environ.get("STATES", "TX").split(",") if s.strip()]
-OUT = os.path.join("public", "state_data.json")
+OUT_DIR = os.path.join("public", "state")
+INDEX = os.path.join(OUT_DIR, "index.json")
+
+# OpenStates "people" repo: one YAML per legislator with official photo URL,
+# email, and links. Public domain-ish (CC0 data). We match to LegiScan by
+# state + chamber + district, which is exact wherever districts are single-member.
+OPENSTATES_TGZ = "https://codeload.github.com/openstates/people/tar.gz/refs/heads/main"
+
+# Term lengths (years) per chamber, from NCSL "Number of Legislators and Length
+# of Terms in Years", and whether the senate is staggered (Ballotpedia).
+# senate_mode: "two" = 2-year (all up every even year), "all" = 4-year with all
+# seats up together (ref = a known election year), "stagger" = 4-year staggered
+# (per-member class unknown -> no year shown). House: 2-year everywhere except
+# AL/LA/MD/MS (4-year, all together) and ND (4-year, staggered).
+TERMS = {
+    "AL": (4, "all", 2026, 4, "all", 2026), "AK": (4, "stagger", None, 2, "even", None),
+    "AZ": (2, "two", None, 2, "even", None), "AR": (4, "stagger", None, 2, "even", None),
+    "CA": (4, "stagger", None, 2, "even", None), "CO": (4, "stagger", None, 2, "even", None),
+    "CT": (2, "two", None, 2, "even", None), "DE": (4, "stagger", None, 2, "even", None),
+    "FL": (4, "stagger", None, 2, "even", None), "GA": (2, "two", None, 2, "even", None),
+    "HI": (4, "stagger", None, 2, "even", None), "ID": (2, "two", None, 2, "even", None),
+    "IL": (4, "stagger", None, 2, "even", None), "IN": (4, "stagger", None, 2, "even", None),
+    "IA": (4, "stagger", None, 2, "even", None), "KS": (4, "all", 2028, 2, "even", None),
+    "KY": (4, "stagger", None, 2, "even", None), "LA": (4, "all", 2027, 4, "all", 2027),
+    "ME": (2, "two", None, 2, "even", None), "MD": (4, "all", 2026, 4, "all", 2026),
+    "MA": (2, "two", None, 2, "even", None), "MI": (4, "all", 2026, 2, "even", None),
+    "MN": (4, "all", 2026, 2, "even", None), "MS": (4, "all", 2027, 4, "all", 2027),
+    "MO": (4, "stagger", None, 2, "even", None), "MT": (4, "stagger", None, 2, "even", None),
+    "NE": (4, "stagger", None, None, None, None), "NV": (4, "stagger", None, 2, "even", None),
+    "NH": (2, "two", None, 2, "even", None), "NJ": (4, "stagger", None, 2, "odd", None),
+    "NM": (4, "all", 2028, 2, "even", None), "NY": (2, "two", None, 2, "even", None),
+    "NC": (2, "two", None, 2, "even", None), "ND": (4, "stagger", None, 4, "stagger", None),
+    "OH": (4, "stagger", None, 2, "even", None), "OK": (4, "stagger", None, 2, "even", None),
+    "OR": (4, "stagger", None, 2, "even", None), "PA": (4, "stagger", None, 2, "even", None),
+    "RI": (2, "two", None, 2, "even", None), "SC": (4, "all", 2028, 2, "even", None),
+    "SD": (2, "two", None, 2, "even", None), "TN": (4, "stagger", None, 2, "even", None),
+    "TX": (4, "stagger", None, 2, "even", None), "UT": (4, "stagger", None, 2, "even", None),
+    "VT": (2, "two", None, 2, "even", None), "VA": (4, "all", 2027, 2, "odd", None),
+    "WA": (4, "stagger", None, 2, "even", None), "WV": (4, "stagger", None, 2, "even", None),
+    "WI": (4, "stagger", None, 2, "even", None), "WY": (4, "stagger", None, 2, "even", None),
+}
+
+
+def term_info(code: str, chamber: str) -> Dict[str, Any]:
+    """Term length + next election year where it is knowable."""
+    row = TERMS.get(code)
+    if not row:
+        return {"termYears": None, "nextElection": None, "electionNote": "Term length not on file"}
+    sy, smode, sref, hy, hmode, href = row
+    years, mode, ref = (sy, smode, sref) if chamber == "Senate" else (hy, hmode, href)
+    now = datetime.now(timezone.utc).year
+    if years is None:
+        return {"termYears": None, "nextElection": None, "electionNote": "Unicameral"}
+    if mode == "two" or mode == "even":
+        nxt = now if now % 2 == 0 else now + 1
+        return {"termYears": years, "nextElection": nxt, "electionNote": None}
+    if mode == "odd":
+        nxt = now if now % 2 == 1 else now + 1
+        return {"termYears": years, "nextElection": nxt, "electionNote": None}
+    if mode == "all" and ref:
+        nxt = ref
+        while nxt < now:
+            nxt += years
+        return {"termYears": years, "nextElection": nxt, "electionNote": "All seats elected together"}
+    return {"termYears": years, "nextElection": None,
+            "electionNote": f"{years}-year terms, staggered — see Ballotpedia for this seat"}
+
+
+def fetch_openstates(states: List[str]) -> Dict[str, Dict[tuple, Dict[str, Any]]]:
+    """
+    Download the OpenStates people repo once and index the requested states:
+      {code: {(chamber, district): {image, email, ballotpedia, links, lastName}}}
+    """
+    out: Dict[str, Dict[tuple, Dict[str, Any]]] = {c: {} for c in states}
+    try:
+        r = requests.get(OPENSTATES_TGZ, timeout=(10, 180))
+        r.raise_for_status()
+    except Exception as e:
+        print(f"  [openstates] download failed: {e}", file=sys.stderr)
+        return out
+    print(f"  OpenStates archive: {len(r.content) / 1048576:.1f} MB")
+    try:
+        tf = tarfile.open(fileobj=io.BytesIO(r.content), mode="r:gz")
+    except Exception as e:
+        print(f"  [openstates] bad archive: {e}", file=sys.stderr)
+        return out
+    wanted = {c.lower() for c in states}
+    for member in tf.getmembers():
+        m = re.match(r"[^/]+/data/([a-z]{2})/legislature/[^/]+\.yml$", member.name)
+        if not m or m.group(1) not in wanted:
+            continue
+        try:
+            d = yaml.safe_load(tf.extractfile(member).read()) or {}
+        except Exception:
+            continue
+        roles = [x for x in (d.get("roles") or []) if x.get("type") in ("lower", "upper") and not x.get("end_date")]
+        if not roles:
+            continue
+        role = roles[-1]
+        chamber = "House" if role["type"] == "lower" else "Senate"
+        district = str(role.get("district") or "").lstrip("0")
+        code = m.group(1).upper()
+        bp = next((s.get("url") for s in (d.get("sources") or []) if "ballotpedia.org" in (s.get("url") or "")), None)
+        rec = {
+            "image": d.get("image"), "email": d.get("email"), "ballotpedia": bp,
+            "links": [l.get("url") for l in (d.get("links") or []) if l.get("url")][:3],
+            "lastName": (d.get("family_name") or "").lower(),
+            "name": d.get("name"),
+        }
+        key = (chamber, district)
+        # Multi-member districts: keep a list, resolve by last name later.
+        out[code].setdefault(key, []).append(rec)
+    for c in states:
+        print(f"  OpenStates {c}: {sum(len(v) for v in out[c].values())} legislators with profiles")
+    return out
+
+
+def openstates_match(idx: Dict[tuple, List[Dict]], chamber: str, district: Optional[str],
+                     last_name: str) -> Optional[Dict[str, Any]]:
+    cands = idx.get((chamber, str(district or "").lstrip("0"))) or []
+    if not cands:
+        return None
+    if len(cands) == 1:
+        return cands[0]
+    ln = (last_name or "").lower()
+    for c in cands:
+        if c["lastName"] and (c["lastName"] in ln or ln in c["lastName"]):
+            return c
+    return None
 
 RECENT_PER_MEMBER = 10
 SPONSOR_PRIMARY = 1  # sponsor_type_id 1 = primary sponsor in LegiScan
@@ -92,12 +225,12 @@ def pick_session(datasets: List[Dict]) -> Optional[Dict]:
     return max(pool, key=lambda d: (d.get("year_start") or 0, d.get("session_id") or 0))
 
 
-def load_previous() -> Dict[str, Any]:
+def load_previous_index() -> Dict[str, Any]:
     try:
-        with open(OUT) as f:
+        with open(INDEX) as f:
             return json.load(f)
     except Exception:
-        return {"states": {}}
+        return {"states": []}
 
 
 def parse_zip(blob: bytes) -> Dict[str, List[Dict]]:
@@ -137,7 +270,8 @@ def _majority(records: List[Dict], party: str) -> Optional[str]:
     return "Yea" if y > n else "Nay"
 
 
-def build_state(code: str, session: Dict, data: Dict[str, List[Dict]]) -> Dict[str, Any]:
+def build_state(code: str, session: Dict, data: Dict[str, List[Dict]],
+                os_idx: Dict[tuple, List[Dict]]) -> Dict[str, Any]:
     people = data["people"]; bills = data["bills"]; votes = data["votes"]
     print(f"  {code}: {len(people)} people, {len(bills)} bills, {len(votes)} roll calls")
 
@@ -179,11 +313,26 @@ def build_state(code: str, session: Dict, data: Dict[str, List[Dict]]) -> Dict[s
             "ballotpedia": (f"https://ballotpedia.org/{p['ballotpedia']}"
                             if p.get("ballotpedia") else None),
             "votesmartId": p.get("votesmart_id"),
+            "photo": None, "email": None, "links": [],
+            **term_info(code, chamber),
             "bills": [], "billsTotal": 0, "billsPrimary": 0,
             "voting": None,
             "source": "LegiScan",
             "sourceUrl": f"https://legiscan.com/{code}/people/{pid}",
         }
+
+    # ---- OpenStates enrichment: photo, email, links ----
+    matched = 0
+    for leg in legs.values():
+        rec = openstates_match(os_idx, leg["chamber"], leg["district"], leg["lastName"] or "")
+        if rec:
+            leg["photo"] = rec.get("image") or None
+            leg["email"] = rec.get("email") or None
+            leg["links"] = rec.get("links") or []
+            if not leg["ballotpedia"] and rec.get("ballotpedia"):
+                leg["ballotpedia"] = rec["ballotpedia"]
+            matched += 1
+    print(f"  {code}: {matched}/{len(legs)} matched to OpenStates profiles (photos)")
 
     # ---- bills by id, sponsorship ----
     bill_by_id = {b.get("bill_id"): b for b in bills if b.get("bill_id")}
@@ -293,46 +442,64 @@ def main():
         print("ERROR: LEGISCAN_API_KEY not set. Add it as a repo secret.", file=sys.stderr)
         sys.exit(1)
 
-    prev = load_previous()
-    out = {"lastUpdated": datetime.now(timezone.utc).isoformat(), "states": dict(prev.get("states", {}))}
+    os.makedirs(OUT_DIR, exist_ok=True)
+    prev_index = {e["code"]: e for e in load_previous_index().get("states", [])}
     api = LegiScan(KEY)
+    index_entries: List[Dict[str, Any]] = []
     changed = 0
 
+    # Decide which states actually need a refresh first (hash check), so we
+    # only download OpenStates if at least one state changed.
+    plan = []
     for code in STATES:
         print(f"\n=== {code} ({STATE_NAMES.get(code, code)}) ===")
         lst = api.op("getDatasetList", state=code)
-        if not lst:
-            print(f"  {code}: could not list datasets; keeping previous data")
-            continue
-        datasets = lst.get("datasetlist") or []
+        datasets = (lst or {}).get("datasetlist") or []
         session = pick_session(datasets)
         if not session:
-            print(f"  {code}: no datasets available")
+            print(f"  {code}: no datasets available; keeping previous file if any")
+            if code in prev_index:
+                index_entries.append(prev_index[code])
             continue
         print(f"  Session: {session.get('session_name')} (id {session.get('session_id')}, "
               f"hash {str(session.get('dataset_hash'))[:10]}…, date {session.get('dataset_date')})")
-
-        old = out["states"].get(code) or {}
-        if old.get("datasetHash") == session.get("dataset_hash") and old.get("legislators"):
-            print(f"  {code}: dataset unchanged since last run -- skipping download (hash match)")
+        old = prev_index.get(code) or {}
+        if old.get("datasetHash") == session.get("dataset_hash") and \
+                os.path.exists(os.path.join(OUT_DIR, f"{code}.json")):
+            print(f"  {code}: dataset unchanged -- skipping (hash match)")
+            index_entries.append(old)
             continue
+        plan.append((code, session))
 
+    os_idx = fetch_openstates([c for c, _ in plan]) if plan else {}
+
+    for code, session in plan:
         ds = api.op("getDataset", id=session["session_id"], access_key=session["access_key"])
         if not ds or not (ds.get("dataset") or {}).get("zip"):
-            print(f"  {code}: dataset download failed; keeping previous data")
+            print(f"  {code}: dataset download failed; keeping previous file if any")
+            if code in prev_index:
+                index_entries.append(prev_index[code])
             continue
         blob = base64.b64decode(ds["dataset"]["zip"])
-        print(f"  Downloaded {len(blob) / 1048576:.1f} MB")
-        data = parse_zip(blob)
-        out["states"][code] = build_state(code, session, data)
+        print(f"  {code}: downloaded {len(blob) / 1048576:.1f} MB")
+        state = build_state(code, session, parse_zip(blob), os_idx.get(code, {}))
+        with open(os.path.join(OUT_DIR, f"{code}.json"), "w") as f:
+            json.dump(state, f)
+        index_entries.append({
+            "code": code, "name": state["name"], "session": state["session"],
+            "datasetHash": state["datasetHash"], "datasetDate": state["datasetDate"],
+            "counts": state["counts"],
+        })
         changed += 1
         time.sleep(1)
 
-    os.makedirs(os.path.dirname(OUT), exist_ok=True)
-    with open(OUT, "w") as f:
-        json.dump(out, f, indent=1)
-    print(f"\nWrote {OUT} ({os.path.getsize(OUT) / 1048576:.1f} MB); "
-          f"{changed} state(s) refreshed; API calls this run: {api.calls}")
+    index_entries.sort(key=lambda e: e["name"])
+    with open(INDEX, "w") as f:
+        json.dump({"lastUpdated": datetime.now(timezone.utc).isoformat(),
+                   "states": index_entries}, f, indent=1)
+    total_mb = sum(os.path.getsize(os.path.join(OUT_DIR, fn)) for fn in os.listdir(OUT_DIR)) / 1048576
+    print(f"\nWrote {INDEX} + {len(index_entries)} state file(s) ({total_mb:.1f} MB total); "
+          f"{changed} refreshed; API calls this run: {api.calls}")
 
 
 if __name__ == "__main__":

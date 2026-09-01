@@ -4,14 +4,33 @@ import React, { useEffect, useMemo, useState } from 'react';
 const partyClass = (p) => (p || '').toLowerCase().replace(/[^a-z]/g, '-');
 
 function Initials({ member, size = 'lg' }) {
+  const [failed, setFailed] = useState(false);
   const initials = (member.name || '')
     .split(/\s+/).filter(Boolean).map((w) => w[0]).slice(0, 2).join('').toUpperCase();
+  if (member.photo && !failed) {
+    return (
+      <img
+        className={`member-photo ph-${size} ${partyClass(member.party)}`}
+        src={member.photo}
+        alt={member.name}
+        loading="lazy"
+        referrerPolicy="no-referrer"
+        onError={() => setFailed(true)}
+      />
+    );
+  }
   return (
     <div className={`member-photo ph-${size} ph-fallback ${partyClass(member.party)}`}>
       {initials}
     </div>
   );
 }
+
+const electionLine = (m) => {
+  if (m.nextElection) return `on ballot ${m.nextElection}`;
+  if (m.termYears) return `${m.termYears}-year term`;
+  return null;
+};
 
 const seatOf = (m) =>
   `${m.chamber}${m.district ? ` · District ${m.district}` : ''}`;
@@ -40,7 +59,7 @@ function StateCard({ m, index = 0, onOpen, onCompare, inCompare }) {
         <Initials member={m} />
         <div className="mcard-ident">
           <span className="mcard-name">{m.name}</span>
-          <span className="mcard-seat">{seatOf(m)}</span>
+          <span className="mcard-seat">{seatOf(m)}{electionLine(m) ? ` · ${electionLine(m)}` : ''}</span>
           <span className={`party-tag ${partyClass(m.party)}`}>
             <span className="party-dot" aria-hidden="true" />{m.party}
           </span>
@@ -87,6 +106,8 @@ function StateProfile({ m, stateName, sessionName, onClose, onCompare, inCompare
             <div className="profile-links">
               {m.sourceUrl && <a href={m.sourceUrl} target="_blank" rel="noopener noreferrer" className="source-link">LegiScan ↗</a>}
               {m.ballotpedia && <a href={m.ballotpedia} target="_blank" rel="noopener noreferrer" className="source-link">Ballotpedia ↗</a>}
+              {m.email && <a href={`mailto:${m.email}`} className="source-link">Email ↗</a>}
+              {m.links?.[0] && <a href={m.links[0]} target="_blank" rel="noopener noreferrer" className="source-link">Official site ↗</a>}
               {onCompare && (
                 <button type="button" className={`pill pill-sm ${inCompare ? 'active' : ''}`} onClick={() => onCompare(m.id)}>
                   {inCompare ? 'In comparison ✓' : 'Compare'}
@@ -97,6 +118,10 @@ function StateProfile({ m, stateName, sessionName, onClose, onCompare, inCompare
         </div>
 
         <div className="finance-grid profile-facts">
+          <div className="finance-stat">
+            <span className="finance-num">{m.nextElection || (m.termYears ? `${m.termYears}y` : '—')}</span>
+            <span className="finance-label">{m.nextElection ? 'next on the ballot' : m.electionNote || 'term'}</span>
+          </div>
           <div className="finance-stat"><span className="finance-num">{m.billsTotal ?? '—'}</span><span className="finance-label">bills sponsored · {m.billsPrimary ?? 0} as primary</span></div>
           {v?.partyLinePct != null && <div className="finance-stat"><span className="finance-num">{v.partyLinePct}%</span><span className="finance-label">votes with party</span></div>}
           {v?.missedPct != null && <div className="finance-stat"><span className="finance-num">{v.missedPct}%</span><span className="finance-label">votes missed</span></div>}
@@ -150,10 +175,11 @@ function StateProfile({ m, stateName, sessionName, onClose, onCompare, inCompare
         <section className="profile-section">
           <p className="bill-panel-title">Not yet on this page</p>
           <p className="scope-note" style={{ margin: 0 }}>
-            Photos, campaign finance, committees, and next-election dates for state
-            legislators aren&rsquo;t included yet — each comes from a different
-            state-specific source. Everything shown here is from LegiScan&rsquo;s
-            record of the current session.
+            Campaign finance and committee assignments for state legislators aren&rsquo;t
+            included yet — each comes from a different state-specific source. Votes and
+            bills are from LegiScan; photos and contact links from OpenStates; term
+            lengths from NCSL. For staggered senates, the exact election year for a seat
+            is on Ballotpedia.
           </p>
         </section>
       </aside>
@@ -177,21 +203,39 @@ export default function StateView({ theme }) {
   const [page, setPage] = useState(0);
   const PAGE = 24;
 
+  const [stateFile, setStateFile] = useState(null);
+
+  // 1) index of available states
   useEffect(() => {
     (async () => {
       try {
         const bust = Math.floor(Date.now() / 3_600_000);
-        const r = await fetch(`${import.meta.env.BASE_URL}state_data.json?v=${bust}`);
-        if (!r.ok) throw new Error(`state_data.json not found (HTTP ${r.status}). Run the "Update State Data" workflow.`);
+        const r = await fetch(`${import.meta.env.BASE_URL}state/index.json?v=${bust}`);
+        if (!r.ok) throw new Error(`No state data yet (HTTP ${r.status}). Run the "Update State Data" workflow.`);
         const j = await r.json();
         setPayload(j);
-        const codes = Object.keys(j.states || {});
+        const codes = (j.states || []).map((x) => x.code);
         if (!codes.length) setError('No states loaded yet. Run the "Update State Data" workflow.');
         else if (!codes.includes(code)) setCode(codes[0]);
       } catch (e) { setError(e.message); }
     })();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  // 2) the selected state's file
+  useEffect(() => {
+    if (!code || !payload) return;
+    setStateFile(null);
+    (async () => {
+      try {
+        const bust = Math.floor(Date.now() / 3_600_000);
+        const r = await fetch(`${import.meta.env.BASE_URL}state/${code}.json?v=${bust}`);
+        if (!r.ok) throw new Error(`Could not load ${code}.json (HTTP ${r.status}).`);
+        setStateFile(await r.json());
+        setPage(0);
+      } catch (e) { setError(e.message); }
+    })();
+  }, [code, payload]);
 
   useEffect(() => {
     const url = new URL(window.location.href);
@@ -200,8 +244,9 @@ export default function StateView({ theme }) {
     history.replaceState(null, '', url.pathname + url.search + url.hash);
   }, [code]);
 
-  const st = payload?.states?.[code];
+  const st = stateFile;
   const legs = st?.legislators || [];
+  const stateList = payload?.states || [];
 
   const stats = useMemo(() => {
     const byParty = {};
@@ -261,8 +306,7 @@ export default function StateView({ theme }) {
   }, [selected]);
 
   if (error) return <div className="ct-status ct-error">{error}</div>;
-  if (!payload) return <div className="ct-status">Loading the state record…</div>;
-  if (!st) return <div className="ct-status">No data for {code}.</div>;
+  if (!payload || !st) return <div className="ct-status">Loading the state record…</div>;
 
   const pages = Math.max(1, Math.ceil(filtered.length / PAGE));
   const shown = filtered.slice(page * PAGE, page * PAGE + PAGE);
@@ -285,10 +329,10 @@ export default function StateView({ theme }) {
         </header>
       </div>
 
-      {Object.keys(payload.states).length > 1 && (
-        <div className="pill-group" style={{ marginBottom: '1rem' }}>
-          {Object.values(payload.states).map((s) => (
-            <button key={s.code} type="button" className={`pill ${code === s.code ? 'active' : ''}`} onClick={() => { setCode(s.code); setPage(0); }}>{s.name}</button>
+      {stateList.length > 1 && (
+        <div className="pill-group state-picker" role="group" aria-label="Choose a state">
+          {stateList.map((x) => (
+            <button key={x.code} type="button" className={`pill ${code === x.code ? 'active' : ''}`} onClick={() => setCode(x.code)}>{x.name}</button>
           ))}
         </div>
       )}
