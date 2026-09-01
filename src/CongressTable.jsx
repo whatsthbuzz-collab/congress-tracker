@@ -12,6 +12,7 @@ import './CongressTable.css';
 // Decorative party-emblem wreath (OpenClipart, CC0), rendered as a faint
 // single-color watermark in the hero on wide screens.
 import emblemSvg from './emblem.svg?raw';
+import StateView from './StateView';
 
 const columnHelper = createColumnHelper();
 
@@ -805,6 +806,15 @@ export default function CongressTable() {
   }, [theme]);
 
   const [compareTab, setCompareTab] = useState('overview');
+  const [level, setLevel] = useState(() =>
+    new URLSearchParams(window.location.search).get('view') === 'state' ? 'state' : 'federal'
+  );
+  useEffect(() => {
+    const url = new URL(window.location.href);
+    if (level === 'state') url.searchParams.set('view', 'state');
+    else { url.searchParams.delete('view'); url.searchParams.delete('st'); }
+    history.replaceState(null, '', url.pathname + url.search + url.hash);
+  }, [level]);
   const [myState, setMyState] = useState('');
   const [myDistrict, setMyDistrict] = useState('');
   // Profile panel. Synced to the URL hash (#S000148) so any member's page is
@@ -1321,6 +1331,16 @@ export default function CongressTable() {
         )}
         <span>{theme === 'dark' ? 'Light' : 'Dark'}</span>
       </button>
+
+      <nav className="level-switch" aria-label="Federal or state">
+        <button type="button" className={`pill ${level === 'federal' ? 'active' : ''}`} onClick={() => setLevel('federal')}>Federal</button>
+        <button type="button" className={`pill ${level === 'state' ? 'active' : ''}`} onClick={() => setLevel('state')}>State legislatures</button>
+      </nav>
+
+      {level === 'state' ? (
+        <StateView theme={theme} />
+      ) : (
+      <>
 
       <div className="hero">
       <header className="masthead">
@@ -1991,7 +2011,10 @@ export default function CongressTable() {
         </p>
       </footer>
 
-      {selectedMember && (
+      </>
+      )}
+
+      {level === 'federal' && selectedMember && (
         <MemberProfile
           member={selectedMember}
           onClose={closeProfile}

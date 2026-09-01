@@ -664,3 +664,12 @@ a.comm-name:hover { color: var(--navy); text-decoration: underline; }
 }
 .annual-line { margin: 0.85rem 0 0; font-size: 0.84rem; color: var(--ink-2); }
 .annual-hint { color: var(--ink-3); font-size: 0.78rem; }
+
+/* ---------- federal / state switch ---------- */
+.level-switch {
+  display: inline-flex; gap: 0.3rem; margin-bottom: 0.75rem;
+  padding: 0.3rem; border-radius: 999px;
+  background: var(--surface); box-shadow: var(--shadow-1); border: 1px solid var(--line);
+}
+.level-switch .pill { border: none; }
+@media (max-width: 560px) { .level-switch { margin-top: 2.6rem; } }
