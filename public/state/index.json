@@ -1,6 +1,78 @@
 {
- "lastUpdated": "2026-09-01T14:48:14.863622+00:00",
+ "lastUpdated": "2026-09-01T14:55:53.927030+00:00",
  "states": [
+  {
+   "code": "AL",
+   "name": "Alabama",
+   "session": {
+    "id": 2218,
+    "name": "2026 Regular Session",
+    "yearStart": 2026,
+    "yearEnd": 2026
+   },
+   "datasetHash": "83dae6d8cabb24f080c0acbf9b47fb57",
+   "datasetDate": "2026-07-19",
+   "counts": {
+    "legislators": 140,
+    "bills": 1531,
+    "rollCalls": 3541
+   },
+   "schemaVersion": 2
+  },
+  {
+   "code": "AK",
+   "name": "Alaska",
+   "session": {
+    "id": 2171,
+    "name": "34th Legislature",
+    "yearStart": 2025,
+    "yearEnd": 2026
+   },
+   "datasetHash": "51e5a1d82bb922a845dafa310f16386d",
+   "datasetDate": "2026-08-30",
+   "counts": {
+    "legislators": 62,
+    "bills": 848,
+    "rollCalls": 1068
+   },
+   "schemaVersion": 2
+  },
+  {
+   "code": "AZ",
+   "name": "Arizona",
+   "session": {
+    "id": 2235,
+    "name": "Fifty-seventh Legislature - Second Regular Session (2026)",
+    "yearStart": 2026,
+    "yearEnd": 2026
+   },
+   "datasetHash": "4e427c42562eaf6e6f05a9c961acb97d",
+   "datasetDate": "2026-08-30",
+   "counts": {
+    "legislators": 92,
+    "bills": 2190,
+    "rollCalls": 7283
+   },
+   "schemaVersion": 2
+  },
+  {
+   "code": "AR",
+   "name": "Arkansas",
+   "session": {
+    "id": 2242,
+    "name": "95th General Assembly (2026 Fiscal)",
+    "yearStart": 2026,
+    "yearEnd": 2026
+   },
+   "datasetHash": "0cb27b1e9826adcbd7fed1cf71a83095",
+   "datasetDate": "2026-06-28",
+   "counts": {
+    "legislators": 134,
+    "bills": 279,
+    "rollCalls": 387
+   },
+   "schemaVersion": 2
+  },
   {
    "code": "CA",
    "name": "California",
@@ -16,6 +88,60 @@
     "legislators": 121,
     "bills": 5060,
     "rollCalls": 21158
+   },
+   "schemaVersion": 2
+  },
+  {
+   "code": "CO",
+   "name": "Colorado",
+   "session": {
+    "id": 2243,
+    "name": "2026 Regular Session",
+    "yearStart": 2026,
+    "yearEnd": 2026
+   },
+   "datasetHash": "624c60ad0a8adfd03250961b83a0042d",
+   "datasetDate": "2026-08-09",
+   "counts": {
+    "legislators": 101,
+    "bills": 714,
+    "rollCalls": 4571
+   },
+   "schemaVersion": 2
+  },
+  {
+   "code": "CT",
+   "name": "Connecticut",
+   "session": {
+    "id": 2244,
+    "name": "2026 General Assembly",
+    "yearStart": 2026,
+    "yearEnd": 2026
+   },
+   "datasetHash": "b39ac5d3c28801976a3c1a095c90fe5d",
+   "datasetDate": "2026-08-09",
+   "counts": {
+    "legislators": 187,
+    "bills": 1283,
+    "rollCalls": 1797
+   },
+   "schemaVersion": 2
+  },
+  {
+   "code": "DE",
+   "name": "Delaware",
+   "session": {
+    "id": 2163,
+    "name": "153rd General Assembly",
+    "yearStart": 2025,
+    "yearEnd": 2026
+   },
+   "datasetHash": "9cf41406c648af0c27594feaba0fce50",
+   "datasetDate": "2026-08-30",
+   "counts": {
+    "legislators": 65,
+    "bills": 1296,
+    "rollCalls": 2044
    },
    "schemaVersion": 2
   },
@@ -38,6 +164,402 @@
    "schemaVersion": 2
   },
   {
+   "code": "GA",
+   "name": "Georgia",
+   "session": {
+    "id": 2167,
+    "name": "2025-2026 Regular Session",
+    "yearStart": 2025,
+    "yearEnd": 2026
+   },
+   "datasetHash": "81d453d0bc4dcd9376d463b231b648c5",
+   "datasetDate": "2026-07-05",
+   "counts": {
+    "legislators": 242,
+    "bills": 5480,
+    "rollCalls": 2520
+   },
+   "schemaVersion": 2
+  },
+  {
+   "code": "HI",
+   "name": "Hawaii",
+   "session": {
+    "id": 2245,
+    "name": "2026 Regular Session",
+    "yearStart": 2026,
+    "yearEnd": 2026
+   },
+   "datasetHash": "983a65da834ebf6236d8e778124f7e9e",
+   "datasetDate": "2026-07-19",
+   "counts": {
+    "legislators": 79,
+    "bills": 6132,
+    "rollCalls": 3909
+   },
+   "schemaVersion": 2
+  },
+  {
+   "code": "ID",
+   "name": "Idaho",
+   "session": {
+    "id": 2246,
+    "name": "2026 Regular Session",
+    "yearStart": 2026,
+    "yearEnd": 2026
+   },
+   "datasetHash": "8c63f45c94a34d40a5c52b7b0906cd59",
+   "datasetDate": "2026-06-28",
+   "counts": {
+    "legislators": 105,
+    "bills": 817,
+    "rollCalls": 852
+   },
+   "schemaVersion": 2
+  },
+  {
+   "code": "IL",
+   "name": "Illinois",
+   "session": {
+    "id": 2176,
+    "name": "104th General Assembly",
+    "yearStart": 2025,
+    "yearEnd": 2026
+   },
+   "datasetHash": "b467b101810145bb1ed3b7315137ad59",
+   "datasetDate": "2026-08-30",
+   "counts": {
+    "legislators": 181,
+    "bills": 12077,
+    "rollCalls": 9077
+   },
+   "schemaVersion": 2
+  },
+  {
+   "code": "IN",
+   "name": "Indiana",
+   "session": {
+    "id": 2234,
+    "name": "2026 Regular Session",
+    "yearStart": 2026,
+    "yearEnd": 2026
+   },
+   "datasetHash": "a1695343d3c36b5d914e77d5694c6c7f",
+   "datasetDate": "2026-06-28",
+   "counts": {
+    "legislators": 151,
+    "bills": 935,
+    "rollCalls": 689
+   },
+   "schemaVersion": 2
+  },
+  {
+   "code": "IA",
+   "name": "Iowa",
+   "session": {
+    "id": 2177,
+    "name": "91st General Assembly",
+    "yearStart": 2025,
+    "yearEnd": 2026
+   },
+   "datasetHash": "0e47d413d2d9f6c3b10dee7099c46d15",
+   "datasetDate": "2026-07-19",
+   "counts": {
+    "legislators": 155,
+    "bills": 4224,
+    "rollCalls": 3156
+   },
+   "schemaVersion": 2
+  },
+  {
+   "code": "KS",
+   "name": "Kansas",
+   "session": {
+    "id": 2178,
+    "name": "2025-2026 Regular Session",
+    "yearStart": 2025,
+    "yearEnd": 2026
+   },
+   "datasetHash": "d756f09a6267fcae9ee6c9eaaf8dac79",
+   "datasetDate": "2026-06-28",
+   "counts": {
+    "legislators": 171,
+    "bills": 1483,
+    "rollCalls": 1435
+   },
+   "schemaVersion": 2
+  },
+  {
+   "code": "KY",
+   "name": "Kentucky",
+   "session": {
+    "id": 2247,
+    "name": "2026 Regular Session",
+    "yearStart": 2026,
+    "yearEnd": 2026
+   },
+   "datasetHash": "449e1bf2d1f78e3806548712816ea5bb",
+   "datasetDate": "2026-07-12",
+   "counts": {
+    "legislators": 138,
+    "bills": 1737,
+    "rollCalls": 917
+   },
+   "schemaVersion": 2
+  },
+  {
+   "code": "LA",
+   "name": "Louisiana",
+   "session": {
+    "id": 2248,
+    "name": "2026 Regular Session",
+    "yearStart": 2026,
+    "yearEnd": 2026
+   },
+   "datasetHash": "b99db2d7fd91a412e6d60861182dc7f8",
+   "datasetDate": "2026-08-30",
+   "counts": {
+    "legislators": 144,
+    "bills": 2616,
+    "rollCalls": 3298
+   },
+   "schemaVersion": 2
+  },
+  {
+   "code": "ME",
+   "name": "Maine",
+   "session": {
+    "id": 2181,
+    "name": "132nd Legislature",
+    "yearStart": 2025,
+    "yearEnd": 2026
+   },
+   "datasetHash": "6bf225482653010109515fd15b47391b",
+   "datasetDate": "2026-08-30",
+   "counts": {
+    "legislators": 188,
+    "bills": 2454,
+    "rollCalls": 1580
+   },
+   "schemaVersion": 2
+  },
+  {
+   "code": "MD",
+   "name": "Maryland",
+   "session": {
+    "id": 2240,
+    "name": "2026 Regular Session",
+    "yearStart": 2026,
+    "yearEnd": 2026
+   },
+   "datasetHash": "0428e01aa0fece577ca6ca6128ee2fc9",
+   "datasetDate": "2026-08-16",
+   "counts": {
+    "legislators": 190,
+    "bills": 2675,
+    "rollCalls": 2732
+   },
+   "schemaVersion": 2
+  },
+  {
+   "code": "MA",
+   "name": "Massachusetts",
+   "session": {
+    "id": 2182,
+    "name": "194th General Court",
+    "yearStart": 2025,
+    "yearEnd": 2026
+   },
+   "datasetHash": "1664e12d50a22c54c8fa3e01bcc9326a",
+   "datasetDate": "2026-08-30",
+   "counts": {
+    "legislators": 202,
+    "bills": 8920,
+    "rollCalls": 480
+   },
+   "schemaVersion": 2
+  },
+  {
+   "code": "MI",
+   "name": "Michigan",
+   "session": {
+    "id": 2183,
+    "name": "103rd Legislature",
+    "yearStart": 2025,
+    "yearEnd": 2026
+   },
+   "datasetHash": "f23fd9a8d02d9a51336ddbc4538966fb",
+   "datasetDate": "2026-08-30",
+   "counts": {
+    "legislators": 148,
+    "bills": 4012,
+    "rollCalls": 2600
+   },
+   "schemaVersion": 2
+  },
+  {
+   "code": "MN",
+   "name": "Minnesota",
+   "session": {
+    "id": 2151,
+    "name": "94th Legislature 2025-2026",
+    "yearStart": 2025,
+    "yearEnd": 2026
+   },
+   "datasetHash": "844c8ac087598b942d1d34c10a549767",
+   "datasetDate": "2026-08-16",
+   "counts": {
+    "legislators": 206,
+    "bills": 10590,
+    "rollCalls": 277
+   },
+   "schemaVersion": 2
+  },
+  {
+   "code": "MS",
+   "name": "Mississippi",
+   "session": {
+    "id": 2249,
+    "name": "2026 Regular Session",
+    "yearStart": 2026,
+    "yearEnd": 2026
+   },
+   "datasetHash": "a3c931c5c8ac245b682de5d560c67fa2",
+   "datasetDate": "2026-06-28",
+   "counts": {
+    "legislators": 174,
+    "bills": 4006,
+    "rollCalls": 1725
+   },
+   "schemaVersion": 2
+  },
+  {
+   "code": "MO",
+   "name": "Missouri",
+   "session": {
+    "id": 2239,
+    "name": "2026 Regular Session",
+    "yearStart": 2026,
+    "yearEnd": 2026
+   },
+   "datasetHash": "1ba5bf09a1c8f0bcf6762af179acc365",
+   "datasetDate": "2026-08-30",
+   "counts": {
+    "legislators": 193,
+    "bills": 3146,
+    "rollCalls": 604
+   },
+   "schemaVersion": 2
+  },
+  {
+   "code": "MT",
+   "name": "Montana",
+   "session": {
+    "id": 2159,
+    "name": "2025 Regular Session",
+    "yearStart": 2025,
+    "yearEnd": 2025
+   },
+   "datasetHash": "a29791d2ff1a47ddd2f4c907dea35155",
+   "datasetDate": "2025-12-07",
+   "counts": {
+    "legislators": 151,
+    "bills": 1761,
+    "rollCalls": 9209
+   },
+   "schemaVersion": 2
+  },
+  {
+   "code": "NE",
+   "name": "Nebraska",
+   "session": {
+    "id": 2185,
+    "name": "109th Legislature",
+    "yearStart": 2025,
+    "yearEnd": 2026
+   },
+   "datasetHash": "0deae4fd8cb0a40e36bc796941b20b71",
+   "datasetDate": "2026-07-12",
+   "counts": {
+    "legislators": 50,
+    "bills": 1847,
+    "rollCalls": 1774
+   },
+   "schemaVersion": 2
+  },
+  {
+   "code": "NV",
+   "name": "Nevada",
+   "session": {
+    "id": 2144,
+    "name": "83rd Legislature (2025)",
+    "yearStart": 2025,
+    "yearEnd": 2025
+   },
+   "datasetHash": "eacfdd7636859032904d485f5c7d069a",
+   "datasetDate": "2025-12-07",
+   "counts": {
+    "legislators": 75,
+    "bills": 1210,
+    "rollCalls": 1333
+   },
+   "schemaVersion": 2
+  },
+  {
+   "code": "NH",
+   "name": "New Hampshire",
+   "session": {
+    "id": 2236,
+    "name": "2026 Regular Session",
+    "yearStart": 2026,
+    "yearEnd": 2026
+   },
+   "datasetHash": "dc8e1f3773ddefa70758705676423484",
+   "datasetDate": "2026-08-30",
+   "counts": {
+    "legislators": 426,
+    "bills": 1394,
+    "rollCalls": 403
+   },
+   "schemaVersion": 2
+  },
+  {
+   "code": "NJ",
+   "name": "New Jersey",
+   "session": {
+    "id": 2250,
+    "name": "2026-2027 Regular Session",
+    "yearStart": 2026,
+    "yearEnd": 2027
+   },
+   "datasetHash": "1e020929436faf559c5b4f73a4fb4391",
+   "datasetDate": "2026-08-30",
+   "counts": {
+    "legislators": 120,
+    "bills": 10707,
+    "rollCalls": 1539
+   },
+   "schemaVersion": 2
+  },
+  {
+   "code": "NM",
+   "name": "New Mexico",
+   "session": {
+    "id": 2251,
+    "name": "2026 Regular Session",
+    "yearStart": 2026,
+    "yearEnd": 2026
+   },
+   "datasetHash": "ad8fea60e49eb7365e768705cc041b9d",
+   "datasetDate": "2026-06-28",
+   "counts": {
+    "legislators": 112,
+    "bills": 812,
+    "rollCalls": 256
+   },
+   "schemaVersion": 2
+  },
+  {
    "code": "NY",
    "name": "New York",
    "session": {
@@ -56,6 +578,186 @@
    "schemaVersion": 2
   },
   {
+   "code": "NC",
+   "name": "North Carolina",
+   "session": {
+    "id": 2189,
+    "name": "2025-2026 Session",
+    "yearStart": 2025,
+    "yearEnd": 2026
+   },
+   "datasetHash": "57d859c5f128483eee1de521b16b26f0",
+   "datasetDate": "2026-08-30",
+   "counts": {
+    "legislators": 178,
+    "bills": 2338,
+    "rollCalls": 1493
+   },
+   "schemaVersion": 2
+  },
+  {
+   "code": "ND",
+   "name": "North Dakota",
+   "session": {
+    "id": 2140,
+    "name": "69th Legislative Assembly",
+    "yearStart": 2025,
+    "yearEnd": 2026
+   },
+   "datasetHash": "8daa1c5d131d83406e19bd849342e944",
+   "datasetDate": "2026-08-30",
+   "counts": {
+    "legislators": 142,
+    "bills": 1089,
+    "rollCalls": 2184
+   },
+   "schemaVersion": 2
+  },
+  {
+   "code": "OH",
+   "name": "Ohio",
+   "session": {
+    "id": 2190,
+    "name": "136th General Assembly",
+    "yearStart": 2025,
+    "yearEnd": 2026
+   },
+   "datasetHash": "aa042f29dd96bee6d85685aaf2af3a75",
+   "datasetDate": "2026-08-30",
+   "counts": {
+    "legislators": 134,
+    "bills": 2504,
+    "rollCalls": 1083
+   },
+   "schemaVersion": 2
+  },
+  {
+   "code": "OK",
+   "name": "Oklahoma",
+   "session": {
+    "id": 2219,
+    "name": "2026 Regular Session",
+    "yearStart": 2026,
+    "yearEnd": 2026
+   },
+   "datasetHash": "db88059ef132c22a545def5d4bea62ab",
+   "datasetDate": "2026-06-28",
+   "counts": {
+    "legislators": 153,
+    "bills": 6008,
+    "rollCalls": 8604
+   },
+   "schemaVersion": 2
+  },
+  {
+   "code": "OR",
+   "name": "Oregon",
+   "session": {
+    "id": 2252,
+    "name": "2026 Legislative Measures",
+    "yearStart": 2026,
+    "yearEnd": 2026
+   },
+   "datasetHash": "6f8a4bb495681282ad830474dd16e520",
+   "datasetDate": "2026-06-28",
+   "counts": {
+    "legislators": 90,
+    "bills": 304,
+    "rollCalls": 724
+   },
+   "schemaVersion": 2
+  },
+  {
+   "code": "PA",
+   "name": "Pennsylvania",
+   "session": {
+    "id": 2192,
+    "name": "2025-2026 Regular Session",
+    "yearStart": 2025,
+    "yearEnd": 2026
+   },
+   "datasetHash": "cd32ae927ce81c07aca8417e21110d16",
+   "datasetDate": "2026-08-30",
+   "counts": {
+    "legislators": 260,
+    "bills": 4954,
+    "rollCalls": 5038
+   },
+   "schemaVersion": 2
+  },
+  {
+   "code": "RI",
+   "name": "Rhode Island",
+   "session": {
+    "id": 2253,
+    "name": "2026 Regular Session",
+    "yearStart": 2026,
+    "yearEnd": 2026
+   },
+   "datasetHash": "7bfebb8d11e74184adc7ed66b6d84bce",
+   "datasetDate": "2026-08-30",
+   "counts": {
+    "legislators": 113,
+    "bills": 3013,
+    "rollCalls": 3085
+   },
+   "schemaVersion": 2
+  },
+  {
+   "code": "SC",
+   "name": "South Carolina",
+   "session": {
+    "id": 2194,
+    "name": "126th General Assembly",
+    "yearStart": 2025,
+    "yearEnd": 2026
+   },
+   "datasetHash": "c8a6a9b4d7e6a9166ed906df5747fea7",
+   "datasetDate": "2026-08-30",
+   "counts": {
+    "legislators": 175,
+    "bills": 4032,
+    "rollCalls": 2054
+   },
+   "schemaVersion": 2
+  },
+  {
+   "code": "SD",
+   "name": "South Dakota",
+   "session": {
+    "id": 2231,
+    "name": "2026 Regular Session",
+    "yearStart": 2026,
+    "yearEnd": 2026
+   },
+   "datasetHash": "dedf0fd6acecfbfe2a7e38ec633efdfa",
+   "datasetDate": "2026-06-28",
+   "counts": {
+    "legislators": 106,
+    "bills": 666,
+    "rollCalls": 1652
+   },
+   "schemaVersion": 2
+  },
+  {
+   "code": "TN",
+   "name": "Tennessee",
+   "session": {
+    "id": 2161,
+    "name": "114th General Assembly",
+    "yearStart": 2025,
+    "yearEnd": 2026
+   },
+   "datasetHash": "19b5943b15045c84220e5ef21f1cc8eb",
+   "datasetDate": "2026-08-02",
+   "counts": {
+    "legislators": 136,
+    "bills": 9159,
+    "rollCalls": 15468
+   },
+   "schemaVersion": 2
+  },
+  {
    "code": "TX",
    "name": "Texas",
    "session": {
@@ -70,6 +772,132 @@
     "legislators": 181,
     "bills": 11503,
     "rollCalls": 9726
+   },
+   "schemaVersion": 2
+  },
+  {
+   "code": "UT",
+   "name": "Utah",
+   "session": {
+    "id": 2214,
+    "name": "2026 General Session",
+    "yearStart": 2026,
+    "yearEnd": 2026
+   },
+   "datasetHash": "b13a2763f5dc16c169bb6fa852a2a51b",
+   "datasetDate": "2026-06-28",
+   "counts": {
+    "legislators": 104,
+    "bills": 1016,
+    "rollCalls": 4049
+   },
+   "schemaVersion": 2
+  },
+  {
+   "code": "VT",
+   "name": "Vermont",
+   "session": {
+    "id": 2195,
+    "name": "2025-2026 Session",
+    "yearStart": 2025,
+    "yearEnd": 2026
+   },
+   "datasetHash": "93a1e5c6d634d5d178cc2e7e9f8a5539",
+   "datasetDate": "2026-08-30",
+   "counts": {
+    "legislators": 189,
+    "bills": 1717,
+    "rollCalls": 148
+   },
+   "schemaVersion": 2
+  },
+  {
+   "code": "VA",
+   "name": "Virginia",
+   "session": {
+    "id": 2237,
+    "name": "2026 Regular Regular Session",
+    "yearStart": 2026,
+    "yearEnd": 2026
+   },
+   "datasetHash": "df03341902d3dbf851eda79097e9d34f",
+   "datasetDate": "2026-06-28",
+   "counts": {
+    "legislators": 146,
+    "bills": 3637,
+    "rollCalls": 11437
+   },
+   "schemaVersion": 2
+  },
+  {
+   "code": "WA",
+   "name": "Washington",
+   "session": {
+    "id": 2166,
+    "name": "2025-2026 Regular Session",
+    "yearStart": 2025,
+    "yearEnd": 2026
+   },
+   "datasetHash": "abdf16b3217bbab20694ab26954b12a4",
+   "datasetDate": "2026-06-28",
+   "counts": {
+    "legislators": 151,
+    "bills": 3413,
+    "rollCalls": 5038
+   },
+   "schemaVersion": 2
+  },
+  {
+   "code": "WV",
+   "name": "West Virginia",
+   "session": {
+    "id": 2254,
+    "name": "2026 Regular Session",
+    "yearStart": 2026,
+    "yearEnd": 2026
+   },
+   "datasetHash": "7bd6d6df8890aa174f37ea5ed6a32cbc",
+   "datasetDate": "2026-07-19",
+   "counts": {
+    "legislators": 134,
+    "bills": 2975,
+    "rollCalls": 1432
+   },
+   "schemaVersion": 2
+  },
+  {
+   "code": "WI",
+   "name": "Wisconsin",
+   "session": {
+    "id": 2197,
+    "name": "2025-2026 Regular Session",
+    "yearStart": 2025,
+    "yearEnd": 2026
+   },
+   "datasetHash": "5edcb7acfb122db6acfb483715465206",
+   "datasetDate": "2026-06-28",
+   "counts": {
+    "legislators": 132,
+    "bills": 2749,
+    "rollCalls": 572
+   },
+   "schemaVersion": 2
+  },
+  {
+   "code": "WY",
+   "name": "Wyoming",
+   "session": {
+    "id": 2213,
+    "name": "2026 Budget Session",
+    "yearStart": 2026,
+    "yearEnd": 2026
+   },
+   "datasetHash": "f309021563d657f668d2755b859fbb11",
+   "datasetDate": "2026-06-28",
+   "counts": {
+    "legislators": 93,
+    "bills": 335,
+    "rollCalls": 1252
    },
    "schemaVersion": 2
   }
