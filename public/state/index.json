@@ -1,4 +1,73 @@
 {
- "lastUpdated": "2026-09-01T14:17:52.314087+00:00",
- "states": []
+ "lastUpdated": "2026-09-01T14:27:30.401226+00:00",
+ "states": [
+  {
+   "code": "CA",
+   "name": "California",
+   "session": {
+    "id": 2172,
+    "name": "2025-2026 Regular Session",
+    "yearStart": 2025,
+    "yearEnd": 2026
+   },
+   "datasetHash": "c150cc01b19828eb286c405147bad4df",
+   "datasetDate": "2026-08-30",
+   "counts": {
+    "legislators": 160,
+    "bills": 5060,
+    "rollCalls": 21158
+   }
+  },
+  {
+   "code": "FL",
+   "name": "Florida",
+   "session": {
+    "id": 2220,
+    "name": "2026 Regular Session",
+    "yearStart": 2026,
+    "yearEnd": 2026
+   },
+   "datasetHash": "e14d5403e979edd340bdb488acae738a",
+   "datasetDate": "2026-08-02",
+   "counts": {
+    "legislators": 216,
+    "bills": 1897,
+    "rollCalls": 2798
+   }
+  },
+  {
+   "code": "NY",
+   "name": "New York",
+   "session": {
+    "id": 2188,
+    "name": "2025-2026 General Assembly",
+    "yearStart": 2025,
+    "yearEnd": 2026
+   },
+   "datasetHash": "4cda5eadf7309bf25cd348fc01f24d55",
+   "datasetDate": "2026-08-30",
+   "counts": {
+    "legislators": 221,
+    "bills": 25313,
+    "rollCalls": 14737
+   }
+  },
+  {
+   "code": "TX",
+   "name": "Texas",
+   "session": {
+    "id": 2160,
+    "name": "89th Legislature Regular Session",
+    "yearStart": 2025,
+    "yearEnd": 2026
+   },
+   "datasetHash": "50fa5378d5ee1e608e3e438bddec47e7",
+   "datasetDate": "2026-08-30",
+   "counts": {
+    "legislators": 181,
+    "bills": 11503,
+    "rollCalls": 9726
+   }
+  }
+ ]
 }
