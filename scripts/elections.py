@@ -82,6 +82,14 @@ RACES: List[Dict[str, Any]] = [
                     "M.Ed., Harvard University."
                 ),
                 "backgroundSourceUrl": "https://ballotpedia.org/James_Talarico",
+                "facts": [
+                    {"label": "Born", "value": "Round Rock, Texas"},
+                    {"label": "High school", "value": "McNeil High School"},
+                    {"label": "Bachelor's", "value": "University of Texas at Austin"},
+                    {"label": "Graduate", "value": "Harvard University"},
+                    {"label": "Profession", "value": "Educator"},
+                    {"label": "Current office pay", "value": "$7,200/yr + $221/day per diem"},
+                ],
                 "campaignSiteUrl": "https://jamestalarico.com/issues/",
                 "incumbent": False,
             },
@@ -97,6 +105,13 @@ RACES: List[Dict[str, Any]] = [
                     "Texas House (2003-2013) and Texas Senate (2013-2015)."
                 ),
                 "backgroundSourceUrl": "https://ballotpedia.org/Ken_Paxton",
+                "facts": [
+                    {"label": "Born", "value": "Minot, North Dakota"},
+                    {"label": "Bachelor's", "value": "Baylor University"},
+                    {"label": "Graduate", "value": "M.B.A., Baylor; J.D., University of Virginia"},
+                    {"label": "Profession", "value": "Attorney"},
+                    {"label": "Current office pay", "value": "$153,750/yr"},
+                ],
                 "campaignSiteUrl": "https://www.kenpaxton.com/issues",
                 "incumbent": False,
             },
