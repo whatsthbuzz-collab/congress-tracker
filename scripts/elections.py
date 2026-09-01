@@ -69,6 +69,11 @@ RACES: List[Dict[str, Any]] = [
         "candidates": [
             {
                 "name": "James Talarico",
+                "photo": {
+                    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/James_Talarico_Press_Conference_3x4_(cropped).jpg?width=240",
+                    "credit": "Antonioaesparza, CC BY-SA 4.0, via Wikimedia Commons",
+                    "sourceUrl": "https://commons.wikimedia.org/wiki/File:James_Talarico_Press_Conference_3x4_(cropped).jpg",
+                },
                 "party": "Democratic",
                 "fecId": "S6TX00479",
                 "committees": ["C00919084"],
@@ -95,6 +100,11 @@ RACES: List[Dict[str, Any]] = [
             },
             {
                 "name": "Ken Paxton",
+                "photo": {
+                    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Ken_Paxton_2024_(3x4_cropped).jpg?width=240",
+                    "credit": "Gage Skidmore, CC BY-SA 2.0, via Wikimedia Commons",
+                    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ken_Paxton_2024_(3x4_cropped).jpg",
+                },
                 "party": "Republican",
                 "fecId": "S6TX00388",
                 "committees": ["C00901918", "C00930446"],
