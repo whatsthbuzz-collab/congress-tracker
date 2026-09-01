@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-01T01:51:56.506157+00:00",
+  "lastUpdated": "2026-09-01T02:22:21.949746+00:00",
   "totalMembers": 537,
   "billsIncluded": true,
   "financeIncluded": true,
@@ -30,6 +30,7 @@
       "termsServed": 6,
       "firstYearServed": "1993",
       "nextElection": "2030",
+      "birthday": "1958-10-13",
       "website": "https://www.cantwell.senate.gov",
       "phone": "202-224-3441",
       "bills": [
@@ -287,6 +288,7 @@
       "termsServed": 4,
       "firstYearServed": "2007",
       "nextElection": "2030",
+      "birthday": "1960-05-25",
       "website": "https://www.klobuchar.senate.gov",
       "phone": "202-224-3244",
       "bills": [
@@ -550,6 +552,7 @@
       "termsServed": 12,
       "firstYearServed": "1991",
       "nextElection": "2030",
+      "birthday": "1941-09-08",
       "website": "https://www.sanders.senate.gov",
       "phone": "202-224-5141",
       "bills": [
@@ -801,6 +804,7 @@
       "termsServed": 4,
       "firstYearServed": "2007",
       "nextElection": "2030",
+      "birthday": "1955-10-20",
       "website": "https://www.whitehouse.senate.gov",
       "phone": "202-224-2921",
       "bills": [
@@ -1063,6 +1067,7 @@
       "termsServed": 4,
       "firstYearServed": "2007",
       "nextElection": "2030",
+      "birthday": "1952-07-21",
       "website": "https://www.barrasso.senate.gov",
       "phone": "202-224-6441",
       "bills": [
@@ -1297,6 +1302,7 @@
       "termsServed": 11,
       "firstYearServed": "1995",
       "nextElection": "2030",
+      "birthday": "1951-07-05",
       "website": "https://www.wicker.senate.gov",
       "phone": "202-224-6253",
       "bills": [
@@ -1561,6 +1567,7 @@
       "termsServed": 5,
       "firstYearServed": "1997",
       "nextElection": "2026",
+      "birthday": "1952-12-07",
       "website": "https://www.collins.senate.gov",
       "phone": "202-224-2523",
       "bills": [
@@ -1797,6 +1804,7 @@
       "termsServed": 5,
       "firstYearServed": "2002",
       "nextElection": "2026",
+      "birthday": "1952-02-02",
       "website": "https://www.cornyn.senate.gov",
       "phone": "202-224-2934",
       "bills": [
@@ -2067,6 +2075,7 @@
       "termsServed": 12,
       "firstYearServed": "1983",
       "nextElection": "2026",
+      "birthday": "1944-11-21",
       "website": "https://www.durbin.senate.gov",
       "phone": "202-224-2152",
       "bills": [
@@ -2300,6 +2309,7 @@
       "termsServed": 7,
       "firstYearServed": "1985",
       "nextElection": "2026",
+      "birthday": "1942-02-20",
       "website": "https://www.mcconnell.senate.gov",
       "phone": "202-224-2541",
       "bills": [
@@ -2550,6 +2560,7 @@
       "termsServed": 3,
       "firstYearServed": "2009",
       "nextElection": "2026",
+      "birthday": "1956-10-24",
       "website": "https://www.merkley.senate.gov",
       "phone": "202-224-3753",
       "bills": [
@@ -2813,6 +2824,7 @@
       "termsServed": 8,
       "firstYearServed": "1991",
       "nextElection": "2026",
+      "birthday": "1949-11-12",
       "website": "https://www.reed.senate.gov",
       "phone": "202-224-4642",
       "bills": [
@@ -3062,6 +3074,7 @@
       "termsServed": 3,
       "firstYearServed": "2009",
       "nextElection": "2026",
+      "birthday": "1943-05-03",
       "website": "https://www.risch.senate.gov",
       "phone": "202-224-2752",
       "bills": [
@@ -3322,6 +3335,7 @@
       "termsServed": 3,
       "firstYearServed": "2009",
       "nextElection": "2026",
+      "birthday": "1947-01-28",
       "website": "https://www.shaheen.senate.gov",
       "phone": "202-224-2841",
       "bills": [
@@ -3589,6 +3603,7 @@
       "termsServed": 3,
       "firstYearServed": "2009",
       "nextElection": "2026",
+      "birthday": "1954-12-15",
       "website": "https://www.warner.senate.gov",
       "phone": "202-224-2023",
       "bills": [
@@ -3836,6 +3851,7 @@
       "termsServed": 6,
       "firstYearServed": "2007",
       "nextElection": "2030",
+      "birthday": "1966-12-09",
       "website": "https://www.gillibrand.senate.gov",
       "phone": "202-224-4451",
       "bills": [
@@ -4076,6 +4092,7 @@
       "termsServed": 3,
       "firstYearServed": "2010",
       "nextElection": "2026",
+      "birthday": "1963-09-09",
       "website": "https://www.coons.senate.gov",
       "phone": "202-224-5042",
       "bills": [
@@ -4332,6 +4349,7 @@
       "termsServed": 15,
       "firstYearServed": "1997",
       "nextElection": "2026",
+      "birthday": "1965-07-22",
       "website": "https://aderholt.house.gov",
       "phone": "202-225-4876",
       "bills": [
@@ -4644,6 +4662,7 @@
       "termsServed": 10,
       "firstYearServed": "1999",
       "nextElection": "2030",
+      "birthday": "1962-02-11",
       "website": "https://www.baldwin.senate.gov",
       "phone": "202-224-5653",
       "bills": [
@@ -4880,6 +4899,7 @@
       "termsServed": 4,
       "firstYearServed": "2009",
       "nextElection": "2028",
+      "birthday": "1964-11-28",
       "website": "https://www.bennet.senate.gov",
       "phone": "202-224-5852",
       "bills": [
@@ -5117,6 +5137,7 @@
       "termsServed": 10,
       "firstYearServed": "2007",
       "nextElection": "2026",
+      "birthday": "1963-02-08",
       "website": "https://bilirakis.house.gov",
       "phone": "202-225-5755",
       "bills": [
@@ -5438,6 +5459,7 @@
       "termsServed": 17,
       "firstYearServed": "1993",
       "nextElection": "2026",
+      "birthday": "1947-02-04",
       "website": "https://bishop.house.gov",
       "phone": "202-225-3631",
       "bills": [
@@ -5744,6 +5766,7 @@
       "termsServed": 10,
       "firstYearServed": "2003",
       "nextElection": "2030",
+      "birthday": "1952-06-06",
       "website": "https://www.blackburn.senate.gov",
       "phone": "202-224-3344",
       "bills": [
@@ -5996,6 +6019,7 @@
       "termsServed": 3,
       "firstYearServed": "2011",
       "nextElection": "2028",
+      "birthday": "1946-02-13",
       "website": "https://www.blumenthal.senate.gov",
       "phone": "202-224-2823",
       "bills": [
@@ -6247,6 +6271,7 @@
       "termsServed": 8,
       "firstYearServed": "2001",
       "nextElection": "2028",
+      "birthday": "1950-12-10",
       "website": "https://www.boozman.senate.gov/public",
       "phone": "202-224-4843",
       "bills": [
@@ -6512,6 +6537,7 @@
       "termsServed": 10,
       "firstYearServed": "2007",
       "nextElection": "2026",
+      "birthday": "1951-05-08",
       "website": "https://buchanan.house.gov",
       "phone": "202-225-5015",
       "bills": [
@@ -6826,6 +6852,7 @@
       "termsServed": 17,
       "firstYearServed": "1993",
       "nextElection": "2026",
+      "birthday": "1953-06-08",
       "website": "https://calvert.house.gov",
       "phone": "202-225-1986",
       "bills": [
@@ -7131,6 +7158,7 @@
       "termsServed": 9,
       "firstYearServed": "2001",
       "nextElection": "2026",
+      "birthday": "1953-11-26",
       "website": "https://www.capito.senate.gov",
       "phone": "202-224-6472",
       "bills": [
@@ -7378,6 +7406,7 @@
       "termsServed": 10,
       "firstYearServed": "2008",
       "nextElection": "2026",
+      "birthday": "1974-10-16",
       "website": "https://carson.house.gov",
       "phone": "202-225-4011",
       "bills": [
@@ -7701,6 +7730,7 @@
       "termsServed": 12,
       "firstYearServed": "2003",
       "nextElection": "2026",
+      "birthday": "1941-11-06",
       "website": "https://carter.house.gov",
       "phone": "202-225-3864",
       "bills": [
@@ -8007,6 +8037,7 @@
       "termsServed": 5,
       "firstYearServed": "2009",
       "nextElection": "2026",
+      "birthday": "1957-09-28",
       "website": "https://www.cassidy.senate.gov",
       "phone": "202-224-5824",
       "bills": [
@@ -8249,6 +8280,7 @@
       "termsServed": 10,
       "firstYearServed": "2007",
       "nextElection": "2026",
+      "birthday": "1966-08-20",
       "website": "https://castor.house.gov",
       "phone": "202-225-3376",
       "bills": [
@@ -8553,6 +8585,7 @@
       "termsServed": 9,
       "firstYearServed": "2009",
       "nextElection": "2026",
+      "birthday": "1953-07-07",
       "website": "https://chu.house.gov",
       "phone": "202-225-5464",
       "bills": [
@@ -8874,6 +8907,7 @@
       "termsServed": 10,
       "firstYearServed": "2007",
       "nextElection": "2026",
+      "birthday": "1964-11-21",
       "website": "https://clarke.house.gov",
       "phone": "202-225-6231",
       "bills": [
@@ -9180,6 +9214,7 @@
       "termsServed": 11,
       "firstYearServed": "2005",
       "nextElection": "2026",
+      "birthday": "1944-10-26",
       "website": "https://cleaver.house.gov",
       "phone": "202-225-4535",
       "bills": [
@@ -9485,6 +9520,7 @@
       "termsServed": 17,
       "firstYearServed": "1993",
       "nextElection": "2026",
+      "birthday": "1940-07-21",
       "website": "https://clyburn.house.gov",
       "phone": "202-225-3315",
       "bills": [
@@ -9791,6 +9827,7 @@
       "termsServed": 10,
       "firstYearServed": "2007",
       "nextElection": "2026",
+      "birthday": "1949-05-24",
       "website": "https://cohen.house.gov",
       "phone": "202-225-3265",
       "bills": [
@@ -10160,6 +10197,7 @@
       "termsServed": 12,
       "firstYearServed": "2003",
       "nextElection": "2026",
+      "birthday": "1949-04-28",
       "website": "https://cole.house.gov",
       "phone": "202-225-6165",
       "bills": [
@@ -10468,6 +10506,7 @@
       "termsServed": 11,
       "firstYearServed": "2005",
       "nextElection": "2026",
+      "birthday": "1952-04-13",
       "website": "https://costa.house.gov",
       "phone": "202-225-3341",
       "bills": [
@@ -10784,6 +10823,7 @@
       "termsServed": 10,
       "firstYearServed": "2007",
       "nextElection": "2026",
+      "birthday": "1953-04-06",
       "website": "https://courtney.house.gov",
       "phone": "202-225-2076",
       "bills": [
@@ -11101,6 +11141,7 @@
       "termsServed": 8,
       "firstYearServed": "1993",
       "nextElection": "2028",
+      "birthday": "1951-05-20",
       "website": "https://www.crapo.senate.gov",
       "phone": "202-224-6142",
       "bills": [
@@ -11342,6 +11383,7 @@
       "termsServed": 8,
       "firstYearServed": "2011",
       "nextElection": "2026",
+      "birthday": "1966-01-22",
       "website": "https://crawford.house.gov",
       "phone": "202-225-4076",
       "bills": [
@@ -11667,6 +11709,7 @@
       "termsServed": 11,
       "firstYearServed": "2005",
       "nextElection": "2026",
+      "birthday": "1955-09-19",
       "website": "https://cuellar.house.gov",
       "phone": "202-225-1640",
       "bills": [
@@ -11973,6 +12016,7 @@
       "termsServed": 15,
       "firstYearServed": "1997",
       "nextElection": "2026",
+      "birthday": "1941-09-06",
       "website": "https://davis.house.gov",
       "phone": "202-225-5006",
       "bills": [
@@ -12278,6 +12322,7 @@
       "termsServed": 15,
       "firstYearServed": "1997",
       "nextElection": "2026",
+      "birthday": "1957-07-29",
       "website": "https://degette.house.gov",
       "phone": "202-225-4431",
       "bills": [
@@ -12584,6 +12629,7 @@
       "termsServed": 18,
       "firstYearServed": "1991",
       "nextElection": "2026",
+      "birthday": "1943-03-02",
       "website": "https://delauro.house.gov",
       "phone": "202-225-3661",
       "bills": [
@@ -12888,6 +12934,7 @@
       "termsServed": 8,
       "firstYearServed": "2011",
       "nextElection": "2026",
+      "birthday": "1964-02-21",
       "website": "https://desjarlais.house.gov",
       "phone": "202-225-6831",
       "bills": [
@@ -13211,6 +13258,7 @@
       "termsServed": 12,
       "firstYearServed": "2003",
       "nextElection": "2026",
+      "birthday": "1961-09-25",
       "website": "https://mariodiazbalart.house.gov",
       "phone": "202-225-4211",
       "bills": [
@@ -13516,6 +13564,7 @@
       "termsServed": 16,
       "firstYearServed": "1995",
       "nextElection": "2026",
+      "birthday": "1946-10-06",
       "website": "https://doggett.house.gov",
       "phone": "202-225-4865",
       "bills": [
@@ -13891,6 +13940,7 @@
       "termsServed": 8,
       "firstYearServed": "2011",
       "nextElection": "2026",
+      "birthday": "1962-10-11",
       "website": "https://fleischmann.house.gov",
       "phone": "202-225-3271",
       "bills": [
@@ -14254,6 +14304,7 @@
       "termsServed": 11,
       "firstYearServed": "2005",
       "nextElection": "2026",
+      "birthday": "1943-06-29",
       "website": "https://foxx.house.gov",
       "phone": "202-225-2071",
       "bills": [
@@ -14629,6 +14680,7 @@
       "termsServed": 9,
       "firstYearServed": "2009",
       "nextElection": "2026",
+      "birthday": "1945-01-24",
       "website": "https://garamendi.house.gov",
       "phone": "202-225-1880",
       "bills": [
@@ -14948,6 +15000,7 @@
       "termsServed": 8,
       "firstYearServed": "2011",
       "nextElection": "2026",
+      "birthday": "1958-11-22",
       "website": "https://gosar.house.gov",
       "phone": "202-225-2315",
       "bills": [
@@ -15265,6 +15318,7 @@
       "termsServed": 11,
       "firstYearServed": "1975",
       "nextElection": "2028",
+      "birthday": "1933-09-17",
       "website": "https://www.grassley.senate.gov",
       "phone": "202-224-3744",
       "bills": [
@@ -15521,6 +15575,7 @@
       "termsServed": 13,
       "firstYearServed": "2001",
       "nextElection": "2026",
+      "birthday": "1963-11-07",
       "website": "https://graves.house.gov",
       "phone": "202-225-7041",
       "bills": [
@@ -15834,6 +15889,7 @@
       "termsServed": 11,
       "firstYearServed": "2005",
       "nextElection": "2026",
+      "birthday": "1947-09-01",
       "website": "https://algreen.house.gov",
       "phone": "202-225-7508",
       "bills": [
@@ -16151,6 +16207,7 @@
       "termsServed": 8,
       "firstYearServed": "2011",
       "nextElection": "2026",
+      "birthday": "1958-03-15",
       "website": "https://morgangriffith.house.gov",
       "phone": "202-225-3861",
       "bills": [
@@ -16486,6 +16543,7 @@
       "termsServed": 9,
       "firstYearServed": "2009",
       "nextElection": "2026",
+      "birthday": "1964-02-18",
       "website": "https://guthrie.house.gov",
       "phone": "202-225-3501",
       "bills": [
@@ -16788,6 +16846,7 @@
       "termsServed": 8,
       "firstYearServed": "2011",
       "nextElection": "2026",
+      "birthday": "1957-01-25",
       "website": "https://harris.house.gov",
       "phone": "202-225-5311",
       "bills": [
@@ -17093,6 +17152,7 @@
       "termsServed": 5,
       "firstYearServed": "2009",
       "nextElection": "2030",
+      "birthday": "1971-10-17",
       "website": "https://www.heinrich.senate.gov",
       "phone": "202-224-5521",
       "bills": [
@@ -17334,6 +17394,7 @@
       "termsServed": 9,
       "firstYearServed": "2009",
       "nextElection": "2026",
+      "birthday": "1966-07-05",
       "website": "https://himes.house.gov",
       "phone": "202-225-5541",
       "bills": [
@@ -17651,6 +17712,7 @@
       "termsServed": 6,
       "firstYearServed": "2007",
       "nextElection": "2030",
+      "birthday": "1947-11-03",
       "website": "https://www.hirono.senate.gov",
       "phone": "202-224-6361",
       "bills": [
@@ -17903,6 +17965,7 @@
       "termsServed": 3,
       "firstYearServed": "2011",
       "nextElection": "2028",
+      "birthday": "1957-03-13",
       "website": "https://www.hoeven.senate.gov",
       "phone": "202-224-2551",
       "bills": [
@@ -18147,6 +18210,7 @@
       "termsServed": 23,
       "firstYearServed": "1981",
       "nextElection": "2026",
+      "birthday": "1939-06-14",
       "website": "https://hoyer.house.gov",
       "phone": "202-225-4131",
       "bills": [
@@ -18453,6 +18517,7 @@
       "termsServed": 8,
       "firstYearServed": "2011",
       "nextElection": "2026",
+      "birthday": "1969-01-31",
       "website": "https://huizenga.house.gov",
       "phone": "202-225-4401",
       "bills": [
@@ -18770,6 +18835,7 @@
       "termsServed": 10,
       "firstYearServed": "2007",
       "nextElection": "2026",
+      "birthday": "1954-10-02",
       "website": "https://hankjohnson.house.gov",
       "phone": "202-225-1605",
       "bills": [
@@ -19089,6 +19155,7 @@
       "termsServed": 3,
       "firstYearServed": "2011",
       "nextElection": "2028",
+      "birthday": "1955-04-08",
       "website": "https://www.ronjohnson.senate.gov",
       "phone": "202-224-5323",
       "bills": [
@@ -19326,6 +19393,7 @@
       "termsServed": 10,
       "firstYearServed": "2007",
       "nextElection": "2026",
+      "birthday": "1964-02-17",
       "website": "https://jordan.house.gov",
       "phone": "202-225-2676",
       "bills": [
@@ -19643,6 +19711,7 @@
       "termsServed": 22,
       "firstYearServed": "1983",
       "nextElection": "2026",
+      "birthday": "1946-06-17",
       "website": "https://kaptur.house.gov",
       "phone": "202-225-4146",
       "bills": [
@@ -19958,6 +20027,7 @@
       "termsServed": 8,
       "firstYearServed": "2011",
       "nextElection": "2026",
+      "birthday": "1952-09-06",
       "website": "https://keating.house.gov",
       "phone": "202-225-3111",
       "bills": [
@@ -20326,6 +20396,7 @@
       "termsServed": 8,
       "firstYearServed": "2011",
       "nextElection": "2026",
+      "birthday": "1948-05-10",
       "website": "https://kelly.house.gov",
       "phone": "202-225-5406",
       "bills": [
@@ -20682,6 +20753,7 @@
       "termsServed": 5,
       "firstYearServed": "2011",
       "nextElection": "2028",
+      "birthday": "1968-03-04",
       "website": "https://www.lankford.senate.gov",
       "phone": "202-224-5754",
       "bills": [
@@ -20919,6 +20991,7 @@
       "termsServed": 13,
       "firstYearServed": "2001",
       "nextElection": "2026",
+      "birthday": "1965-06-15",
       "website": "https://larsen.house.gov",
       "phone": "202-225-2605",
       "bills": [
@@ -21252,6 +21325,7 @@
       "termsServed": 14,
       "firstYearServed": "1999",
       "nextElection": "2026",
+      "birthday": "1948-07-22",
       "website": "https://larson.house.gov",
       "phone": "202-225-2265",
       "bills": [
@@ -21557,6 +21631,7 @@
       "termsServed": 10,
       "firstYearServed": "2007",
       "nextElection": "2026",
+      "birthday": "1956-04-18",
       "website": "https://latta.house.gov",
       "phone": "202-225-6405",
       "bills": [
@@ -21909,6 +21984,7 @@
       "termsServed": 3,
       "firstYearServed": "2011",
       "nextElection": "2028",
+      "birthday": "1971-06-04",
       "website": "https://www.lee.senate.gov",
       "phone": "202-224-5444",
       "bills": [
@@ -22153,6 +22229,7 @@
       "termsServed": 16,
       "firstYearServed": "1995",
       "nextElection": "2026",
+      "birthday": "1947-12-21",
       "website": "https://lofgren.house.gov",
       "phone": "202-225-3072",
       "bills": [
@@ -22474,6 +22551,7 @@
       "termsServed": 17,
       "firstYearServed": "1993",
       "nextElection": "2026",
+      "birthday": "1960-01-06",
       "website": "https://lucas.house.gov",
       "phone": "202-225-5565",
       "bills": [
@@ -22792,6 +22870,7 @@
       "termsServed": 7,
       "firstYearServed": "2009",
       "nextElection": "2026",
+      "birthday": "1972-06-07",
       "website": "https://www.lujan.senate.gov",
       "phone": "202-224-6621",
       "bills": [
@@ -23052,6 +23131,7 @@
       "termsServed": 13,
       "firstYearServed": "2001",
       "nextElection": "2026",
+      "birthday": "1955-03-31",
       "website": "https://lynch.house.gov",
       "phone": "202-225-8273",
       "bills": [
@@ -23370,6 +23450,7 @@
       "termsServed": 23,
       "firstYearServed": "1975",
       "nextElection": "2026",
+      "birthday": "1946-07-11",
       "website": "https://www.markey.senate.gov",
       "phone": "202-224-2742",
       "bills": [
@@ -23611,6 +23692,7 @@
       "termsServed": 11,
       "firstYearServed": "2005",
       "nextElection": "2026",
+      "birthday": "1944-09-25",
       "website": "https://matsui.house.gov",
       "phone": "202-225-7163",
       "bills": [
@@ -23922,6 +24004,7 @@
       "termsServed": 11,
       "firstYearServed": "2005",
       "nextElection": "2026",
+      "birthday": "1962-01-14",
       "website": "https://mccaul.house.gov",
       "phone": "202-225-2401",
       "bills": [
@@ -24287,6 +24370,7 @@
       "termsServed": 9,
       "firstYearServed": "2009",
       "nextElection": "2026",
+      "birthday": "1956-07-10",
       "website": "https://mcclintock.house.gov",
       "phone": "202-225-2511",
       "bills": [
@@ -24613,6 +24697,7 @@
       "termsServed": 13,
       "firstYearServed": "2001",
       "nextElection": "2026",
+      "birthday": "1954-07-12",
       "website": "https://mccollum.house.gov",
       "phone": "202-225-6631",
       "bills": [
@@ -24918,6 +25003,7 @@
       "termsServed": 15,
       "firstYearServed": "1997",
       "nextElection": "2026",
+      "birthday": "1959-11-20",
       "website": "https://mcgovern.house.gov",
       "phone": "202-225-6101",
       "bills": [
@@ -25233,6 +25319,7 @@
       "termsServed": 15,
       "firstYearServed": "1997",
       "nextElection": "2026",
+      "birthday": "1953-09-25",
       "website": "https://meeks.house.gov",
       "phone": "202-225-3461",
       "bills": [
@@ -25547,6 +25634,7 @@
       "termsServed": 11,
       "firstYearServed": "2005",
       "nextElection": "2026",
+      "birthday": "1951-04-18",
       "website": "https://gwenmoore.house.gov",
       "phone": "202-225-4572",
       "bills": [
@@ -25862,6 +25950,7 @@
       "termsServed": 10,
       "firstYearServed": "1997",
       "nextElection": "2028",
+      "birthday": "1954-05-29",
       "website": "https://www.moran.senate.gov",
       "phone": "202-224-6521",
       "bills": [
@@ -26124,6 +26213,7 @@
       "termsServed": 5,
       "firstYearServed": "2003",
       "nextElection": "2028",
+      "birthday": "1957-05-22",
       "website": "https://www.murkowski.senate.gov",
       "phone": "202-224-6665",
       "bills": [
@@ -26367,6 +26457,7 @@
       "termsServed": 6,
       "firstYearServed": "2007",
       "nextElection": "2030",
+      "birthday": "1973-08-03",
       "website": "https://www.murphy.senate.gov",
       "phone": "202-224-4041",
       "bills": [
@@ -26601,6 +26692,7 @@
       "termsServed": 6,
       "firstYearServed": "1993",
       "nextElection": "2028",
+      "birthday": "1950-10-11",
       "website": "https://www.murray.senate.gov",
       "phone": "202-224-2621",
       "bills": [
@@ -26847,6 +26939,7 @@
       "termsServed": 18,
       "firstYearServed": "1992",
       "nextElection": "2026",
+      "birthday": "1947-06-13",
       "website": "https://nadler.house.gov",
       "phone": "202-225-5635",
       "bills": [
@@ -27164,6 +27257,7 @@
       "termsServed": 19,
       "firstYearServed": "1989",
       "nextElection": "2026",
+      "birthday": "1949-02-14",
       "website": "https://neal.house.gov",
       "phone": "202-225-5601",
       "bills": [
@@ -27475,6 +27569,7 @@
       "termsServed": 18,
       "firstYearServed": "1991",
       "nextElection": "2026",
+      "birthday": "1937-06-13",
       "website": "https://norton.house.gov",
       "phone": "202-225-8050",
       "bills": [
@@ -27789,6 +27884,7 @@
       "termsServed": 20,
       "firstYearServed": "1987",
       "nextElection": "2026",
+      "birthday": "1951-10-30",
       "website": "https://pallone.house.gov",
       "phone": "202-225-4671",
       "bills": [
@@ -28091,6 +28187,7 @@
       "termsServed": 3,
       "firstYearServed": "2011",
       "nextElection": "2028",
+      "birthday": "1963-01-07",
       "website": "https://www.paul.senate.gov",
       "phone": "202-224-4343",
       "bills": [
@@ -28333,6 +28430,7 @@
       "termsServed": 20,
       "firstYearServed": "1987",
       "nextElection": "2026",
+      "birthday": "1940-03-26",
       "website": "https://pelosi.house.gov",
       "phone": "202-225-4965",
       "bills": [
@@ -28656,6 +28754,7 @@
       "termsServed": 5,
       "firstYearServed": "2009",
       "nextElection": "2026",
+      "birthday": "1958-12-01",
       "website": "https://www.peters.senate.gov",
       "phone": "202-224-6221",
       "bills": [
@@ -28905,6 +29004,7 @@
       "termsServed": 9,
       "firstYearServed": "2009",
       "nextElection": "2026",
+      "birthday": "1955-04-02",
       "website": "https://pingree.house.gov",
       "phone": "202-225-6116",
       "bills": [
@@ -29232,6 +29332,7 @@
       "termsServed": 9,
       "firstYearServed": "2009",
       "nextElection": "2026",
+      "birthday": "1958-10-17",
       "website": "https://quigley.house.gov",
       "phone": "202-225-4061",
       "bills": [
@@ -29550,6 +29651,7 @@
       "termsServed": 23,
       "firstYearServed": "1981",
       "nextElection": "2026",
+      "birthday": "1937-12-31",
       "website": "https://halrogers.house.gov",
       "phone": "202-225-4601",
       "bills": [
@@ -29907,6 +30009,7 @@
       "termsServed": 12,
       "firstYearServed": "2003",
       "nextElection": "2026",
+      "birthday": "1958-07-16",
       "website": "https://mikerogers.house.gov",
       "phone": "202-225-3261",
       "bills": [
@@ -30209,6 +30312,7 @@
       "termsServed": 10,
       "firstYearServed": "2008",
       "nextElection": "2026",
+      "birthday": "1965-10-06",
       "website": "https://scalise.house.gov",
       "phone": "202-225-3015",
       "bills": [
@@ -30501,6 +30605,7 @@
       "termsServed": 14,
       "firstYearServed": "1999",
       "nextElection": "2026",
+      "birthday": "1944-05-26",
       "website": "https://schakowsky.house.gov",
       "phone": "202-225-2111",
       "bills": [
@@ -30806,6 +30911,7 @@
       "termsServed": 14,
       "firstYearServed": "2001",
       "nextElection": "2030",
+      "birthday": "1960-06-22",
       "website": "https://www.schiff.senate.gov",
       "phone": "202-224-3841",
       "bills": [
@@ -31048,6 +31154,7 @@
       "termsServed": 14,
       "firstYearServed": "1981",
       "nextElection": "2028",
+      "birthday": "1950-11-23",
       "website": "https://www.schumer.senate.gov",
       "phone": "202-224-6542",
       "bills": [
@@ -31260,6 +31367,7 @@
       "termsServed": 8,
       "firstYearServed": "2011",
       "nextElection": "2026",
+      "birthday": "1962-03-03",
       "website": "https://schweikert.house.gov",
       "phone": "202-225-2190",
       "bills": [
@@ -31563,6 +31671,7 @@
       "termsServed": 8,
       "firstYearServed": "2011",
       "nextElection": "2026",
+      "birthday": "1969-12-10",
       "website": "https://austinscott.house.gov",
       "phone": "202-225-6531",
       "bills": [
@@ -31916,6 +32025,7 @@
       "termsServed": 17,
       "firstYearServed": "1993",
       "nextElection": "2026",
+      "birthday": "1947-04-30",
       "website": "https://bobbyscott.house.gov",
       "phone": "202-225-8351",
       "bills": [
@@ -32227,6 +32337,7 @@
       "termsServed": 5,
       "firstYearServed": "2011",
       "nextElection": "2028",
+      "birthday": "1965-09-19",
       "website": "https://www.scott.senate.gov",
       "phone": "202-224-6121",
       "bills": [
@@ -32471,6 +32582,7 @@
       "termsServed": 8,
       "firstYearServed": "2011",
       "nextElection": "2026",
+      "birthday": "1965-01-01",
       "website": "https://sewell.house.gov",
       "phone": "202-225-2665",
       "bills": [
@@ -32808,6 +32920,7 @@
       "termsServed": 15,
       "firstYearServed": "1997",
       "nextElection": "2026",
+      "birthday": "1954-10-24",
       "website": "https://sherman.house.gov",
       "phone": "202-225-5911",
       "bills": [
@@ -33142,6 +33255,7 @@
       "termsServed": 14,
       "firstYearServed": "1999",
       "nextElection": "2026",
+      "birthday": "1950-09-08",
       "website": "https://simpson.house.gov",
       "phone": "202-225-5531",
       "bills": [
@@ -33448,6 +33562,7 @@
       "termsServed": 15,
       "firstYearServed": "1997",
       "nextElection": "2026",
+      "birthday": "1965-06-15",
       "website": "https://adamsmith.house.gov",
       "phone": "202-225-8901",
       "bills": [
@@ -33756,6 +33871,7 @@
       "termsServed": 10,
       "firstYearServed": "2007",
       "nextElection": "2026",
+      "birthday": "1970-12-19",
       "website": "https://adriansmith.house.gov",
       "phone": "202-225-6435",
       "bills": [
@@ -34091,6 +34207,7 @@
       "termsServed": 23,
       "firstYearServed": "1981",
       "nextElection": "2026",
+      "birthday": "1953-03-04",
       "website": "https://chrissmith.house.gov",
       "phone": "202-225-3765",
       "bills": [
@@ -34396,6 +34513,7 @@
       "termsServed": 12,
       "firstYearServed": "2003",
       "nextElection": "2026",
+      "birthday": "1969-01-28",
       "website": "https://lindasanchez.house.gov",
       "phone": "202-225-6676",
       "bills": [
@@ -34707,6 +34825,7 @@
       "termsServed": 17,
       "firstYearServed": "1993",
       "nextElection": "2026",
+      "birthday": "1948-01-28",
       "website": "https://benniethompson.house.gov",
       "phone": "202-225-5876",
       "bills": [
@@ -35009,6 +35128,7 @@
       "termsServed": 14,
       "firstYearServed": "1999",
       "nextElection": "2026",
+      "birthday": "1951-01-24",
       "website": "https://mikethompson.house.gov",
       "phone": "202-225-3311",
       "bills": [
@@ -35314,6 +35434,7 @@
       "termsServed": 9,
       "firstYearServed": "2009",
       "nextElection": "2026",
+      "birthday": "1959-07-27",
       "website": "https://thompson.house.gov",
       "phone": "202-225-5121",
       "bills": [
@@ -35628,6 +35749,7 @@
       "termsServed": 7,
       "firstYearServed": "1997",
       "nextElection": "2028",
+      "birthday": "1961-01-07",
       "website": "https://www.thune.senate.gov",
       "phone": "202-224-2321",
       "bills": [
@@ -35871,6 +35993,7 @@
       "termsServed": 9,
       "firstYearServed": "2009",
       "nextElection": "2026",
+      "birthday": "1949-06-18",
       "website": "https://tonko.house.gov",
       "phone": "202-225-5076",
       "bills": [
@@ -36186,6 +36309,7 @@
       "termsServed": 12,
       "firstYearServed": "2003",
       "nextElection": "2026",
+      "birthday": "1960-01-11",
       "website": "https://turner.house.gov",
       "phone": "202-225-6465",
       "bills": [
@@ -36491,6 +36615,7 @@
       "termsServed": 9,
       "firstYearServed": "2003",
       "nextElection": "2028",
+      "birthday": "1959-01-10",
       "website": "https://www.vanhollen.senate.gov",
       "phone": "202-224-4654",
       "bills": [
@@ -36735,6 +36860,7 @@
       "termsServed": 17,
       "firstYearServed": "1993",
       "nextElection": "2026",
+      "birthday": "1953-03-28",
       "website": "https://velazquez.house.gov",
       "phone": "202-225-2361",
       "bills": [
@@ -37049,6 +37175,7 @@
       "termsServed": 9,
       "firstYearServed": "2007",
       "nextElection": "2026",
+      "birthday": "1951-04-12",
       "website": "https://walberg.house.gov",
       "phone": "202-225-6276",
       "bills": [
@@ -37369,6 +37496,7 @@
       "termsServed": 11,
       "firstYearServed": "2005",
       "nextElection": "2026",
+      "birthday": "1966-09-27",
       "website": "https://wassermanschultz.house.gov",
       "phone": "202-225-7931",
       "bills": [
@@ -37735,6 +37863,7 @@
       "termsServed": 18,
       "firstYearServed": "1991",
       "nextElection": "2026",
+      "birthday": "1938-08-15",
       "website": "https://waters.house.gov",
       "phone": "202-225-2201",
       "bills": [
@@ -38037,6 +38166,7 @@
       "termsServed": 8,
       "firstYearServed": "2011",
       "nextElection": "2026",
+      "birthday": "1949-04-27",
       "website": "https://webster.house.gov",
       "phone": "202-225-1002",
       "bills": [
@@ -38373,6 +38503,7 @@
       "termsServed": 9,
       "firstYearServed": "2007",
       "nextElection": "2028",
+      "birthday": "1947-05-02",
       "website": "https://www.welch.senate.gov",
       "phone": "202-224-4242",
       "bills": [
@@ -38615,6 +38746,7 @@
       "termsServed": 13,
       "firstYearServed": "2001",
       "nextElection": "2026",
+      "birthday": "1947-07-31",
       "website": "https://joewilson.house.gov",
       "phone": "202-225-2452",
       "bills": [
@@ -38944,6 +39076,7 @@
       "termsServed": 8,
       "firstYearServed": "2011",
       "nextElection": "2026",
+      "birthday": "1942-11-05",
       "website": "https://wilson.house.gov",
       "phone": "202-225-4506",
       "bills": [
@@ -39262,6 +39395,7 @@
       "termsServed": 10,
       "firstYearServed": "2007",
       "nextElection": "2026",
+      "birthday": "1959-02-03",
       "website": "https://wittman.house.gov",
       "phone": "202-225-4261",
       "bills": [
@@ -39594,6 +39728,7 @@
       "termsServed": 8,
       "firstYearServed": "2011",
       "nextElection": "2026",
+      "birthday": "1957-02-18",
       "website": "https://womack.house.gov",
       "phone": "202-225-4301",
       "bills": [
@@ -39900,6 +40035,7 @@
       "termsServed": 14,
       "firstYearServed": "1981",
       "nextElection": "2028",
+      "birthday": "1949-05-03",
       "website": "https://www.wyden.senate.gov",
       "phone": "202-224-5244",
       "bills": [
@@ -40150,6 +40286,7 @@
       "termsServed": 5,
       "firstYearServed": "2011",
       "nextElection": "2028",
+      "birthday": "1972-08-24",
       "website": "https://www.young.senate.gov",
       "phone": "202-224-5623",
       "bills": [
@@ -40389,6 +40526,7 @@
       "termsServed": 8,
       "firstYearServed": "2011",
       "nextElection": "2026",
+      "birthday": "1958-06-12",
       "website": "https://amodei.house.gov",
       "phone": "202-225-6155",
       "bills": [
@@ -40707,6 +40845,7 @@
       "termsServed": 8,
       "firstYearServed": "2012",
       "nextElection": "2026",
+      "birthday": "1954-10-14",
       "website": "https://bonamici.house.gov",
       "phone": "202-225-0855",
       "bills": [
@@ -41024,6 +41163,7 @@
       "termsServed": 8,
       "firstYearServed": "2012",
       "nextElection": "2026",
+      "birthday": "1962-02-17",
       "website": "https://delbene.house.gov",
       "phone": "202-225-6311",
       "bills": [
@@ -41381,6 +41521,7 @@
       "termsServed": 8,
       "firstYearServed": "2012",
       "nextElection": "2026",
+      "birthday": "1971-01-13",
       "website": "https://massie.house.gov",
       "phone": "202-225-3465",
       "bills": [
@@ -41699,6 +41840,7 @@
       "termsServed": 4,
       "firstYearServed": "2012",
       "nextElection": "2028",
+      "birthday": "1972-10-20",
       "website": "https://www.schatz.senate.gov",
       "phone": "202-224-3934",
       "bills": [
@@ -41954,6 +42096,7 @@
       "termsServed": 9,
       "firstYearServed": "2008",
       "nextElection": "2026",
+      "birthday": "1955-10-07",
       "website": "https://foster.house.gov",
       "phone": "202-225-3515",
       "bills": [
@@ -42269,6 +42412,7 @@
       "termsServed": 8,
       "firstYearServed": "2009",
       "nextElection": "2026",
+      "birthday": "1950-05-23",
       "website": "https://titus.house.gov",
       "phone": "202-225-5965",
       "bills": [
@@ -42588,6 +42732,7 @@
       "termsServed": 3,
       "firstYearServed": "2013",
       "nextElection": "2026",
+      "birthday": "1977-05-13",
       "website": "https://www.cotton.senate.gov",
       "phone": "202-224-2353",
       "bills": [
@@ -42826,6 +42971,7 @@
       "termsServed": 7,
       "firstYearServed": "2013",
       "nextElection": "2026",
+      "birthday": "1964-02-18",
       "website": "https://huffman.house.gov",
       "phone": "202-225-5161",
       "bills": [
@@ -43142,6 +43288,7 @@
       "termsServed": 7,
       "firstYearServed": "2013",
       "nextElection": "2026",
+      "birthday": "1965-03-02",
       "website": "https://bera.house.gov",
       "phone": "202-225-5716",
       "bills": [
@@ -43459,6 +43606,7 @@
       "termsServed": 7,
       "firstYearServed": "2013",
       "nextElection": "2026",
+      "birthday": "1952-08-28",
       "website": "https://juliabrownley.house.gov",
       "phone": "202-225-5811",
       "bills": [
@@ -43787,6 +43935,7 @@
       "termsServed": 7,
       "firstYearServed": "2013",
       "nextElection": "2026",
+      "birthday": "1972-08-25",
       "website": "https://ruiz.house.gov",
       "phone": "202-225-5330",
       "bills": [
@@ -44093,6 +44242,7 @@
       "termsServed": 7,
       "firstYearServed": "2013",
       "nextElection": "2026",
+      "birthday": "1960-12-10",
       "website": "https://takano.house.gov",
       "phone": "202-225-2305",
       "bills": [
@@ -44408,6 +44558,7 @@
       "termsServed": 7,
       "firstYearServed": "2013",
       "nextElection": "2026",
+      "birthday": "1961-03-07",
       "website": "https://vargas.house.gov",
       "phone": "202-225-8045",
       "bills": [
@@ -44714,6 +44865,7 @@
       "termsServed": 7,
       "firstYearServed": "2013",
       "nextElection": "2026",
+      "birthday": "1958-06-17",
       "website": "https://scottpeters.house.gov",
       "phone": "202-225-0508",
       "bills": [
@@ -45080,6 +45232,7 @@
       "termsServed": 7,
       "firstYearServed": "2013",
       "nextElection": "2026",
+      "birthday": "1948-05-16",
       "website": "https://frankel.house.gov",
       "phone": "202-225-9890",
       "bills": [
@@ -45374,6 +45527,7 @@
       "termsServed": 4,
       "firstYearServed": "2013",
       "nextElection": "2028",
+      "birthday": "1968-03-12",
       "website": "https://www.duckworth.senate.gov",
       "phone": "202-224-2854",
       "bills": [
@@ -45616,6 +45770,7 @@
       "termsServed": 7,
       "firstYearServed": "2013",
       "nextElection": "2026",
+      "birthday": "1973-07-24",
       "website": "https://barr.house.gov",
       "phone": "202-225-4706",
       "bills": [
@@ -45941,6 +46096,7 @@
       "termsServed": 3,
       "firstYearServed": "2013",
       "nextElection": "2030",
+      "birthday": "1949-06-22",
       "website": "https://www.warren.senate.gov",
       "phone": "202-224-4543",
       "bills": [
@@ -46186,6 +46342,7 @@
       "termsServed": 3,
       "firstYearServed": "2013",
       "nextElection": "2030",
+      "birthday": "1944-03-31",
       "website": "https://www.king.senate.gov",
       "phone": "202-224-5344",
       "bills": [
@@ -46424,6 +46581,7 @@
       "termsServed": 7,
       "firstYearServed": "2013",
       "nextElection": "2026",
+      "birthday": "1962-09-13",
       "website": "https://wagner.house.gov",
       "phone": "202-225-1621",
       "bills": [
@@ -46772,6 +46930,7 @@
       "termsServed": 3,
       "firstYearServed": "2013",
       "nextElection": "2026",
+      "birthday": "1962-08-20",
       "website": "https://www.daines.senate.gov",
       "phone": "202-224-2651",
       "bills": [
@@ -47014,6 +47173,7 @@
       "termsServed": 7,
       "firstYearServed": "2013",
       "nextElection": "2026",
+      "birthday": "1971-11-04",
       "website": "https://hudson.house.gov",
       "phone": "202-225-3715",
       "bills": [
@@ -47318,6 +47478,7 @@
       "termsServed": 5,
       "firstYearServed": "2013",
       "nextElection": "2030",
+      "birthday": "1961-01-21",
       "website": "https://www.cramer.senate.gov",
       "phone": "202-224-2043",
       "bills": [
@@ -47561,6 +47722,7 @@
       "termsServed": 3,
       "firstYearServed": "2013",
       "nextElection": "2030",
+      "birthday": "1951-03-01",
       "website": "https://www.fischer.senate.gov",
       "phone": "202-224-6551",
       "bills": [
@@ -47845,6 +48007,7 @@
       "termsServed": 7,
       "firstYearServed": "2013",
       "nextElection": "2026",
+      "birthday": "1975-10-01",
       "website": "https://meng.house.gov",
       "phone": "202-225-2601",
       "bills": [
@@ -48150,6 +48313,7 @@
       "termsServed": 7,
       "firstYearServed": "2013",
       "nextElection": "2026",
+      "birthday": "1970-08-04",
       "website": "https://jeffries.house.gov",
       "phone": "202-225-5936",
       "bills": [
@@ -48442,6 +48606,7 @@
       "termsServed": 7,
       "firstYearServed": "2013",
       "nextElection": "2026",
+      "birthday": "1950-03-12",
       "website": "https://beatty.house.gov",
       "phone": "202-225-4324",
       "bills": [
@@ -48747,6 +48912,7 @@
       "termsServed": 7,
       "firstYearServed": "2013",
       "nextElection": "2026",
+      "birthday": "1957-03-17",
       "website": "https://joyce.house.gov",
       "phone": "202-225-5731",
       "bills": [
@@ -49071,6 +49237,7 @@
       "termsServed": 7,
       "firstYearServed": "2013",
       "nextElection": "2026",
+      "birthday": "1962-05-27",
       "website": "https://perry.house.gov",
       "phone": "202-225-5836",
       "bills": [
@@ -49412,6 +49579,7 @@
       "termsServed": 3,
       "firstYearServed": "2013",
       "nextElection": "2030",
+      "birthday": "1970-12-22",
       "website": "https://www.cruz.senate.gov",
       "phone": "202-224-5922",
       "bills": [
@@ -49658,6 +49826,7 @@
       "termsServed": 7,
       "firstYearServed": "2013",
       "nextElection": "2026",
+      "birthday": "1953-07-02",
       "website": "https://weber.house.gov",
       "phone": "202-225-2831",
       "bills": [
@@ -49975,6 +50144,7 @@
       "termsServed": 7,
       "firstYearServed": "2013",
       "nextElection": "2026",
+      "birthday": "1974-09-16",
       "website": "https://castro.house.gov",
       "phone": "202-225-3236",
       "bills": [
@@ -50293,6 +50463,7 @@
       "termsServed": 7,
       "firstYearServed": "2013",
       "nextElection": "2026",
+      "birthday": "1949-09-13",
       "website": "https://williams.house.gov",
       "phone": "202-225-9896",
       "bills": [
@@ -50618,6 +50789,7 @@
       "termsServed": 7,
       "firstYearServed": "2013",
       "nextElection": "2026",
+      "birthday": "1971-01-03",
       "website": "https://veasey.house.gov",
       "phone": "202-225-9897",
       "bills": [
@@ -50924,6 +51096,7 @@
       "termsServed": 3,
       "firstYearServed": "2013",
       "nextElection": "2030",
+      "birthday": "1958-02-26",
       "website": "https://www.kaine.senate.gov",
       "phone": "202-224-4024",
       "bills": [
@@ -51165,6 +51338,7 @@
       "termsServed": 7,
       "firstYearServed": "2013",
       "nextElection": "2026",
+      "birthday": "1964-08-14",
       "website": "https://pocan.house.gov",
       "phone": "202-225-2906",
       "bills": [
@@ -51479,6 +51653,7 @@
       "termsServed": 7,
       "firstYearServed": "2013",
       "nextElection": "2026",
+      "birthday": "1956-04-30",
       "website": "https://robinkelly.house.gov",
       "phone": "202-225-0773",
       "bills": [
@@ -51785,6 +51960,7 @@
       "termsServed": 7,
       "firstYearServed": "2013",
       "nextElection": "2026",
+      "birthday": "1980-06-16",
       "website": "https://jasonsmith.house.gov",
       "phone": "202-225-4404",
       "bills": [
@@ -52096,6 +52272,7 @@
       "termsServed": 3,
       "firstYearServed": "2013",
       "nextElection": "2026",
+      "birthday": "1969-04-27",
       "website": "https://www.booker.senate.gov",
       "phone": "202-224-3224",
       "bills": [
@@ -52339,6 +52516,7 @@
       "termsServed": 7,
       "firstYearServed": "2013",
       "nextElection": "2026",
+      "birthday": "1963-07-17",
       "website": "https://katherineclark.house.gov",
       "phone": "202-225-2836",
       "bills": [
@@ -52647,6 +52825,7 @@
       "termsServed": 7,
       "firstYearServed": "2014",
       "nextElection": "2026",
+      "birthday": "1958-12-13",
       "website": "https://norcross.house.gov",
       "phone": "202-225-6501",
       "bills": [
@@ -52971,6 +53150,7 @@
       "termsServed": 7,
       "firstYearServed": "2014",
       "nextElection": "2026",
+      "birthday": "1946-05-27",
       "website": "https://adams.house.gov",
       "phone": "202-225-1510",
       "bills": [
@@ -53288,6 +53468,7 @@
       "termsServed": 6,
       "firstYearServed": "2015",
       "nextElection": "2026",
+      "birthday": "1954-05-14",
       "website": "https://palmer.house.gov",
       "phone": "202-225-4921",
       "bills": [
@@ -53606,6 +53787,7 @@
       "termsServed": 6,
       "firstYearServed": "2015",
       "nextElection": "2026",
+      "birthday": "1956-12-05",
       "website": "https://hill.house.gov",
       "phone": "202-225-2506",
       "bills": [
@@ -53936,6 +54118,7 @@
       "termsServed": 6,
       "firstYearServed": "2015",
       "nextElection": "2026",
+      "birthday": "1967-11-18",
       "website": "https://westerman.house.gov",
       "phone": "202-225-3772",
       "bills": [
@@ -54262,6 +54445,7 @@
       "termsServed": 6,
       "firstYearServed": "2015",
       "nextElection": "2030",
+      "birthday": "1979-11-20",
       "website": "https://www.gallego.senate.gov",
       "phone": "202-224-4521",
       "bills": [
@@ -54511,6 +54695,7 @@
       "termsServed": 6,
       "firstYearServed": "2015",
       "nextElection": "2026",
+      "birthday": "1952-03-31",
       "website": "https://desaulnier.house.gov",
       "phone": "202-225-2095",
       "bills": [
@@ -54839,6 +55024,7 @@
       "termsServed": 6,
       "firstYearServed": "2015",
       "nextElection": "2026",
+      "birthday": "1979-06-19",
       "website": "https://aguilar.house.gov",
       "phone": "202-225-3201",
       "bills": [
@@ -55144,6 +55330,7 @@
       "termsServed": 6,
       "firstYearServed": "2015",
       "nextElection": "2026",
+      "birthday": "1969-03-29",
       "website": "https://lieu.house.gov",
       "phone": "202-225-3976",
       "bills": [
@@ -55457,6 +55644,7 @@
       "termsServed": 6,
       "firstYearServed": "2015",
       "nextElection": "2026",
+      "birthday": "1965-04-04",
       "website": "https://torres.house.gov",
       "phone": "202-225-6161",
       "bills": [
@@ -55773,6 +55961,7 @@
       "termsServed": 6,
       "firstYearServed": "2015",
       "nextElection": "2026",
+      "birthday": "1957-09-06",
       "website": "https://buddycarter.house.gov",
       "phone": "202-225-5831",
       "bills": [
@@ -56109,6 +56298,7 @@
       "termsServed": 6,
       "firstYearServed": "2015",
       "nextElection": "2026",
+      "birthday": "1963-12-22",
       "website": "https://loudermilk.house.gov",
       "phone": "202-225-2931",
       "bills": [
@@ -56434,6 +56624,7 @@
       "termsServed": 6,
       "firstYearServed": "2015",
       "nextElection": "2026",
+      "birthday": "1951-11-07",
       "website": "https://allen.house.gov",
       "phone": "202-225-2823",
       "bills": [
@@ -56802,6 +56993,7 @@
       "termsServed": 6,
       "firstYearServed": "2015",
       "nextElection": "2026",
+      "birthday": "1960-12-30",
       "website": "https://bost.house.gov",
       "phone": "202-225-5661",
       "bills": [
@@ -57128,6 +57320,7 @@
       "termsServed": 6,
       "firstYearServed": "2015",
       "nextElection": "2026",
+      "birthday": "1978-10-24",
       "website": "https://moulton.house.gov",
       "phone": "202-225-8020",
       "bills": [
@@ -57460,6 +57653,7 @@
       "termsServed": 6,
       "firstYearServed": "2015",
       "nextElection": "2026",
+      "birthday": "1961-05-08",
       "website": "https://moolenaar.house.gov",
       "phone": "202-225-3561",
       "bills": [
@@ -57775,6 +57969,7 @@
       "termsServed": 6,
       "firstYearServed": "2015",
       "nextElection": "2026",
+      "birthday": "1953-11-23",
       "website": "https://debbiedingell.house.gov",
       "phone": "202-225-4071",
       "bills": [
@@ -58139,6 +58334,7 @@
       "termsServed": 6,
       "firstYearServed": "2015",
       "nextElection": "2026",
+      "birthday": "1961-03-03",
       "website": "https://emmer.house.gov",
       "phone": "202-225-2331",
       "bills": [
@@ -58443,6 +58639,7 @@
       "termsServed": 6,
       "firstYearServed": "2015",
       "nextElection": "2026",
+      "birthday": "1972-02-16",
       "website": "https://rouzer.house.gov",
       "phone": "202-225-2731",
       "bills": [
@@ -58784,6 +58981,7 @@
       "termsServed": 6,
       "firstYearServed": "2015",
       "nextElection": "2026",
+      "birthday": "1945-02-06",
       "website": "https://watsoncoleman.house.gov",
       "phone": "202-225-5801",
       "bills": [
@@ -59098,6 +59296,7 @@
       "termsServed": 6,
       "firstYearServed": "2015",
       "nextElection": "2026",
+      "birthday": "1984-07-02",
       "website": "https://stefanik.house.gov",
       "phone": "202-225-4611",
       "bills": [
@@ -59427,6 +59626,7 @@
       "termsServed": 6,
       "firstYearServed": "2015",
       "nextElection": "2026",
+      "birthday": "1977-02-06",
       "website": "https://boyle.house.gov",
       "phone": "202-225-6111",
       "bills": [
@@ -59741,6 +59941,7 @@
       "termsServed": 6,
       "firstYearServed": "2015",
       "nextElection": "2026",
+      "birthday": "1948-03-23",
       "website": "https://babin.house.gov",
       "phone": "202-225-1555",
       "bills": [
@@ -60061,6 +60262,7 @@
       "termsServed": 6,
       "firstYearServed": "2015",
       "nextElection": "2026",
+      "birthday": "1950-06-20",
       "website": "https://beyer.house.gov",
       "phone": "202-225-4376",
       "bills": [
@@ -60426,6 +60628,7 @@
       "termsServed": 6,
       "firstYearServed": "2015",
       "nextElection": "2026",
+      "birthday": "1966-05-13",
       "website": "https://plaskett.house.gov",
       "phone": "202-225-1790",
       "bills": [
@@ -60736,6 +60939,7 @@
       "termsServed": 6,
       "firstYearServed": "2015",
       "nextElection": "2026",
+      "birthday": "1955-07-10",
       "website": "https://newhouse.house.gov",
       "phone": "202-225-5816",
       "bills": [
@@ -61084,6 +61288,7 @@
       "termsServed": 6,
       "firstYearServed": "2015",
       "nextElection": "2026",
+      "birthday": "1955-07-03",
       "website": "https://grothman.house.gov",
       "phone": "202-225-2476",
       "bills": [
@@ -61421,6 +61626,7 @@
       "termsServed": 6,
       "firstYearServed": "2015",
       "nextElection": "2026",
+      "birthday": "1947-12-29",
       "website": "https://radewagen.house.gov",
       "phone": "202-225-8577",
       "bills": [
@@ -61734,6 +61940,7 @@
       "termsServed": 2,
       "firstYearServed": "2015",
       "nextElection": "2026",
+      "birthday": "1964-11-13",
       "website": "https://www.sullivan.senate.gov",
       "phone": "202-224-3004",
       "bills": [
@@ -61976,6 +62183,7 @@
       "termsServed": 2,
       "firstYearServed": "2015",
       "nextElection": "2026",
+      "birthday": "1970-07-01",
       "website": "https://www.ernst.senate.gov",
       "phone": "202-224-3254",
       "bills": [
@@ -62217,6 +62425,7 @@
       "termsServed": 2,
       "firstYearServed": "2015",
       "nextElection": "2026",
+      "birthday": "1960-08-30",
       "website": "https://www.tillis.senate.gov",
       "phone": "202-224-6342",
       "bills": [
@@ -62469,6 +62678,7 @@
       "termsServed": 2,
       "firstYearServed": "2015",
       "nextElection": "2026",
+      "birthday": "1954-10-24",
       "website": "https://www.rounds.senate.gov",
       "phone": "202-224-5842",
       "bills": [
@@ -62732,6 +62942,7 @@
       "termsServed": 6,
       "firstYearServed": "2015",
       "nextElection": "2026",
+      "birthday": "1966-03-01",
       "website": "https://trentkelly.house.gov",
       "phone": "202-225-4306",
       "bills": [
@@ -63061,6 +63272,7 @@
       "termsServed": 6,
       "firstYearServed": "2015",
       "nextElection": "2026",
+      "birthday": "1968-07-05",
       "website": "https://lahood.house.gov",
       "phone": "202-225-6201",
       "bills": [
@@ -63388,6 +63600,7 @@
       "termsServed": 6,
       "firstYearServed": "2016",
       "nextElection": "2026",
+      "birthday": "1970-03-01",
       "website": "https://davidson.house.gov",
       "phone": "202-225-6205",
       "bills": [
@@ -63712,6 +63925,7 @@
       "termsServed": 6,
       "firstYearServed": "2016",
       "nextElection": "2026",
+      "birthday": "1972-08-19",
       "website": "https://comer.house.gov",
       "phone": "202-225-3115",
       "bills": [
@@ -64042,6 +64256,7 @@
       "termsServed": 6,
       "firstYearServed": "2016",
       "nextElection": "2026",
+      "birthday": "1954-05-16",
       "website": "https://evans.house.gov",
       "phone": "202-225-4001",
       "bills": [
@@ -64383,6 +64598,7 @@
       "termsServed": 2,
       "firstYearServed": "2017",
       "nextElection": "2028",
+      "birthday": "1951-11-21",
       "website": "https://www.kennedy.senate.gov/public",
       "phone": "202-224-4623",
       "bills": [
@@ -64629,6 +64845,7 @@
       "termsServed": 2,
       "firstYearServed": "2017",
       "nextElection": "2028",
+      "birthday": "1958-02-27",
       "website": "https://www.hassan.senate.gov",
       "phone": "202-224-3324",
       "bills": [
@@ -64878,6 +65095,7 @@
       "termsServed": 2,
       "firstYearServed": "2017",
       "nextElection": "2028",
+      "birthday": "1964-03-29",
       "website": "https://www.cortezmasto.senate.gov",
       "phone": "202-224-3542",
       "bills": [
@@ -65120,6 +65338,7 @@
       "termsServed": 6,
       "firstYearServed": "2013",
       "nextElection": "2026",
+      "birthday": "1961-08-20",
       "website": "https://schneider.house.gov",
       "phone": "202-225-4835",
       "bills": [
@@ -65452,6 +65671,7 @@
       "termsServed": 5,
       "firstYearServed": "2017",
       "nextElection": "2026",
+      "birthday": "1958-11-07",
       "website": "https://biggs.house.gov",
       "phone": "202-225-2635",
       "bills": [
@@ -65769,6 +65989,7 @@
       "termsServed": 5,
       "firstYearServed": "2017",
       "nextElection": "2026",
+      "birthday": "1976-09-13",
       "website": "https://khanna.house.gov",
       "phone": "202-225-2631",
       "bills": [
@@ -66146,6 +66367,7 @@
       "termsServed": 5,
       "firstYearServed": "2017",
       "nextElection": "2026",
+      "birthday": "1969-10-01",
       "website": "https://panetta.house.gov",
       "phone": "202-225-2861",
       "bills": [
@@ -66459,6 +66681,7 @@
       "termsServed": 5,
       "firstYearServed": "2017",
       "nextElection": "2026",
+      "birthday": "1964-11-18",
       "website": "https://carbajal.house.gov",
       "phone": "202-225-3601",
       "bills": [
@@ -66786,6 +67009,7 @@
       "termsServed": 5,
       "firstYearServed": "2017",
       "nextElection": "2026",
+      "birthday": "1976-09-15",
       "website": "https://barragan.house.gov",
       "phone": "202-225-8220",
       "bills": [
@@ -67092,6 +67316,7 @@
       "termsServed": 5,
       "firstYearServed": "2017",
       "nextElection": "2026",
+      "birthday": "1958-01-24",
       "website": "https://correa.house.gov",
       "phone": "202-225-2965",
       "bills": [
@@ -67409,6 +67634,7 @@
       "termsServed": 5,
       "firstYearServed": "2017",
       "nextElection": "2030",
+      "birthday": "1962-02-10",
       "website": "https://www.bluntrochester.senate.gov",
       "phone": "202-224-2441",
       "bills": [
@@ -67655,6 +67881,7 @@
       "termsServed": 5,
       "firstYearServed": "2017",
       "nextElection": "2026",
+      "birthday": "1953-02-16",
       "website": "https://dunn.house.gov",
       "phone": "202-225-5235",
       "bills": [
@@ -68001,6 +68228,7 @@
       "termsServed": 5,
       "firstYearServed": "2017",
       "nextElection": "2026",
+      "birthday": "1952-09-02",
       "website": "https://rutherford.house.gov",
       "phone": "202-225-2501",
       "bills": [
@@ -68307,6 +68535,7 @@
       "termsServed": 5,
       "firstYearServed": "2017",
       "nextElection": "2026",
+      "birthday": "1978-02-25",
       "website": "https://soto.house.gov",
       "phone": "202-225-9889",
       "bills": [
@@ -68624,6 +68853,7 @@
       "termsServed": 5,
       "firstYearServed": "2017",
       "nextElection": "2026",
+      "birthday": "1980-07-10",
       "website": "https://mast.house.gov",
       "phone": "202-225-3026",
       "bills": [
@@ -68939,6 +69169,7 @@
       "termsServed": 5,
       "firstYearServed": "2017",
       "nextElection": "2026",
+      "birthday": "1973-07-19",
       "website": "https://krishnamoorthi.house.gov",
       "phone": "202-225-3711",
       "bills": [
@@ -69264,6 +69495,7 @@
       "termsServed": 5,
       "firstYearServed": "2017",
       "nextElection": "2030",
+      "birthday": "1979-07-16",
       "website": "https://www.banks.senate.gov",
       "phone": "202-224-4814",
       "bills": [
@@ -69506,6 +69738,7 @@
       "termsServed": 3,
       "firstYearServed": "2017",
       "nextElection": "2026",
+      "birthday": "1960-08-09",
       "website": "https://www.marshall.senate.gov",
       "phone": "202-224-4774",
       "bills": [
@@ -69746,6 +69979,7 @@
       "termsServed": 5,
       "firstYearServed": "2017",
       "nextElection": "2026",
+      "birthday": "1961-08-24",
       "website": "https://clayhiggins.house.gov",
       "phone": "202-225-2031",
       "bills": [
@@ -70072,6 +70306,7 @@
       "termsServed": 5,
       "firstYearServed": "2017",
       "nextElection": "2026",
+      "birthday": "1972-01-30",
       "website": "https://mikejohnson.house.gov",
       "phone": "202-225-2777",
       "bills": [
@@ -70366,6 +70601,7 @@
       "termsServed": 5,
       "firstYearServed": "2017",
       "nextElection": "2026",
+      "birthday": "1962-12-13",
       "website": "https://raskin.house.gov",
       "phone": "202-225-5341",
       "bills": [
@@ -70674,6 +70910,7 @@
       "termsServed": 5,
       "firstYearServed": "2017",
       "nextElection": "2026",
+      "birthday": "1947-02-02",
       "website": "https://bergman.house.gov",
       "phone": "202-225-4735",
       "bills": [
@@ -71000,6 +71237,7 @@
       "termsServed": 4,
       "firstYearServed": "2017",
       "nextElection": "2028",
+      "birthday": "1971-10-21",
       "website": "https://www.budd.senate.gov",
       "phone": "202-224-3154",
       "bills": [
@@ -71248,6 +71486,7 @@
       "termsServed": 5,
       "firstYearServed": "2017",
       "nextElection": "2026",
+      "birthday": "1963-08-16",
       "website": "https://bacon.house.gov",
       "phone": "202-225-4155",
       "bills": [
@@ -71565,6 +71804,7 @@
       "termsServed": 5,
       "firstYearServed": "2017",
       "nextElection": "2026",
+      "birthday": "1975-03-08",
       "website": "https://gottheimer.house.gov",
       "phone": "202-225-4465",
       "bills": [
@@ -71934,6 +72174,7 @@
       "termsServed": 3,
       "firstYearServed": "2017",
       "nextElection": "2030",
+      "birthday": "1957-08-02",
       "website": "https://www.rosen.senate.gov",
       "phone": "202-224-6244",
       "bills": [
@@ -72176,6 +72417,7 @@
       "termsServed": 5,
       "firstYearServed": "2017",
       "nextElection": "2026",
+      "birthday": "1954-09-27",
       "website": "https://espaillat.house.gov",
       "phone": "202-225-4365",
       "bills": [
@@ -72481,6 +72723,7 @@
       "termsServed": 5,
       "firstYearServed": "2017",
       "nextElection": "2026",
+      "birthday": "1973-12-17",
       "website": "https://fitzpatrick.house.gov",
       "phone": "202-225-4276",
       "bills": [
@@ -72798,6 +73041,7 @@
       "termsServed": 5,
       "firstYearServed": "2017",
       "nextElection": "2026",
+      "birthday": "1964-01-23",
       "website": "https://smucker.house.gov",
       "phone": "202-225-2411",
       "bills": [
@@ -73128,6 +73372,7 @@
       "termsServed": 5,
       "firstYearServed": "2017",
       "nextElection": "2026",
+      "birthday": "1966-10-08",
       "website": "https://kustoff.house.gov",
       "phone": "202-225-4714",
       "bills": [
@@ -73433,6 +73678,7 @@
       "termsServed": 5,
       "firstYearServed": "2017",
       "nextElection": "2026",
+      "birthday": "1967-09-04",
       "website": "https://gonzalez.house.gov",
       "phone": "202-225-2531",
       "bills": [
@@ -73754,6 +74000,7 @@
       "termsServed": 5,
       "firstYearServed": "2017",
       "nextElection": "2026",
+      "birthday": "1972-03-09",
       "website": "https://arrington.house.gov",
       "phone": "202-225-4005",
       "bills": [
@@ -74077,6 +74324,7 @@
       "termsServed": 5,
       "firstYearServed": "2017",
       "nextElection": "2026",
+      "birthday": "1965-09-21",
       "website": "https://jayapal.house.gov",
       "phone": "202-225-3106",
       "bills": [
@@ -74409,6 +74657,7 @@
       "termsServed": 5,
       "firstYearServed": "2017",
       "nextElection": "2026",
+      "birthday": "1956-07-19",
       "website": "https://estes.house.gov",
       "phone": "202-225-6216",
       "bills": [
@@ -74732,6 +74981,7 @@
       "termsServed": 5,
       "firstYearServed": "2017",
       "nextElection": "2026",
+      "birthday": "1953-06-20",
       "website": "https://norman.house.gov",
       "phone": "202-225-5501",
       "bills": [
@@ -75057,6 +75307,7 @@
       "termsServed": 5,
       "firstYearServed": "2017",
       "nextElection": "2026",
+      "birthday": "1974-11-25",
       "website": "https://gomez.house.gov",
       "phone": "202-225-6235",
       "bills": [
@@ -75374,6 +75625,7 @@
       "termsServed": 5,
       "firstYearServed": "2017",
       "nextElection": "2030",
+      "birthday": "1960-05-10",
       "website": "https://www.curtis.senate.gov",
       "phone": "202-224-5251",
       "bills": [
@@ -75616,6 +75868,7 @@
       "termsServed": 3,
       "firstYearServed": "2018",
       "nextElection": "2026",
+      "birthday": "1958-03-04",
       "website": "https://www.smith.senate.gov",
       "phone": "202-224-5641",
       "bills": [
@@ -75858,6 +76111,7 @@
       "termsServed": 3,
       "firstYearServed": "2018",
       "nextElection": "2026",
+      "birthday": "1959-05-10",
       "website": "https://www.hydesmith.senate.gov",
       "phone": "202-224-5054",
       "bills": [
@@ -76111,6 +76365,7 @@
       "termsServed": 5,
       "firstYearServed": "2018",
       "nextElection": "2026",
+      "birthday": "1975-05-13",
       "website": "https://cloud.house.gov",
       "phone": "202-225-7742",
       "bills": [
@@ -76429,6 +76684,7 @@
       "termsServed": 5,
       "firstYearServed": "2018",
       "nextElection": "2026",
+      "birthday": "1962-01-16",
       "website": "https://balderson.house.gov",
       "phone": "202-225-5355",
       "bills": [
@@ -76735,6 +76991,7 @@
       "termsServed": 5,
       "firstYearServed": "2018",
       "nextElection": "2026",
+      "birthday": "1961-12-04",
       "website": "https://hern.house.gov",
       "phone": "202-225-2211",
       "bills": [
@@ -77091,6 +77348,7 @@
       "termsServed": 5,
       "firstYearServed": "2018",
       "nextElection": "2026",
+      "birthday": "1957-04-29",
       "website": "https://morelle.house.gov",
       "phone": "202-225-3615",
       "bills": [
@@ -77425,6 +77683,7 @@
       "termsServed": 5,
       "firstYearServed": "2018",
       "nextElection": "2026",
+      "birthday": "1959-08-30",
       "website": "https://scanlon.house.gov",
       "phone": "202-225-2011",
       "bills": [
@@ -77741,6 +78000,7 @@
       "termsServed": 6,
       "firstYearServed": "2003",
       "nextElection": "2026",
+      "birthday": "1952-09-27",
       "website": "https://case.house.gov",
       "phone": "202-225-2726",
       "bills": [
@@ -78072,6 +78332,7 @@
       "termsServed": 5,
       "firstYearServed": "2013",
       "nextElection": "2026",
+      "birthday": "1973-04-29",
       "website": "https://horsford.house.gov",
       "phone": "202-225-9894",
       "bills": [
@@ -78377,6 +78638,7 @@
       "termsServed": 4,
       "firstYearServed": "2019",
       "nextElection": "2026",
+      "birthday": "1970-03-08",
       "website": "https://stanton.house.gov",
       "phone": "202-225-9888",
       "bills": [
@@ -78714,6 +78976,7 @@
       "termsServed": 4,
       "firstYearServed": "2019",
       "nextElection": "2026",
+      "birthday": "1986-08-01",
       "website": "https://harder.house.gov",
       "phone": "202-225-4540",
       "bills": [
@@ -79019,6 +79282,7 @@
       "termsServed": 4,
       "firstYearServed": "2019",
       "nextElection": "2026",
+      "birthday": "1978-10-28",
       "website": "https://levin.house.gov",
       "phone": "202-225-3906",
       "bills": [
@@ -79324,6 +79588,7 @@
       "termsServed": 4,
       "firstYearServed": "2019",
       "nextElection": "2026",
+      "birthday": "1984-05-13",
       "website": "https://neguse.house.gov",
       "phone": "202-225-2161",
       "bills": [
@@ -79652,6 +79917,7 @@
       "termsServed": 4,
       "firstYearServed": "2019",
       "nextElection": "2026",
+      "birthday": "1979-03-15",
       "website": "https://crow.house.gov",
       "phone": "202-225-7882",
       "bills": [
@@ -79969,6 +80235,7 @@
       "termsServed": 4,
       "firstYearServed": "2019",
       "nextElection": "2026",
+      "birthday": "1973-03-08",
       "website": "https://hayes.house.gov",
       "phone": "202-225-4476",
       "bills": [
@@ -80286,6 +80553,7 @@
       "termsServed": 4,
       "firstYearServed": "2019",
       "nextElection": "2026",
+      "birthday": "1978-05-19",
       "website": "https://steube.house.gov",
       "phone": "202-225-5792",
       "bills": [
@@ -80620,6 +80888,7 @@
       "termsServed": 4,
       "firstYearServed": "2019",
       "nextElection": "2026",
+      "birthday": "1960-06-01",
       "website": "https://mcbath.house.gov",
       "phone": "202-225-4501",
       "bills": [
@@ -80972,6 +81241,7 @@
       "termsServed": 4,
       "firstYearServed": "2019",
       "nextElection": "2026",
+      "birthday": "1962-03-09",
       "website": "https://fulcher.house.gov",
       "phone": "202-225-6611",
       "bills": [
@@ -81290,6 +81560,7 @@
       "termsServed": 4,
       "firstYearServed": "2019",
       "nextElection": "2026",
+      "birthday": "1956-04-12",
       "website": "https://chuygarcia.house.gov",
       "phone": "202-225-8203",
       "bills": [
@@ -81608,6 +81879,7 @@
       "termsServed": 4,
       "firstYearServed": "2019",
       "nextElection": "2026",
+      "birthday": "1971-11-23",
       "website": "https://casten.house.gov",
       "phone": "202-225-4561",
       "bills": [
@@ -81923,6 +82195,7 @@
       "termsServed": 4,
       "firstYearServed": "2019",
       "nextElection": "2026",
+      "birthday": "1986-10-04",
       "website": "https://underwood.house.gov",
       "phone": "202-225-2976",
       "bills": [
@@ -82228,6 +82501,7 @@
       "termsServed": 4,
       "firstYearServed": "2019",
       "nextElection": "2026",
+      "birthday": "1945-06-04",
       "website": "https://baird.house.gov",
       "phone": "202-225-5037",
       "bills": [
@@ -82559,6 +82833,7 @@
       "termsServed": 4,
       "firstYearServed": "2019",
       "nextElection": "2026",
+      "birthday": "1980-05-22",
       "website": "https://davids.house.gov",
       "phone": "202-225-2865",
       "bills": [
@@ -82876,6 +83151,7 @@
       "termsServed": 4,
       "firstYearServed": "2019",
       "nextElection": "2026",
+      "birthday": "1973-10-27",
       "website": "https://trahan.house.gov",
       "phone": "202-225-3411",
       "bills": [
@@ -83188,6 +83464,7 @@
       "termsServed": 4,
       "firstYearServed": "2019",
       "nextElection": "2026",
+      "birthday": "1974-02-03",
       "website": "https://pressley.house.gov",
       "phone": "202-225-5111",
       "bills": [
@@ -83504,6 +83781,7 @@
       "termsServed": 4,
       "firstYearServed": "2019",
       "nextElection": "2030",
+      "birthday": "1976-07-10",
       "website": "https://www.slotkin.senate.gov",
       "phone": "202-224-4822",
       "bills": [
@@ -83744,6 +84022,7 @@
       "termsServed": 4,
       "firstYearServed": "2019",
       "nextElection": "2026",
+      "birthday": "1983-06-24",
       "website": "https://stevens.house.gov",
       "phone": "202-225-8171",
       "bills": [
@@ -84069,6 +84348,7 @@
       "termsServed": 4,
       "firstYearServed": "2019",
       "nextElection": "2026",
+      "birthday": "1976-07-24",
       "website": "https://tlaib.house.gov",
       "phone": "202-225-5126",
       "bills": [
@@ -84383,6 +84663,7 @@
       "termsServed": 4,
       "firstYearServed": "2019",
       "nextElection": "2026",
+      "birthday": "1972-02-14",
       "website": "https://craig.house.gov",
       "phone": "202-225-2271",
       "bills": [
@@ -84685,6 +84966,7 @@
       "termsServed": 4,
       "firstYearServed": "2019",
       "nextElection": "2026",
+      "birthday": "1981-10-04",
       "website": "https://omar.house.gov",
       "phone": "202-225-4755",
       "bills": [
@@ -84999,6 +85281,7 @@
       "termsServed": 4,
       "firstYearServed": "2019",
       "nextElection": "2026",
+      "birthday": "1966-05-10",
       "website": "https://stauber.house.gov",
       "phone": "202-225-6211",
       "bills": [
@@ -85334,6 +85617,7 @@
       "termsServed": 4,
       "firstYearServed": "2019",
       "nextElection": "2026",
+      "birthday": "1970-02-04",
       "website": "https://guest.house.gov",
       "phone": "202-225-5031",
       "bills": [
@@ -85676,6 +85960,7 @@
       "termsServed": 4,
       "firstYearServed": "2019",
       "nextElection": "2026",
+      "birthday": "1980-06-04",
       "website": "https://pappas.house.gov",
       "phone": "202-225-5456",
       "bills": [
@@ -85994,6 +86279,7 @@
       "termsServed": 4,
       "firstYearServed": "2019",
       "nextElection": "2026",
+      "birthday": "1953-02-23",
       "website": "https://vandrew.house.gov",
       "phone": "202-225-6572",
       "bills": [
@@ -86312,6 +86598,7 @@
       "termsServed": 5,
       "firstYearServed": "2019",
       "nextElection": "2030",
+      "birthday": "1982-07-12",
       "website": "https://www.kim.senate.gov",
       "phone": "202-224-4744",
       "bills": [
@@ -86565,6 +86852,7 @@
       "termsServed": 4,
       "firstYearServed": "2019",
       "nextElection": "2026",
+      "birthday": "1966-11-07",
       "website": "https://susielee.house.gov",
       "phone": "202-225-3252",
       "bills": [
@@ -86913,6 +87201,7 @@
       "termsServed": 4,
       "firstYearServed": "2019",
       "nextElection": "2026",
+      "birthday": "1989-10-13",
       "website": "https://ocasio-cortez.house.gov",
       "phone": "202-225-3965",
       "bills": [
@@ -87219,6 +87508,7 @@
       "termsServed": 4,
       "firstYearServed": "2019",
       "nextElection": "2026",
+      "birthday": "1959-06-06",
       "website": "https://dean.house.gov",
       "phone": "202-225-4731",
       "bills": [
@@ -87535,6 +87825,7 @@
       "termsServed": 4,
       "firstYearServed": "2019",
       "nextElection": "2026",
+      "birthday": "1967-06-05",
       "website": "https://houlahan.house.gov",
       "phone": "202-225-4315",
       "bills": [
@@ -87852,6 +88143,7 @@
       "termsServed": 4,
       "firstYearServed": "2019",
       "nextElection": "2026",
+      "birthday": "1964-02-10",
       "website": "https://meuser.house.gov",
       "phone": "202-225-6511",
       "bills": [
@@ -88205,6 +88497,7 @@
       "termsServed": 4,
       "firstYearServed": "2019",
       "nextElection": "2026",
+      "birthday": "1957-02-08",
       "website": "https://johnjoyce.house.gov",
       "phone": "202-225-2431",
       "bills": [
@@ -88511,6 +88804,7 @@
       "termsServed": 4,
       "firstYearServed": "2019",
       "nextElection": "2026",
+      "birthday": "1983-04-17",
       "website": "https://reschenthaler.house.gov",
       "phone": "202-225-2065",
       "bills": [
@@ -88833,6 +89127,7 @@
       "termsServed": 4,
       "firstYearServed": "2019",
       "nextElection": "2026",
+      "birthday": "1984-04-30",
       "website": "https://timmons.house.gov",
       "phone": "202-225-6030",
       "bills": [
@@ -89162,6 +89457,7 @@
       "termsServed": 4,
       "firstYearServed": "2019",
       "nextElection": "2026",
+      "birthday": "1976-09-30",
       "website": "https://dustyjohnson.house.gov",
       "phone": "202-225-2801",
       "bills": [
@@ -89489,6 +89785,7 @@
       "termsServed": 4,
       "firstYearServed": "2019",
       "nextElection": "2026",
+      "birthday": "1964-08-25",
       "website": "https://burchett.house.gov",
       "phone": "202-225-5435",
       "bills": [
@@ -89819,6 +90116,7 @@
       "termsServed": 4,
       "firstYearServed": "2019",
       "nextElection": "2026",
+      "birthday": "1965-02-23",
       "website": "https://johnrose.house.gov",
       "phone": "202-225-4231",
       "bills": [
@@ -90149,6 +90447,7 @@
       "termsServed": 4,
       "firstYearServed": "2019",
       "nextElection": "2026",
+      "birthday": "1984-03-14",
       "website": "https://crenshaw.house.gov",
       "phone": "202-225-6565",
       "bills": [
@@ -90473,6 +90772,7 @@
       "termsServed": 4,
       "firstYearServed": "2019",
       "nextElection": "2026",
+      "birthday": "1982-12-01",
       "website": "https://gooden.house.gov",
       "phone": "202-225-3484",
       "bills": [
@@ -90791,6 +91091,7 @@
       "termsServed": 4,
       "firstYearServed": "2019",
       "nextElection": "2026",
+      "birthday": "1975-02-13",
       "website": "https://fletcher.house.gov",
       "phone": "202-225-2571",
       "bills": [
@@ -91103,6 +91404,7 @@
       "termsServed": 4,
       "firstYearServed": "2019",
       "nextElection": "2026",
+      "birthday": "1969-09-15",
       "website": "https://escobar.house.gov",
       "phone": "202-225-4831",
       "bills": [
@@ -91417,6 +91719,7 @@
       "termsServed": 4,
       "firstYearServed": "2019",
       "nextElection": "2026",
+      "birthday": "1972-08-07",
       "website": "https://roy.house.gov",
       "phone": "202-225-4236",
       "bills": [
@@ -91758,6 +92061,7 @@
       "termsServed": 4,
       "firstYearServed": "2019",
       "nextElection": "2026",
+      "birthday": "1950-09-06",
       "website": "https://sylviagarcia.house.gov",
       "phone": "202-225-1688",
       "bills": [
@@ -92072,6 +92376,7 @@
       "termsServed": 4,
       "firstYearServed": "2019",
       "nextElection": "2026",
+      "birthday": "1972-02-29",
       "website": "https://cline.house.gov",
       "phone": "202-225-5431",
       "bills": [
@@ -92410,6 +92715,7 @@
       "termsServed": 4,
       "firstYearServed": "2019",
       "nextElection": "2026",
+      "birthday": "1968-08-23",
       "website": "https://schrier.house.gov",
       "phone": "202-225-7761",
       "bills": [
@@ -92716,6 +93022,7 @@
       "termsServed": 4,
       "firstYearServed": "2019",
       "nextElection": "2026",
+      "birthday": "1981-03-30",
       "website": "https://steil.house.gov",
       "phone": "202-225-3031",
       "bills": [
@@ -93048,6 +93355,7 @@
       "termsServed": 4,
       "firstYearServed": "2019",
       "nextElection": "2026",
+      "birthday": "1950-11-04",
       "website": "https://miller.house.gov",
       "phone": "202-225-3452",
       "bills": [
@@ -93364,6 +93672,7 @@
       "termsServed": 2,
       "firstYearServed": "2019",
       "nextElection": "2030",
+      "birthday": "1952-12-01",
       "website": "https://www.rickscott.senate.gov",
       "phone": "202-224-5274",
       "bills": [
@@ -93614,6 +93923,7 @@
       "termsServed": 2,
       "firstYearServed": "2019",
       "nextElection": "2030",
+      "birthday": "1979-12-31",
       "website": "https://www.hawley.senate.gov",
       "phone": "202-224-6154",
       "bills": [
@@ -93855,6 +94165,7 @@
       "termsServed": 4,
       "firstYearServed": "2019",
       "nextElection": "2026",
+      "birthday": "1982-07-25",
       "website": "https://golden.house.gov",
       "phone": "202-225-6306",
       "bills": [
@@ -94173,6 +94484,7 @@
       "termsServed": 4,
       "firstYearServed": "2019",
       "nextElection": "2026",
+      "birthday": "1963-03-05",
       "website": "https://murphy.house.gov",
       "phone": "202-225-3415",
       "bills": [
@@ -94509,6 +94821,7 @@
       "termsServed": 9,
       "firstYearServed": "1987",
       "nextElection": "2026",
+      "birthday": "1948-10-24",
       "website": "https://mfume.house.gov",
       "phone": "202-225-4741",
       "bills": [
@@ -94826,6 +95139,7 @@
       "termsServed": 4,
       "firstYearServed": "2020",
       "nextElection": "2026",
+      "birthday": "1957-12-30",
       "website": "https://tiffany.house.gov",
       "phone": "202-225-3365",
       "bills": [
@@ -95143,6 +95457,7 @@
       "termsServed": 2,
       "firstYearServed": "2020",
       "nextElection": "2028",
+      "birthday": "1964-02-21",
       "website": "https://www.kelly.senate.gov",
       "phone": "202-224-2235",
       "bills": [
@@ -95390,6 +95705,7 @@
       "termsServed": 5,
       "firstYearServed": "2009",
       "nextElection": "2026",
+      "birthday": "1954-09-10",
       "website": "https://www.lummis.senate.gov",
       "phone": "202-224-3424",
       "bills": [
@@ -95623,6 +95939,7 @@
       "termsServed": 12,
       "firstYearServed": "2001",
       "nextElection": "2026",
+      "birthday": "1953-11-01",
       "website": "https://issa.house.gov",
       "phone": "202-225-5672",
       "bills": [
@@ -95958,6 +96275,7 @@
       "termsServed": 14,
       "firstYearServed": "1997",
       "nextElection": "2026",
+      "birthday": "1955-03-22",
       "website": "https://sessions.house.gov",
       "phone": "202-225-6105",
       "bills": [
@@ -96306,6 +96624,7 @@
       "termsServed": 6,
       "firstYearServed": "2013",
       "nextElection": "2026",
+      "birthday": "1977-04-14",
       "website": "https://valadao.house.gov",
       "phone": "202-225-4695",
       "bills": [
@@ -96633,6 +96952,7 @@
       "termsServed": 1,
       "firstYearServed": "2021",
       "nextElection": "2026",
+      "birthday": "1954-09-18",
       "website": "https://www.tuberville.senate.gov",
       "phone": "202-224-4124",
       "bills": [
@@ -96883,6 +97203,7 @@
       "termsServed": 1,
       "firstYearServed": "2021",
       "nextElection": "2026",
+      "birthday": "1952-02-07",
       "website": "https://www.hickenlooper.senate.gov",
       "phone": "202-224-5941",
       "bills": [
@@ -97125,6 +97446,7 @@
       "termsServed": 1,
       "firstYearServed": "2021",
       "nextElection": "2026",
+      "birthday": "1959-08-14",
       "website": "https://www.hagerty.senate.gov",
       "phone": "202-224-4944",
       "bills": [
@@ -97379,6 +97701,7 @@
       "termsServed": 3,
       "firstYearServed": "2021",
       "nextElection": "2026",
+      "birthday": "1966-09-26",
       "website": "https://barrymoore.house.gov",
       "phone": "202-225-2901",
       "bills": [
@@ -97698,6 +98021,7 @@
       "termsServed": 3,
       "firstYearServed": "2021",
       "nextElection": "2026",
+      "birthday": "1970-08-18",
       "website": "https://obernolte.house.gov",
       "phone": "202-225-5861",
       "bills": [
@@ -98024,6 +98348,7 @@
       "termsServed": 3,
       "firstYearServed": "2021",
       "nextElection": "2026",
+      "birthday": "1962-10-18",
       "website": "https://youngkim.house.gov",
       "phone": "202-225-4111",
       "bills": [
@@ -98350,6 +98675,7 @@
       "termsServed": 3,
       "firstYearServed": "2021",
       "nextElection": "2026",
+      "birthday": "1989-02-01",
       "website": "https://sarajacobs.house.gov",
       "phone": "202-225-2040",
       "bills": [
@@ -98673,6 +98999,7 @@
       "termsServed": 3,
       "firstYearServed": "2021",
       "nextElection": "2026",
+      "birthday": "1986-12-15",
       "website": "https://boebert.house.gov",
       "phone": "202-225-4761",
       "bills": [
@@ -98991,6 +99318,7 @@
       "termsServed": 3,
       "firstYearServed": "2021",
       "nextElection": "2026",
+      "birthday": "1988-02-16",
       "website": "https://cammack.house.gov",
       "phone": "202-225-5744",
       "bills": [
@@ -99308,6 +99636,7 @@
       "termsServed": 3,
       "firstYearServed": "2021",
       "nextElection": "2026",
+      "birthday": "1964-08-23",
       "website": "https://franklin.house.gov",
       "phone": "202-225-1252",
       "bills": [
@@ -99676,6 +100005,7 @@
       "termsServed": 3,
       "firstYearServed": "2021",
       "nextElection": "2026",
+      "birthday": "1978-10-28",
       "website": "https://donalds.house.gov",
       "phone": "202-225-2536",
       "bills": [
@@ -100044,6 +100374,7 @@
       "termsServed": 3,
       "firstYearServed": "2021",
       "nextElection": "2026",
+      "birthday": "1954-01-17",
       "website": "https://gimenez.house.gov",
       "phone": "202-225-2778",
       "bills": [
@@ -100370,6 +100701,7 @@
       "termsServed": 3,
       "firstYearServed": "2021",
       "nextElection": "2026",
+      "birthday": "1961-11-01",
       "website": "https://salazar.house.gov",
       "phone": "202-225-3931",
       "bills": [
@@ -100714,6 +101046,7 @@
       "termsServed": 3,
       "firstYearServed": "2021",
       "nextElection": "2026",
+      "birthday": "1978-07-30",
       "website": "https://nikemawilliams.house.gov",
       "phone": "202-225-3801",
       "bills": [
@@ -101019,6 +101352,7 @@
       "termsServed": 3,
       "firstYearServed": "2021",
       "nextElection": "2026",
+      "birthday": "1963-11-22",
       "website": "https://clyde.house.gov",
       "phone": "202-225-9893",
       "bills": [
@@ -101333,6 +101667,7 @@
       "termsServed": 3,
       "firstYearServed": "2021",
       "nextElection": "2026",
+      "birthday": "1983-06-27",
       "website": "https://hinson.house.gov",
       "phone": "202-225-2911",
       "bills": [
@@ -101657,6 +101992,7 @@
       "termsServed": 3,
       "firstYearServed": "2021",
       "nextElection": "2026",
+      "birthday": "1955-09-06",
       "website": "https://millermeeks.house.gov",
       "phone": "202-225-6576",
       "bills": [
@@ -101974,6 +102310,7 @@
       "termsServed": 3,
       "firstYearServed": "2021",
       "nextElection": "2026",
+      "birthday": "1969-01-14",
       "website": "https://feenstra.house.gov",
       "phone": "202-225-4426",
       "bills": [
@@ -102292,6 +102629,7 @@
       "termsServed": 3,
       "firstYearServed": "2021",
       "nextElection": "2026",
+      "birthday": "1959-08-27",
       "website": "https://marymiller.house.gov",
       "phone": "202-225-5271",
       "bills": [
@@ -102631,6 +102969,7 @@
       "termsServed": 3,
       "firstYearServed": "2021",
       "nextElection": "2026",
+      "birthday": "1969-04-16",
       "website": "https://mrvan.house.gov",
       "phone": "202-225-2461",
       "bills": [
@@ -102936,6 +103275,7 @@
       "termsServed": 3,
       "firstYearServed": "2021",
       "nextElection": "2026",
+      "birthday": "1978-10-06",
       "website": "https://spartz.house.gov",
       "phone": "202-225-2276",
       "bills": [
@@ -103249,6 +103589,7 @@
       "termsServed": 3,
       "firstYearServed": "2021",
       "nextElection": "2026",
+      "birthday": "1976-12-17",
       "website": "https://mann.house.gov",
       "phone": "202-225-2715",
       "bills": [
@@ -103574,6 +103915,7 @@
       "termsServed": 3,
       "firstYearServed": "2021",
       "nextElection": "2026",
+      "birthday": "1988-01-29",
       "website": "https://auchincloss.house.gov",
       "phone": "202-225-5931",
       "bills": [
@@ -103911,6 +104253,7 @@
       "termsServed": 3,
       "firstYearServed": "2021",
       "nextElection": "2026",
+      "birthday": "1966-04-07",
       "website": "https://mcclain.house.gov",
       "phone": "202-225-2106",
       "bills": [
@@ -104274,6 +104617,7 @@
       "termsServed": 3,
       "firstYearServed": "2021",
       "nextElection": "2026",
+      "birthday": "1965-11-03",
       "website": "https://fischbach.house.gov",
       "phone": "202-225-2165",
       "bills": [
@@ -104590,6 +104934,7 @@
       "termsServed": 3,
       "firstYearServed": "2021",
       "nextElection": "2026",
+      "birthday": "1963-06-20",
       "website": "https://ross.house.gov",
       "phone": "202-225-3032",
       "bills": [
@@ -104916,6 +105261,7 @@
       "termsServed": 3,
       "firstYearServed": "2021",
       "nextElection": "2026",
+      "birthday": "1959-07-01",
       "website": "https://fernandez.house.gov",
       "phone": "202-225-6190",
       "bills": [
@@ -105232,6 +105578,7 @@
       "termsServed": 3,
       "firstYearServed": "2021",
       "nextElection": "2026",
+      "birthday": "1984-09-27",
       "website": "https://garbarino.house.gov",
       "phone": "202-225-7896",
       "bills": [
@@ -105562,6 +105909,7 @@
       "termsServed": 3,
       "firstYearServed": "2021",
       "nextElection": "2026",
+      "birthday": "1980-11-11",
       "website": "https://malliotakis.house.gov",
       "phone": "202-225-3371",
       "bills": [
@@ -105892,6 +106240,7 @@
       "termsServed": 3,
       "firstYearServed": "2021",
       "nextElection": "2026",
+      "birthday": "1988-03-12",
       "website": "https://ritchietorres.house.gov",
       "phone": "202-225-4361",
       "bills": [
@@ -106218,6 +106567,7 @@
       "termsServed": 3,
       "firstYearServed": "2021",
       "nextElection": "2026",
+      "birthday": "1973-11-11",
       "website": "https://bice.house.gov",
       "phone": "202-225-2132",
       "bills": [
@@ -106535,6 +106885,7 @@
       "termsServed": 3,
       "firstYearServed": "2021",
       "nextElection": "2026",
+      "birthday": "1952-01-12",
       "website": "https://bentz.house.gov",
       "phone": "202-225-6730",
       "bills": [
@@ -106864,6 +107215,7 @@
       "termsServed": 3,
       "firstYearServed": "2021",
       "nextElection": "2026",
+      "birthday": "1977-12-04",
       "website": "https://mace.house.gov",
       "phone": "202-225-3176",
       "bills": [
@@ -107195,6 +107547,7 @@
       "termsServed": 3,
       "firstYearServed": "2021",
       "nextElection": "2026",
+      "birthday": "1960-01-01",
       "website": "https://harshbarger.house.gov",
       "phone": "202-225-6356",
       "bills": [
@@ -107552,6 +107905,7 @@
       "termsServed": 3,
       "firstYearServed": "2021",
       "nextElection": "2026",
+      "birthday": "1967-12-19",
       "website": "https://fallon.house.gov",
       "phone": "202-225-6673",
       "bills": [
@@ -107880,6 +108234,7 @@
       "termsServed": 3,
       "firstYearServed": "2021",
       "nextElection": "2026",
+      "birthday": "1978-12-28",
       "website": "https://pfluger.house.gov",
       "phone": "202-225-3605",
       "bills": [
@@ -108233,6 +108588,7 @@
       "termsServed": 3,
       "firstYearServed": "2021",
       "nextElection": "2026",
+      "birthday": "1967-05-04",
       "website": "https://jackson.house.gov",
       "phone": "202-225-3706",
       "bills": [
@@ -108575,6 +108931,7 @@
       "termsServed": 3,
       "firstYearServed": "2021",
       "nextElection": "2026",
+      "birthday": "1968-04-07",
       "website": "https://nehls.house.gov",
       "phone": "202-225-5951",
       "bills": [
@@ -108902,6 +109259,7 @@
       "termsServed": 3,
       "firstYearServed": "2021",
       "nextElection": "2026",
+      "birthday": "1970-11-16",
       "website": "https://vanduyne.house.gov",
       "phone": "202-225-6605",
       "bills": [
@@ -109221,6 +109579,7 @@
       "termsServed": 3,
       "firstYearServed": "2021",
       "nextElection": "2026",
+      "birthday": "1980-06-22",
       "website": "https://blakemoore.house.gov",
       "phone": "202-225-0453",
       "bills": [
@@ -109536,6 +109895,7 @@
       "termsServed": 3,
       "firstYearServed": "2021",
       "nextElection": "2026",
+      "birthday": "1951-08-02",
       "website": "https://owens.house.gov",
       "phone": "202-225-3011",
       "bills": [
@@ -109855,6 +110215,7 @@
       "termsServed": 3,
       "firstYearServed": "2021",
       "nextElection": "2026",
+      "birthday": "1962-09-25",
       "website": "https://strickland.house.gov",
       "phone": "202-225-9740",
       "bills": [
@@ -110172,6 +110533,7 @@
       "termsServed": 3,
       "firstYearServed": "2021",
       "nextElection": "2026",
+      "birthday": "1963-11-16",
       "website": "https://fitzgerald.house.gov",
       "phone": "202-225-5101",
       "bills": [
@@ -110489,6 +110851,7 @@
       "termsServed": 3,
       "firstYearServed": "2021",
       "nextElection": "2028",
+      "birthday": "1973-03-22",
       "website": "https://www.padilla.senate.gov",
       "phone": "202-224-3553",
       "bills": [
@@ -110759,6 +111122,7 @@
       "termsServed": 1,
       "firstYearServed": "2021",
       "nextElection": "2026",
+      "birthday": "1987-02-16",
       "website": "https://www.ossoff.senate.gov",
       "phone": "202-224-3521",
       "bills": [
@@ -110986,6 +111350,7 @@
       "termsServed": 2,
       "firstYearServed": "2021",
       "nextElection": "2028",
+      "birthday": "1969-07-23",
       "website": "https://www.warnock.senate.gov",
       "phone": "202-224-3643",
       "bills": [
@@ -111228,6 +111593,7 @@
       "termsServed": 4,
       "firstYearServed": "2017",
       "nextElection": "2026",
+      "birthday": "1961-02-04",
       "website": "https://tenney.house.gov",
       "phone": "202-225-3665",
       "bills": [
@@ -111556,6 +111922,7 @@
       "termsServed": 3,
       "firstYearServed": "2021",
       "nextElection": "2026",
+      "birthday": "1981-03-16",
       "website": "https://letlow.house.gov",
       "phone": "202-225-8490",
       "bills": [
@@ -111882,6 +112249,7 @@
       "termsServed": 3,
       "firstYearServed": "2021",
       "nextElection": "2026",
+      "birthday": "1963-10-26",
       "website": "https://troycarter.house.gov",
       "phone": "202-225-6636",
       "bills": [
@@ -112200,6 +112568,7 @@
       "termsServed": 3,
       "firstYearServed": "2021",
       "nextElection": "2026",
+      "birthday": "1979-01-31",
       "website": "https://stansbury.house.gov",
       "phone": "202-225-6316",
       "bills": [
@@ -112516,6 +112885,7 @@
       "termsServed": 3,
       "firstYearServed": "2021",
       "nextElection": "2026",
+      "birthday": "1970-01-24",
       "website": "https://ellzey.house.gov",
       "phone": "202-225-2002",
       "bills": [
@@ -112794,6 +113164,7 @@
       "termsServed": 3,
       "firstYearServed": "2021",
       "nextElection": "2026",
+      "birthday": "1975-06-24",
       "website": "https://shontelbrown.house.gov",
       "phone": "202-225-7032",
       "bills": [
@@ -113119,6 +113490,7 @@
       "termsServed": 3,
       "firstYearServed": "2021",
       "nextElection": "2026",
+      "birthday": "1971-03-13",
       "website": "https://carey.house.gov",
       "phone": "202-225-2015",
       "bills": [
@@ -113453,6 +113825,7 @@
       "termsServed": 3,
       "firstYearServed": "2022",
       "nextElection": "2026",
+      "birthday": "1975-02-23",
       "website": "https://flood.house.gov",
       "phone": "202-225-4806",
       "bills": [
@@ -113758,6 +114131,7 @@
       "termsServed": 3,
       "firstYearServed": "2022",
       "nextElection": "2026",
+      "birthday": "1976-05-30",
       "website": "https://finstad.house.gov",
       "phone": "202-225-2472",
       "bills": [
@@ -114089,6 +114463,7 @@
       "termsServed": 3,
       "firstYearServed": "2022",
       "nextElection": "2026",
+      "birthday": "1982-03-28",
       "website": "https://patryan.house.gov",
       "phone": "202-225-5614",
       "bills": [
@@ -114413,6 +114788,7 @@
       "termsServed": 3,
       "firstYearServed": "2022",
       "nextElection": "2026",
+      "birthday": "1984-02-24",
       "website": "https://yakym.house.gov",
       "phone": "202-225-3915",
       "bills": [
@@ -114750,6 +115126,7 @@
       "termsServed": 4,
       "firstYearServed": "2015",
       "nextElection": "2026",
+      "birthday": "1961-11-01",
       "website": "https://zinke.house.gov",
       "phone": "202-225-5628",
       "bills": [
@@ -115068,6 +115445,7 @@
       "termsServed": 1,
       "firstYearServed": "2023",
       "nextElection": "2028",
+      "birthday": "1982-02-02",
       "website": "https://www.britt.senate.gov",
       "phone": "202-224-5744",
       "bills": [
@@ -115323,6 +115701,7 @@
       "termsServed": 1,
       "firstYearServed": "2023",
       "nextElection": "2028",
+      "birthday": "1975-06-20",
       "website": "https://www.schmitt.senate.gov",
       "phone": "202-224-5721",
       "bills": [
@@ -115568,6 +115947,7 @@
       "termsServed": 1,
       "firstYearServed": "2023",
       "nextElection": "2028",
+      "birthday": "1969-08-15",
       "website": "https://www.fetterman.senate.gov",
       "phone": "202-224-4254",
       "bills": [
@@ -115807,6 +116187,7 @@
       "termsServed": 2,
       "firstYearServed": "2023",
       "nextElection": "2026",
+      "birthday": "1970-05-08",
       "website": "https://strong.house.gov",
       "phone": "202-225-4801",
       "bills": [
@@ -116125,6 +116506,7 @@
       "termsServed": 2,
       "firstYearServed": "2023",
       "nextElection": "2026",
+      "birthday": "1980-01-03",
       "website": "https://crane.house.gov",
       "phone": "202-225-3361",
       "bills": [
@@ -116442,6 +116824,7 @@
       "termsServed": 2,
       "firstYearServed": "2023",
       "nextElection": "2026",
+      "birthday": "1982-08-30",
       "website": "https://ciscomani.house.gov",
       "phone": "202-225-2542",
       "bills": [
@@ -116760,6 +117143,7 @@
       "termsServed": 2,
       "firstYearServed": "2023",
       "nextElection": "2026",
+      "birthday": "1985-01-30",
       "website": "https://kiley.house.gov",
       "phone": "202-225-2523",
       "bills": [
@@ -117083,6 +117467,7 @@
       "termsServed": 2,
       "firstYearServed": "2023",
       "nextElection": "2026",
+      "birthday": "1970-06-15",
       "website": "https://kevinmullin.house.gov",
       "phone": "202-225-3531",
       "bills": [
@@ -117389,6 +117774,7 @@
       "termsServed": 2,
       "firstYearServed": "2023",
       "nextElection": "2026",
+      "birthday": "1972-07-20",
       "website": "https://kamlager-dove.house.gov",
       "phone": "202-225-7084",
       "bills": [
@@ -117706,6 +118092,7 @@
       "termsServed": 2,
       "firstYearServed": "2023",
       "nextElection": "2026",
+      "birthday": "1977-12-02",
       "website": "https://robertgarcia.house.gov",
       "phone": "202-225-7924",
       "bills": [
@@ -118020,6 +118407,7 @@
       "termsServed": 2,
       "firstYearServed": "2023",
       "nextElection": "2026",
+      "birthday": "1981-12-06",
       "website": "https://pettersen.house.gov",
       "phone": "202-225-2645",
       "bills": [
@@ -118325,6 +118713,7 @@
       "termsServed": 2,
       "firstYearServed": "2023",
       "nextElection": "2026",
+      "birthday": "1967-01-25",
       "website": "https://bean.house.gov",
       "phone": "202-225-0123",
       "bills": [
@@ -118631,6 +119020,7 @@
       "termsServed": 2,
       "firstYearServed": "2023",
       "nextElection": "2026",
+      "birthday": "1980-07-30",
       "website": "https://mills.house.gov",
       "phone": "202-225-4035",
       "bills": [
@@ -118949,6 +119339,7 @@
       "termsServed": 2,
       "firstYearServed": "2023",
       "nextElection": "2026",
+      "birthday": "1997-01-17",
       "website": "https://frost.house.gov",
       "phone": "202-225-2176",
       "bills": [
@@ -119267,6 +119658,7 @@
       "termsServed": 2,
       "firstYearServed": "2023",
       "nextElection": "2026",
+      "birthday": "1989-05-06",
       "website": "https://luna.house.gov",
       "phone": "202-225-5961",
       "bills": [
@@ -119586,6 +119978,7 @@
       "termsServed": 2,
       "firstYearServed": "2023",
       "nextElection": "2026",
+      "birthday": "1974-03-26",
       "website": "https://laurellee.house.gov",
       "phone": "202-225-5626",
       "bills": [
@@ -119941,6 +120334,7 @@
       "termsServed": 2,
       "firstYearServed": "2023",
       "nextElection": "2026",
+      "birthday": "1980-12-18",
       "website": "https://moskowitz.house.gov",
       "phone": "202-225-3001",
       "bills": [
@@ -120318,6 +120712,7 @@
       "termsServed": 2,
       "firstYearServed": "2023",
       "nextElection": "2026",
+      "birthday": "1968-10-07",
       "website": "https://mccormick.house.gov",
       "phone": "202-225-4272",
       "bills": [
@@ -120646,6 +121041,7 @@
       "termsServed": 2,
       "firstYearServed": "2023",
       "nextElection": "2026",
+      "birthday": "1967-07-02",
       "website": "https://collins.house.gov",
       "phone": "202-225-4101",
       "bills": [
@@ -121025,6 +121421,7 @@
       "termsServed": 2,
       "firstYearServed": "2023",
       "nextElection": "2026",
+      "birthday": "1962-07-18",
       "website": "https://moylan.house.gov",
       "phone": "202-225-1188",
       "bills": [
@@ -121338,6 +121735,7 @@
       "termsServed": 2,
       "firstYearServed": "2023",
       "nextElection": "2026",
+      "birthday": "1976-03-28",
       "website": "https://tokuda.house.gov",
       "phone": "202-225-4906",
       "bills": [
@@ -121664,6 +122062,7 @@
       "termsServed": 2,
       "firstYearServed": "2023",
       "nextElection": "2026",
+      "birthday": "1979-05-04",
       "website": "https://nunn.house.gov",
       "phone": "202-225-5476",
       "bills": [
@@ -121991,6 +122390,7 @@
       "termsServed": 2,
       "firstYearServed": "2023",
       "nextElection": "2026",
+      "birthday": "1966-01-07",
       "website": "https://jonathanjackson.house.gov",
       "phone": "202-225-4372",
       "bills": [
@@ -122359,6 +122759,7 @@
       "termsServed": 2,
       "firstYearServed": "2023",
       "nextElection": "2026",
+      "birthday": "1983-06-02",
       "website": "https://ramirez.house.gov",
       "phone": "202-225-5701",
       "bills": [
@@ -122676,6 +123077,7 @@
       "termsServed": 2,
       "firstYearServed": "2023",
       "nextElection": "2026",
+      "birthday": "1977-03-11",
       "website": "https://budzinski.house.gov",
       "phone": "202-225-2371",
       "bills": [
@@ -122993,6 +123395,7 @@
       "termsServed": 2,
       "firstYearServed": "2023",
       "nextElection": "2026",
+      "birthday": "1976-03-18",
       "website": "https://sorensen.house.gov",
       "phone": "202-225-5905",
       "bills": [
@@ -123310,6 +123713,7 @@
       "termsServed": 2,
       "firstYearServed": "2023",
       "nextElection": "2026",
+      "birthday": "1976-09-24",
       "website": "https://houchin.house.gov",
       "phone": "202-225-5315",
       "bills": [
@@ -123636,6 +124040,7 @@
       "termsServed": 2,
       "firstYearServed": "2023",
       "nextElection": "2026",
+      "birthday": "1979-12-23",
       "website": "https://mcgarvey.house.gov",
       "phone": "202-225-5401",
       "bills": [
@@ -123962,6 +124367,7 @@
       "termsServed": 2,
       "firstYearServed": "2023",
       "nextElection": "2026",
+      "birthday": "1961-02-27",
       "website": "https://ivey.house.gov",
       "phone": "202-225-8699",
       "bills": [
@@ -124215,6 +124621,7 @@
       "termsServed": 2,
       "firstYearServed": "2023",
       "nextElection": "2026",
+      "birthday": "1982-02-22",
       "website": "https://scholten.house.gov",
       "phone": "202-225-3831",
       "bills": [
@@ -124534,6 +124941,7 @@
       "termsServed": 2,
       "firstYearServed": "2023",
       "nextElection": "2026",
+      "birthday": "1981-06-08",
       "website": "https://james.house.gov",
       "phone": "202-225-4961",
       "bills": [
@@ -124846,6 +125254,7 @@
       "termsServed": 2,
       "firstYearServed": "2023",
       "nextElection": "2026",
+      "birthday": "1955-02-22",
       "website": "https://thanedar.house.gov",
       "phone": "202-225-5802",
       "bills": [
@@ -125172,6 +125581,7 @@
       "termsServed": 2,
       "firstYearServed": "2023",
       "nextElection": "2026",
+      "birthday": "1963-10-04",
       "website": "https://alford.house.gov",
       "phone": "202-225-2876",
       "bills": [
@@ -125497,6 +125907,7 @@
       "termsServed": 2,
       "firstYearServed": "2023",
       "nextElection": "2026",
+      "birthday": "1976-10-02",
       "website": "https://burlison.house.gov",
       "phone": "202-225-6536",
       "bills": [
@@ -125816,6 +126227,7 @@
       "termsServed": 2,
       "firstYearServed": "2023",
       "nextElection": "2026",
+      "birthday": "1959-04-06",
       "website": "https://ezell.house.gov",
       "phone": "202-225-5772",
       "bills": [
@@ -126133,6 +126545,7 @@
       "termsServed": 2,
       "firstYearServed": "2023",
       "nextElection": "2026",
+      "birthday": "1971-08-29",
       "website": "https://dondavis.house.gov",
       "phone": "202-225-3101",
       "bills": [
@@ -126451,6 +126864,7 @@
       "termsServed": 2,
       "firstYearServed": "2023",
       "nextElection": "2026",
+      "birthday": "1956-05-07",
       "website": "https://foushee.house.gov",
       "phone": "202-225-1784",
       "bills": [
@@ -126768,6 +127182,7 @@
       "termsServed": 2,
       "firstYearServed": "2023",
       "nextElection": "2026",
+      "birthday": "1960-09-13",
       "website": "https://edwards.house.gov",
       "phone": "202-225-6401",
       "bills": [
@@ -127082,6 +127497,7 @@
       "termsServed": 2,
       "firstYearServed": "2023",
       "nextElection": "2026",
+      "birthday": "1968-09-05",
       "website": "https://kean.house.gov",
       "phone": "202-225-5361",
       "bills": [
@@ -127451,6 +127867,7 @@
       "termsServed": 2,
       "firstYearServed": "2023",
       "nextElection": "2026",
+      "birthday": "1985-07-12",
       "website": "https://menendez.house.gov",
       "phone": "202-225-7919",
       "bills": [
@@ -127757,6 +128174,7 @@
       "termsServed": 2,
       "firstYearServed": "2023",
       "nextElection": "2026",
+      "birthday": "1984-08-03",
       "website": "https://vasquez.house.gov",
       "phone": "202-225-2365",
       "bills": [
@@ -128074,6 +128492,7 @@
       "termsServed": 2,
       "firstYearServed": "2023",
       "nextElection": "2026",
+      "birthday": "1978-06-23",
       "website": "https://lalota.house.gov",
       "phone": "202-225-3826",
       "bills": [
@@ -128392,6 +128811,7 @@
       "termsServed": 2,
       "firstYearServed": "2023",
       "nextElection": "2026",
+      "birthday": "1976-02-26",
       "website": "https://goldman.house.gov",
       "phone": "202-225-7944",
       "bills": [
@@ -128714,6 +129134,7 @@
       "termsServed": 2,
       "firstYearServed": "2023",
       "nextElection": "2026",
+      "birthday": "1986-09-09",
       "website": "https://lawler.house.gov",
       "phone": "202-225-6506",
       "bills": [
@@ -129031,6 +129452,7 @@
       "termsServed": 2,
       "firstYearServed": "2023",
       "nextElection": "2026",
+      "birthday": "1981-02-27",
       "website": "https://langworthy.house.gov",
       "phone": "202-225-3161",
       "bills": [
@@ -129357,6 +129779,7 @@
       "termsServed": 2,
       "firstYearServed": "2023",
       "nextElection": "2026",
+      "birthday": "1976-12-04",
       "website": "https://landsman.house.gov",
       "phone": "202-225-2216",
       "bills": [
@@ -129684,6 +130107,7 @@
       "termsServed": 2,
       "firstYearServed": "2023",
       "nextElection": "2026",
+      "birthday": "1988-11-13",
       "website": "https://maxmiller.house.gov",
       "phone": "202-225-3876",
       "bills": [
@@ -130052,6 +130476,7 @@
       "termsServed": 2,
       "firstYearServed": "2023",
       "nextElection": "2026",
+      "birthday": "1986-01-04",
       "website": "https://sykes.house.gov",
       "phone": "202-225-6265",
       "bills": [
@@ -130369,6 +130794,7 @@
       "termsServed": 2,
       "firstYearServed": "2023",
       "nextElection": "2026",
+      "birthday": "1979-06-19",
       "website": "https://brecheen.house.gov",
       "phone": "202-225-2701",
       "bills": [
@@ -130683,6 +131109,7 @@
       "termsServed": 2,
       "firstYearServed": "2023",
       "nextElection": "2026",
+      "birthday": "1964-02-14",
       "website": "https://hoyle.house.gov",
       "phone": "202-225-6416",
       "bills": [
@@ -131017,6 +131444,7 @@
       "termsServed": 2,
       "firstYearServed": "2023",
       "nextElection": "2026",
+      "birthday": "1969-12-06",
       "website": "https://salinas.house.gov",
       "phone": "202-225-5643",
       "bills": [
@@ -131334,6 +131762,7 @@
       "termsServed": 2,
       "firstYearServed": "2023",
       "nextElection": "2026",
+      "birthday": "1987-11-26",
       "website": "https://summerlee.house.gov",
       "phone": "202-225-2135",
       "bills": [
@@ -131648,6 +132077,7 @@
       "termsServed": 2,
       "firstYearServed": "2023",
       "nextElection": "2026",
+      "birthday": "1984-07-13",
       "website": "https://deluzio.house.gov",
       "phone": "202-225-2301",
       "bills": [
@@ -131965,6 +132395,7 @@
       "termsServed": 2,
       "firstYearServed": "2023",
       "nextElection": "2026",
+      "birthday": "1983-07-22",
       "website": "https://magaziner.house.gov",
       "phone": "202-225-2735",
       "bills": [
@@ -132282,6 +132713,7 @@
       "termsServed": 2,
       "firstYearServed": "2023",
       "nextElection": "2026",
+      "birthday": "1985-01-31",
       "website": "https://fry.house.gov",
       "phone": "202-225-9895",
       "bills": [
@@ -132600,6 +133032,7 @@
       "termsServed": 2,
       "firstYearServed": "2023",
       "nextElection": "2026",
+      "birthday": "1971-06-18",
       "website": "https://ogles.house.gov",
       "phone": "202-225-4311",
       "bills": [
@@ -132919,6 +133352,7 @@
       "termsServed": 2,
       "firstYearServed": "2023",
       "nextElection": "2026",
+      "birthday": "1974-07-22",
       "website": "https://moran.house.gov",
       "phone": "202-225-3035",
       "bills": [
@@ -133243,6 +133677,7 @@
       "termsServed": 2,
       "firstYearServed": "2023",
       "nextElection": "2026",
+      "birthday": "1953-03-20",
       "website": "https://keithself.house.gov",
       "phone": "202-225-4201",
       "bills": [
@@ -133576,6 +134011,7 @@
       "termsServed": 2,
       "firstYearServed": "2023",
       "nextElection": "2026",
+      "birthday": "1975-11-07",
       "website": "https://luttrell.house.gov",
       "phone": "202-225-4901",
       "bills": [
@@ -133905,6 +134341,7 @@
       "termsServed": 2,
       "firstYearServed": "2023",
       "nextElection": "2026",
+      "birthday": "1974-11-11",
       "website": "https://delacruz.house.gov",
       "phone": "202-225-9901",
       "bills": [
@@ -134222,6 +134659,7 @@
       "termsServed": 2,
       "firstYearServed": "2023",
       "nextElection": "2026",
+      "birthday": "1981-03-29",
       "website": "https://crockett.house.gov",
       "phone": "202-225-8885",
       "bills": [
@@ -134547,6 +134985,7 @@
       "termsServed": 2,
       "firstYearServed": "2023",
       "nextElection": "2026",
+      "birthday": "1989-05-04",
       "website": "https://casar.house.gov",
       "phone": "202-225-5645",
       "bills": [
@@ -134864,6 +135303,7 @@
       "termsServed": 2,
       "firstYearServed": "2023",
       "nextElection": "2026",
+      "birthday": "1981-11-13",
       "website": "https://hunt.house.gov",
       "phone": "202-225-5646",
       "bills": [
@@ -135181,6 +135621,7 @@
       "termsServed": 2,
       "firstYearServed": "2023",
       "nextElection": "2026",
+      "birthday": "1971-06-18",
       "website": "https://kiggans.house.gov",
       "phone": "202-225-4215",
       "bills": [
@@ -135511,6 +135952,7 @@
       "termsServed": 2,
       "firstYearServed": "2023",
       "nextElection": "2026",
+      "birthday": "1968-05-04",
       "website": "https://balint.house.gov",
       "phone": "202-225-4115",
       "bills": [
@@ -135825,6 +136267,7 @@
       "termsServed": 2,
       "firstYearServed": "2023",
       "nextElection": "2026",
+      "birthday": "1988-06-06",
       "website": "https://gluesenkampperez.house.gov",
       "phone": "202-225-3536",
       "bills": [
@@ -136130,6 +136573,7 @@
       "termsServed": 2,
       "firstYearServed": "2023",
       "nextElection": "2026",
+      "birthday": "1969-09-15",
       "website": "https://vanorden.house.gov",
       "phone": "202-225-5506",
       "bills": [
@@ -136459,6 +136903,7 @@
       "termsServed": 2,
       "firstYearServed": "2023",
       "nextElection": "2026",
+      "birthday": "1962-10-18",
       "website": "https://hageman.house.gov",
       "phone": "202-225-2311",
       "bills": [
@@ -136785,6 +137230,7 @@
       "termsServed": 2,
       "firstYearServed": "2023",
       "nextElection": "2026",
+      "birthday": "1964-08-19",
       "website": "https://www.ricketts.senate.gov",
       "phone": "202-224-4224",
       "bills": [
@@ -137027,6 +137473,7 @@
       "termsServed": 2,
       "firstYearServed": "2023",
       "nextElection": "2026",
+      "birthday": "1972-12-28",
       "website": "https://mcclellan.house.gov",
       "phone": "202-225-6365",
       "bills": [
@@ -137338,6 +137785,7 @@
       "termsServed": 2,
       "firstYearServed": "2023",
       "nextElection": "2026",
+      "birthday": "1987-12-11",
       "website": "https://amo.house.gov",
       "phone": "202-225-4911",
       "bills": [
@@ -137663,6 +138111,7 @@
       "termsServed": 2,
       "firstYearServed": "2023",
       "nextElection": "2026",
+      "birthday": "1981-05-22",
       "website": "https://maloy.house.gov",
       "phone": "202-225-9730",
       "bills": [
@@ -137981,6 +138430,7 @@
       "termsServed": 5,
       "firstYearServed": "2017",
       "nextElection": "2026",
+      "birthday": "1962-08-31",
       "website": "https://suozzi.house.gov",
       "phone": "202-225-3335",
       "bills": [
@@ -138327,6 +138777,7 @@
       "termsServed": 2,
       "firstYearServed": "2024",
       "nextElection": "2026",
+      "birthday": "1976-10-20",
       "website": "https://kennedy.house.gov",
       "phone": "202-225-3306",
       "bills": [
@@ -138644,6 +139095,7 @@
       "termsServed": 2,
       "firstYearServed": "2024",
       "nextElection": "2026",
+      "birthday": "1979-10-24",
       "website": "https://fong.house.gov",
       "phone": "202-225-2915",
       "bills": [
@@ -138973,6 +139425,7 @@
       "termsServed": 2,
       "firstYearServed": "2024",
       "nextElection": "2026",
+      "birthday": "1969-03-11",
       "website": "https://rulli.house.gov",
       "phone": "202-225-5705",
       "bills": [
@@ -139302,6 +139755,7 @@
       "termsServed": 2,
       "firstYearServed": "2024",
       "nextElection": "2026",
+      "birthday": "1986-06-20",
       "website": "https://mciver.house.gov",
       "phone": "202-225-3436",
       "bills": [
@@ -139620,6 +140074,7 @@
       "termsServed": 2,
       "firstYearServed": "2024",
       "nextElection": "2026",
+      "birthday": "1976-05-03",
       "website": "https://wied.house.gov",
       "phone": "202-225-5665",
       "bills": [
@@ -140003,6 +140458,7 @@
       "termsServed": 3,
       "firstYearServed": "1993",
       "nextElection": "2026",
+      "birthday": "1962-11-22",
       "website": "https://fields.house.gov",
       "phone": "202-225-3901",
       "bills": [
@@ -140360,6 +140816,7 @@
       "termsServed": 5,
       "firstYearServed": "2010",
       "nextElection": "2026",
+      "birthday": "1976-08-31",
       "website": "https://stutzman.house.gov",
       "phone": "202-225-4436",
       "bills": [
@@ -140674,6 +141131,7 @@
       "termsServed": 2,
       "firstYearServed": "2019",
       "nextElection": "2026",
+      "birthday": "1971-02-12",
       "website": "https://cisneros.house.gov",
       "phone": "202-225-5256",
       "bills": [
@@ -141042,6 +141500,7 @@
       "termsServed": 1,
       "firstYearServed": "2025",
       "nextElection": "2030",
+      "birthday": "1971-02-23",
       "website": "https://www.alsobrooks.senate.gov",
       "phone": "202-224-4524",
       "bills": [
@@ -141282,6 +141741,7 @@
       "termsServed": 1,
       "firstYearServed": "2025",
       "nextElection": "2030",
+      "birthday": "1985-11-18",
       "website": "https://www.sheehy.senate.gov",
       "phone": "202-224-2644",
       "bills": [
@@ -141511,6 +141971,7 @@
       "termsServed": 1,
       "firstYearServed": "2025",
       "nextElection": "2030",
+      "birthday": "1967-02-14",
       "website": "https://www.moreno.senate.gov",
       "phone": "202-224-2315",
       "bills": [
@@ -141762,6 +142223,7 @@
       "termsServed": 1,
       "firstYearServed": "2025",
       "nextElection": "2030",
+      "birthday": "1965-08-17",
       "website": "https://www.mccormick.senate.gov",
       "phone": "202-224-6324",
       "bills": [
@@ -142012,6 +142474,7 @@
       "termsServed": 1,
       "firstYearServed": "2025",
       "nextElection": "2026",
+      "birthday": "1977-10-21",
       "website": "https://begich.house.gov",
       "phone": "202-225-5765",
       "bills": [
@@ -142354,6 +142817,7 @@
       "termsServed": 1,
       "firstYearServed": "2025",
       "nextElection": "2026",
+      "birthday": "1985-09-03",
       "website": "https://figures.house.gov",
       "phone": "202-225-4931",
       "bills": [
@@ -142672,6 +143136,7 @@
       "termsServed": 1,
       "firstYearServed": "2025",
       "nextElection": "2026",
+      "birthday": "1992-04-07",
       "website": "https://ansari.house.gov",
       "phone": "202-225-4065",
       "bills": [
@@ -142990,6 +143455,7 @@
       "termsServed": 1,
       "firstYearServed": "2025",
       "nextElection": "2026",
+      "birthday": "1991-05-15",
       "website": "https://hamadeh.house.gov",
       "phone": "202-225-4576",
       "bills": [
@@ -143308,6 +143774,7 @@
       "termsServed": 1,
       "firstYearServed": "2025",
       "nextElection": "2026",
+      "birthday": "1977-01-29",
       "website": "https://simon.house.gov",
       "phone": "202-225-2661",
       "bills": [
@@ -143586,6 +144053,7 @@
       "termsServed": 1,
       "firstYearServed": "2025",
       "nextElection": "2026",
+      "birthday": "1977-09-23",
       "website": "https://gray.house.gov",
       "phone": "202-225-1947",
       "bills": [
@@ -143833,6 +144301,7 @@
       "termsServed": 1,
       "firstYearServed": "2025",
       "nextElection": "2026",
+      "birthday": "1970-04-16",
       "website": "https://liccardo.house.gov",
       "phone": "202-225-8104",
       "bills": [
@@ -144145,6 +144614,7 @@
       "termsServed": 1,
       "firstYearServed": "2025",
       "nextElection": "2026",
+      "birthday": "1974-03-03",
       "website": "https://whitesides.house.gov",
       "phone": "202-225-1956",
       "bills": [
@@ -144473,6 +144943,7 @@
       "termsServed": 1,
       "firstYearServed": "2025",
       "nextElection": "2026",
+      "birthday": "1974-02-06",
       "website": "https://rivas.house.gov",
       "phone": "202-225-6131",
       "bills": [
@@ -144790,6 +145261,7 @@
       "termsServed": 1,
       "firstYearServed": "2025",
       "nextElection": "2026",
+      "birthday": "1966-12-03",
       "website": "https://friedman.house.gov",
       "phone": "202-225-4176",
       "bills": [
@@ -145089,6 +145561,7 @@
       "termsServed": 1,
       "firstYearServed": "2025",
       "nextElection": "2026",
+      "birthday": "1980-12-22",
       "website": "https://tran.house.gov",
       "phone": "202-225-2415",
       "bills": [
@@ -145412,6 +145885,7 @@
       "termsServed": 1,
       "firstYearServed": "2025",
       "nextElection": "2026",
+      "birthday": "1976-03-05",
       "website": "https://min.house.gov",
       "phone": "202-225-5611",
       "bills": [
@@ -145743,6 +146217,7 @@
       "termsServed": 1,
       "firstYearServed": "2025",
       "nextElection": "2026",
+      "birthday": "1979-08-15",
       "website": "https://hurd.house.gov",
       "phone": "202-225-4676",
       "bills": [
@@ -146073,6 +146548,7 @@
       "termsServed": 1,
       "firstYearServed": "2025",
       "nextElection": "2026",
+      "birthday": "1967-01-28",
       "website": "https://crank.house.gov",
       "phone": "202-225-4422",
       "bills": [
@@ -146351,6 +146827,7 @@
       "termsServed": 1,
       "firstYearServed": "2025",
       "nextElection": "2026",
+      "birthday": "1986-07-28",
       "website": "https://gabeevans.house.gov",
       "phone": "202-225-5625",
       "bills": [
@@ -146669,6 +147146,7 @@
       "termsServed": 1,
       "firstYearServed": "2025",
       "nextElection": "2026",
+      "birthday": "1990-08-09",
       "website": "https://mcbride.house.gov",
       "phone": "202-225-4165",
       "bills": [
@@ -146935,6 +147413,7 @@
       "termsServed": 1,
       "firstYearServed": "2025",
       "nextElection": "2026",
+      "birthday": "1970-03-15",
       "website": "https://haridopolos.house.gov",
       "phone": "202-225-3671",
       "bills": [
@@ -147152,6 +147631,7 @@
       "termsServed": 1,
       "firstYearServed": "2025",
       "nextElection": "2026",
+      "birthday": "1988-02-17",
       "website": "https://jack.house.gov",
       "phone": "202-225-5901",
       "bills": [
@@ -147421,6 +147901,7 @@
       "termsServed": 1,
       "firstYearServed": "2025",
       "nextElection": "2026",
+      "birthday": "1965-09-24",
       "website": "https://shreve.house.gov",
       "phone": "202-225-3021",
       "bills": [
@@ -147778,6 +148259,7 @@
       "termsServed": 1,
       "firstYearServed": "2025",
       "nextElection": "2026",
+      "birthday": "1967-12-16",
       "website": "https://messmer.house.gov",
       "phone": "202-225-4636",
       "bills": [
@@ -148108,6 +148590,7 @@
       "termsServed": 1,
       "firstYearServed": "2025",
       "nextElection": "2026",
+      "birthday": "1968-01-23",
       "website": "https://schmidt.house.gov",
       "phone": "202-225-6601",
       "bills": [
@@ -148439,6 +148922,7 @@
       "termsServed": 1,
       "firstYearServed": "2025",
       "nextElection": "2026",
+      "birthday": "1982-09-10",
       "website": "https://olszewski.house.gov",
       "phone": "202-225-3061",
       "bills": [
@@ -148756,6 +149240,7 @@
       "termsServed": 1,
       "firstYearServed": "2025",
       "nextElection": "2026",
+      "birthday": "1988-09-09",
       "website": "https://elfreth.house.gov",
       "phone": "202-225-4016",
       "bills": [
@@ -149073,6 +149558,7 @@
       "termsServed": 1,
       "firstYearServed": "2025",
       "nextElection": "2026",
+      "birthday": "1964-05-28",
       "website": "https://mcclaindelaney.house.gov",
       "phone": "202-225-2721",
       "bills": [
@@ -149440,6 +149926,7 @@
       "termsServed": 1,
       "firstYearServed": "2025",
       "nextElection": "2026",
+      "birthday": "1981-04-30",
       "website": "https://barrett.house.gov",
       "phone": "202-225-4872",
       "bills": [
@@ -149758,6 +150245,7 @@
       "termsServed": 1,
       "firstYearServed": "2025",
       "nextElection": "2026",
+      "birthday": "1970-07-11",
       "website": "https://mcdonaldrivet.house.gov",
       "phone": "202-225-3611",
       "bills": [
@@ -150075,6 +150563,7 @@
       "termsServed": 1,
       "firstYearServed": "2025",
       "nextElection": "2026",
+      "birthday": "1969-02-02",
       "website": "https://morrison.house.gov",
       "phone": "202-225-2871",
       "bills": [
@@ -150443,6 +150932,7 @@
       "termsServed": 1,
       "firstYearServed": "2025",
       "nextElection": "2026",
+      "birthday": "1974-11-05",
       "website": "https://bell.house.gov",
       "phone": "202-225-2406",
       "bills": [
@@ -150769,6 +151259,7 @@
       "termsServed": 1,
       "firstYearServed": "2025",
       "nextElection": "2026",
+      "birthday": "1962-01-06",
       "website": "https://onder.house.gov",
       "phone": "202-225-2956",
       "bills": [
@@ -151100,6 +151591,7 @@
       "termsServed": 1,
       "firstYearServed": "2025",
       "nextElection": "2026",
+      "birthday": "1975-04-10",
       "website": "https://king-hinds.house.gov",
       "phone": "202-225-2646",
       "bills": [
@@ -151414,6 +151906,7 @@
       "termsServed": 1,
       "firstYearServed": "2025",
       "nextElection": "2026",
+      "birthday": "1967-03-04",
       "website": "https://downing.house.gov",
       "phone": "202-225-3211",
       "bills": [
@@ -151732,6 +152225,7 @@
       "termsServed": 1,
       "firstYearServed": "2025",
       "nextElection": "2026",
+      "birthday": "1994-01-21",
       "website": "https://mcdowell.house.gov",
       "phone": "202-225-3065",
       "bills": [
@@ -152070,6 +152564,7 @@
       "termsServed": 1,
       "firstYearServed": "2025",
       "nextElection": "2026",
+      "birthday": "1966-04-24",
       "website": "https://markharris.house.gov",
       "phone": "202-225-1976",
       "bills": [
@@ -152400,6 +152895,7 @@
       "termsServed": 1,
       "firstYearServed": "2025",
       "nextElection": "2026",
+      "birthday": "1987-06-21",
       "website": "https://harrigan.house.gov",
       "phone": "202-225-2576",
       "bills": [
@@ -152718,6 +153214,7 @@
       "termsServed": 1,
       "firstYearServed": "2025",
       "nextElection": "2026",
+      "birthday": "1986-04-17",
       "website": "https://knott.house.gov",
       "phone": "202-225-4531",
       "bills": [
@@ -152973,6 +153470,7 @@
       "termsServed": 1,
       "firstYearServed": "2025",
       "nextElection": "2026",
+      "birthday": "1970-10-02",
       "website": "https://timmoore.house.gov",
       "phone": "202-225-5634",
       "bills": [
@@ -153339,6 +153837,7 @@
       "termsServed": 1,
       "firstYearServed": "2025",
       "nextElection": "2026",
+      "birthday": "1968-09-28",
       "website": "https://fedorchak.house.gov",
       "phone": "202-225-2611",
       "bills": [
@@ -153645,6 +154144,7 @@
       "termsServed": 1,
       "firstYearServed": "2025",
       "nextElection": "2026",
+      "birthday": "1986-11-04",
       "website": "https://goodlander.house.gov",
       "phone": "202-225-5206",
       "bills": [
@@ -153955,6 +154455,7 @@
       "termsServed": 1,
       "firstYearServed": "2025",
       "nextElection": "2026",
+      "birthday": "1963-01-30",
       "website": "https://conaway.house.gov",
       "phone": "202-225-4765",
       "bills": [
@@ -154272,6 +154773,7 @@
       "termsServed": 1,
       "firstYearServed": "2025",
       "nextElection": "2026",
+      "birthday": "1956-05-20",
       "website": "https://pou.house.gov",
       "phone": "202-225-5751",
       "bills": [
@@ -154569,6 +155071,7 @@
       "termsServed": 1,
       "firstYearServed": "2025",
       "nextElection": "2026",
+      "birthday": "1969-07-10",
       "website": "https://gillen.house.gov",
       "phone": "202-225-5516",
       "bills": [
@@ -154876,6 +155379,7 @@
       "termsServed": 1,
       "firstYearServed": "2025",
       "nextElection": "2026",
+      "birthday": "1953-11-22",
       "website": "https://latimer.house.gov",
       "phone": "202-225-2464",
       "bills": [
@@ -155133,6 +155637,7 @@
       "termsServed": 1,
       "firstYearServed": "2025",
       "nextElection": "2026",
+      "birthday": "1981-01-21",
       "website": "https://riley.house.gov",
       "phone": "202-225-5441",
       "bills": [
@@ -155449,6 +155954,7 @@
       "termsServed": 1,
       "firstYearServed": "2025",
       "nextElection": "2026",
+      "birthday": "1968-07-08",
       "website": "https://mannion.house.gov",
       "phone": "202-225-3701",
       "bills": [
@@ -155706,6 +156212,7 @@
       "termsServed": 1,
       "firstYearServed": "2025",
       "nextElection": "2026",
+      "birthday": "1969-11-16",
       "website": "https://taylor.house.gov",
       "phone": "202-225-3164",
       "bills": [
@@ -156075,6 +156582,7 @@
       "termsServed": 1,
       "firstYearServed": "2025",
       "nextElection": "2026",
+      "birthday": "1972-12-05",
       "website": "https://dexter.house.gov",
       "phone": "202-225-4811",
       "bills": [
@@ -156392,6 +156900,7 @@
       "termsServed": 1,
       "firstYearServed": "2025",
       "nextElection": "2026",
+      "birthday": "1975-01-31",
       "website": "https://bynum.house.gov",
       "phone": "202-225-5711",
       "bills": [
@@ -156697,6 +157206,7 @@
       "termsServed": 1,
       "firstYearServed": "2025",
       "nextElection": "2026",
+      "birthday": "1982-08-03",
       "website": "https://mackenzie.house.gov",
       "phone": "202-225-6411",
       "bills": [
@@ -157027,6 +157537,7 @@
       "termsServed": 1,
       "firstYearServed": "2025",
       "nextElection": "2026",
+      "birthday": "1990-04-22",
       "website": "https://bresnahan.house.gov",
       "phone": "202-225-5546",
       "bills": [
@@ -157408,6 +157919,7 @@
       "termsServed": 1,
       "firstYearServed": "2025",
       "nextElection": "2026",
+      "birthday": "1991-05-11",
       "website": "https://hernandez.house.gov",
       "phone": "202-225-2615",
       "bills": [
@@ -157709,6 +158221,7 @@
       "termsServed": 1,
       "firstYearServed": "2025",
       "nextElection": "2026",
+      "birthday": "1970-03-28",
       "website": "https://sheribiggs.house.gov",
       "phone": "202-225-5301",
       "bills": [
@@ -158089,6 +158602,7 @@
       "termsServed": 1,
       "firstYearServed": "2025",
       "nextElection": "2026",
+      "birthday": "1968-10-03",
       "website": "https://craiggoldman.house.gov",
       "phone": "202-225-5071",
       "bills": [
@@ -158395,6 +158909,7 @@
       "termsServed": 1,
       "firstYearServed": "2025",
       "nextElection": "2026",
+      "birthday": "1994-02-26",
       "website": "https://gill.house.gov",
       "phone": "202-225-7772",
       "bills": [
@@ -158744,6 +159259,7 @@
       "termsServed": 1,
       "firstYearServed": "2025",
       "nextElection": "2026",
+      "birthday": "1966-05-02",
       "website": "https://juliejohnson.house.gov",
       "phone": "202-225-2231",
       "bills": [
@@ -159132,6 +159648,7 @@
       "termsServed": 1,
       "firstYearServed": "2025",
       "nextElection": "2026",
+      "birthday": "1969-02-02",
       "website": "https://mikekennedy.house.gov",
       "phone": "202-225-7751",
       "bills": [
@@ -159468,6 +159985,7 @@
       "termsServed": 1,
       "firstYearServed": "2025",
       "nextElection": "2026",
+      "birthday": "1968-08-24",
       "website": "https://mcguire.house.gov",
       "phone": "202-225-4711",
       "bills": [
@@ -159816,6 +160334,7 @@
       "termsServed": 1,
       "firstYearServed": "2025",
       "nextElection": "2026",
+      "birthday": "1975-06-06",
       "website": "https://vindman.house.gov",
       "phone": "202-225-2815",
       "bills": [
@@ -160133,6 +160652,7 @@
       "termsServed": 1,
       "firstYearServed": "2025",
       "nextElection": "2026",
+      "birthday": "1986-09-26",
       "website": "https://subramanyam.house.gov",
       "phone": "202-225-5136",
       "bills": [
@@ -160460,6 +160980,7 @@
       "termsServed": 1,
       "firstYearServed": "2025",
       "nextElection": "2026",
+      "birthday": "1975-12-13",
       "website": "https://baumgartner.house.gov",
       "phone": "202-225-2006",
       "bills": [
@@ -160789,6 +161310,7 @@
       "termsServed": 1,
       "firstYearServed": "2025",
       "nextElection": "2026",
+      "birthday": "1985-10-30",
       "website": "https://randall.house.gov",
       "phone": "202-225-5916",
       "bills": [
@@ -161092,6 +161614,7 @@
       "termsServed": 1,
       "firstYearServed": "2025",
       "nextElection": "2026",
+      "birthday": "1980-07-01",
       "website": "https://rileymoore.house.gov",
       "phone": "202-225-2711",
       "bills": [
@@ -161398,6 +161921,7 @@
       "termsServed": 1,
       "firstYearServed": "2025",
       "nextElection": "2030",
+      "birthday": "1951-04-27",
       "website": "https://www.justice.senate.gov",
       "phone": "202-224-3954",
       "bills": [
@@ -161636,6 +162160,7 @@
       "termsServed": 1,
       "firstYearServed": "2025",
       "nextElection": "2025",
+      "birthday": "1967-08-25",
       "website": "https://www.husted.senate.gov",
       "phone": "202-224-3353",
       "bills": [
@@ -161890,6 +162415,7 @@
       "termsServed": 1,
       "firstYearServed": "2025",
       "nextElection": "2025",
+      "birthday": "1975-03-28",
       "website": "https://www.moody.senate.gov",
       "phone": "202-224-3041",
       "bills": [
@@ -162153,6 +162679,7 @@
       "termsServed": 1,
       "firstYearServed": "2025",
       "nextElection": "2026",
+      "birthday": "1972-04-13",
       "website": "https://patronis.house.gov",
       "phone": "202-225-4136",
       "bills": [
@@ -162472,6 +162999,7 @@
       "termsServed": 1,
       "firstYearServed": "2025",
       "nextElection": "2026",
+      "birthday": "1974-04-20",
       "website": "https://fine.house.gov",
       "phone": "202-225-2706",
       "bills": [
@@ -162796,6 +163324,7 @@
       "termsServed": 1,
       "firstYearServed": "2025",
       "nextElection": "2026",
+      "birthday": "1982-10-22",
       "website": "https://walkinshaw.house.gov",
       "phone": "202-225-1492",
       "bills": [
@@ -163124,6 +163653,7 @@
       "termsServed": 1,
       "firstYearServed": "2025",
       "nextElection": "2026",
+      "birthday": "1970-10-30",
       "website": "https://grijalva.house.gov",
       "phone": "202-225-2435",
       "bills": [
@@ -163401,6 +163931,7 @@
       "termsServed": 1,
       "firstYearServed": "2025",
       "nextElection": "2026",
+      "birthday": "1983-03-29",
       "website": "https://vanepps.house.gov",
       "phone": "202-225-2811",
       "bills": [
@@ -163643,6 +164174,7 @@
       "termsServed": 1,
       "firstYearServed": "2026",
       "nextElection": "2026",
+      "birthday": "1988-04-18",
       "website": "https://menefee.house.gov",
       "phone": "202-225-3816",
       "bills": [
@@ -163855,6 +164387,7 @@
       "termsServed": 1,
       "firstYearServed": "2026",
       "nextElection": "2026",
+      "birthday": "1962-07-11",
       "website": "https://www.armstrong.senate.gov",
       "phone": "202-224-4721",
       "bills": [
@@ -163929,6 +164462,7 @@
       "termsServed": 1,
       "firstYearServed": "2026",
       "nextElection": "2026",
+      "birthday": "1981-04-09",
       "website": "https://fuller.house.gov",
       "phone": "202-225-5211",
       "bills": [
@@ -164254,6 +164788,7 @@
       "termsServed": 1,
       "firstYearServed": "2026",
       "nextElection": "2026",
+      "birthday": "1977-08-19",
       "website": "https://mejia.house.gov",
       "phone": "202-225-5034",
       "bills": [],
@@ -164422,6 +164957,7 @@
       "termsServed": 1,
       "firstYearServed": "2026",
       "nextElection": "2026",
+      "birthday": "1981-03-07",
       "website": null,
       "phone": "202-225-3076",
       "bills": [
@@ -164652,6 +165188,7 @@
       "termsServed": 1,
       "firstYearServed": "2026",
       "nextElection": "2026",
+      "birthday": "1964-06-12",
       "website": "https://www.dgraham.senate.gov",
       "phone": "202-224-5972",
       "bills": [
