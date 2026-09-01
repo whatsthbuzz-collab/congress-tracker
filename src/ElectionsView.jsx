@@ -15,12 +15,27 @@ function Initials({ name, party, size = 'lg' }) {
   return <div className={`member-photo ph-${size} ph-fallback ${partyClass(party)}`}>{initials}</div>;
 }
 
+function CandidatePhoto({ c }) {
+  const [failed, setFailed] = useState(false);
+  if (!c.photo?.url || failed) return <Initials name={c.name} party={c.party} />;
+  return (
+    <img
+      className={`member-photo ph-lg ${partyClass(c.party)}`}
+      src={c.photo.url}
+      alt={`Portrait of ${c.name}`}
+      title={`Photo: ${c.photo.credit}`}
+      loading="lazy"
+      onError={() => setFailed(true)}
+    />
+  );
+}
+
 function CandidateCard({ c, onOpenState }) {
   const f = c.finance || {};
   return (
     <div className={`compare2-card ${partyClass(c.party)}`}>
       <div className="mcard-head">
-        <Initials name={c.name} party={c.party} />
+        <CandidatePhoto c={c} />
         <div className="mcard-ident">
           <span className="mcard-name">{c.name}</span>
           <span className="mcard-seat">{c.currentOffice}</span>
@@ -149,7 +164,7 @@ export default function ElectionsView({ onOpenStateProfile }) {
   if (!payload || !race) return <div className="ct-status">Loading race data...</div>;
 
   return (
-    <>
+    <div className="elections-view">
       <div className="hero">
         <header className="masthead">
           <p className="masthead-eyebrow">Upcoming Race &middot; Preview</p>
@@ -183,11 +198,22 @@ export default function ElectionsView({ onOpenStateProfile }) {
 
       <footer className="colophon">
         <p>Candidate finance: <a href="https://www.fec.gov" target="_blank" rel="noopener noreferrer">FEC</a> · Background: Ballotpedia (linked per candidate) · Updated daily</p>
+        {race.candidates.some((c) => c.photo) && (
+          <p className="colophon-note">
+            Photos:{' '}
+            {race.candidates.filter((c) => c.photo).map((c, i, arr) => (
+              <span key={c.fecId}>
+                {c.name} — <a href={c.photo.sourceUrl} target="_blank" rel="noopener noreferrer">{c.photo.credit}</a>
+                {i < arr.length - 1 ? ' · ' : ''}
+              </span>
+            ))}
+          </p>
+        )}
         <p className="colophon-note">
           This page is a preview build being tested with a small group before wider release.
           It shows facts only: no ratings, scores, or endorsements of any candidate.
         </p>
       </footer>
-    </>
+    </div>
   );
 }
