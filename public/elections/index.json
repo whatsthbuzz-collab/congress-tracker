@@ -1,5 +1,5 @@
 {
- "lastUpdated": "2026-09-02T02:13:39.598442+00:00",
+ "lastUpdated": "2026-09-02T02:57:51.532437+00:00",
  "races": [
   {
    "id": "tx-sen-2026",
@@ -45,6 +45,54 @@
     },
     {
      "name": "Mike Rogers",
+     "party": "Republican"
+    }
+   ]
+  },
+  {
+   "id": "nc-sen-2026",
+   "office": "U.S. Senate",
+   "state": "North Carolina",
+   "electionDate": "2026-11-03",
+   "candidates": [
+    {
+     "name": "Roy Cooper",
+     "party": "Democratic"
+    },
+    {
+     "name": "Michael Whatley",
+     "party": "Republican"
+    }
+   ]
+  },
+  {
+   "id": "me-sen-2026",
+   "office": "U.S. Senate",
+   "state": "Maine",
+   "electionDate": "2026-11-03",
+   "candidates": [
+    {
+     "name": "Troy Jackson",
+     "party": "Democratic"
+    },
+    {
+     "name": "Susan Collins",
+     "party": "Republican"
+    }
+   ]
+  },
+  {
+   "id": "sc-sen-2026",
+   "office": "U.S. Senate",
+   "state": "South Carolina",
+   "electionDate": "2026-11-03",
+   "candidates": [
+    {
+     "name": "Annie Andrews",
+     "party": "Democratic"
+    },
+    {
+     "name": "Darline Graham",
      "party": "Republican"
     }
    ]

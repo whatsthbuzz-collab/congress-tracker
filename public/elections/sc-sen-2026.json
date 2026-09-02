@@ -1,0 +1,90 @@
+{
+ "id": "sc-sen-2026",
+ "office": "U.S. Senate",
+ "state": "South Carolina",
+ "stateCode": "SC",
+ "electionDate": "2026-11-03",
+ "seatNote": "Sen. Lindsey Graham (R) died July 11. Gov. Henry McMaster appointed Darline Graham, his sister, to the seat; she won the Aug. 25 special primary runoff to seek a full term.",
+ "sourceUrl": "https://en.wikipedia.org/wiki/2026_United_States_Senate_election_in_South_Carolina",
+ "candidates": [
+  {
+   "name": "Annie Andrews",
+   "party": "Democratic",
+   "fecId": "S6SC04239",
+   "committees": [
+    "C00906024"
+   ],
+   "currentOffice": "Pediatrician",
+   "stateProfile": null,
+   "background": "Pediatrician who spent 15 years on the faculty of the Medical University of South Carolina; Democratic nominee for a U.S. House seat in 2022.",
+   "backgroundSourceUrl": "https://ballotpedia.org/Annie_Andrews",
+   "facts": [
+    {
+     "label": "Born",
+     "value": "Paducah, Kentucky"
+    },
+    {
+     "label": "Profession",
+     "value": "Pediatrician"
+    }
+   ],
+   "campaignSiteUrl": "https://drannieandrews.com/platform/",
+   "incumbent": false,
+   "financeUrl": "https://www.fec.gov/data/candidate/S6SC04239/",
+   "finance": {
+    "available": true,
+    "cycle": 2026,
+    "totalRaised": 10804040,
+    "fromPacs": 104955,
+    "fromIndividuals": 10677210,
+    "pacPct": 1,
+    "individualPct": 99,
+    "cashOnHand": 4119295,
+    "source": "OpenFEC API"
+   },
+   "topPacDonors": [
+    {
+     "name": "PURPOSE PAC",
+     "amount": 5000,
+     "committeeId": "C00497131",
+     "fecUrl": "https://www.fec.gov/data/committee/C00497131/",
+     "kind": "leadership PAC"
+    },
+    {
+     "name": "LIFTOFF PAC",
+     "amount": 5000,
+     "committeeId": "C00785816",
+     "fecUrl": "https://www.fec.gov/data/committee/C00785816/",
+     "kind": "leadership PAC"
+    }
+   ]
+  },
+  {
+   "name": "Darline Graham",
+   "party": "Republican",
+   "fecId": "",
+   "committees": [],
+   "currentOffice": "U.S. Senator, South Carolina (appointed)",
+   "stateProfile": null,
+   "background": "Appointed to the Senate in July 2026 to fill the seat of her late brother, Sen. Lindsey Graham; her first elected office. Won the Aug. 25 special Republican primary runoff.",
+   "backgroundSourceUrl": "https://ballotpedia.org/Darline_Graham",
+   "facts": [
+    {
+     "label": "Profession",
+     "value": "Public administrator"
+    },
+    {
+     "label": "Current office pay",
+     "value": "$174,000/yr"
+    }
+   ],
+   "campaignSiteUrl": "https://www.darlinegraham.com/#record",
+   "incumbent": true,
+   "financeUrl": null,
+   "finance": {
+    "available": false
+   },
+   "topPacDonors": []
+  }
+ ]
+}

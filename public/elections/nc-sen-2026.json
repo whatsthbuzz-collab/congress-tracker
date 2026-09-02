@@ -1,0 +1,114 @@
+{
+ "id": "nc-sen-2026",
+ "office": "U.S. Senate",
+ "state": "North Carolina",
+ "stateCode": "NC",
+ "electionDate": "2026-11-03",
+ "seatNote": "Open seat \u2014 Sen. Thom Tillis (R) is not seeking a third term.",
+ "sourceUrl": "https://en.wikipedia.org/wiki/2026_United_States_Senate_election_in_North_Carolina",
+ "candidates": [
+  {
+   "name": "Roy Cooper",
+   "party": "Democratic",
+   "fecId": "S6NC00407",
+   "committees": [
+    "C00913566"
+   ],
+   "currentOffice": "Former Governor of North Carolina",
+   "stateProfile": null,
+   "background": "Governor of North Carolina (2017-2025); state attorney general (2001-2017); previously a state legislator.",
+   "backgroundSourceUrl": "https://ballotpedia.org/Roy_Cooper",
+   "campaignSiteUrl": "https://roycooper.com/about/",
+   "facts": [
+    {
+     "label": "Born",
+     "value": "Nashville, North Carolina"
+    },
+    {
+     "label": "Bachelor's",
+     "value": "University of North Carolina at Chapel Hill"
+    },
+    {
+     "label": "Graduate",
+     "value": "J.D., University of North Carolina"
+    },
+    {
+     "label": "Profession",
+     "value": "Attorney"
+    }
+   ],
+   "incumbent": false,
+   "financeUrl": "https://www.fec.gov/data/candidate/S6NC00407/",
+   "finance": {
+    "available": true,
+    "cycle": 2026,
+    "totalRaised": 34975789,
+    "fromPacs": 820563,
+    "fromIndividuals": 13115398,
+    "pacPct": 6,
+    "individualPct": 94,
+    "cashOnHand": 20717567,
+    "source": "OpenFEC API"
+   },
+   "topPacDonors": [
+    {
+     "name": "BLACK ECONOMIC ALLIANCE PAC",
+     "amount": 5000,
+     "committeeId": "C00672576",
+     "fecUrl": "https://www.fec.gov/data/committee/C00672576/",
+     "kind": "PAC"
+    },
+    {
+     "name": "DEMOCRATIC WOMEN OF ALAMANCE COUNTY",
+     "amount": 100
+    }
+   ]
+  },
+  {
+   "name": "Michael Whatley",
+   "party": "Republican",
+   "fecId": "S6NC00415",
+   "committees": [
+    "C00913996",
+    "C00909416"
+   ],
+   "currentOffice": "Former RNC Chairman",
+   "stateProfile": null,
+   "background": "Chair of the Republican National Committee (2024-2025) and the North Carolina Republican Party (2019-2024); attorney; has not previously held elected office.",
+   "backgroundSourceUrl": "https://ballotpedia.org/Michael_Whatley",
+   "campaignSiteUrl": "https://michaelwhatley.com/issues/",
+   "facts": [
+    {
+     "label": "Born",
+     "value": "North Carolina"
+    },
+    {
+     "label": "Bachelor's",
+     "value": "UNC Charlotte"
+    },
+    {
+     "label": "Graduate",
+     "value": "M.A., Wake Forest; M.A. & J.D., Notre Dame"
+    },
+    {
+     "label": "Profession",
+     "value": "Attorney"
+    }
+   ],
+   "incumbent": false,
+   "financeUrl": "https://www.fec.gov/data/candidate/S6NC00415/",
+   "finance": {
+    "available": true,
+    "cycle": 2026,
+    "totalRaised": 11272504,
+    "fromPacs": 936330,
+    "fromIndividuals": 5465482,
+    "pacPct": 15,
+    "individualPct": 85,
+    "cashOnHand": 3461698,
+    "source": "OpenFEC API"
+   },
+   "topPacDonors": []
+  }
+ ]
+}

@@ -1,0 +1,134 @@
+{
+ "id": "me-sen-2026",
+ "office": "U.S. Senate",
+ "state": "Maine",
+ "stateCode": "ME",
+ "electionDate": "2026-11-03",
+ "seatNote": "Sen. Susan Collins (R) is seeking a sixth term. Primary winner Graham Platner withdrew in July; Maine Democrats nominated Troy Jackson at a special convention on July 25.",
+ "sourceUrl": "https://en.wikipedia.org/wiki/2026_United_States_Senate_election_in_Maine",
+ "candidates": [
+  {
+   "name": "Troy Jackson",
+   "party": "Democratic",
+   "fecId": "S6ME00464",
+   "committees": [
+    "C00955609"
+   ],
+   "currentOffice": "Former Maine Senate President",
+   "stateProfile": null,
+   "background": "Fifth-generation logger from northern Maine; served in the Maine Senate 2008-2014 and 2016-2024, as its president from 2018 to 2024; candidate for governor earlier in 2026.",
+   "backgroundSourceUrl": "https://ballotpedia.org/Troy_Jackson_(Maine)",
+   "campaignSiteUrl": "https://www.jacksonformaine.com/priorities",
+   "facts": [
+    {
+     "label": "Profession",
+     "value": "Logger"
+    }
+   ],
+   "incumbent": false,
+   "financeUrl": "https://www.fec.gov/data/candidate/S6ME00464/",
+   "finance": {
+    "available": false
+   },
+   "topPacDonors": []
+  },
+  {
+   "name": "Susan Collins",
+   "party": "Republican",
+   "fecId": "S6ME00159",
+   "committees": [
+    "C00314575"
+   ],
+   "currentOffice": "U.S. Senator, Maine",
+   "stateProfile": null,
+   "background": "U.S. senator since 1997; chairs the Senate Appropriations Committee. Seeking a sixth term.",
+   "backgroundSourceUrl": "https://ballotpedia.org/Susan_Collins_(Maine)",
+   "campaignSiteUrl": "https://susancollins.com/track-record/",
+   "facts": [
+    {
+     "label": "Born",
+     "value": "Caribou, Maine"
+    },
+    {
+     "label": "Bachelor's",
+     "value": "St. Lawrence University"
+    },
+    {
+     "label": "Current office pay",
+     "value": "$174,000/yr"
+    }
+   ],
+   "incumbent": true,
+   "financeUrl": "https://www.fec.gov/data/candidate/S6ME00159/",
+   "finance": {
+    "available": true,
+    "cycle": 2026,
+    "totalRaised": 16169827,
+    "fromPacs": 1263550,
+    "fromIndividuals": 10501137,
+    "pacPct": 11,
+    "individualPct": 89,
+    "cashOnHand": 11038115,
+    "source": "OpenFEC API"
+   },
+   "topPacDonors": [
+    {
+     "name": "NATSO PAC",
+     "amount": 5000,
+     "committeeId": "C00097865",
+     "fecUrl": "https://www.fec.gov/data/committee/C00097865/",
+     "kind": "trade assoc. PAC"
+    },
+    {
+     "name": "FIGHTING FOR MISSOURI PAC",
+     "amount": 5000,
+     "committeeId": "C00692640",
+     "fecUrl": "https://www.fec.gov/data/committee/C00692640/",
+     "kind": "leadership PAC"
+    },
+    {
+     "name": "FUND FOR AMERICA'S FUTURE PAC",
+     "amount": 5000,
+     "committeeId": "C00388934",
+     "fecUrl": "https://www.fec.gov/data/committee/C00388934/",
+     "kind": "leadership PAC"
+    },
+    {
+     "name": "DAKOTA PAC",
+     "amount": 5000,
+     "committeeId": "C00493072",
+     "fecUrl": "https://www.fec.gov/data/committee/C00493072/",
+     "kind": "leadership PAC"
+    },
+    {
+     "name": "PACIFIC LIFE INSURANCE COMPANY POLITICAL ACTION COMMITTEE",
+     "amount": 5000,
+     "committeeId": "C00068528",
+     "fecUrl": "https://www.fec.gov/data/committee/C00068528/",
+     "kind": "corporate PAC"
+    },
+    {
+     "name": "REPUBLICAN MAIN STREET PARTNERSHIP PAC",
+     "amount": 5000,
+     "committeeId": "C00165159",
+     "fecUrl": "https://www.fec.gov/data/committee/C00165159/",
+     "kind": "PAC"
+    },
+    {
+     "name": "MANAGED FUNDS ASSOCIATION PAC",
+     "amount": 5000,
+     "committeeId": "C00306894",
+     "fecUrl": "https://www.fec.gov/data/committee/C00306894/",
+     "kind": "membership org PAC"
+    },
+    {
+     "name": "NATIONAL ASSOC OF BROADCASTERS PAC (NABPAC)",
+     "amount": 5000,
+     "committeeId": "C00009985",
+     "fecUrl": "https://www.fec.gov/data/committee/C00009985/",
+     "kind": "trade assoc. PAC"
+    }
+   ]
+  }
+ ]
+}
