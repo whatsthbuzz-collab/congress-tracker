@@ -123,9 +123,11 @@ function CandidateCard({ c, onOpenState }) {
         </div>
       )}
 
-      <a href={c.financeUrl} target="_blank" rel="noopener noreferrer" className="source-link finance-source">
-        Full FEC filings ↗
-      </a>
+      {c.financeUrl && (
+        <a href={c.financeUrl} target="_blank" rel="noopener noreferrer" className="source-link finance-source">
+          Full FEC filings ↗
+        </a>
+      )}
     </div>
   );
 }
@@ -229,7 +231,7 @@ export default function ElectionsView({ onOpenStateProfile }) {
           <p className="colophon-note">
             Photos:{' '}
             {race.candidates.filter((c) => c.photo).map((c, i, arr) => (
-              <span key={c.fecId}>
+              <span key={c.fecId || c.name}>
                 {c.name} — <a href={c.photo.sourceUrl} target="_blank" rel="noopener noreferrer">{c.photo.credit}</a>
                 {i < arr.length - 1 ? ' · ' : ''}
               </span>
