@@ -9,6 +9,11 @@
  "candidates": [
   {
    "name": "Roy Cooper",
+   "photo": {
+    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Gov._Cooper_Cropped.jpg?width=240",
+    "credit": "via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gov._Cooper_Cropped.jpg"
+   },
    "party": "Democratic",
    "fecId": "S6NC00407",
    "committees": [
@@ -52,20 +57,70 @@
    },
    "topPacDonors": [
     {
-     "name": "BLACK ECONOMIC ALLIANCE PAC",
-     "amount": 5000,
-     "committeeId": "C00672576",
-     "fecUrl": "https://www.fec.gov/data/committee/C00672576/",
+     "name": "DSCC",
+     "amount": 62000,
+     "committeeId": "C00042366",
+     "fecUrl": "https://www.fec.gov/data/committee/C00042366/",
+     "kind": "party committee"
+    },
+    {
+     "name": "ACTBLUE",
+     "amount": 13000,
+     "committeeId": "C00401224",
+     "fecUrl": "https://www.fec.gov/data/committee/C00401224/",
      "kind": "PAC"
     },
     {
-     "name": "DEMOCRATIC WOMEN OF ALAMANCE COUNTY",
-     "amount": 100
+     "name": "AMERICAN FEDERATION OF STATE COUNTY & MUNICIPAL EMPLOYEES P E O P L E",
+     "amount": 10000,
+     "committeeId": "C00011114",
+     "fecUrl": "https://www.fec.gov/data/committee/C00011114/",
+     "kind": "labor union PAC"
+    },
+    {
+     "name": "ENGINEERS POLITICAL EDUCATION COMMITTEE (EPEC)/INTERNATIONAL UNION OF OPERATING ENGINEERS",
+     "amount": 10000,
+     "committeeId": "C00029504",
+     "fecUrl": "https://www.fec.gov/data/committee/C00029504/",
+     "kind": "labor union PAC"
+    },
+    {
+     "name": "STAND UP FOR WORKERS PAC",
+     "amount": 10000,
+     "committeeId": "C00724781",
+     "fecUrl": "https://www.fec.gov/data/committee/C00724781/",
+     "kind": "PAC"
+    },
+    {
+     "name": "LOBO PAC",
+     "amount": 10000,
+     "committeeId": "C00497073",
+     "fecUrl": "https://www.fec.gov/data/committee/C00497073/",
+     "kind": "leadership PAC"
+    },
+    {
+     "name": "COMMON GROUND PAC",
+     "amount": 10000,
+     "committeeId": "C00538835",
+     "fecUrl": "https://www.fec.gov/data/committee/C00538835/",
+     "kind": "leadership PAC"
+    },
+    {
+     "name": "PERIMETER PAC",
+     "amount": 10000,
+     "committeeId": "C00544254",
+     "fecUrl": "https://www.fec.gov/data/committee/C00544254/",
+     "kind": "leadership PAC"
     }
    ]
   },
   {
    "name": "Michael Whatley",
+   "photo": {
+    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Michael_Whatley_(54351730621)_(cropped).jpg?width=240",
+    "credit": "Gage Skidmore, CC BY-SA 2.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Michael_Whatley_(54351730621)_(cropped).jpg"
+   },
    "party": "Republican",
    "fecId": "S6NC00415",
    "committees": [
@@ -108,7 +163,64 @@
     "cashOnHand": 3461698,
     "source": "OpenFEC API"
    },
-   "topPacDonors": []
+   "topPacDonors": [
+    {
+     "name": "NRSC",
+     "amount": 62000,
+     "committeeId": "C00027466",
+     "fecUrl": "https://www.fec.gov/data/committee/C00027466/",
+     "kind": "party committee"
+    },
+    {
+     "name": "WILD AND WONDERFUL PAC",
+     "amount": 10000,
+     "committeeId": "C00489336",
+     "fecUrl": "https://www.fec.gov/data/committee/C00489336/",
+     "kind": "leadership PAC"
+    },
+    {
+     "name": "US ENERGY PAC (THE PAC OF AMERICAN EXPLORATION & PRODUCTION COUNCIL, INC.)",
+     "amount": 10000,
+     "committeeId": "C00755454",
+     "fecUrl": "https://www.fec.gov/data/committee/C00755454/",
+     "kind": "trade assoc. PAC"
+    },
+    {
+     "name": "THE COUNCIL OF INSURANCE AGENTS & BROKERS POLITICAL ACTION COMMITTEE",
+     "amount": 10000,
+     "committeeId": "C00039578",
+     "fecUrl": "https://www.fec.gov/data/committee/C00039578/",
+     "kind": "membership org PAC"
+    },
+    {
+     "name": "STRATEGY PAC",
+     "amount": 10000,
+     "committeeId": "C00497842",
+     "fecUrl": "https://www.fec.gov/data/committee/C00497842/",
+     "kind": "leadership PAC"
+    },
+    {
+     "name": "PINNACLE WEST CAPITAL CORPORATION PAC",
+     "amount": 10000,
+     "committeeId": "C00015933",
+     "fecUrl": "https://www.fec.gov/data/committee/C00015933/",
+     "kind": "corporate PAC"
+    },
+    {
+     "name": "PHILLIPS 66 PAC",
+     "amount": 10000,
+     "committeeId": "C00513549",
+     "fecUrl": "https://www.fec.gov/data/committee/C00513549/",
+     "kind": "corporate PAC"
+    },
+    {
+     "name": "NEBRASKA SANDHILLS PAC",
+     "amount": 10000,
+     "committeeId": "C00540054",
+     "fecUrl": "https://www.fec.gov/data/committee/C00540054/",
+     "kind": "leadership PAC"
+    }
+   ]
   }
  ]
 }

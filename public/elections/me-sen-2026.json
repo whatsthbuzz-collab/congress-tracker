@@ -9,6 +9,11 @@
  "candidates": [
   {
    "name": "Troy Jackson",
+   "photo": {
+    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Senate_President_Troy_Jackson_(cropped).png?width=240",
+    "credit": "ArenLeBrun, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Senate_President_Troy_Jackson_(cropped).png"
+   },
    "party": "Democratic",
    "fecId": "S6ME00464",
    "committees": [
@@ -18,6 +23,7 @@
    "stateProfile": null,
    "background": "Fifth-generation logger from northern Maine; served in the Maine Senate 2008-2014 and 2016-2024, as its president from 2018 to 2024; candidate for governor earlier in 2026.",
    "backgroundSourceUrl": "https://ballotpedia.org/Troy_Jackson_(Maine)",
+   "financeNote": "Committee registered July 2026; its first FEC report is due Oct. 15, 2026.",
    "campaignSiteUrl": "https://www.jacksonformaine.com/priorities",
    "facts": [
     {
@@ -34,6 +40,11 @@
   },
   {
    "name": "Susan Collins",
+   "photo": {
+    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Senator_Susan_Collins_2014_official_portrait.jpg?width=240",
+    "credit": "U.S. Congress, public domain",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Senator_Susan_Collins_2014_official_portrait.jpg"
+   },
    "party": "Republican",
    "fecId": "S6ME00159",
    "committees": [
@@ -73,60 +84,60 @@
    },
    "topPacDonors": [
     {
-     "name": "NATSO PAC",
-     "amount": 5000,
-     "committeeId": "C00097865",
-     "fecUrl": "https://www.fec.gov/data/committee/C00097865/",
-     "kind": "trade assoc. PAC"
+     "name": "NATIONAL REPUBLICAN SENATORIAL CMTE",
+     "amount": 62000,
+     "committeeId": "C00027466",
+     "fecUrl": "https://www.fec.gov/data/committee/C00027466/",
+     "kind": "party committee"
     },
     {
-     "name": "FIGHTING FOR MISSOURI PAC",
-     "amount": 5000,
-     "committeeId": "C00692640",
-     "fecUrl": "https://www.fec.gov/data/committee/C00692640/",
-     "kind": "leadership PAC"
-    },
-    {
-     "name": "FUND FOR AMERICA'S FUTURE PAC",
-     "amount": 5000,
-     "committeeId": "C00388934",
-     "fecUrl": "https://www.fec.gov/data/committee/C00388934/",
-     "kind": "leadership PAC"
-    },
-    {
-     "name": "DAKOTA PAC",
-     "amount": 5000,
-     "committeeId": "C00493072",
-     "fecUrl": "https://www.fec.gov/data/committee/C00493072/",
-     "kind": "leadership PAC"
-    },
-    {
-     "name": "PACIFIC LIFE INSURANCE COMPANY POLITICAL ACTION COMMITTEE",
-     "amount": 5000,
-     "committeeId": "C00068528",
-     "fecUrl": "https://www.fec.gov/data/committee/C00068528/",
-     "kind": "corporate PAC"
-    },
-    {
-     "name": "REPUBLICAN MAIN STREET PARTNERSHIP PAC",
-     "amount": 5000,
-     "committeeId": "C00165159",
-     "fecUrl": "https://www.fec.gov/data/committee/C00165159/",
+     "name": "NOR PAC",
+     "amount": 25000,
+     "committeeId": "C00247403",
+     "fecUrl": "https://www.fec.gov/data/committee/C00247403/",
      "kind": "PAC"
     },
     {
-     "name": "MANAGED FUNDS ASSOCIATION PAC",
-     "amount": 5000,
-     "committeeId": "C00306894",
-     "fecUrl": "https://www.fec.gov/data/committee/C00306894/",
-     "kind": "membership org PAC"
+     "name": "THOMPAC",
+     "amount": 10000,
+     "committeeId": "C00571323",
+     "fecUrl": "https://www.fec.gov/data/committee/C00571323/",
+     "kind": "leadership PAC"
     },
     {
-     "name": "NATIONAL ASSOC OF BROADCASTERS PAC (NABPAC)",
-     "amount": 5000,
-     "committeeId": "C00009985",
-     "fecUrl": "https://www.fec.gov/data/committee/C00009985/",
-     "kind": "trade assoc. PAC"
+     "name": "E-PAC",
+     "amount": 10000,
+     "committeeId": "C00570945",
+     "fecUrl": "https://www.fec.gov/data/committee/C00570945/",
+     "kind": "leadership PAC"
+    },
+    {
+     "name": "JOBS, OPPORTUNITY AND NEW IDEAS PAC",
+     "amount": 10000,
+     "committeeId": "C00566851",
+     "fecUrl": "https://www.fec.gov/data/committee/C00566851/",
+     "kind": "leadership PAC"
+    },
+    {
+     "name": "NEBRASKA SANDHILLS PAC",
+     "amount": 10000,
+     "committeeId": "C00540054",
+     "fecUrl": "https://www.fec.gov/data/committee/C00540054/",
+     "kind": "leadership PAC"
+    },
+    {
+     "name": "COMMON SENSE FOR AMERICA PAC",
+     "amount": 10000,
+     "committeeId": "C00634774",
+     "fecUrl": "https://www.fec.gov/data/committee/C00634774/",
+     "kind": "leadership PAC"
+    },
+    {
+     "name": "BADLANDS PAC",
+     "amount": 10000,
+     "committeeId": "C00543207",
+     "fecUrl": "https://www.fec.gov/data/committee/C00543207/",
+     "kind": "leadership PAC"
     }
    ]
   }

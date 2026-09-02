@@ -44,6 +44,41 @@
    },
    "topPacDonors": [
     {
+     "name": "LIFTOFF PAC",
+     "amount": 10000,
+     "committeeId": "C00785816",
+     "fecUrl": "https://www.fec.gov/data/committee/C00785816/",
+     "kind": "leadership PAC"
+    },
+    {
+     "name": "EMILYS LIST",
+     "amount": 10000,
+     "committeeId": "C00193433",
+     "fecUrl": "https://www.fec.gov/data/committee/C00193433/",
+     "kind": "PAC"
+    },
+    {
+     "name": "AMERICAN MOBILIZATION PAC",
+     "amount": 10000,
+     "committeeId": "C00459925",
+     "fecUrl": "https://www.fec.gov/data/committee/C00459925/",
+     "kind": "leadership PAC"
+    },
+    {
+     "name": "VOTE MAMA",
+     "amount": 10000,
+     "committeeId": "C00692137",
+     "fecUrl": "https://www.fec.gov/data/committee/C00692137/",
+     "kind": "PAC"
+    },
+    {
+     "name": "314 ACTION FUND",
+     "amount": 5000,
+     "committeeId": "C00633248",
+     "fecUrl": "https://www.fec.gov/data/committee/C00633248/",
+     "kind": "PAC"
+    },
+    {
      "name": "PURPOSE PAC",
      "amount": 5000,
      "committeeId": "C00497131",
@@ -51,11 +86,18 @@
      "kind": "leadership PAC"
     },
     {
-     "name": "LIFTOFF PAC",
+     "name": "M-PAC",
      "amount": 5000,
-     "committeeId": "C00785816",
-     "fecUrl": "https://www.fec.gov/data/committee/C00785816/",
+     "committeeId": "C00365270",
+     "fecUrl": "https://www.fec.gov/data/committee/C00365270/",
      "kind": "leadership PAC"
+    },
+    {
+     "name": "IN THIS TOGETHER PAC",
+     "amount": 5000,
+     "committeeId": "C00864785",
+     "fecUrl": "https://www.fec.gov/data/committee/C00864785/",
+     "kind": "PAC"
     }
    ]
   },
@@ -68,6 +110,7 @@
    "stateProfile": null,
    "background": "Appointed to the Senate in July 2026 to fill the seat of her late brother, Sen. Lindsey Graham; her first elected office. Won the Aug. 25 special Republican primary runoff.",
    "backgroundSourceUrl": "https://ballotpedia.org/Darline_Graham",
+   "financeNote": "Committee registered August 2026; its first FEC report is due Oct. 15, 2026.",
    "facts": [
     {
      "label": "Profession",

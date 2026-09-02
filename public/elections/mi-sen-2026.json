@@ -57,18 +57,60 @@
    },
    "topPacDonors": [
     {
-     "name": "ON THE MOVE PAC",
-     "amount": 2000,
-     "committeeId": "C00878934",
-     "fecUrl": "https://www.fec.gov/data/committee/C00878934/",
+     "name": "NO DEM LEFT BEHIND PAC",
+     "amount": 10000,
+     "committeeId": "C00758219",
+     "fecUrl": "https://www.fec.gov/data/committee/C00758219/",
+     "kind": "PAC"
+    },
+    {
+     "name": "ROOTED IN COMMUNITY LEADERSHIP PAC",
+     "amount": 5000,
+     "committeeId": "C00741371",
+     "fecUrl": "https://www.fec.gov/data/committee/C00741371/",
      "kind": "leadership PAC"
     },
     {
-     "name": "MAXWELL ALEJANDRO FROST FOR CONGRESS",
-     "amount": 2000,
-     "committeeId": "C00786822",
-     "fecUrl": "https://www.fec.gov/data/committee/C00786822/",
-     "kind": "candidate committee"
+     "name": "OFFICE AND PROFESSIONAL EMPLOYEES INTERNATIONAL UNION (OPEIU) JB MOSS VOICE OF THE ELECTORATE (VOTE)",
+     "amount": 5000,
+     "committeeId": "C00007898",
+     "fecUrl": "https://www.fec.gov/data/committee/C00007898/",
+     "kind": "labor union PAC"
+    },
+    {
+     "name": "MEDICARE FOR ALL",
+     "amount": 5000,
+     "committeeId": "C00685552",
+     "fecUrl": "https://www.fec.gov/data/committee/C00685552/",
+     "kind": "leadership PAC"
+    },
+    {
+     "name": "PROGRESSIVE VOTERS OF AMERICA",
+     "amount": 5000,
+     "committeeId": "C00406553",
+     "fecUrl": "https://www.fec.gov/data/committee/C00406553/",
+     "kind": "leadership PAC"
+    },
+    {
+     "name": "UAW - V - CAP (UAW VOLUNTARY COMMUNITY ACTION PROGRAM) INT'L UNION UNITED AUTOMOBILE AEROSPACE & AGRICULTURAL IMPLEMENT WORKERS OF AMERICA UAW",
+     "amount": 5000,
+     "committeeId": "C00002840",
+     "fecUrl": "https://www.fec.gov/data/committee/C00002840/",
+     "kind": "labor union PAC"
+    },
+    {
+     "name": "MARCH ON PAC",
+     "amount": 5000,
+     "committeeId": "C00748228",
+     "fecUrl": "https://www.fec.gov/data/committee/C00748228/",
+     "kind": "PAC"
+    },
+    {
+     "name": "MOVEON.ORG POLITICAL ACTION",
+     "amount": 5000,
+     "committeeId": "C00341396",
+     "fecUrl": "https://www.fec.gov/data/committee/C00341396/",
+     "kind": "PAC"
     }
    ]
   },
@@ -126,13 +168,6 @@
      "kind": "party committee"
     },
     {
-     "name": "E-PAC",
-     "amount": 15000,
-     "committeeId": "C00570945",
-     "fecUrl": "https://www.fec.gov/data/committee/C00570945/",
-     "kind": "leadership PAC"
-    },
-    {
      "name": "LANKPAC",
      "amount": 15000,
      "committeeId": "C00492058",
@@ -140,10 +175,10 @@
      "kind": "PAC"
     },
     {
-     "name": "AMERICAN EXCELLENCE PAC",
+     "name": "E-PAC",
      "amount": 15000,
-     "committeeId": "C00832501",
-     "fecUrl": "https://www.fec.gov/data/committee/C00832501/",
+     "committeeId": "C00570945",
+     "fecUrl": "https://www.fec.gov/data/committee/C00570945/",
      "kind": "leadership PAC"
     },
     {
@@ -154,6 +189,13 @@
      "kind": "leadership PAC"
     },
     {
+     "name": "AMERICAN EXCELLENCE PAC",
+     "amount": 15000,
+     "committeeId": "C00832501",
+     "fecUrl": "https://www.fec.gov/data/committee/C00832501/",
+     "kind": "leadership PAC"
+    },
+    {
      "name": "JOBS OPPORTUNITY NOW PAC",
      "amount": 11500,
      "committeeId": "C00896688",
@@ -161,18 +203,18 @@
      "kind": "leadership PAC"
     },
     {
-     "name": "JOBS FREEDOM AND SECURITY PAC",
+     "name": "THOMPAC",
      "amount": 10000,
-     "committeeId": "C00536540",
-     "fecUrl": "https://www.fec.gov/data/committee/C00536540/",
+     "committeeId": "C00571323",
+     "fecUrl": "https://www.fec.gov/data/committee/C00571323/",
      "kind": "leadership PAC"
     },
     {
-     "name": "BLUE CROSS BLUE SHIELD OF MICHIGAN PAC",
+     "name": "SEND IN THE SEAL PAC",
      "amount": 10000,
-     "committeeId": "C00084061",
-     "fecUrl": "https://www.fec.gov/data/committee/C00084061/",
-     "kind": "membership org PAC"
+     "committeeId": "C00845099",
+     "fecUrl": "https://www.fec.gov/data/committee/C00845099/",
+     "kind": "PAC"
     }
    ]
   }
