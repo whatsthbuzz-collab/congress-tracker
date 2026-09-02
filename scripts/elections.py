@@ -139,6 +139,11 @@ RACES: List[Dict[str, Any]] = [
         "candidates": [
             {
                 "name": "Jon Ossoff",
+                "photo": {
+                    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Jon_Ossoff_Senate_Portrait_2021_(cropped).jpg?width=240",
+                    "credit": "U.S. Senate Photographic Studio, public domain",
+                    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Jon_Ossoff_Senate_Portrait_2021_(cropped).jpg",
+                },
                 "party": "Democratic",
                 "fecId": "S8GA00180",
                 "committees": ["C00718866"],
@@ -160,6 +165,11 @@ RACES: List[Dict[str, Any]] = [
             },
             {
                 "name": "Mike Collins",
+                "photo": {
+                    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Rep._Mike_Collins_official_photo,_118th_Congress.jpg?width=240",
+                    "credit": "United States Congress, public domain",
+                    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rep._Mike_Collins_official_photo,_118th_Congress.jpg",
+                },
                 "party": "Republican",
                 "fecId": "S6GA00390",
                 "committees": ["C00544684"],
@@ -191,6 +201,11 @@ RACES: List[Dict[str, Any]] = [
         "candidates": [
             {
                 "name": "Abdul El-Sayed",
+                "photo": {
+                    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Abdul_El-Sayed.jpg?width=240",
+                    "credit": "Kenneth C. Zirkel, CC BY-SA 4.0, via Wikimedia Commons",
+                    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Abdul_El-Sayed.jpg",
+                },
                 "party": "Democratic",
                 "fecId": "S6MI00418",
                 "committees": ["C00902668"],
@@ -211,6 +226,11 @@ RACES: List[Dict[str, Any]] = [
             },
             {
                 "name": "Mike Rogers",
+                "photo": {
+                    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Mike-Rogers-Head-Shot-2_(3x4_cropped).jpg?width=240",
+                    "credit": "United States Congress, public domain",
+                    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mike-Rogers-Head-Shot-2_(3x4_cropped).jpg",
+                },
                 "party": "Republican",
                 "fecId": "S4MI00595",
                 "committees": ["C00849810", "C00892026"],
@@ -346,9 +366,60 @@ def fetch_top_pac_donors(fetcher: "FECFetcher", committee_ids: List[str]) -> Lis
     for name, amt in ranked:
         item: Dict[str, Any] = {"name": name, "amount": round(amt)}
         if name in donor_ids:
+            item["committeeId"] = donor_ids[name]
             item["fecUrl"] = f"https://www.fec.gov/data/committee/{donor_ids[name]}/"
         out.append(item)
     return out
+
+
+# ---------------------------------------------------------------------------
+# Donor committee classification, straight from the FEC's own taxonomy
+# (designation / committee_type / organization_type on /committee/{id}/).
+# Neutral, factual labels: "corporate PAC" vs "leadership PAC" vs "candidate
+# committee" is exactly the distinction voters care about, and it comes from
+# the FEC's classification of the committee, not from us.
+# ---------------------------------------------------------------------------
+def _kind_label(info: Dict[str, Any]) -> str:
+    desig = (info.get("designation") or "").upper()
+    ctype = (info.get("committee_type") or "").upper()
+    orgt = (info.get("organization_type") or "").upper()
+    if desig == "J":
+        return "joint fundraising"
+    if desig == "D":
+        return "leadership PAC"
+    if desig in ("P", "A"):
+        return "candidate committee"
+    if ctype in ("X", "Y", "Z"):
+        return "party committee"
+    if ctype == "O":
+        return "super PAC"
+    if orgt in ("C", "W"):
+        return "corporate PAC"
+    if orgt == "L":
+        return "labor union PAC"
+    if orgt == "T":
+        return "trade assoc. PAC"
+    if orgt == "M":
+        return "membership org PAC"
+    if orgt == "V":
+        return "co-op PAC"
+    return "PAC"
+
+
+def classify_donor_committees(fetcher: "FECFetcher", donors: List[Dict[str, Any]],
+                              cache: Dict[str, Optional[str]]) -> None:
+    """Annotate donor dicts in place with the FEC's classification of each
+    donor committee, looked up by exact committee ID (no name matching)."""
+    for d in donors:
+        cid = d.get("committeeId")
+        if not cid:
+            continue
+        if cid not in cache:
+            data = fetcher._get(f"/committee/{cid}/", {})
+            results = (data or {}).get("results") or []
+            cache[cid] = _kind_label(results[0]) if results else None
+        if cache.get(cid):
+            d["kind"] = cache[cid]
 
 
 def fetch_candidate_finance(fetcher: FECFetcher, committee_ids: List[str]) -> Dict[str, Any]:
@@ -391,14 +462,18 @@ def fetch_candidate_finance(fetcher: FECFetcher, committee_ids: List[str]) -> Di
     }
 
 
-def build_race(fetcher: FECFetcher, race: Dict[str, Any]) -> Dict[str, Any]:
+def build_race(fetcher: FECFetcher, race: Dict[str, Any],
+               kind_cache: Dict[str, Optional[str]]) -> Dict[str, Any]:
     print(f"\n=== {race['id']} ===")
     candidates = []
     for c in race["candidates"]:
         print(f"  Fetching finance for {c['name']} ({len(c['committees'])} committee[s])...")
         finance = fetch_candidate_finance(fetcher, c["committees"])
         top_pacs = fetch_top_pac_donors(fetcher, c["committees"])
-        print(f"    {c['name']}: {len(top_pacs)} named PAC donors found")
+        classify_donor_committees(fetcher, top_pacs, kind_cache)
+        kinds = sum(1 for d in top_pacs if d.get("kind"))
+        print(f"    {c['name']}: {len(top_pacs)} named PAC donors found, "
+              f"{kinds} classified by FEC committee type")
         candidates.append({
             **c,
             "financeUrl": f"https://www.fec.gov/data/candidate/{c['fecId']}/",
@@ -425,9 +500,10 @@ def main():
     fetcher = FECFetcher(FEC_API_KEY)
     index_entries = []
     any_finance = False
+    kind_cache: Dict[str, Optional[str]] = {}
 
     for race in RACES:
-        built = build_race(fetcher, race)
+        built = build_race(fetcher, race, kind_cache)
         if any(c["finance"].get("available") for c in built["candidates"]):
             any_finance = True
         with open(os.path.join(OUT_DIR, f"{race['id']}.json"), "w") as f:
