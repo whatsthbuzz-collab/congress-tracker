@@ -760,3 +760,11 @@ a.comm-name:hover { color: var(--navy); text-decoration: underline; }
 
 /* --- Race switcher (elections view) --- */
 .race-switch { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0 0 1.1rem; }
+
+/* --- Donor kind tag: the FEC's own classification of each donor committee --- */
+.donor-kind {
+  font-family: var(--font-data); font-size: 0.6rem; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.05em; color: var(--ink-3);
+  border: 1px solid var(--line); border-radius: 4px;
+  padding: 0.08rem 0.32rem; align-self: center; white-space: nowrap;
+}

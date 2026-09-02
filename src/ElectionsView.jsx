@@ -108,10 +108,16 @@ function CandidateCard({ c, onOpenState }) {
                 className="donor-chip donor-chip-link"
                 title="View this committee's profile on fec.gov"
               >
-                {d.name} <strong>{fmtMoney(d.amount)}</strong> <span aria-hidden="true">↗</span>
+                {d.name}
+                {d.kind && <span className="donor-kind">{d.kind}</span>}
+                <strong>{fmtMoney(d.amount)}</strong> <span aria-hidden="true">↗</span>
               </a>
             ) : (
-              <span key={i} className="donor-chip">{d.name} <strong>{fmtMoney(d.amount)}</strong></span>
+              <span key={i} className="donor-chip">
+                {d.name}
+                {d.kind && <span className="donor-kind">{d.kind}</span>}
+                <strong>{fmtMoney(d.amount)}</strong>
+              </span>
             )
           )}
         </div>
