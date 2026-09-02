@@ -127,6 +127,110 @@ RACES: List[Dict[str, Any]] = [
             },
         ],
     },
+    {
+        "id": "ga-sen-2026",
+        "office": "U.S. Senate",
+        "state": "Georgia",
+        "stateCode": "GA",
+        "electionDate": "2026-11-03",
+        "seatNote": ("Sen. Jon Ossoff (D) is seeking a second term. Georgia holds a "
+                     "Dec. 1 runoff if no candidate wins a majority on Nov. 3."),
+        "sourceUrl": "https://en.wikipedia.org/wiki/2026_United_States_Senate_election_in_Georgia",
+        "candidates": [
+            {
+                "name": "Jon Ossoff",
+                "party": "Democratic",
+                "fecId": "S8GA00180",
+                "committees": ["C00718866"],
+                "currentOffice": "U.S. Senator, Georgia",
+                "stateProfile": None,
+                "background": (
+                    "U.S. senator since 2021; before politics, ran an investigative "
+                    "journalism company. Seeking a second term."
+                ),
+                "backgroundSourceUrl": "https://ballotpedia.org/Jon_Ossoff",
+                "facts": [
+                    {"label": "Born", "value": "Atlanta, Georgia"},
+                    {"label": "Bachelor's", "value": "Georgetown University"},
+                    {"label": "Graduate", "value": "London School of Economics"},
+                    {"label": "Profession", "value": "Media executive"},
+                    {"label": "Current office pay", "value": "$174,000/yr"},
+                ],
+                "incumbent": True,
+            },
+            {
+                "name": "Mike Collins",
+                "party": "Republican",
+                "fecId": "S6GA00390",
+                "committees": ["C00544684"],
+                "currentOffice": "U.S. Representative, GA-10",
+                "stateProfile": None,
+                "background": (
+                    "U.S. representative for Georgia's 10th district since 2023; "
+                    "founded a trucking company; son of former U.S. Rep. Mac Collins."
+                ),
+                "backgroundSourceUrl": "https://ballotpedia.org/Mike_Collins_(Georgia)",
+                "facts": [
+                    {"label": "Born", "value": "Jackson, Georgia"},
+                    {"label": "Bachelor's", "value": "Georgia State University"},
+                    {"label": "Profession", "value": "Businessman (trucking)"},
+                    {"label": "Current office pay", "value": "$174,000/yr"},
+                ],
+                "incumbent": False,
+            },
+        ],
+    },
+    {
+        "id": "mi-sen-2026",
+        "office": "U.S. Senate",
+        "state": "Michigan",
+        "stateCode": "MI",
+        "electionDate": "2026-11-03",
+        "seatNote": "Open seat — Sen. Gary Peters (D) is retiring.",
+        "sourceUrl": "https://en.wikipedia.org/wiki/2026_United_States_Senate_election_in_Michigan",
+        "candidates": [
+            {
+                "name": "Abdul El-Sayed",
+                "party": "Democratic",
+                "fecId": "S6MI00418",
+                "committees": ["C00902668"],
+                "currentOffice": "Former Wayne County Health Director",
+                "stateProfile": None,
+                "background": (
+                    "Physician and epidemiologist; former Detroit health commissioner "
+                    "and Wayne County health director; candidate for governor in 2018."
+                ),
+                "backgroundSourceUrl": "https://ballotpedia.org/Abdul_El-Sayed",
+                "facts": [
+                    {"label": "Born", "value": "Southeast Michigan"},
+                    {"label": "Bachelor's", "value": "University of Michigan"},
+                    {"label": "Graduate", "value": "M.D., Columbia; D.Phil., Oxford (Rhodes Scholar)"},
+                    {"label": "Profession", "value": "Physician & epidemiologist"},
+                ],
+                "incumbent": False,
+            },
+            {
+                "name": "Mike Rogers",
+                "party": "Republican",
+                "fecId": "S4MI00595",
+                "committees": ["C00849810", "C00892026"],
+                "currentOffice": "Former U.S. Representative, MI-08",
+                "stateProfile": None,
+                "background": (
+                    "U.S. representative from Michigan (2001-2015), chairing the House "
+                    "Intelligence Committee; former FBI special agent; Republican "
+                    "nominee for this seat in 2024."
+                ),
+                "backgroundSourceUrl": "https://ballotpedia.org/Mike_Rogers_(Michigan)",
+                "facts": [
+                    {"label": "Born", "value": "Livonia, Michigan"},
+                    {"label": "Bachelor's", "value": "Adrian College"},
+                    {"label": "Profession", "value": "Former FBI special agent"},
+                ],
+                "incumbent": False,
+            },
+        ],
+    },
 ]
 
 
