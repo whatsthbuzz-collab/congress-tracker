@@ -154,6 +154,7 @@ RACES: List[Dict[str, Any]] = [
                     "journalism company. Seeking a second term."
                 ),
                 "backgroundSourceUrl": "https://ballotpedia.org/Jon_Ossoff",
+                "campaignSiteUrl": "https://electjon.com/bio/",
                 "facts": [
                     {"label": "Born", "value": "Atlanta, Georgia"},
                     {"label": "Bachelor's", "value": "Georgetown University"},
@@ -180,6 +181,7 @@ RACES: List[Dict[str, Any]] = [
                     "founded a trucking company; son of former U.S. Rep. Mac Collins."
                 ),
                 "backgroundSourceUrl": "https://ballotpedia.org/Mike_Collins_(Georgia)",
+                "campaignSiteUrl": "https://mikecollinsga.com/about/",
                 "facts": [
                     {"label": "Born", "value": "Jackson, Georgia"},
                     {"label": "Bachelor's", "value": "Georgia State University"},
@@ -216,6 +218,7 @@ RACES: List[Dict[str, Any]] = [
                     "and Wayne County health director; candidate for governor in 2018."
                 ),
                 "backgroundSourceUrl": "https://ballotpedia.org/Abdul_El-Sayed",
+                "campaignSiteUrl": "https://abdulforsenate.com/priorities/",
                 "facts": [
                     {"label": "Born", "value": "Southeast Michigan"},
                     {"label": "Bachelor's", "value": "University of Michigan"},
@@ -242,12 +245,172 @@ RACES: List[Dict[str, Any]] = [
                     "nominee for this seat in 2024."
                 ),
                 "backgroundSourceUrl": "https://ballotpedia.org/Mike_Rogers_(Michigan)",
+                "campaignSiteUrl": "https://rogersforsenate.com/what-michiganders-need-to-know",
                 "facts": [
                     {"label": "Born", "value": "Livonia, Michigan"},
                     {"label": "Bachelor's", "value": "Adrian College"},
                     {"label": "Profession", "value": "Former FBI special agent"},
                 ],
                 "incumbent": False,
+            },
+        ],
+    },
+    {
+        "id": "nc-sen-2026",
+        "office": "U.S. Senate",
+        "state": "North Carolina",
+        "stateCode": "NC",
+        "electionDate": "2026-11-03",
+        "seatNote": "Open seat — Sen. Thom Tillis (R) is not seeking a third term.",
+        "sourceUrl": "https://en.wikipedia.org/wiki/2026_United_States_Senate_election_in_North_Carolina",
+        "candidates": [
+            {
+                "name": "Roy Cooper",
+                "party": "Democratic",
+                "fecId": "S6NC00407",
+                "committees": ["C00913566"],
+                "currentOffice": "Former Governor of North Carolina",
+                "stateProfile": None,
+                "background": (
+                    "Governor of North Carolina (2017-2025); state attorney "
+                    "general (2001-2017); previously a state legislator."
+                ),
+                "backgroundSourceUrl": "https://ballotpedia.org/Roy_Cooper",
+                "campaignSiteUrl": "https://roycooper.com/about/",
+                "facts": [
+                    {"label": "Born", "value": "Nashville, North Carolina"},
+                    {"label": "Bachelor's", "value": "University of North Carolina at Chapel Hill"},
+                    {"label": "Graduate", "value": "J.D., University of North Carolina"},
+                    {"label": "Profession", "value": "Attorney"},
+                ],
+                "incumbent": False,
+            },
+            {
+                "name": "Michael Whatley",
+                "party": "Republican",
+                "fecId": "S6NC00415",
+                "committees": ["C00913996", "C00909416"],
+                "currentOffice": "Former RNC Chairman",
+                "stateProfile": None,
+                "background": (
+                    "Chair of the Republican National Committee (2024-2025) and "
+                    "the North Carolina Republican Party (2019-2024); attorney; "
+                    "has not previously held elected office."
+                ),
+                "backgroundSourceUrl": "https://ballotpedia.org/Michael_Whatley",
+                "campaignSiteUrl": "https://michaelwhatley.com/issues/",
+                "facts": [
+                    {"label": "Born", "value": "North Carolina"},
+                    {"label": "Bachelor's", "value": "UNC Charlotte"},
+                    {"label": "Graduate", "value": "M.A., Wake Forest; M.A. & J.D., Notre Dame"},
+                    {"label": "Profession", "value": "Attorney"},
+                ],
+                "incumbent": False,
+            },
+        ],
+    },
+    {
+        "id": "me-sen-2026",
+        "office": "U.S. Senate",
+        "state": "Maine",
+        "stateCode": "ME",
+        "electionDate": "2026-11-03",
+        "seatNote": ("Sen. Susan Collins (R) is seeking a sixth term. Primary winner "
+                     "Graham Platner withdrew in July; Maine Democrats nominated Troy "
+                     "Jackson at a special convention on July 25."),
+        "sourceUrl": "https://en.wikipedia.org/wiki/2026_United_States_Senate_election_in_Maine",
+        "candidates": [
+            {
+                "name": "Troy Jackson",
+                "party": "Democratic",
+                "fecId": "S6ME00464",
+                "committees": ["C00955609"],
+                "currentOffice": "Former Maine Senate President",
+                "stateProfile": None,
+                "background": (
+                    "Fifth-generation logger from northern Maine; served in the "
+                    "Maine Senate 2008-2014 and 2016-2024, as its president from "
+                    "2018 to 2024; candidate for governor earlier in 2026."
+                ),
+                "backgroundSourceUrl": "https://ballotpedia.org/Troy_Jackson_(Maine)",
+                "campaignSiteUrl": "https://www.jacksonformaine.com/priorities",
+                "facts": [
+                    {"label": "Profession", "value": "Logger"},
+                ],
+                "incumbent": False,
+            },
+            {
+                "name": "Susan Collins",
+                "party": "Republican",
+                "fecId": "S6ME00159",
+                "committees": ["C00314575"],
+                "currentOffice": "U.S. Senator, Maine",
+                "stateProfile": None,
+                "background": (
+                    "U.S. senator since 1997; chairs the Senate Appropriations "
+                    "Committee. Seeking a sixth term."
+                ),
+                "backgroundSourceUrl": "https://ballotpedia.org/Susan_Collins_(Maine)",
+                "campaignSiteUrl": "https://susancollins.com/track-record/",
+                "facts": [
+                    {"label": "Born", "value": "Caribou, Maine"},
+                    {"label": "Bachelor's", "value": "St. Lawrence University"},
+                    {"label": "Current office pay", "value": "$174,000/yr"},
+                ],
+                "incumbent": True,
+            },
+        ],
+    },
+    {
+        "id": "sc-sen-2026",
+        "office": "U.S. Senate",
+        "state": "South Carolina",
+        "stateCode": "SC",
+        "electionDate": "2026-11-03",
+        "seatNote": ("Sen. Lindsey Graham (R) died July 11. Gov. Henry McMaster "
+                     "appointed Darline Graham, his sister, to the seat; she won the "
+                     "Aug. 25 special primary runoff to seek a full term."),
+        "sourceUrl": "https://en.wikipedia.org/wiki/2026_United_States_Senate_election_in_South_Carolina",
+        "candidates": [
+            {
+                "name": "Annie Andrews",
+                "party": "Democratic",
+                "fecId": "S6SC04239",
+                "committees": ["C00906024"],
+                "currentOffice": "Pediatrician",
+                "stateProfile": None,
+                "background": (
+                    "Pediatrician who spent 15 years on the faculty of the Medical "
+                    "University of South Carolina; Democratic nominee for a U.S. "
+                    "House seat in 2022."
+                ),
+                "backgroundSourceUrl": "https://ballotpedia.org/Annie_Andrews",
+                "facts": [
+                    {"label": "Born", "value": "Paducah, Kentucky"},
+                    {"label": "Profession", "value": "Pediatrician"},
+                ],
+                "campaignSiteUrl": "https://drannieandrews.com/platform/",
+                "incumbent": False,
+            },
+            {
+                "name": "Darline Graham",
+                "party": "Republican",
+                "fecId": "",  # committee registered Aug 2026; ID pending FEC indexing
+                "committees": [],
+                "currentOffice": "U.S. Senator, South Carolina (appointed)",
+                "stateProfile": None,
+                "background": (
+                    "Appointed to the Senate in July 2026 to fill the seat of her "
+                    "late brother, Sen. Lindsey Graham; her first elected office. "
+                    "Won the Aug. 25 special Republican primary runoff."
+                ),
+                "backgroundSourceUrl": "https://ballotpedia.org/Darline_Graham",
+                "facts": [
+                    {"label": "Profession", "value": "Public administrator"},
+                    {"label": "Current office pay", "value": "$174,000/yr"},
+                ],
+                "campaignSiteUrl": "https://www.darlinegraham.com/#record",
+                "incumbent": True,
             },
         ],
     },
@@ -476,7 +639,8 @@ def build_race(fetcher: FECFetcher, race: Dict[str, Any],
               f"{kinds} classified by FEC committee type")
         candidates.append({
             **c,
-            "financeUrl": f"https://www.fec.gov/data/candidate/{c['fecId']}/",
+            "financeUrl": (f"https://www.fec.gov/data/candidate/{c['fecId']}/"
+                           if c.get("fecId") else None),
             "finance": finance,
             "topPacDonors": top_pacs,
         })
