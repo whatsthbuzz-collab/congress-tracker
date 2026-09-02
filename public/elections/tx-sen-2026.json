@@ -71,22 +71,30 @@
     {
      "name": "APWU COPA",
      "amount": 5000,
-     "fecUrl": "https://www.fec.gov/data/committee/C00010322/"
+     "committeeId": "C00010322",
+     "fecUrl": "https://www.fec.gov/data/committee/C00010322/",
+     "kind": "PAC"
     },
     {
      "name": "ENGINEERS POLITICAL EDUCATION COMMITTEE (EPEC)/INTERNATIONAL UNION OF OPERATING ENGINEERS",
      "amount": 5000,
-     "fecUrl": "https://www.fec.gov/data/committee/C00029504/"
+     "committeeId": "C00029504",
+     "fecUrl": "https://www.fec.gov/data/committee/C00029504/",
+     "kind": "labor union PAC"
     },
     {
      "name": "A NEW DIRECTION PAC",
      "amount": 5000,
-     "fecUrl": "https://www.fec.gov/data/committee/C00458570/"
+     "committeeId": "C00458570",
+     "fecUrl": "https://www.fec.gov/data/committee/C00458570/",
+     "kind": "leadership PAC"
     },
     {
      "name": "ALL FOR OUR COUNTRY LEADERSHIP PAC",
      "amount": 5000,
-     "fecUrl": "https://www.fec.gov/data/committee/C00629212/"
+     "committeeId": "C00629212",
+     "fecUrl": "https://www.fec.gov/data/committee/C00629212/",
+     "kind": "leadership PAC"
     }
    ]
   },
@@ -147,42 +155,58 @@
     {
      "name": "NRSC",
      "amount": 62000,
-     "fecUrl": "https://www.fec.gov/data/committee/C00027466/"
+     "committeeId": "C00027466",
+     "fecUrl": "https://www.fec.gov/data/committee/C00027466/",
+     "kind": "party committee"
     },
     {
      "name": "SENATE CONSERVATIVES FUND",
      "amount": 10000,
-     "fecUrl": "https://www.fec.gov/data/committee/C00448696/"
+     "committeeId": "C00448696",
+     "fecUrl": "https://www.fec.gov/data/committee/C00448696/",
+     "kind": "PAC"
     },
     {
      "name": "BEST AT BRINGING ENTREPRENEURIAL RESULTS NEVER IMAGINED OR E",
      "amount": 10000,
-     "fecUrl": "https://www.fec.gov/data/committee/C00863373/"
+     "committeeId": "C00863373",
+     "fecUrl": "https://www.fec.gov/data/committee/C00863373/",
+     "kind": "leadership PAC"
     },
     {
      "name": "USAP PAC",
      "amount": 10000,
-     "fecUrl": "https://www.fec.gov/data/committee/C00574103/"
+     "committeeId": "C00574103",
+     "fecUrl": "https://www.fec.gov/data/committee/C00574103/",
+     "kind": "corporate PAC"
     },
     {
      "name": "LAXALT FOR SENATE",
      "amount": 6000,
-     "fecUrl": "https://www.fec.gov/data/committee/C00787135/"
+     "committeeId": "C00787135",
+     "fecUrl": "https://www.fec.gov/data/committee/C00787135/",
+     "kind": "candidate committee"
     },
     {
      "name": "VALERO POLTIICAL ACTION COMMITTEE",
      "amount": 5000,
-     "fecUrl": "https://www.fec.gov/data/committee/C00109546/"
+     "committeeId": "C00109546",
+     "fecUrl": "https://www.fec.gov/data/committee/C00109546/",
+     "kind": "corporate PAC"
     },
     {
      "name": "TEXTRON POLITICAL ACTION COMMITTEE",
      "amount": 5000,
-     "fecUrl": "https://www.fec.gov/data/committee/C00123612/"
+     "committeeId": "C00123612",
+     "fecUrl": "https://www.fec.gov/data/committee/C00123612/",
+     "kind": "corporate PAC"
     },
     {
      "name": "FLORIDA LEADS",
      "amount": 5000,
-     "fecUrl": "https://www.fec.gov/data/committee/C00896092/"
+     "committeeId": "C00896092",
+     "fecUrl": "https://www.fec.gov/data/committee/C00896092/",
+     "kind": "leadership PAC"
     }
    ]
   }

@@ -9,6 +9,11 @@
  "candidates": [
   {
    "name": "Abdul El-Sayed",
+   "photo": {
+    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Abdul_El-Sayed.jpg?width=240",
+    "credit": "Kenneth C. Zirkel, CC BY-SA 4.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Abdul_El-Sayed.jpg"
+   },
    "party": "Democratic",
    "fecId": "S6MI00418",
    "committees": [
@@ -53,17 +58,26 @@
     {
      "name": "ON THE MOVE PAC",
      "amount": 2000,
-     "fecUrl": "https://www.fec.gov/data/committee/C00878934/"
+     "committeeId": "C00878934",
+     "fecUrl": "https://www.fec.gov/data/committee/C00878934/",
+     "kind": "leadership PAC"
     },
     {
      "name": "MAXWELL ALEJANDRO FROST FOR CONGRESS",
      "amount": 2000,
-     "fecUrl": "https://www.fec.gov/data/committee/C00786822/"
+     "committeeId": "C00786822",
+     "fecUrl": "https://www.fec.gov/data/committee/C00786822/",
+     "kind": "candidate committee"
     }
    ]
   },
   {
    "name": "Mike Rogers",
+   "photo": {
+    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Mike-Rogers-Head-Shot-2_(3x4_cropped).jpg?width=240",
+    "credit": "United States Congress, public domain",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mike-Rogers-Head-Shot-2_(3x4_cropped).jpg"
+   },
    "party": "Republican",
    "fecId": "S4MI00595",
    "committees": [
@@ -105,42 +119,58 @@
     {
      "name": "NRSC",
      "amount": 62000,
-     "fecUrl": "https://www.fec.gov/data/committee/C00027466/"
+     "committeeId": "C00027466",
+     "fecUrl": "https://www.fec.gov/data/committee/C00027466/",
+     "kind": "party committee"
     },
     {
      "name": "E-PAC",
      "amount": 15000,
-     "fecUrl": "https://www.fec.gov/data/committee/C00570945/"
+     "committeeId": "C00570945",
+     "fecUrl": "https://www.fec.gov/data/committee/C00570945/",
+     "kind": "leadership PAC"
     },
     {
      "name": "LANKPAC",
      "amount": 15000,
-     "fecUrl": "https://www.fec.gov/data/committee/C00492058/"
+     "committeeId": "C00492058",
+     "fecUrl": "https://www.fec.gov/data/committee/C00492058/",
+     "kind": "PAC"
     },
     {
      "name": "AMERICAN EXCELLENCE PAC",
      "amount": 15000,
-     "fecUrl": "https://www.fec.gov/data/committee/C00832501/"
+     "committeeId": "C00832501",
+     "fecUrl": "https://www.fec.gov/data/committee/C00832501/",
+     "kind": "leadership PAC"
     },
     {
      "name": "BEST AT BRINGING ENTREPRENEURIAL RESULTS NEVER IMAGINED OR ENVISIONED PAC",
      "amount": 15000,
-     "fecUrl": "https://www.fec.gov/data/committee/C00863373/"
+     "committeeId": "C00863373",
+     "fecUrl": "https://www.fec.gov/data/committee/C00863373/",
+     "kind": "leadership PAC"
     },
     {
      "name": "JOBS OPPORTUNITY NOW PAC",
      "amount": 11500,
-     "fecUrl": "https://www.fec.gov/data/committee/C00896688/"
+     "committeeId": "C00896688",
+     "fecUrl": "https://www.fec.gov/data/committee/C00896688/",
+     "kind": "leadership PAC"
     },
     {
      "name": "JOBS FREEDOM AND SECURITY PAC",
      "amount": 10000,
-     "fecUrl": "https://www.fec.gov/data/committee/C00536540/"
+     "committeeId": "C00536540",
+     "fecUrl": "https://www.fec.gov/data/committee/C00536540/",
+     "kind": "leadership PAC"
     },
     {
      "name": "BLUE CROSS BLUE SHIELD OF MICHIGAN PAC",
      "amount": 10000,
-     "fecUrl": "https://www.fec.gov/data/committee/C00084061/"
+     "committeeId": "C00084061",
+     "fecUrl": "https://www.fec.gov/data/committee/C00084061/",
+     "kind": "membership org PAC"
     }
    ]
   }

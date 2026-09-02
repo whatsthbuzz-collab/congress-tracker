@@ -9,6 +9,11 @@
  "candidates": [
   {
    "name": "Jon Ossoff",
+   "photo": {
+    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Jon_Ossoff_Senate_Portrait_2021_(cropped).jpg?width=240",
+    "credit": "U.S. Senate Photographic Studio, public domain",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Jon_Ossoff_Senate_Portrait_2021_(cropped).jpg"
+   },
    "party": "Democratic",
    "fecId": "S8GA00180",
    "committees": [
@@ -57,27 +62,40 @@
     {
      "name": "NATIONAL PORK PRODUCERS COUNCIL PORK PAC",
      "amount": 5000,
-     "fecUrl": "https://www.fec.gov/data/committee/C00201871/"
+     "committeeId": "C00201871",
+     "fecUrl": "https://www.fec.gov/data/committee/C00201871/",
+     "kind": "trade assoc. PAC"
     },
     {
      "name": "AMERICAN POSTAL WORKERS UNION COMMITTEE ON POLITICAL ACTION",
      "amount": 5000,
-     "fecUrl": "https://www.fec.gov/data/committee/C00010322/"
+     "committeeId": "C00010322",
+     "fecUrl": "https://www.fec.gov/data/committee/C00010322/",
+     "kind": "PAC"
     },
     {
      "name": "FRIENDS OF DICK DURBIN COMMITTEE",
      "amount": 2000,
-     "fecUrl": "https://www.fec.gov/data/committee/C00148999/"
+     "committeeId": "C00148999",
+     "fecUrl": "https://www.fec.gov/data/committee/C00148999/",
+     "kind": "candidate committee"
     },
     {
      "name": "NICK ALEX FOR CONGRESS",
      "amount": 1000,
-     "fecUrl": "https://www.fec.gov/data/committee/C00904003/"
+     "committeeId": "C00904003",
+     "fecUrl": "https://www.fec.gov/data/committee/C00904003/",
+     "kind": "candidate committee"
     }
    ]
   },
   {
    "name": "Mike Collins",
+   "photo": {
+    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Rep._Mike_Collins_official_photo,_118th_Congress.jpg?width=240",
+    "credit": "United States Congress, public domain",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rep._Mike_Collins_official_photo,_118th_Congress.jpg"
+   },
    "party": "Republican",
    "fecId": "S6GA00390",
    "committees": [
@@ -122,42 +140,58 @@
     {
      "name": "TRUE NORTH PAC",
      "amount": 15000,
-     "fecUrl": "https://www.fec.gov/data/committee/C00571000/"
+     "committeeId": "C00571000",
+     "fecUrl": "https://www.fec.gov/data/committee/C00571000/",
+     "kind": "leadership PAC"
     },
     {
      "name": "LEADERSHIP AND ACCOUNTABILITY ARE NATIONAL KEYS PAC",
      "amount": 15000,
-     "fecUrl": "https://www.fec.gov/data/committee/C00492058/"
+     "committeeId": "C00492058",
+     "fecUrl": "https://www.fec.gov/data/committee/C00492058/",
+     "kind": "PAC"
     },
     {
      "name": "CONSERVATIVES HARVESTING SUCCESS PAC",
      "amount": 15000,
-     "fecUrl": "https://www.fec.gov/data/committee/C00678813/"
+     "committeeId": "C00678813",
+     "fecUrl": "https://www.fec.gov/data/committee/C00678813/",
+     "kind": "leadership PAC"
     },
     {
      "name": "THE EYE OF THE TIGER PAC",
      "amount": 15000,
-     "fecUrl": "https://www.fec.gov/data/committee/C00467431/"
+     "committeeId": "C00467431",
+     "fecUrl": "https://www.fec.gov/data/committee/C00467431/",
+     "kind": "leadership PAC"
     },
     {
      "name": "RESPONSIBILITY AND FREEDOM WORK PAC (RFWPAC)",
      "amount": 10000,
-     "fecUrl": "https://www.fec.gov/data/committee/C00368696/"
+     "committeeId": "C00368696",
+     "fecUrl": "https://www.fec.gov/data/committee/C00368696/",
+     "kind": "leadership PAC"
     },
     {
      "name": "OORAH! PAC",
      "amount": 10000,
-     "fecUrl": "https://www.fec.gov/data/committee/C00551853/"
+     "committeeId": "C00551853",
+     "fecUrl": "https://www.fec.gov/data/committee/C00551853/",
+     "kind": "leadership PAC"
     },
     {
      "name": "DIRIGO PAC",
      "amount": 10000,
-     "fecUrl": "https://www.fec.gov/data/committee/C00391797/"
+     "committeeId": "C00391797",
+     "fecUrl": "https://www.fec.gov/data/committee/C00391797/",
+     "kind": "leadership PAC"
     },
     {
      "name": "COLLINS VICTORY FUND",
      "amount": 7032,
-     "fecUrl": "https://www.fec.gov/data/committee/C00824151/"
+     "committeeId": "C00824151",
+     "fecUrl": "https://www.fec.gov/data/committee/C00824151/",
+     "kind": "joint fundraising"
     }
    ]
   }
