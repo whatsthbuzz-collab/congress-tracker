@@ -729,7 +729,7 @@ a.comm-name:hover { color: var(--navy); text-decoration: underline; }
 }
 
 /* --- Donor chip links + phone-width hardening --- */
-.donor-chip { overflow-wrap: anywhere; }
+.donor-chip { overflow-wrap: break-word; border-radius: 14px; }
 .donor-chip-link { text-decoration: none; cursor: pointer; }
 .donor-chip-link:hover { border-color: var(--line-2); color: var(--ink); }
 .donor-chip-link span[aria-hidden] { color: var(--ink-3); font-size: 0.7rem; }
@@ -743,9 +743,12 @@ a.comm-name:hover { color: var(--navy); text-decoration: underline; }
 }
 
 /* --- Elections view: laptop-scale tuning + photo polish --- */
-.elections-view .masthead-title { font-size: clamp(1.7rem, 3.2vw, 2.4rem); }
-.elections-view .masthead { margin-bottom: 1.4rem; }
-.elections-view .hero { padding-bottom: 0; }
+.elections-view .masthead-title { font-size: clamp(1.6rem, 2.6vw, 2.1rem); }
+.elections-view .masthead { margin-bottom: 1.1rem; }
+.elections-view .masthead-dek { font-size: 0.95rem; max-width: 52ch; line-height: 1.55; }
+.elections-view .masthead-eyebrow { font-size: 0.7rem; }
+.elections-view .hero { padding-bottom: 0; padding-top: 1.2rem; }
 .elections-view .compare2-grid { max-width: 1180px; }
 .elections-view .finance-num { font-size: 1.3rem; }
 .elections-view img.member-photo { border: none; }
+.elections-view .stat-pill, .elections-view .race-status { font-size: 0.85rem; }
