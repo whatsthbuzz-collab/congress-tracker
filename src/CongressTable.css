@@ -757,3 +757,6 @@ a.comm-name:hover { color: var(--navy); text-decoration: underline; }
 .elections-view .finance-num { font-size: 1.3rem; }
 .elections-view img.member-photo { border: none; }
 .elections-view .stat-pill, .elections-view .race-status { font-size: 0.85rem; }
+
+/* --- Race switcher (elections view) --- */
+.race-switch { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0 0 1.1rem; }

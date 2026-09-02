@@ -165,6 +165,27 @@ export default function ElectionsView({ onOpenStateProfile }) {
 
   return (
     <div className="elections-view">
+      {payload.races?.length > 1 && (
+        <nav className="race-switch" aria-label="Choose a race">
+          {payload.races.map((r) => (
+            <button
+              key={r.id}
+              type="button"
+              className={`pill pill-sm ${r.id === raceId ? 'active' : ''}`}
+              onClick={() => {
+                if (r.id === raceId) return;
+                setRace(null);
+                setRaceId(r.id);
+                const url = new URL(window.location.href);
+                url.searchParams.set('race', r.id);
+                history.replaceState(null, '', url.pathname + url.search + url.hash);
+              }}
+            >
+              {r.state}
+            </button>
+          ))}
+        </nav>
+      )}
       <div className="hero">
         <header className="masthead">
           <p className="masthead-eyebrow">Upcoming Race &middot; Preview</p>
