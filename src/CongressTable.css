@@ -695,7 +695,8 @@ a.comm-name:hover { color: var(--navy); text-decoration: underline; }
   margin-bottom: 0.2rem;
 }
 .donor-chip {
-  display: inline-flex; align-items: baseline; gap: 0.4rem;
+  display: inline-flex; flex-wrap: wrap; align-items: center;
+  gap: 0.15rem 0.4rem; min-width: 0;
   font-family: var(--font-ui); font-size: 0.86rem; color: var(--ink);
   padding: 0.34rem 0.7rem; border: 1px solid var(--line-2);
   border-radius: 999px; background: var(--surface-2);
