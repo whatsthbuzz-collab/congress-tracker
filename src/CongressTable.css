@@ -713,7 +713,7 @@ a.comm-name:hover { color: var(--navy); text-decoration: underline; }
   display: flex; flex-direction: column; gap: 0.35rem;
 }
 .fact-row {
-  display: grid; grid-template-columns: 8.5rem 1fr; gap: 0.6rem;
+  display: grid; grid-template-columns: 10.5rem 1fr; gap: 0.6rem;
   align-items: baseline;
 }
 .fact-label {
@@ -743,6 +743,11 @@ a.comm-name:hover { color: var(--navy); text-decoration: underline; }
 }
 
 /* --- Elections view: laptop-scale tuning + photo polish --- */
+/* One density dial for the whole elections page. 1 = full size.
+   Tune between 0.8 (compact) and 1 (airy); phones get full size below. */
+.elections-view { zoom: 0.85; }
+@media (max-width: 720px) { .elections-view { zoom: 1; } }
+
 .elections-view .masthead-title { font-size: clamp(1.6rem, 2.6vw, 2.1rem); }
 .elections-view .masthead { margin-bottom: 1.1rem; }
 .elections-view .masthead-dek { font-size: 0.95rem; max-width: 52ch; line-height: 1.55; }
