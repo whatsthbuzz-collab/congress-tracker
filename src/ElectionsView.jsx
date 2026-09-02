@@ -76,6 +76,9 @@ function CandidateCard({ c, onOpenState }) {
         )}
       </div>
 
+      {!f.available && c.financeNote && (
+        <p className="finance-note">{c.financeNote}</p>
+      )}
       <div className="finance-grid" style={{ marginTop: '1rem' }}>
         <div className="finance-stat">
           <span className="finance-num">{f.available ? fmtMoney(f.totalRaised) : 'n/a'}</span>

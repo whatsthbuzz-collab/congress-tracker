@@ -769,3 +769,9 @@ a.comm-name:hover { color: var(--navy); text-decoration: underline; }
   border: 1px solid var(--line); border-radius: 4px;
   padding: 0.08rem 0.32rem; align-self: center; white-space: nowrap;
 }
+
+/* --- Note shown when a candidate's committee has no FEC filings yet --- */
+.finance-note {
+  font-size: 0.8rem; font-style: italic; color: var(--ink-2);
+  margin: 0.9rem 0 -0.4rem; line-height: 1.4;
+}
