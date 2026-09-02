@@ -266,6 +266,11 @@ RACES: List[Dict[str, Any]] = [
         "candidates": [
             {
                 "name": "Roy Cooper",
+                "photo": {
+                    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Gov._Cooper_Cropped.jpg?width=240",
+                    "credit": "via Wikimedia Commons",
+                    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gov._Cooper_Cropped.jpg",
+                },
                 "party": "Democratic",
                 "fecId": "S6NC00407",
                 "committees": ["C00913566"],
@@ -287,6 +292,11 @@ RACES: List[Dict[str, Any]] = [
             },
             {
                 "name": "Michael Whatley",
+                "photo": {
+                    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Michael_Whatley_(54351730621)_(cropped).jpg?width=240",
+                    "credit": "Gage Skidmore, CC BY-SA 2.0, via Wikimedia Commons",
+                    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Michael_Whatley_(54351730621)_(cropped).jpg",
+                },
                 "party": "Republican",
                 "fecId": "S6NC00415",
                 "committees": ["C00913996", "C00909416"],
@@ -322,6 +332,11 @@ RACES: List[Dict[str, Any]] = [
         "candidates": [
             {
                 "name": "Troy Jackson",
+                "photo": {
+                    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Senate_President_Troy_Jackson_(cropped).png?width=240",
+                    "credit": "ArenLeBrun, via Wikimedia Commons",
+                    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Senate_President_Troy_Jackson_(cropped).png",
+                },
                 "party": "Democratic",
                 "fecId": "S6ME00464",
                 "committees": ["C00955609"],
@@ -333,6 +348,7 @@ RACES: List[Dict[str, Any]] = [
                     "2018 to 2024; candidate for governor earlier in 2026."
                 ),
                 "backgroundSourceUrl": "https://ballotpedia.org/Troy_Jackson_(Maine)",
+                "financeNote": "Committee registered July 2026; its first FEC report is due Oct. 15, 2026.",
                 "campaignSiteUrl": "https://www.jacksonformaine.com/priorities",
                 "facts": [
                     {"label": "Profession", "value": "Logger"},
@@ -341,6 +357,11 @@ RACES: List[Dict[str, Any]] = [
             },
             {
                 "name": "Susan Collins",
+                "photo": {
+                    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Senator_Susan_Collins_2014_official_portrait.jpg?width=240",
+                    "credit": "U.S. Congress, public domain",
+                    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Senator_Susan_Collins_2014_official_portrait.jpg",
+                },
                 "party": "Republican",
                 "fecId": "S6ME00159",
                 "committees": ["C00314575"],
@@ -405,6 +426,7 @@ RACES: List[Dict[str, Any]] = [
                     "Won the Aug. 25 special Republican primary runoff."
                 ),
                 "backgroundSourceUrl": "https://ballotpedia.org/Darline_Graham",
+                "financeNote": "Committee registered August 2026; its first FEC report is due Oct. 15, 2026.",
                 "facts": [
                     {"label": "Profession", "value": "Public administrator"},
                     {"label": "Current office pay", "value": "$174,000/yr"},
@@ -495,6 +517,10 @@ def fetch_top_pac_donors(fetcher: "FECFetcher", committee_ids: List[str]) -> Lis
             "two_year_transaction_period": cycle,
             "contributor_type": "committee",
             "per_page": 100,
+            # Largest receipts first: with a page cap, date order can surface
+            # small recent checks while burying major PAC money (verified
+            # sortable field in the FEC API's own source).
+            "sort": "-contribution_receipt_amount",
         }
         for _page in range(MAX_SCHED_A_PAGES):
             data = fetcher._get("/schedules/schedule_a/", params)
