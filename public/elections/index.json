@@ -1,5 +1,5 @@
 {
- "lastUpdated": "2026-09-02T00:56:54.272211+00:00",
+ "lastUpdated": "2026-09-02T01:48:05.676978+00:00",
  "races": [
   {
    "id": "tx-sen-2026",
@@ -13,6 +13,38 @@
     },
     {
      "name": "Ken Paxton",
+     "party": "Republican"
+    }
+   ]
+  },
+  {
+   "id": "ga-sen-2026",
+   "office": "U.S. Senate",
+   "state": "Georgia",
+   "electionDate": "2026-11-03",
+   "candidates": [
+    {
+     "name": "Jon Ossoff",
+     "party": "Democratic"
+    },
+    {
+     "name": "Mike Collins",
+     "party": "Republican"
+    }
+   ]
+  },
+  {
+   "id": "mi-sen-2026",
+   "office": "U.S. Senate",
+   "state": "Michigan",
+   "electionDate": "2026-11-03",
+   "candidates": [
+    {
+     "name": "Abdul El-Sayed",
+     "party": "Democratic"
+    },
+    {
+     "name": "Mike Rogers",
      "party": "Republican"
     }
    ]

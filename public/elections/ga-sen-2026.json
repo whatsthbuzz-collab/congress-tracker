@@ -1,0 +1,165 @@
+{
+ "id": "ga-sen-2026",
+ "office": "U.S. Senate",
+ "state": "Georgia",
+ "stateCode": "GA",
+ "electionDate": "2026-11-03",
+ "seatNote": "Sen. Jon Ossoff (D) is seeking a second term. Georgia holds a Dec. 1 runoff if no candidate wins a majority on Nov. 3.",
+ "sourceUrl": "https://en.wikipedia.org/wiki/2026_United_States_Senate_election_in_Georgia",
+ "candidates": [
+  {
+   "name": "Jon Ossoff",
+   "party": "Democratic",
+   "fecId": "S8GA00180",
+   "committees": [
+    "C00718866"
+   ],
+   "currentOffice": "U.S. Senator, Georgia",
+   "stateProfile": null,
+   "background": "U.S. senator since 2021; before politics, ran an investigative journalism company. Seeking a second term.",
+   "backgroundSourceUrl": "https://ballotpedia.org/Jon_Ossoff",
+   "facts": [
+    {
+     "label": "Born",
+     "value": "Atlanta, Georgia"
+    },
+    {
+     "label": "Bachelor's",
+     "value": "Georgetown University"
+    },
+    {
+     "label": "Graduate",
+     "value": "London School of Economics"
+    },
+    {
+     "label": "Profession",
+     "value": "Media executive"
+    },
+    {
+     "label": "Current office pay",
+     "value": "$174,000/yr"
+    }
+   ],
+   "incumbent": true,
+   "financeUrl": "https://www.fec.gov/data/candidate/S8GA00180/",
+   "finance": {
+    "available": true,
+    "cycle": 2026,
+    "totalRaised": 77279766,
+    "fromPacs": 931316,
+    "fromIndividuals": 67764725,
+    "pacPct": 1,
+    "individualPct": 99,
+    "cashOnHand": 42587451,
+    "source": "OpenFEC API"
+   },
+   "topPacDonors": [
+    {
+     "name": "NATIONAL PORK PRODUCERS COUNCIL PORK PAC",
+     "amount": 5000,
+     "fecUrl": "https://www.fec.gov/data/committee/C00201871/"
+    },
+    {
+     "name": "AMERICAN POSTAL WORKERS UNION COMMITTEE ON POLITICAL ACTION",
+     "amount": 5000,
+     "fecUrl": "https://www.fec.gov/data/committee/C00010322/"
+    },
+    {
+     "name": "FRIENDS OF DICK DURBIN COMMITTEE",
+     "amount": 2000,
+     "fecUrl": "https://www.fec.gov/data/committee/C00148999/"
+    },
+    {
+     "name": "NICK ALEX FOR CONGRESS",
+     "amount": 1000,
+     "fecUrl": "https://www.fec.gov/data/committee/C00904003/"
+    }
+   ]
+  },
+  {
+   "name": "Mike Collins",
+   "party": "Republican",
+   "fecId": "S6GA00390",
+   "committees": [
+    "C00544684"
+   ],
+   "currentOffice": "U.S. Representative, GA-10",
+   "stateProfile": null,
+   "background": "U.S. representative for Georgia's 10th district since 2023; founded a trucking company; son of former U.S. Rep. Mac Collins.",
+   "backgroundSourceUrl": "https://ballotpedia.org/Mike_Collins_(Georgia)",
+   "facts": [
+    {
+     "label": "Born",
+     "value": "Jackson, Georgia"
+    },
+    {
+     "label": "Bachelor's",
+     "value": "Georgia State University"
+    },
+    {
+     "label": "Profession",
+     "value": "Businessman (trucking)"
+    },
+    {
+     "label": "Current office pay",
+     "value": "$174,000/yr"
+    }
+   ],
+   "incumbent": false,
+   "financeUrl": "https://www.fec.gov/data/candidate/S6GA00390/",
+   "finance": {
+    "available": true,
+    "cycle": 2026,
+    "totalRaised": 6511960,
+    "fromPacs": 495632,
+    "fromIndividuals": 3555591,
+    "pacPct": 12,
+    "individualPct": 88,
+    "cashOnHand": 2038360,
+    "source": "OpenFEC API"
+   },
+   "topPacDonors": [
+    {
+     "name": "TRUE NORTH PAC",
+     "amount": 15000,
+     "fecUrl": "https://www.fec.gov/data/committee/C00571000/"
+    },
+    {
+     "name": "LEADERSHIP AND ACCOUNTABILITY ARE NATIONAL KEYS PAC",
+     "amount": 15000,
+     "fecUrl": "https://www.fec.gov/data/committee/C00492058/"
+    },
+    {
+     "name": "CONSERVATIVES HARVESTING SUCCESS PAC",
+     "amount": 15000,
+     "fecUrl": "https://www.fec.gov/data/committee/C00678813/"
+    },
+    {
+     "name": "THE EYE OF THE TIGER PAC",
+     "amount": 15000,
+     "fecUrl": "https://www.fec.gov/data/committee/C00467431/"
+    },
+    {
+     "name": "RESPONSIBILITY AND FREEDOM WORK PAC (RFWPAC)",
+     "amount": 10000,
+     "fecUrl": "https://www.fec.gov/data/committee/C00368696/"
+    },
+    {
+     "name": "OORAH! PAC",
+     "amount": 10000,
+     "fecUrl": "https://www.fec.gov/data/committee/C00551853/"
+    },
+    {
+     "name": "DIRIGO PAC",
+     "amount": 10000,
+     "fecUrl": "https://www.fec.gov/data/committee/C00391797/"
+    },
+    {
+     "name": "COLLINS VICTORY FUND",
+     "amount": 7032,
+     "fecUrl": "https://www.fec.gov/data/committee/C00824151/"
+    }
+   ]
+  }
+ ]
+}
