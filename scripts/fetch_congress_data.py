@@ -24,6 +24,7 @@ hard-fail, because partial data beats no data.
 import os
 import sys
 import json
+import re
 import time
 from datetime import datetime, date, timezone
 from typing import Any, Dict, List, Optional
@@ -270,6 +271,148 @@ class BillFetcher:
         return bills, total_count
 
 
+
+
+# ---------- CRS summaries (bulk) + executive order resolution ----------
+#
+# Congress.gov's per-bill summary endpoint would cost thousands of calls a
+# night. The bulk /summaries/{congress} endpoint pages through every CRS
+# summary for the whole Congress in a few dozen requests; we index them by
+# (bill type, number) and join locally. Bills with no CRS summary yet simply
+# get none -- CRS runs weeks behind introductions, and we never write our
+# own: this site states, it does not interpret.
+
+SUMMARY_PAGE_LIMIT = 250
+SUMMARY_MAX_PAGES = 80  # 20,000 summaries; more than a full Congress produces
+
+
+def _strip_html(text: str) -> str:
+    text = re.sub(r"<[^>]+>", " ", text or "")
+    text = re.sub(r"\s+", " ", text)
+    return re.sub(r"\s+([.,;:!?])", r"\1", text).strip()
+
+
+def _truncate_sentences(text: str, max_len: int = 260) -> str:
+    if len(text) <= max_len:
+        return text
+    cut = text[:max_len]
+    for sep in (". ", "; "):
+        idx = cut.rfind(sep)
+        if idx > 80:
+            return cut[: idx + 1]
+    return cut[: cut.rfind(" ")] + "\u2026"
+
+
+def fetch_all_summaries(session, api_key: str, congress: int):
+    """Bulk-download every CRS summary for a Congress, newest version per bill."""
+    index = {}  # (TYPE, number) -> (updateDate, text)
+    offset = 0
+    for _page in range(SUMMARY_MAX_PAGES):
+        time.sleep(REQUEST_DELAY)
+        try:
+            resp = session.get(
+                f"{CONGRESS_API_BASE}/summaries/{congress}",
+                params={"api_key": api_key, "format": "json",
+                        "limit": SUMMARY_PAGE_LIMIT, "offset": offset},
+                timeout=30,
+            )
+            if resp.status_code == 429:
+                print("  Rate limited on summaries; waiting 60s...")
+                time.sleep(60)
+                resp = session.get(
+                    f"{CONGRESS_API_BASE}/summaries/{congress}",
+                    params={"api_key": api_key, "format": "json",
+                            "limit": SUMMARY_PAGE_LIMIT, "offset": offset},
+                    timeout=30,
+                )
+            resp.raise_for_status()
+            data = resp.json()
+        except requests.exceptions.RequestException as e:
+            print(f"  Summary page fetch failed at offset {offset}: {e}", file=sys.stderr)
+            break
+        items = data.get("summaries") or []
+        if not items:
+            break
+        for s in items:
+            bill = s.get("bill") or {}
+            key = ((bill.get("type") or "").upper(), str(bill.get("number") or ""))
+            if not key[0] or not key[1]:
+                continue
+            stamp = s.get("updateDate") or ""
+            if key not in index or stamp > index[key][0]:
+                index[key] = (stamp, _strip_html(s.get("text")))
+        offset += SUMMARY_PAGE_LIMIT
+        pag = data.get("pagination") or {}
+        if offset >= (pag.get("count") or 0):
+            break
+    return {k: v[1] for k, v in index.items() if v[1]}
+
+
+EO_TITLE_RE = re.compile(r"[Ee]xecutive [Oo]rder\s+(\d{4,5})")
+
+
+def resolve_executive_orders(session, eo_numbers):
+    """Resolve EO numbers to official titles via the Federal Register API
+    (federalregister.gov -- free, no key). Term-search then exact-match on the
+    executive_order_number field so we never attach the wrong order. Any
+    failure just leaves the bill without an EO line; graceful, never wrong."""
+    out = {}
+    dumped = False
+    for eo in sorted(set(eo_numbers)):
+        time.sleep(0.4)
+        try:
+            resp = session.get(
+                "https://www.federalregister.gov/api/v1/documents.json",
+                params={
+                    "conditions[presidential_document_type]": "executive_order",
+                    "conditions[term]": f"Executive Order {eo}",
+                    "fields[]": ["executive_order_number", "title", "html_url"],
+                    "per_page": 20,
+                },
+                timeout=30,
+            )
+            resp.raise_for_status()
+            results = (resp.json() or {}).get("results") or []
+        except requests.exceptions.RequestException as e:
+            print(f"  Federal Register lookup failed for EO {eo}: {e}", file=sys.stderr)
+            continue
+        if not dumped and results:
+            dumped = True
+            print("  [debug] raw Federal Register result:")
+            print("  " + json.dumps(results[0], indent=2)[:400].replace("\n", "\n  "))
+        hit = next((r for r in results
+                    if str(r.get("executive_order_number") or "") == str(eo)), None)
+        if hit and hit.get("title"):
+            out[str(eo)] = {"title": hit["title"], "url": hit.get("html_url") or ""}
+    return out
+
+
+def enrich_bills(members, session, api_key, congress):
+    summaries = fetch_all_summaries(session, api_key, congress)
+    print(f"  CRS summaries downloaded: {len(summaries)}")
+    eo_refs = set()
+    for m in members:
+        for b in m.get("bills") or []:
+            eo_refs.update(EO_TITLE_RE.findall(b.get("title") or ""))
+    eo_map = resolve_executive_orders(session, eo_refs) if eo_refs else {}
+    print(f"  Executive orders referenced: {len(eo_refs)}, resolved: {len(eo_map)}")
+
+    with_summary = 0
+    for m in members:
+        for b in m.get("bills") or []:
+            parts = (b.get("billNumber") or "").split()
+            if len(parts) == 2 and (parts[0].upper(), parts[1]) in summaries:
+                b["summary"] = _truncate_sentences(summaries[(parts[0].upper(), parts[1])])
+                b["summarySource"] = "CRS via Congress.gov"
+                with_summary += 1
+            eo_hits = EO_TITLE_RE.findall(b.get("title") or "")
+            if eo_hits and str(eo_hits[0]) in eo_map:
+                b["eoNumber"] = str(eo_hits[0])
+                b["eoTitle"] = eo_map[str(eo_hits[0])]["title"]
+                b["eoUrl"] = eo_map[str(eo_hits[0])]["url"]
+    print(f"  Bills annotated with CRS summaries: {with_summary}")
+
+
 # ---------- orchestration ----------
 
 
@@ -311,6 +454,11 @@ def main():
             member["bills"], member["billsTotal"] = fetcher.fetch(member["bioguideId"])
             if i % 50 == 0:
                 print(f"  {i}/{len(members)} members processed")
+
+        # ---- CRS summaries + executive order titles ----
+        current_congress_for_bills = (datetime.now().year - 2025) // 2 + 119
+        print("Enriching bills with CRS summaries and executive order titles...")
+        enrich_bills(members, fetcher.session, api_key, current_congress_for_bills)
 
     # ---- campaign finance (FEC) ----
     finance_enabled = add_finance(members, fec_id_by_bioguide)
