@@ -826,3 +826,15 @@ a.comm-name:hover { color: var(--navy); text-decoration: underline; }
 .finder-line { font-size: 0.92rem; color: var(--ink); margin: 0.25rem 0; line-height: 1.5; }
 .finder-state-line { color: var(--ink-2); font-size: 0.86rem; }
 @media (max-width: 480px) { .finder-btn { flex: 1 1 100%; } }
+
+/* --- District finder v2: location button + zip/city input --- */
+.finder-geo { font-weight: 600; }
+.finder-or { font-size: 0.8rem; color: var(--ink-3); align-self: center; }
+.finder-approx {
+  font-size: 0.78rem; font-style: italic; color: var(--ink-2);
+  margin: 0.5rem 0 0; line-height: 1.4;
+}
+@media (max-width: 480px) {
+  .finder-geo { flex: 1 1 100%; }
+  .finder-or { display: none; }
+}

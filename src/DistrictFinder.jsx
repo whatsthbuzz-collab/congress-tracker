@@ -3,14 +3,17 @@ import { useRef, useState } from 'react';
 /*
  * DistrictFinder — "I don't know my district."
  *
- * Uses the U.S. Census Bureau's free public geocoder, which returns the
- * authoritative CURRENT congressional and state legislative districts for a
- * street address. No API key; boundaries maintained by the Bureau through
- * every redistricting. A street address (not just a zip) is required because
- * thousands of zip codes straddle district lines — a facts site shouldn't
- * guess. Requests go via JSONP (the geocoder supports it explicitly for
- * cross-origin browser use) directly from the visitor's browser to
- * census.gov; this site never sees or stores the address.
+ * Two easy paths, no full address required:
+ *  1) "Use my location": browser geolocation -> Census geocoder -> exact
+ *     current districts. One tap.
+ *  2) Type anything (zip, city, or address): OpenStreetMap's Nominatim
+ *     resolves it to a point, the Census geocoder resolves the point to
+ *     districts. Coarse inputs (zip/city) are honestly labeled approximate,
+ *     because zips and cities can span district lines.
+ *
+ * Privacy: location/text goes only to OpenStreetMap (for text lookups) and
+ * the U.S. Census Bureau (for district boundaries), directly from the
+ * visitor's browser. This site never sees or stores it. No API keys.
  */
 
 const FIPS_TO_STATE = {
@@ -25,19 +28,14 @@ const FIPS_TO_STATE = {
   '54': 'WV', '55': 'WI', '56': 'WY', '72': 'PR',
 };
 
+const PRECISE_OSM_TYPES = new Set(['house', 'building', 'residential', 'address']);
+
 function jsonp(url, timeoutMs = 12000) {
   return new Promise((resolve, reject) => {
     const cb = `__censusCb${Date.now()}_${Math.floor(Math.random() * 1e6)}`;
     const script = document.createElement('script');
-    const timer = setTimeout(() => {
-      cleanup();
-      reject(new Error('timeout'));
-    }, timeoutMs);
-    function cleanup() {
-      clearTimeout(timer);
-      delete window[cb];
-      script.remove();
-    }
+    const timer = setTimeout(() => { cleanup(); reject(new Error('timeout')); }, timeoutMs);
+    function cleanup() { clearTimeout(timer); delete window[cb]; script.remove(); }
     window[cb] = (data) => { cleanup(); resolve(data); };
     script.onerror = () => { cleanup(); reject(new Error('network')); };
     script.src = `${url}&callback=${cb}`;
@@ -47,55 +45,102 @@ function jsonp(url, timeoutMs = 12000) {
 
 function findLayer(geographies, keyword) {
   const key = Object.keys(geographies || {}).find((k) => k.includes(keyword));
-  const entry = key && geographies[key] && geographies[key][0];
-  return entry || null;
+  return (key && geographies[key] && geographies[key][0]) || null;
+}
+
+async function censusDistrictsFromPoint(lat, lon) {
+  const layers = encodeURIComponent(
+    'Congressional Districts,State Legislative Districts - Upper,State Legislative Districts - Lower'
+  );
+  const url =
+    'https://geocoding.geo.census.gov/geocoder/geographies/coordinates' +
+    `?x=${encodeURIComponent(lon)}&y=${encodeURIComponent(lat)}` +
+    '&benchmark=Public_AR_Current&vintage=Current_Current' +
+    `&layers=${layers}&format=jsonp`;
+  const data = await jsonp(url);
+  const geo = data?.result?.geographies;
+  if (!geo) return null;
+  const cd = findLayer(geo, 'Congressional Districts');
+  const sldu = findLayer(geo, 'Upper');
+  const sldl = findLayer(geo, 'Lower');
+  if (!cd && !sldu && !sldl) return null;
+  const stateCode = FIPS_TO_STATE[cd?.STATE || sldu?.STATE || ''] || null;
+  const cdNum = cd ? parseInt(cd.BASENAME, 10) : null; // "00" = at-large
+  return {
+    stateCode,
+    cdNum: Number.isNaN(cdNum) ? null : cdNum,
+    cdName: cd?.NAME || null,
+    slduName: sldu?.NAME || null,
+    sldlName: sldl?.NAME || null,
+  };
 }
 
 export default function DistrictFinder({ members }) {
-  const [addr, setAddr] = useState('');
+  const [query, setQuery] = useState('');
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState(null);
   const [result, setResult] = useState(null);
   const inputRef = useRef(null);
 
-  async function lookup() {
-    const q = addr.trim();
+  function fail(msg) { setError(msg); setResult(null); }
+
+  async function finish(point, placeLabel, approximate) {
+    const districts = await censusDistrictsFromPoint(point.lat, point.lon);
+    if (!districts || !districts.stateCode) {
+      fail('Could not determine districts for that spot. It may be outside the United States.');
+      return;
+    }
+    setResult({ ...districts, placeLabel, approximate });
+  }
+
+  async function lookupText() {
+    const q = query.trim();
     if (!q) { inputRef.current?.focus(); return; }
     setBusy(true); setError(null); setResult(null);
     try {
-      const layers = encodeURIComponent(
-        'Congressional Districts,State Legislative Districts - Upper,State Legislative Districts - Lower'
-      );
       const url =
-        'https://geocoding.geo.census.gov/geocoder/geographies/onelineaddress' +
-        `?address=${encodeURIComponent(q)}` +
-        '&benchmark=Public_AR_Current&vintage=Current_Current' +
-        `&layers=${layers}&format=jsonp`;
-      const data = await jsonp(url);
-      const match = data?.result?.addressMatches?.[0];
-      if (!match) {
-        setError('No match for that address. Try adding a city and state, e.g. "123 Main St, Raleigh, NC".');
+        'https://nominatim.openstreetmap.org/search' +
+        `?q=${encodeURIComponent(q)}&format=json&limit=1&countrycodes=us&addressdetails=0`;
+      const resp = await fetch(url, { headers: { Accept: 'application/json' } });
+      const hits = await resp.json();
+      const hit = Array.isArray(hits) && hits[0];
+      if (!hit) {
+        fail('No match for that. Try a 5-digit zip, a "City, ST", or a street address.');
         return;
       }
-      const geo = match.geographies || {};
-      const cd = findLayer(geo, 'Congressional Districts');
-      const sldu = findLayer(geo, 'Upper');
-      const sldl = findLayer(geo, 'Lower');
-      const stateCode = FIPS_TO_STATE[cd?.STATE || sldu?.STATE || ''] || null;
-      const cdNum = cd ? parseInt(cd.BASENAME, 10) : null; // "00" = at-large
-      setResult({
-        matched: match.matchedAddress,
-        stateCode,
-        cdNum: Number.isNaN(cdNum) ? null : cdNum,
-        cdName: cd?.NAME || null,
-        slduName: sldu?.NAME || null,
-        sldlName: sldl?.NAME || null,
-      });
+      const approximate = !PRECISE_OSM_TYPES.has(hit.type);
+      const label = (hit.display_name || q).split(',').slice(0, 3).join(',');
+      await finish({ lat: hit.lat, lon: hit.lon }, label, approximate);
     } catch (e) {
-      setError('The Census geocoder could not be reached just now. Please try again in a moment.');
+      fail('Lookup failed just now. Please try again in a moment.');
     } finally {
       setBusy(false);
     }
+  }
+
+  function lookupMyLocation() {
+    if (!navigator.geolocation) {
+      fail('Your browser does not support location. Type a zip or city instead.');
+      return;
+    }
+    setBusy(true); setError(null); setResult(null);
+    navigator.geolocation.getCurrentPosition(
+      async (pos) => {
+        try {
+          await finish(
+            { lat: pos.coords.latitude, lon: pos.coords.longitude },
+            'your current location',
+            false
+          );
+        } catch (e) {
+          fail('Lookup failed just now. Please try again in a moment.');
+        } finally {
+          setBusy(false);
+        }
+      },
+      () => { setBusy(false); fail('Location was blocked or unavailable. Type a zip or city instead.'); },
+      { enableHighAccuracy: false, timeout: 10000, maximumAge: 300000 }
+    );
   }
 
   const rep = result && result.stateCode
@@ -113,30 +158,39 @@ export default function DistrictFinder({ members }) {
     <section className="district-finder" aria-label="Find your districts and legislators">
       <p className="donor-label">Find your legislators</p>
       <div className="finder-row">
+        <button type="button" className="pill finder-btn finder-geo" onClick={lookupMyLocation} disabled={busy}>
+          {busy ? 'Looking…' : '📍 Use my location'}
+        </button>
+        <span className="finder-or">or</span>
         <input
           ref={inputRef}
           type="text"
+          inputMode="text"
           className="finder-input"
-          placeholder='Street address, city, state — e.g. "123 Main St, Raleigh, NC"'
-          value={addr}
-          onChange={(e) => setAddr(e.target.value)}
-          onKeyDown={(e) => { if (e.key === 'Enter') lookup(); }}
-          aria-label="Your street address"
+          placeholder="Zip code or city, e.g. 27601 or Raleigh, NC"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          onKeyDown={(e) => { if (e.key === 'Enter') lookupText(); }}
+          aria-label="Zip code, city, or address"
         />
-        <button type="button" className="pill finder-btn" onClick={lookup} disabled={busy}>
-          {busy ? 'Looking…' : 'Find my district'}
+        <button type="button" className="pill finder-btn" onClick={lookupText} disabled={busy}>
+          Find
         </button>
       </div>
       <p className="finder-privacy">
-        Your address goes only to the U.S. Census Bureau's public geocoder to
-        identify your districts. This site never sees or stores it.
+        Lookups go directly from your browser to OpenStreetMap and the U.S. Census
+        Bureau to identify your districts. This site never sees or stores your
+        location.
       </p>
 
       {error && <p className="finder-error">{error}</p>}
 
       {result && (
         <div className="finder-result">
-          <p className="finder-matched">Matched: {result.matched}</p>
+          <p className="finder-matched">
+            {result.approximate ? 'Based on the center of ' : 'Based on '}
+            {result.placeLabel}
+          </p>
           {result.cdName && result.stateCode && (
             <p className="finder-line">
               <strong>
@@ -159,6 +213,12 @@ export default function DistrictFinder({ members }) {
             <p className="finder-line finder-state-line">
               State districts: {[result.slduName, result.sldlName].filter(Boolean).join(' · ')}
               {' — '}see the State Legislatures tab for those members.
+            </p>
+          )}
+          {result.approximate && (
+            <p className="finder-approx">
+              Zips and cities can span more than one district. For an exact match,
+              use the location button or enter a street address.
             </p>
           )}
         </div>
