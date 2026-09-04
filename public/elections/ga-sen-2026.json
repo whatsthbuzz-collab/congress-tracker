@@ -59,64 +59,7 @@
     "cashOnHand": 42587451,
     "source": "OpenFEC API"
    },
-   "topPacDonors": [
-    {
-     "name": "AMERICAN ASSOCIATION FOR JUSTICE POLITICAL ACTION COMMITTEE (AAJ PAC)",
-     "amount": 10000,
-     "committeeId": "C00024521",
-     "fecUrl": "https://www.fec.gov/data/committee/C00024521/",
-     "kind": "membership org PAC"
-    },
-    {
-     "name": "SMART SOLUTIONS PAC",
-     "amount": 10000,
-     "committeeId": "C00654475",
-     "fecUrl": "https://www.fec.gov/data/committee/C00654475/",
-     "kind": "leadership PAC"
-    },
-    {
-     "name": "PEOPLE'S VOICES PAC",
-     "amount": 10000,
-     "committeeId": "C00410092",
-     "fecUrl": "https://www.fec.gov/data/committee/C00410092/",
-     "kind": "leadership PAC"
-    },
-    {
-     "name": "GREAT LAKES PAC",
-     "amount": 10000,
-     "committeeId": "C00375584",
-     "fecUrl": "https://www.fec.gov/data/committee/C00375584/",
-     "kind": "leadership PAC"
-    },
-    {
-     "name": "AMERICAN MOBILIZATION PAC",
-     "amount": 10000,
-     "committeeId": "C00459925",
-     "fecUrl": "https://www.fec.gov/data/committee/C00459925/",
-     "kind": "leadership PAC"
-    },
-    {
-     "name": "IN OUR HANDS PAC",
-     "amount": 10000,
-     "committeeId": "C00761957",
-     "fecUrl": "https://www.fec.gov/data/committee/C00761957/",
-     "kind": "leadership PAC"
-    },
-    {
-     "name": "INTERNATIONAL LONGSHOREMEN'S ASSOCIATION COMMITTEE ON POLITICAL EDUCATION",
-     "amount": 10000,
-     "committeeId": "C00158576",
-     "fecUrl": "https://www.fec.gov/data/committee/C00158576/",
-     "kind": "labor union PAC"
-    },
-    {
-     "name": "AMERICAN POSTAL WORKERS UNION COMMITTEE ON POLITICAL ACTION",
-     "amount": 10000,
-     "committeeId": "C00010322",
-     "fecUrl": "https://www.fec.gov/data/committee/C00010322/",
-     "kind": "PAC"
-    }
-   ]
+   "topPacDonors": []
   },
   {
    "name": "Mike Collins",
