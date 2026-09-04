@@ -16,6 +16,87 @@ import StateView from './StateView';
 import ElectionsView from './ElectionsView';
 import DistrictFinder from './DistrictFinder';
 
+function BillClarity({ bill }) {
+  return (
+    <>
+      {bill.policyArea && <span className="bill-topic">{bill.policyArea}</span>}
+      {bill.summary && (
+        <p className="bill-summary">
+          {bill.summary}{' '}
+          <span className="bill-summary-src">— {bill.summarySource || 'CRS'}</span>
+        </p>
+      )}
+      {bill.eoTitle && (
+        <p className="bill-eo">
+          References Executive Order {bill.eoNumber}:{' '}
+          {bill.eoUrl ? (
+            <a href={bill.eoUrl} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()}>
+              "{bill.eoTitle}" ↗
+            </a>
+          ) : (
+            <>"{bill.eoTitle}"</>
+          )}
+        </p>
+      )}
+    </>
+  );
+}
+
+
+function ComparePicker({ m, allMembers, onCompareWith }) {
+  const [q, setQ] = useState('');
+  const needle = q.trim().toLowerCase();
+  const matches = needle
+    ? allMembers
+        .filter((x) => x.bioguideId !== m.bioguideId)
+        .filter((x) => {
+          const hay = `${x.name} ${x.state || ''} ${x.stateCode || ''} ${x.party || ''}`.toLowerCase();
+          return needle.split(/\s+/).every((w) => hay.includes(w));
+        })
+        .slice(0, 12)
+    : [];
+  return (
+    <div className="compare-picker">
+      <label className="picker-label" htmlFor="cmp-pick">
+        Pick someone to compare against {m.name.split(' ')[0]}
+      </label>
+      <input
+        id="cmp-pick"
+        type="text"
+        className="finder-input picker-input"
+        placeholder="Type a name, state, or party…"
+        value={q}
+        autoFocus
+        onChange={(e) => setQ(e.target.value)}
+        onKeyDown={(e) => {
+          if (e.key === 'Enter' && matches.length === 1) onCompareWith(m.bioguideId, matches[0].bioguideId);
+        }}
+      />
+      {needle && (
+        <ul className="picker-results" role="listbox">
+          {matches.length === 0 && <li className="picker-empty">No members match "{q}"</li>}
+          {matches.map((x) => (
+            <li key={x.bioguideId}>
+              <button
+                type="button"
+                className="picker-option"
+                onClick={() => onCompareWith(m.bioguideId, x.bioguideId)}
+              >
+                <strong>{x.name}</strong>{' '}
+                <span className="picker-meta">
+                  {x.party?.[0] || '?'} · {x.stateCode || x.state}
+                  {x.chamber === 'House' && x.district != null ? `-${x.district}` : ' · Senate'}
+                </span>
+              </button>
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+  );
+}
+
+
 const columnHelper = createColumnHelper();
 
 const fmtDate = (iso) => {
@@ -387,28 +468,7 @@ function MemberProfile({ member: m, onClose, onCompare, inCompare, allMembers = 
               )}
             </div>
             {pickerOpen && (
-              <div className="compare-picker">
-                <label className="picker-label" htmlFor="cmp-pick">Pick someone to compare against {m.name.split(' ')[0]}</label>
-                <select
-                  id="cmp-pick"
-                  className="state-select"
-                  defaultValue=""
-                  onChange={(e) => { if (e.target.value) onCompareWith(m.bioguideId, e.target.value); }}
-                >
-                  <option value="" disabled>Choose a member…</option>
-                  {['Senate', 'House'].map((ch) => (
-                    <optgroup key={ch} label={ch}>
-                      {allMembers
-                        .filter((x) => x.chamber === ch && x.bioguideId !== m.bioguideId)
-                        .map((x) => (
-                          <option key={x.bioguideId} value={x.bioguideId}>
-                            {x.name} ({x.party?.[0] || '?'}, {x.stateCode || x.state}{x.chamber === 'House' && x.district != null ? `-${x.district}` : ''})
-                          </option>
-                        ))}
-                    </optgroup>
-                  ))}
-                </select>
-              </div>
+              <ComparePicker m={m} allMembers={allMembers} onCompareWith={onCompareWith} />
             )}
           </div>
         </div>
@@ -652,6 +712,7 @@ function MemberProfile({ member: m, onClose, onCompare, inCompare, allMembers = 
                 <article key={idx} className="bill-card">
                   <p className="bill-number">{bill.billNumber}</p>
                   <h3 className="bill-title">{bill.title || 'Untitled measure'}</h3>
+                  <BillClarity bill={bill} />
                   {bill.latestAction && <p className="bill-action">{bill.latestAction}</p>}
                   <div className="bill-foot">
                     {bill.introducedDate && (
@@ -1423,7 +1484,19 @@ export default function CongressTable() {
       />
       </div>
 
-      <DistrictFinder members={data} />
+      <DistrictFinder
+        members={data}
+        onSelectMember={(name) => {
+          setGlobalFilter(name);
+          setTimeout(() => document.querySelector('.ledger')?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 60);
+        }}
+        onOpenState={(code) => {
+          setLevel('state');
+          const url = new URL(window.location.href);
+          url.searchParams.set('view', 'state'); url.searchParams.set('st', code);
+          history.replaceState(null, '', url.pathname + url.search + url.hash);
+        }}
+      />
 
       {/* ---------- chamber split + stat strip ---------- */}
       <section className="scoreboard" aria-label="Congress at a glance">
@@ -1910,6 +1983,7 @@ export default function CongressTable() {
                                     <h3 className="bill-title">
                                       {bill.title || 'Untitled measure'}
                                     </h3>
+                                    <BillClarity bill={bill} />
                                     {bill.latestAction && (
                                       <p className="bill-action">{bill.latestAction}</p>
                                     )}
