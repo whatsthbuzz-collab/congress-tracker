@@ -775,3 +775,54 @@ a.comm-name:hover { color: var(--navy); text-decoration: underline; }
   font-size: 0.8rem; font-style: italic; color: var(--ink-2);
   margin: 0.9rem 0 -0.4rem; line-height: 1.4;
 }
+
+/* --- Find-your-legislators widget --- */
+.district-finder {
+  margin: 0 0 1.6rem; padding: 1rem 1.1rem;
+  border: 1px solid var(--line); border-radius: 12px; background: var(--surface-2);
+}
+.finder-label {
+  font-family: var(--font-data); font-size: 0.74rem; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.07em; color: var(--ink-2);
+  margin: 0 0 0.6rem;
+}
+.finder-row { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+.finder-input {
+  flex: 1 1 16rem; min-width: 0; font-family: var(--font-ui); font-size: 0.95rem;
+  color: var(--ink); background: var(--surface); border: 1px solid var(--line-2);
+  border-radius: 8px; padding: 0.5rem 0.75rem;
+}
+.finder-input:focus { outline: 2px solid var(--blue); outline-offset: 1px; }
+.finder-go { cursor: pointer; }
+.finder-note { font-size: 0.88rem; color: var(--ink-2); margin: 0.7rem 0 0; line-height: 1.5; }
+.finder-error { color: var(--red, #C0332B); }
+.finder-fineprint { font-size: 0.74rem; color: var(--ink-3); font-style: italic; }
+.finder-members { list-style: none; margin: 0.7rem 0 0; padding: 0; display: flex; flex-direction: column; gap: 0.4rem; }
+.finder-member { display: flex; align-items: baseline; gap: 0.5rem; font-size: 0.95rem; color: var(--ink); }
+.finder-dot { width: 0.6rem; height: 0.6rem; border-radius: 50%; flex: none; align-self: center; background: var(--ink-3); }
+.finder-dot.democratic { background: var(--blue); }
+.finder-dot.republican { background: var(--red, #C0332B); }
+.finder-role { font-size: 0.82rem; color: var(--ink-2); }
+
+/* --- District finder ("I don't know my district") --- */
+.district-finder {
+  margin: 0 0 1.6rem; padding: 1rem 1.1rem;
+  border: 1px solid var(--line); border-radius: 12px; background: var(--surface-2);
+}
+.finder-row { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.4rem; }
+.finder-input {
+  flex: 1 1 260px; min-width: 0;
+  font-family: var(--font-ui); font-size: 0.92rem; color: var(--ink);
+  padding: 0.55rem 0.8rem; border: 1px solid var(--line-2);
+  border-radius: 8px; background: var(--surface);
+}
+.finder-input:focus { outline: 2px solid var(--blue); outline-offset: 1px; }
+.finder-btn { white-space: nowrap; }
+.finder-privacy { font-size: 0.74rem; color: var(--ink-3); margin: 0.5rem 0 0; line-height: 1.4; }
+.finder-error { font-size: 0.85rem; color: var(--red, #C0332B); margin: 0.6rem 0 0; }
+.finder-result { margin-top: 0.8rem; padding-top: 0.7rem; border-top: 1px solid var(--line); }
+.finder-matched { font-family: var(--font-data); font-size: 0.7rem; text-transform: uppercase;
+  letter-spacing: 0.05em; color: var(--ink-3); margin: 0 0 0.4rem; }
+.finder-line { font-size: 0.92rem; color: var(--ink); margin: 0.25rem 0; line-height: 1.5; }
+.finder-state-line { color: var(--ink-2); font-size: 0.86rem; }
+@media (max-width: 480px) { .finder-btn { flex: 1 1 100%; } }

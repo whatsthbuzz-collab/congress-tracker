@@ -14,6 +14,7 @@ import './CongressTable.css';
 import emblemSvg from './emblem.svg?raw';
 import StateView from './StateView';
 import ElectionsView from './ElectionsView';
+import DistrictFinder from './DistrictFinder';
 
 const columnHelper = createColumnHelper();
 
@@ -1421,6 +1422,8 @@ export default function CongressTable() {
         dangerouslySetInnerHTML={{ __html: emblemSvg }}
       />
       </div>
+
+      <DistrictFinder members={data} />
 
       {/* ---------- chamber split + stat strip ---------- */}
       <section className="scoreboard" aria-label="Congress at a glance">
