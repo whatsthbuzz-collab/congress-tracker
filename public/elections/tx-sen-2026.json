@@ -9,11 +9,6 @@
  "candidates": [
   {
    "name": "James Talarico",
-   "photo": {
-    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/James_Talarico_Press_Conference_3x4_(cropped).jpg?width=240",
-    "credit": "Antonioaesparza, CC BY-SA 4.0, via Wikimedia Commons",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:James_Talarico_Press_Conference_3x4_(cropped).jpg"
-   },
    "party": "Democratic",
    "fecId": "S6TX00479",
    "committees": [
@@ -27,112 +22,16 @@
    },
    "background": "Public school teacher before entering the Texas Legislature in 2019; B.A. in Government, University of Texas at Austin; M.Ed., Harvard University.",
    "backgroundSourceUrl": "https://ballotpedia.org/James_Talarico",
-   "facts": [
-    {
-     "label": "Born",
-     "value": "Round Rock, Texas"
-    },
-    {
-     "label": "High school",
-     "value": "McNeil High School"
-    },
-    {
-     "label": "Bachelor's",
-     "value": "University of Texas at Austin"
-    },
-    {
-     "label": "Graduate",
-     "value": "Harvard University"
-    },
-    {
-     "label": "Profession",
-     "value": "Educator"
-    },
-    {
-     "label": "Current office pay",
-     "value": "$7,200/yr + $221/day per diem"
-    }
-   ],
-   "campaignSiteUrl": "https://jamestalarico.com/issues/",
+   "campaignSiteUrl": "https://jamestalarico.com",
    "incumbent": false,
    "financeUrl": "https://www.fec.gov/data/candidate/S6TX00479/",
    "finance": {
-    "available": true,
-    "cycle": 2026,
-    "totalRaised": 68555930,
-    "fromPacs": 343408,
-    "fromIndividuals": 65585742,
-    "pacPct": 1,
-    "individualPct": 99,
-    "cashOnHand": 21548155,
-    "source": "OpenFEC API"
+    "available": false
    },
-   "topPacDonors": [
-    {
-     "name": "ACTBLUE",
-     "amount": 13500,
-     "committeeId": "C00401224",
-     "fecUrl": "https://www.fec.gov/data/committee/C00401224/",
-     "kind": "PAC"
-    },
-    {
-     "name": "SAVE DEMOCRACY PAC",
-     "amount": 10000,
-     "committeeId": "C00884973",
-     "fecUrl": "https://www.fec.gov/data/committee/C00884973/",
-     "kind": "PAC"
-    },
-    {
-     "name": "LOBO PAC",
-     "amount": 10000,
-     "committeeId": "C00497073",
-     "fecUrl": "https://www.fec.gov/data/committee/C00497073/",
-     "kind": "leadership PAC"
-    },
-    {
-     "name": "MIDWEST REGION LABORERS' POLITICAL LEAGUE",
-     "amount": 7500,
-     "committeeId": "C00342907",
-     "fecUrl": "https://www.fec.gov/data/committee/C00342907/",
-     "kind": "labor union PAC"
-    },
-    {
-     "name": "AMERICAN FEDERATION OF GOVERNMENT EMPLOYEES PAC",
-     "amount": 5000,
-     "committeeId": "C00009936",
-     "fecUrl": "https://www.fec.gov/data/committee/C00009936/",
-     "kind": "labor union PAC"
-    },
-    {
-     "name": "MACHINIST'S NON-PARTISAN POLITICAL LEAGUE MULTI CANDIDATE COMMITTEE",
-     "amount": 5000,
-     "committeeId": "C00002469",
-     "fecUrl": "https://www.fec.gov/data/committee/C00002469/",
-     "kind": "labor union PAC"
-    },
-    {
-     "name": "APWU COPA",
-     "amount": 5000,
-     "committeeId": "C00010322",
-     "fecUrl": "https://www.fec.gov/data/committee/C00010322/",
-     "kind": "PAC"
-    },
-    {
-     "name": "VICTORY NOW! PAC",
-     "amount": 5000,
-     "committeeId": "C00416743",
-     "fecUrl": "https://www.fec.gov/data/committee/C00416743/",
-     "kind": "leadership PAC"
-    }
-   ]
+   "topPacDonors": []
   },
   {
    "name": "Ken Paxton",
-   "photo": {
-    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Ken_Paxton_2024_(3x4_cropped).jpg?width=240",
-    "credit": "Gage Skidmore, CC BY-SA 2.0, via Wikimedia Commons",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ken_Paxton_2024_(3x4_cropped).jpg"
-   },
    "party": "Republican",
    "fecId": "S6TX00388",
    "committees": [
@@ -143,100 +42,13 @@
    "stateProfile": null,
    "background": "Texas Attorney General since 2015; previously served in the Texas House (2003-2013) and Texas Senate (2013-2015).",
    "backgroundSourceUrl": "https://ballotpedia.org/Ken_Paxton",
-   "facts": [
-    {
-     "label": "Born",
-     "value": "Minot, North Dakota"
-    },
-    {
-     "label": "Bachelor's",
-     "value": "Baylor University"
-    },
-    {
-     "label": "Graduate",
-     "value": "M.B.A., Baylor; J.D., University of Virginia"
-    },
-    {
-     "label": "Profession",
-     "value": "Attorney"
-    },
-    {
-     "label": "Current office pay",
-     "value": "$153,750/yr"
-    }
-   ],
-   "campaignSiteUrl": "https://www.kenpaxton.com/issues",
+   "campaignSiteUrl": "https://kenpaxton.com",
    "incumbent": false,
    "financeUrl": "https://www.fec.gov/data/candidate/S6TX00388/",
    "finance": {
-    "available": true,
-    "cycle": 2026,
-    "totalRaised": 9248699,
-    "fromPacs": 219500,
-    "fromIndividuals": 9020178,
-    "pacPct": 2,
-    "individualPct": 98,
-    "cashOnHand": 1755294,
-    "source": "OpenFEC API"
+    "available": false
    },
-   "topPacDonors": [
-    {
-     "name": "NRSC",
-     "amount": 62000,
-     "committeeId": "C00027466",
-     "fecUrl": "https://www.fec.gov/data/committee/C00027466/",
-     "kind": "party committee"
-    },
-    {
-     "name": "SENATE CONSERVATIVES FUND",
-     "amount": 10000,
-     "committeeId": "C00448696",
-     "fecUrl": "https://www.fec.gov/data/committee/C00448696/",
-     "kind": "PAC"
-    },
-    {
-     "name": "BEST AT BRINGING ENTREPRENEURIAL RESULTS NEVER IMAGINED OR E",
-     "amount": 10000,
-     "committeeId": "C00863373",
-     "fecUrl": "https://www.fec.gov/data/committee/C00863373/",
-     "kind": "leadership PAC"
-    },
-    {
-     "name": "USAP PAC",
-     "amount": 10000,
-     "committeeId": "C00574103",
-     "fecUrl": "https://www.fec.gov/data/committee/C00574103/",
-     "kind": "corporate PAC"
-    },
-    {
-     "name": "LAXALT FOR SENATE",
-     "amount": 6000,
-     "committeeId": "C00787135",
-     "fecUrl": "https://www.fec.gov/data/committee/C00787135/",
-     "kind": "candidate committee"
-    },
-    {
-     "name": "WINE & SPIRITS WHOLESALERS OF AMERICA PAC",
-     "amount": 5000,
-     "committeeId": "C00147173",
-     "fecUrl": "https://www.fec.gov/data/committee/C00147173/",
-     "kind": "trade assoc. PAC"
-    },
-    {
-     "name": "VALERO POLTIICAL ACTION COMMITTEE",
-     "amount": 5000,
-     "committeeId": "C00109546",
-     "fecUrl": "https://www.fec.gov/data/committee/C00109546/",
-     "kind": "corporate PAC"
-    },
-    {
-     "name": "TOMORROW IS MEANINGFUL PAC",
-     "amount": 5000,
-     "committeeId": "C00495887",
-     "fecUrl": "https://www.fec.gov/data/committee/C00495887/",
-     "kind": "leadership PAC"
-    }
-   ]
+   "topPacDonors": []
   }
  ]
 }

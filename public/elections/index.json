@@ -1,5 +1,5 @@
 {
- "lastUpdated": "2026-09-04T14:11:24.397245+00:00",
+ "lastUpdated": "2026-09-05T13:20:31.638581+00:00",
  "races": [
   {
    "id": "tx-sen-2026",
@@ -13,86 +13,6 @@
     },
     {
      "name": "Ken Paxton",
-     "party": "Republican"
-    }
-   ]
-  },
-  {
-   "id": "ga-sen-2026",
-   "office": "U.S. Senate",
-   "state": "Georgia",
-   "electionDate": "2026-11-03",
-   "candidates": [
-    {
-     "name": "Jon Ossoff",
-     "party": "Democratic"
-    },
-    {
-     "name": "Mike Collins",
-     "party": "Republican"
-    }
-   ]
-  },
-  {
-   "id": "mi-sen-2026",
-   "office": "U.S. Senate",
-   "state": "Michigan",
-   "electionDate": "2026-11-03",
-   "candidates": [
-    {
-     "name": "Abdul El-Sayed",
-     "party": "Democratic"
-    },
-    {
-     "name": "Mike Rogers",
-     "party": "Republican"
-    }
-   ]
-  },
-  {
-   "id": "nc-sen-2026",
-   "office": "U.S. Senate",
-   "state": "North Carolina",
-   "electionDate": "2026-11-03",
-   "candidates": [
-    {
-     "name": "Roy Cooper",
-     "party": "Democratic"
-    },
-    {
-     "name": "Michael Whatley",
-     "party": "Republican"
-    }
-   ]
-  },
-  {
-   "id": "me-sen-2026",
-   "office": "U.S. Senate",
-   "state": "Maine",
-   "electionDate": "2026-11-03",
-   "candidates": [
-    {
-     "name": "Troy Jackson",
-     "party": "Democratic"
-    },
-    {
-     "name": "Susan Collins",
-     "party": "Republican"
-    }
-   ]
-  },
-  {
-   "id": "sc-sen-2026",
-   "office": "U.S. Senate",
-   "state": "South Carolina",
-   "electionDate": "2026-11-03",
-   "candidates": [
-    {
-     "name": "Annie Andrews",
-     "party": "Democratic"
-    },
-    {
-     "name": "Darline Graham",
      "party": "Republican"
     }
    ]
