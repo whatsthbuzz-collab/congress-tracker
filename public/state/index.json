@@ -1,5 +1,5 @@
 {
- "lastUpdated": "2026-09-01T15:24:38.673805+00:00",
+ "lastUpdated": "2026-09-07T14:39:18.278941+00:00",
  "states": [
   {
    "code": "AL",
@@ -30,8 +30,8 @@
     "yearStart": 2025,
     "yearEnd": 2026
    },
-   "datasetHash": "51e5a1d82bb922a845dafa310f16386d",
-   "datasetDate": "2026-08-30",
+   "datasetHash": "95c1effdbd97090f3feeed2d2fbeae13",
+   "datasetDate": "2026-09-06",
    "counts": {
     "legislators": 61,
     "bills": 848,
@@ -50,8 +50,8 @@
     "yearStart": 2026,
     "yearEnd": 2026
    },
-   "datasetHash": "4e427c42562eaf6e6f05a9c961acb97d",
-   "datasetDate": "2026-08-30",
+   "datasetHash": "83f2c678f12c01973028288d930b4e44",
+   "datasetDate": "2026-09-06",
    "counts": {
     "legislators": 92,
     "bills": 2190,
@@ -90,12 +90,12 @@
     "yearStart": 2025,
     "yearEnd": 2026
    },
-   "datasetHash": "c150cc01b19828eb286c405147bad4df",
-   "datasetDate": "2026-08-30",
+   "datasetHash": "a0c34542b323d6dd5161581fde9f1a82",
+   "datasetDate": "2026-09-06",
    "counts": {
     "legislators": 120,
     "bills": 5060,
-    "rollCalls": 21158,
+    "rollCalls": 21407,
     "former": 1,
     "multiMemberDistricts": false
    },
@@ -150,8 +150,8 @@
     "yearStart": 2025,
     "yearEnd": 2026
    },
-   "datasetHash": "9cf41406c648af0c27594feaba0fce50",
-   "datasetDate": "2026-08-30",
+   "datasetHash": "6da507282bef8818fedc5e070fa55d00",
+   "datasetDate": "2026-09-06",
    "counts": {
     "legislators": 62,
     "bills": 1296,
@@ -250,11 +250,11 @@
     "yearStart": 2025,
     "yearEnd": 2026
    },
-   "datasetHash": "b467b101810145bb1ed3b7315137ad59",
-   "datasetDate": "2026-08-30",
+   "datasetHash": "43460eaf169fbfdc20809c7ebf9fee7c",
+   "datasetDate": "2026-09-06",
    "counts": {
     "legislators": 177,
-    "bills": 12077,
+    "bills": 12086,
     "rollCalls": 9077,
     "former": 4,
     "multiMemberDistricts": false
@@ -410,11 +410,11 @@
     "yearStart": 2025,
     "yearEnd": 2026
    },
-   "datasetHash": "1664e12d50a22c54c8fa3e01bcc9326a",
-   "datasetDate": "2026-08-30",
+   "datasetHash": "b8663090f13e3ffba88cb47e80566771",
+   "datasetDate": "2026-09-06",
    "counts": {
     "legislators": 202,
-    "bills": 8920,
+    "bills": 8926,
     "rollCalls": 480,
     "former": 0,
     "multiMemberDistricts": false
@@ -430,11 +430,11 @@
     "yearStart": 2025,
     "yearEnd": 2026
    },
-   "datasetHash": "f23fd9a8d02d9a51336ddbc4538966fb",
-   "datasetDate": "2026-08-30",
+   "datasetHash": "863d100adf7274001624ea16c1517f5c",
+   "datasetDate": "2026-09-06",
    "counts": {
     "legislators": 148,
-    "bills": 4012,
+    "bills": 4016,
     "rollCalls": 2600,
     "former": 0,
     "multiMemberDistricts": false
@@ -570,8 +570,8 @@
     "yearStart": 2026,
     "yearEnd": 2026
    },
-   "datasetHash": "dc8e1f3773ddefa70758705676423484",
-   "datasetDate": "2026-08-30",
+   "datasetHash": "78f217452fe6a24c53fc9be82bd865e0",
+   "datasetDate": "2026-09-06",
    "counts": {
     "legislators": 426,
     "bills": 1394,
@@ -590,8 +590,8 @@
     "yearStart": 2026,
     "yearEnd": 2027
    },
-   "datasetHash": "1e020929436faf559c5b4f73a4fb4391",
-   "datasetDate": "2026-08-30",
+   "datasetHash": "2371b167f5be3d60bc4e17382923eb63",
+   "datasetDate": "2026-09-06",
    "counts": {
     "legislators": 120,
     "bills": 10707,
@@ -630,8 +630,8 @@
     "yearStart": 2025,
     "yearEnd": 2026
    },
-   "datasetHash": "4cda5eadf7309bf25cd348fc01f24d55",
-   "datasetDate": "2026-08-30",
+   "datasetHash": "a5955359724cf31cf1b1246dbbb7fdfe",
+   "datasetDate": "2026-09-06",
    "counts": {
     "legislators": 213,
     "bills": 25313,
@@ -650,8 +650,8 @@
     "yearStart": 2025,
     "yearEnd": 2026
    },
-   "datasetHash": "57d859c5f128483eee1de521b16b26f0",
-   "datasetDate": "2026-08-30",
+   "datasetHash": "514008f1fb775827798c0187e9d895cf",
+   "datasetDate": "2026-09-06",
    "counts": {
     "legislators": 171,
     "bills": 2338,
@@ -690,11 +690,11 @@
     "yearStart": 2025,
     "yearEnd": 2026
    },
-   "datasetHash": "aa042f29dd96bee6d85685aaf2af3a75",
-   "datasetDate": "2026-08-30",
+   "datasetHash": "81d95ee951569bc9da94c59905fb42cd",
+   "datasetDate": "2026-09-06",
    "counts": {
     "legislators": 130,
-    "bills": 2504,
+    "bills": 2520,
     "rollCalls": 1083,
     "former": 4,
     "multiMemberDistricts": false
@@ -750,11 +750,11 @@
     "yearStart": 2025,
     "yearEnd": 2026
    },
-   "datasetHash": "cd32ae927ce81c07aca8417e21110d16",
-   "datasetDate": "2026-08-30",
+   "datasetHash": "c84a1ef6bc9df030659ebcc9821e5f8b",
+   "datasetDate": "2026-09-06",
    "counts": {
     "legislators": 253,
-    "bills": 4954,
+    "bills": 4970,
     "rollCalls": 5038,
     "former": 7,
     "multiMemberDistricts": false
@@ -770,12 +770,12 @@
     "yearStart": 2026,
     "yearEnd": 2026
    },
-   "datasetHash": "7bfebb8d11e74184adc7ed66b6d84bce",
-   "datasetDate": "2026-08-30",
+   "datasetHash": "8d32f3e212546249404cd96cf832a9b6",
+   "datasetDate": "2026-09-06",
    "counts": {
     "legislators": 113,
     "bills": 3013,
-    "rollCalls": 3085,
+    "rollCalls": 3198,
     "former": 0,
     "multiMemberDistricts": false
    },
@@ -790,8 +790,8 @@
     "yearStart": 2025,
     "yearEnd": 2026
    },
-   "datasetHash": "c8a6a9b4d7e6a9166ed906df5747fea7",
-   "datasetDate": "2026-08-30",
+   "datasetHash": "ff0780105f2245072055a21e1125787b",
+   "datasetDate": "2026-09-06",
    "counts": {
     "legislators": 170,
     "bills": 4032,
