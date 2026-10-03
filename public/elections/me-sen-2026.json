@@ -38,7 +38,10 @@
    "finance": {
     "available": false
    },
-   "topPacDonors": []
+   "topPacDonors": [],
+   "outsideSpending": {
+    "available": false
+   }
   },
   {
    "name": "Susan Collins",
@@ -141,7 +144,10 @@
      "fecUrl": "https://www.fec.gov/data/committee/C00543207/",
      "kind": "leadership PAC"
     }
-   ]
+   ],
+   "outsideSpending": {
+    "available": false
+   }
   }
  ]
 }

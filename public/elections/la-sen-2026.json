@@ -44,7 +44,10 @@
     "cashOnHand": 479104,
     "source": "OpenFEC API"
    },
-   "topPacDonors": []
+   "topPacDonors": [],
+   "outsideSpending": {
+    "available": false
+   }
   },
   {
    "name": "Julia Letlow",
@@ -142,7 +145,10 @@
      "fecUrl": "https://www.fec.gov/data/committee/C00430157/",
      "kind": "corporate PAC"
     }
-   ]
+   ],
+   "outsideSpending": {
+    "available": false
+   }
   }
  ]
 }

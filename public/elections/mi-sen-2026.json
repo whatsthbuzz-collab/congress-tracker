@@ -63,7 +63,7 @@
      "amount": 10000,
      "committeeId": "C00758219",
      "fecUrl": "https://www.fec.gov/data/committee/C00758219/",
-     "kind": "PAC"
+     "kind": "hybrid PAC"
     },
     {
      "name": "ROOTED IN COMMUNITY LEADERSHIP PAC",
@@ -105,16 +105,19 @@
      "amount": 5000,
      "committeeId": "C00748228",
      "fecUrl": "https://www.fec.gov/data/committee/C00748228/",
-     "kind": "PAC"
+     "kind": "hybrid PAC"
     },
     {
      "name": "MOVEON.ORG POLITICAL ACTION",
      "amount": 5000,
      "committeeId": "C00341396",
      "fecUrl": "https://www.fec.gov/data/committee/C00341396/",
-     "kind": "PAC"
+     "kind": "hybrid PAC"
     }
-   ]
+   ],
+   "outsideSpending": {
+    "available": false
+   }
   },
   {
    "name": "Mike Rogers",
@@ -218,7 +221,10 @@
      "fecUrl": "https://www.fec.gov/data/committee/C00845099/",
      "kind": "PAC"
     }
-   ]
+   ],
+   "outsideSpending": {
+    "available": false
+   }
   }
  ]
 }

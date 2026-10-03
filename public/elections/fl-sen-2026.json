@@ -49,7 +49,10 @@
     "cashOnHand": 264978,
     "source": "OpenFEC API"
    },
-   "topPacDonors": []
+   "topPacDonors": [],
+   "outsideSpending": {
+    "available": false
+   }
   },
   {
    "name": "Ashley Moody",
@@ -152,7 +155,10 @@
      "fecUrl": "https://www.fec.gov/data/committee/C00186064/",
      "kind": "corporate PAC"
     }
-   ]
+   ],
+   "outsideSpending": {
+    "available": false
+   }
   }
  ]
 }

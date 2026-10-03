@@ -114,7 +114,10 @@
      "fecUrl": "https://www.fec.gov/data/committee/C00544254/",
      "kind": "leadership PAC"
     }
-   ]
+   ],
+   "outsideSpending": {
+    "available": false
+   }
   },
   {
    "name": "Michael Whatley",
@@ -222,7 +225,10 @@
      "fecUrl": "https://www.fec.gov/data/committee/C00850610/",
      "kind": "leadership PAC"
     }
-   ]
+   ],
+   "outsideSpending": {
+    "available": false
+   }
   }
  ]
 }

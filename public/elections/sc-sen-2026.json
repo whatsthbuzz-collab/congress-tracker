@@ -76,14 +76,14 @@
      "amount": 10000,
      "committeeId": "C00692137",
      "fecUrl": "https://www.fec.gov/data/committee/C00692137/",
-     "kind": "PAC"
+     "kind": "hybrid PAC"
     },
     {
      "name": "314 ACTION FUND",
      "amount": 5000,
      "committeeId": "C00633248",
      "fecUrl": "https://www.fec.gov/data/committee/C00633248/",
-     "kind": "PAC"
+     "kind": "hybrid PAC"
     },
     {
      "name": "PURPOSE PAC",
@@ -104,9 +104,12 @@
      "amount": 5000,
      "committeeId": "C00864785",
      "fecUrl": "https://www.fec.gov/data/committee/C00864785/",
-     "kind": "PAC"
+     "kind": "hybrid PAC"
     }
-   ]
+   ],
+   "outsideSpending": {
+    "available": false
+   }
   },
   {
    "name": "Darline Graham",
@@ -147,7 +150,10 @@
    "finance": {
     "available": false
    },
-   "topPacDonors": []
+   "topPacDonors": [],
+   "outsideSpending": {
+    "available": false
+   }
   }
  ]
 }

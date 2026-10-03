@@ -75,7 +75,10 @@
      "fecUrl": "https://www.fec.gov/data/committee/C00412304/",
      "kind": "candidate committee"
     }
-   ]
+   ],
+   "outsideSpending": {
+    "available": false
+   }
   },
   {
    "name": "Roger Marshall",
@@ -179,7 +182,10 @@
      "fecUrl": "https://www.fec.gov/data/committee/C00246736/",
      "kind": "corporate PAC"
     }
-   ]
+   ],
+   "outsideSpending": {
+    "available": false
+   }
   }
  ]
 }

@@ -106,7 +106,10 @@
      "fecUrl": "https://www.fec.gov/data/committee/C00767871/",
      "kind": "PAC"
     }
-   ]
+   ],
+   "outsideSpending": {
+    "available": false
+   }
   },
   {
    "name": "Jon Husted",
@@ -210,7 +213,10 @@
      "fecUrl": "https://www.fec.gov/data/committee/C00495887/",
      "kind": "leadership PAC"
     }
-   ]
+   ],
+   "outsideSpending": {
+    "available": false
+   }
   }
  ]
 }

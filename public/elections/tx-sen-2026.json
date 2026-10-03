@@ -89,7 +89,7 @@
      "amount": 10000,
      "committeeId": "C00757419",
      "fecUrl": "https://www.fec.gov/data/committee/C00757419/",
-     "kind": "PAC"
+     "kind": "hybrid PAC"
     },
     {
      "name": "MIDWEST REGION LABORERS' POLITICAL LEAGUE",
@@ -103,7 +103,7 @@
      "amount": 5000,
      "committeeId": "C00758219",
      "fecUrl": "https://www.fec.gov/data/committee/C00758219/",
-     "kind": "PAC"
+     "kind": "hybrid PAC"
     },
     {
      "name": "CARPENTERS LEGISLATIVE IMPROVEMENT COMMITTEE BROTHERHOOD OF CARPENTERS AND JOINERS",
@@ -126,7 +126,10 @@
      "fecUrl": "https://www.fec.gov/data/committee/C00785816/",
      "kind": "leadership PAC"
     }
-   ]
+   ],
+   "outsideSpending": {
+    "available": false
+   }
   },
   {
    "name": "Ken Paxton",
@@ -194,7 +197,7 @@
      "amount": 10000,
      "committeeId": "C00448696",
      "fecUrl": "https://www.fec.gov/data/committee/C00448696/",
-     "kind": "PAC"
+     "kind": "hybrid PAC"
     },
     {
      "name": "BEST AT BRINGING ENTREPRENEURIAL RESULTS NEVER IMAGINED OR E",
@@ -238,7 +241,10 @@
      "fecUrl": "https://www.fec.gov/data/committee/C00495887/",
      "kind": "leadership PAC"
     }
-   ]
+   ],
+   "outsideSpending": {
+    "available": false
+   }
   }
  ]
 }

@@ -102,7 +102,10 @@
      "fecUrl": "https://www.fec.gov/data/committee/C00385534/",
      "kind": "leadership PAC"
     }
-   ]
+   ],
+   "outsideSpending": {
+    "available": false
+   }
   },
   {
    "name": "Ashley Hinson",
@@ -201,7 +204,10 @@
      "fecUrl": "https://www.fec.gov/data/committee/C00413948/",
      "kind": "leadership PAC"
     }
-   ]
+   ],
+   "outsideSpending": {
+    "available": false
+   }
   }
  ]
 }
