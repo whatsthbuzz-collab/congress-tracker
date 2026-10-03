@@ -15,10 +15,51 @@ import emblemSvg from './emblem.svg?raw';
 import StateView from './StateView';
 import ElectionsView from './ElectionsView';
 import DistrictFinder from './DistrictFinder';
+import Methodology from './Methodology';
+
+// Set to the repo's new-issue URL to enable the "Report an error" footer
+// link, e.g. 'https://github.com/OWNER/congress-tracker/issues/new'. Empty
+// string hides the link.
+const REPORT_ISSUE_URL = '';
+
+
+function billStatus(actionText) {
+  const t = (actionText || '').toLowerCase();
+  if (!t) return null;
+  if (/became public law|public law no|signed by (the )?president/.test(t)) return 'Became law';
+  if (/passed\/agreed to in house|passed house|received in the senate/.test(t)) return 'Passed House';
+  if (/passed\/agreed to in senate|passed senate|received in the house/.test(t)) return 'Passed Senate';
+  if (/referred to the (committee|subcommittee)|committee on/.test(t)) return 'In committee';
+  if (/^introduced/.test(t)) return 'Introduced';
+  return null;
+}
+
+function ShareLink({ id }) {
+  const [copied, setCopied] = useState(false);
+  return (
+    <button
+      type="button"
+      className="share-link"
+      title="Copy a direct link to this member"
+      onClick={(e) => {
+        e.stopPropagation();
+        const url = `${window.location.origin}${window.location.pathname}?member=${id}`;
+        navigator.clipboard?.writeText(url).then(() => {
+          setCopied(true);
+          setTimeout(() => setCopied(false), 1600);
+        });
+      }}
+    >
+      {copied ? 'Link copied ✓' : 'Copy link'}
+    </button>
+  );
+}
 
 function BillClarity({ bill }) {
+  const status = billStatus(bill.latestAction);
   return (
     <>
+      {status && <span className="bill-status">{status}</span>}
       {bill.policyArea && <span className="bill-topic">{bill.policyArea}</span>}
       {bill.summary && (
         <p className="bill-summary">
@@ -872,6 +913,8 @@ function CongressQuiz({ data, onOpenProfile }) {
 
 export default function CongressTable() {
   const [data, setData] = useState([]);
+  const [dataUpdated, setDataUpdated] = useState(null);
+  const [showMethodology, setShowMethodology] = useState(false);
   const [lastUpdated, setLastUpdated] = useState(null);
   const [lawsByParty, setLawsByParty] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -997,6 +1040,7 @@ export default function CongressTable() {
         }
         const json = await response.json();
         setData(json.members || []);
+        setDataUpdated(json.lastUpdated || null);
         setLastUpdated(json.lastUpdated || null);
         setLawsByParty(json.lawsByParty || null);
       } catch (err) {
@@ -1017,6 +1061,17 @@ export default function CongressTable() {
       return next;
     });
   };
+
+  // Deep link: ?member=BIOGUIDE expands that member and scrolls to them.
+  useEffect(() => {
+    if (!data.length) return;
+    const id = new URL(window.location.href).searchParams.get('member');
+    if (!id || !data.some((m) => m.bioguideId === id)) return;
+    setExpanded((prev) => new Set(prev).add(id));
+    setTimeout(() => {
+      document.getElementById(`m-${id}`)?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }, 200);
+  }, [data]);
 
   // ---- headline stats, computed from the live data ----
   const stats = useMemo(() => {
@@ -1076,9 +1131,13 @@ export default function CongressTable() {
         voteScopeNote),
       row('Share of money from PACs', (v) => (v == null ? 'n/a' : `${Math.round(v)}%`),
         (g) => {
+          // PAC dollars over ALL money raised, so the label says exactly
+          // what the math does. The old denominator (PAC + individual only)
+          // ignored transfers and loans and overstated whichever party has
+          // more of them.
           const pac = g.reduce((a, m) => a + (m.finance?.fromPacs || 0), 0);
-          const ind = g.reduce((a, m) => a + (m.finance?.fromIndividuals || 0), 0);
-          return pac + ind ? (pac / (pac + ind)) * 100 : null;
+          const total = g.reduce((a, m) => a + (m.finance?.totalRaised || 0), 0);
+          return total ? (pac / total) * 100 : null;
         }),
       row('Avg. terms served', (v) => (v == null ? 'n/a' : v.toFixed(1)),
         (g) => avg(g.filter((m) => m.termsServed).map((m) => m.termsServed)), undefined, 'people'),
@@ -1097,12 +1156,21 @@ export default function CongressTable() {
         voteScopeNote, 'voting'),
       row('Share of money from PACs', (v) => (v == null ? 'n/a' : `${Math.round(v)}%`),
         (g) => {
+          // PAC dollars over ALL money raised, so the label says exactly
+          // what the math does. The old denominator (PAC + individual only)
+          // ignored transfers and loans and overstated whichever party has
+          // more of them.
           const pac = g.reduce((a, m) => a + (m.finance?.fromPacs || 0), 0);
-          const ind = g.reduce((a, m) => a + (m.finance?.fromIndividuals || 0), 0);
-          return pac + ind ? (pac / (pac + ind)) * 100 : null;
+          const total = g.reduce((a, m) => a + (m.finance?.totalRaised || 0), 0);
+          return total ? (pac / total) * 100 : null;
         }, undefined, 'money'),
-      row('Members taking zero PAC money', (v) => v,
-        (g) => g.filter((m) => m.finance?.pacPct === 0).length, undefined, 'money'),
+      // Count on raw dollars, never the rounded percent: pacPct is an
+      // integer, so a member with $20K PAC money against $30M raised shows
+      // 0% and would be falsely counted as taking zero. fromPacs is the
+      // FEC's actual dollar figure. totalRaised > 0 guards against a
+      // future member with no filings counting vacuously.
+      row('Members reporting $0 from PACs', (v) => v,
+        (g) => g.filter((m) => m.finance?.fromPacs === 0 && (m.finance?.totalRaised || 0) > 0).length, undefined, 'money'),
       row('Total raised this cycle', (v) => (v == null ? 'n/a' : fmtMoney(v)),
         (g) => g.reduce((a, m) => a + (m.finance?.totalRaised || 0), 0) || null, undefined, 'money'),
     ];
@@ -1832,6 +1900,7 @@ export default function CongressTable() {
               return (
                 <React.Fragment key={row.id}>
                   <tr
+                    id={`m-${m.bioguideId}`}
                     className={`ledger-row ${isOpen ? 'is-open' : ''}`}
                     onClick={() => hasDetail && toggleRow(m.bioguideId)}
                   >
@@ -1845,6 +1914,7 @@ export default function CongressTable() {
                     <tr className="detail-row">
                       <td colSpan={colCount}>
                         <div className="bill-panel">
+                          <ShareLink id={m.bioguideId} />
                           {m.voting && (
                             <div className="finance-block">
                               <p className="bill-panel-title">
@@ -2118,7 +2188,19 @@ export default function CongressTable() {
         </section>
       )}
 
+      {showMethodology && <Methodology onClose={() => setShowMethodology(false)} />}
       <footer className="colophon">
+        <p className="colophon-links">
+          {dataUpdated && (
+            <span>Federal data updated {new Date(dataUpdated).toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' })} · </span>
+          )}
+          <button type="button" className="finder-member" onClick={() => setShowMethodology(true)}>
+            How these numbers are made
+          </button>
+          {REPORT_ISSUE_URL && (
+            <> · <a href={REPORT_ISSUE_URL} target="_blank" rel="noopener noreferrer">Report an error</a></>
+          )}
+        </p>
         <p>
           Member data:{' '}
           <a

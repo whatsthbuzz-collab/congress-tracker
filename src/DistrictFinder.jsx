@@ -75,7 +75,7 @@ async function censusDistrictsFromPoint(lat, lon) {
   };
 }
 
-export default function DistrictFinder({ members }) {
+export default function DistrictFinder({ members, onSelectMember, onOpenState }) {
   const [query, setQuery] = useState('');
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState(null);
@@ -197,14 +197,23 @@ export default function DistrictFinder({ members }) {
                 {result.stateCode}
                 {result.cdNum ? `-${String(result.cdNum).padStart(2, '0')}` : ' (at-large)'}
               </strong>
-              {rep && <> · Your U.S. House member: <strong>{rep.name}</strong> ({rep.party})</>}
+              {rep && (
+                <>
+                  {' '}· Your U.S. House member:{' '}
+                  <button type="button" className="finder-member" onClick={() => onSelectMember?.(rep.name)}>
+                    {rep.name}
+                  </button>{' '}({rep.party})
+                </>
+              )}
             </p>
           )}
           {senators.length > 0 && (
             <p className="finder-line">
               Your U.S. senators: {senators.map((s, i) => (
                 <span key={s.bioguideId || s.name}>
-                  <strong>{s.name}</strong> ({s.party}){i < senators.length - 1 ? ' and ' : ''}
+                  <button type="button" className="finder-member" onClick={() => onSelectMember?.(s.name)}>
+                    {s.name}
+                  </button>{' '}({s.party}){i < senators.length - 1 ? ' and ' : ''}
                 </span>
               ))}
             </p>
@@ -212,7 +221,14 @@ export default function DistrictFinder({ members }) {
           {(result.slduName || result.sldlName) && (
             <p className="finder-line finder-state-line">
               State districts: {[result.slduName, result.sldlName].filter(Boolean).join(' · ')}
-              {' — '}see the State Legislatures tab for those members.
+              {result.stateCode && (
+                <>
+                  {' — '}
+                  <button type="button" className="finder-member" onClick={() => onOpenState?.(result.stateCode)}>
+                    open the {result.stateCode} legislature →
+                  </button>
+                </>
+              )}
             </p>
           )}
           {result.approximate && (

@@ -523,6 +523,29 @@ def main():
         },
     }
 
+    # ---- sanity gate: never publish a garbage dataset ----
+    # A run that "succeeds" with a broken roster or empty bills is worse
+    # than a failed run: the workflow would commit it over good data.
+    # Exit nonzero on hard failures so the commit step never runs.
+    n = len(members)
+    with_committees = sum(1 for m in members if m.get("committees"))
+    total_bills = sum(len(m.get("bills") or []) for m in members)
+    problems = []
+    if not (525 <= n <= 550):
+        problems.append(f"member count {n} outside plausible range 525-550")
+    if with_committees < 0.8 * n:
+        problems.append(f"committee coverage {with_committees}/{n} below 80%")
+    if total_bills == 0:
+        problems.append("zero bills stored across all members")
+    print("\n--- Sanity gate ---")
+    print(f"  Members: {n} | with committees: {with_committees} | bills stored: {total_bills}")
+    if problems:
+        for p in problems:
+            print(f"  FAIL: {p}", file=sys.stderr)
+        print("Refusing to write output; yesterday's data stays live.", file=sys.stderr)
+        sys.exit(1)
+    print("  PASS")
+
     os.makedirs(os.path.dirname(OUTPUT_PATH), exist_ok=True)
     with open(OUTPUT_PATH, "w") as f:
         json.dump(payload, f, indent=2)

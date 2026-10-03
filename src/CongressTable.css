@@ -879,3 +879,47 @@ a.comm-name:hover { color: var(--navy); text-decoration: underline; }
 }
 .bill-eo { font-size: 0.82rem; color: var(--ink-2); margin: 0.15rem 0 0.35rem; line-height: 1.45; }
 .bill-eo a { color: var(--blue); }
+
+/* --- Bill status badge --- */
+.bill-status {
+  display: inline-block; margin: 0.15rem 0.35rem 0.3rem 0;
+  font-family: var(--font-data); font-size: 0.62rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.06em;
+  color: var(--navy); background: var(--gold-soft);
+  border-radius: 4px; padding: 0.1rem 0.4rem;
+}
+:root[data-theme='dark'] .bill-status { color: var(--gold); }
+
+/* --- Share link in member detail --- */
+.share-link {
+  float: right; background: none; border: 1px solid var(--line);
+  border-radius: 999px; padding: 0.2rem 0.65rem; cursor: pointer;
+  font-family: var(--font-data); font-size: 0.68rem; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.05em; color: var(--ink-2);
+}
+.share-link:hover { border-color: var(--line-2); color: var(--ink); }
+
+/* --- Footer links row --- */
+.colophon-links { margin: 0 0 0.5rem; font-size: 0.8rem; color: var(--ink-2); }
+.colophon-links .finder-member { font-size: inherit; font-weight: 600; }
+
+/* --- Methodology overlay --- */
+.method-overlay {
+  position: fixed; inset: 0; z-index: 60; overflow-y: auto;
+  background: color-mix(in srgb, var(--surface) 92%, transparent);
+  backdrop-filter: blur(3px); padding: 2rem 1rem 4rem;
+}
+.method-panel {
+  max-width: 46rem; margin: 0 auto; background: var(--surface);
+  border: 1px solid var(--line-2); border-radius: 14px;
+  padding: 1.6rem 1.8rem 2rem;
+}
+.method-close { float: right; }
+.method-title { margin: 0 0 0.6rem; font-size: 1.4rem; }
+.method-intro { color: var(--ink-2); line-height: 1.55; }
+.method-panel h3 {
+  margin: 1.3rem 0 0.3rem; font-size: 0.95rem;
+  font-family: var(--font-data); text-transform: uppercase; letter-spacing: 0.05em;
+}
+.method-panel p { font-size: 0.9rem; line-height: 1.6; color: var(--ink); margin: 0.3rem 0; }
+@media (max-width: 560px) { .method-panel { padding: 1.1rem 1rem 1.4rem; } }
