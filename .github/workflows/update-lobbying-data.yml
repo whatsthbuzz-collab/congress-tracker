@@ -1,0 +1,45 @@
+name: Update Lobbying Data
+
+on:
+  schedule:
+    - cron: '0 6 * * *'
+  workflow_dispatch:
+
+jobs:
+  fetch-lobbying:
+    runs-on: ubuntu-latest
+    # The first run backfills 2025-2026. The script stops itself at 300
+    # minutes and resumes on the next run, so this limit is only a backstop.
+    timeout-minutes: 330
+    permissions:
+      contents: write
+    env:
+      PYTHONUNBUFFERED: "1"
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Fetch lobbying data
+        env:
+          LDA_API_KEY: ${{ secrets.LDA_API_KEY }}
+        run: python scripts/lobbying.py
+
+      - name: Commit changes
+        run: |
+          git config user.name "Congress Bot"
+          git config user.email "bot@congress-tracker.local"
+          git add public/lobbying.json data/
+          if git diff --cached --quiet; then
+            echo "No changes to lobbying data"
+          else
+            git commit -m "chore: update lobbying data [$(date -u +'%Y-%m-%d %H:%M UTC')]"
+            git pull --rebase
+            git push
+          fi
