@@ -458,7 +458,7 @@ def main():
         # ---- CRS summaries + executive order titles ----
         current_congress_for_bills = (datetime.now().year - 2025) // 2 + 119
         print("Enriching bills with CRS summaries and executive order titles...")
-        enrich_bills(members, fetcher.session, api_key, current_congress_for_bills)
+        enrich_bills(members, fetcher.session, fetcher.api_key, current_congress_for_bills)
 
     # ---- campaign finance (FEC) ----
     finance_enabled = add_finance(members, fec_id_by_bioguide)
