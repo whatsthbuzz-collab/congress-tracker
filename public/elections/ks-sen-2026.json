@@ -1,0 +1,185 @@
+{
+ "id": "ks-sen-2026",
+ "office": "U.S. Senate",
+ "state": "Kansas",
+ "title": null,
+ "label": null,
+ "stateCode": "KS",
+ "electionDate": "2026-11-03",
+ "seatNote": "Sen. Roger Marshall (R) is seeking a second term.",
+ "sourceUrl": "https://en.wikipedia.org/wiki/2026_United_States_Senate_election_in_Kansas",
+ "candidates": [
+  {
+   "name": "Adam Hamilton",
+   "party": "Democratic",
+   "fecId": "S6KS00312",
+   "committees": [
+    "C00948901"
+   ],
+   "currentOffice": "Senior Pastor, United Methodist Church of the Resurrection",
+   "stateProfile": null,
+   "background": "Founding senior pastor of the United Methodist Church of the Resurrection in Leawood, which he started in 1990; won the August 4 Democratic primary.",
+   "backgroundSourceUrl": "https://kansasreflector.com/?p=59692",
+   "campaignSiteUrl": "https://hamiltonforkansas.com/issues/",
+   "facts": [
+    {
+     "label": "Bachelor's",
+     "value": "Oral Roberts University"
+    },
+    {
+     "label": "Graduate",
+     "value": "M.Div., Southern Methodist University"
+    },
+    {
+     "label": "Profession",
+     "value": "Pastor"
+    }
+   ],
+   "photo": {
+    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Adam_Hamilton_on_the_Courage_to_Preach_(cropped).png?width=240",
+    "credit": "Working Preacher, CC BY 4.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Adam_Hamilton_on_the_Courage_to_Preach_(cropped).png"
+   },
+   "incumbent": false,
+   "financeUrl": "https://www.fec.gov/data/candidate/S6KS00312/",
+   "finance": {
+    "available": true,
+    "cycle": 2026,
+    "totalRaised": 4169078,
+    "fromPacs": 17500,
+    "fromIndividuals": 4097829,
+    "pacPct": 0,
+    "individualPct": 100,
+    "cashOnHand": 1730621,
+    "source": "OpenFEC API"
+   },
+   "topPacDonors": [
+    {
+     "name": "COMMON GROUND PAC",
+     "amount": 10000,
+     "committeeId": "C00538835",
+     "fecUrl": "https://www.fec.gov/data/committee/C00538835/",
+     "kind": "leadership PAC"
+    },
+    {
+     "name": "BLUE HEN FEDERAL PAC",
+     "amount": 5000,
+     "committeeId": "C00493700",
+     "fecUrl": "https://www.fec.gov/data/committee/C00493700/",
+     "kind": "leadership PAC"
+    },
+    {
+     "name": "MONTANANS FOR TESTER",
+     "amount": 2500,
+     "committeeId": "C00412304",
+     "fecUrl": "https://www.fec.gov/data/committee/C00412304/",
+     "kind": "candidate committee"
+    }
+   ]
+  },
+  {
+   "name": "Roger Marshall",
+   "party": "Republican",
+   "fecId": "S0KS00315",
+   "committees": [
+    "C00576173",
+    "C00705814"
+   ],
+   "currentOffice": "U.S. Senator, Kansas",
+   "stateProfile": null,
+   "background": "U.S. senator since 2021; U.S. representative for Kansas's 1st district (2017-2021); physician (OB-GYN) before entering Congress.",
+   "backgroundSourceUrl": "https://themercury.com/ap/whos-running-to-represent-kansas-in-the-u-s-senate-in-2026-heres-a-guide/article_f2e248d6-4902-4d81-a36c-e4c395206cc0.html",
+   "campaignSiteUrl": "https://kansansformarshall.com/about/",
+   "facts": [
+    {
+     "label": "Born",
+     "value": "El Dorado, Kansas"
+    },
+    {
+     "label": "Profession",
+     "value": "Physician (OB-GYN)"
+    },
+    {
+     "label": "Current office pay",
+     "value": "$174,000/yr"
+    }
+   ],
+   "photo": {
+    "url": "https://unitedstates.github.io/images/congress/225x275/M001198.jpg",
+    "credit": "U.S. Congress, public domain, via the unitedstates project",
+    "sourceUrl": "https://github.com/unitedstates/images"
+   },
+   "incumbent": true,
+   "financeUrl": "https://www.fec.gov/data/candidate/S0KS00315/",
+   "finance": {
+    "available": true,
+    "cycle": 2026,
+    "totalRaised": 4009075,
+    "fromPacs": 1555250,
+    "fromIndividuals": 1719571,
+    "pacPct": 47,
+    "individualPct": 53,
+    "cashOnHand": 5388078,
+    "source": "OpenFEC API"
+   },
+   "topPacDonors": [
+    {
+     "name": "NRSC",
+     "amount": 62000,
+     "committeeId": "C00027466",
+     "fecUrl": "https://www.fec.gov/data/committee/C00027466/",
+     "kind": "party committee"
+    },
+    {
+     "name": "MISSISSIPPI FARM BUREAU FEDERATION FURTHERING AGRICULTURE FO",
+     "amount": 15000,
+     "committeeId": "C00730903",
+     "fecUrl": "https://www.fec.gov/data/committee/C00730903/",
+     "kind": "membership org PAC"
+    },
+    {
+     "name": "NUTRIEN AG SOLUTIONS EMPLOYEE CITIZENSHIP FUND POLITICAL ACT",
+     "amount": 15000,
+     "committeeId": "C00385039",
+     "fecUrl": "https://www.fec.gov/data/committee/C00385039/",
+     "kind": "corporate PAC"
+    },
+    {
+     "name": "BUILDING UP DEMOCRACY'S DREAM",
+     "amount": 15000,
+     "committeeId": "C00834507",
+     "fecUrl": "https://www.fec.gov/data/committee/C00834507/",
+     "kind": "leadership PAC"
+    },
+    {
+     "name": "DAVITA INC. POLITICAL ACTION COMMITTEE (DAPAC)",
+     "amount": 15000,
+     "committeeId": "C00340943",
+     "fecUrl": "https://www.fec.gov/data/committee/C00340943/",
+     "kind": "corporate PAC"
+    },
+    {
+     "name": "THE GOLDMAN SACHS GROUP INC. POLITICAL ACTION COMMITTEE",
+     "amount": 12000,
+     "committeeId": "C00350744",
+     "fecUrl": "https://www.fec.gov/data/committee/C00350744/",
+     "kind": "corporate PAC"
+    },
+    {
+     "name": "AMERICAN OPTOMETRIC ASSOCIATION POLITICAL ACTION COMMITTEE",
+     "amount": 11000,
+     "committeeId": "C00024968",
+     "fecUrl": "https://www.fec.gov/data/committee/C00024968/",
+     "kind": "membership org PAC"
+    },
+    {
+     "name": "SEABOARD CORPORATION PAC",
+     "amount": 10000,
+     "committeeId": "C00246736",
+     "fecUrl": "https://www.fec.gov/data/committee/C00246736/",
+     "kind": "corporate PAC"
+    }
+   ]
+  }
+ ]
+}

@@ -1,5 +1,5 @@
 {
- "lastUpdated": "2026-10-03T19:23:54.243107+00:00",
+ "lastUpdated": "2026-10-03T21:35:37.115567+00:00",
  "races": [
   {
    "id": "tx-sen-2026",
@@ -172,86 +172,18 @@
    ]
   },
   {
-   "id": "fl-13-2026",
-   "office": "U.S. House",
-   "state": "Florida",
-   "label": "FL-13",
+   "id": "ks-sen-2026",
+   "office": "U.S. Senate",
+   "state": "Kansas",
+   "label": null,
    "electionDate": "2026-11-03",
    "candidates": [
     {
-     "name": "Leela Gray",
+     "name": "Adam Hamilton",
      "party": "Democratic"
     },
     {
-     "name": "Anna Paulina Luna",
-     "party": "Republican"
-    }
-   ]
-  },
-  {
-   "id": "ga-02-2026",
-   "office": "U.S. House",
-   "state": "Georgia",
-   "label": "GA-02",
-   "electionDate": "2026-11-03",
-   "candidates": [
-    {
-     "name": "Sanford Bishop",
-     "party": "Democratic"
-    },
-    {
-     "name": "Matt Day",
-     "party": "Republican"
-    }
-   ]
-  },
-  {
-   "id": "nc-01-2026",
-   "office": "U.S. House",
-   "state": "North Carolina",
-   "label": "NC-01",
-   "electionDate": "2026-11-03",
-   "candidates": [
-    {
-     "name": "Don Davis",
-     "party": "Democratic"
-    },
-    {
-     "name": "Laurie Buckhout",
-     "party": "Republican"
-    }
-   ]
-  },
-  {
-   "id": "oh-09-2026",
-   "office": "U.S. House",
-   "state": "Ohio",
-   "label": "OH-09",
-   "electionDate": "2026-11-03",
-   "candidates": [
-    {
-     "name": "Marcy Kaptur",
-     "party": "Democratic"
-    },
-    {
-     "name": "Derek Merrin",
-     "party": "Republican"
-    }
-   ]
-  },
-  {
-   "id": "oh-13-2026",
-   "office": "U.S. House",
-   "state": "Ohio",
-   "label": "OH-13",
-   "electionDate": "2026-11-03",
-   "candidates": [
-    {
-     "name": "Emilia Sykes",
-     "party": "Democratic"
-    },
-    {
-     "name": "Carey Coleman",
+     "name": "Roger Marshall",
      "party": "Republican"
     }
    ]
