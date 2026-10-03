@@ -770,6 +770,15 @@ a.comm-name:hover { color: var(--navy); text-decoration: underline; }
 .outside-amt { font-size: 0.8rem; color: var(--ink-2); white-space: nowrap; }
 .outside-na { color: var(--ink-3); }
 
+.departure-tag {
+  display: inline-block; margin: 0.35rem 0 0 0.5rem;
+  font-family: var(--font-data); font-size: 0.68rem; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.06em; text-decoration: none;
+  color: var(--ink-2); border: 1px solid var(--line-2); border-radius: 999px;
+  padding: 0.15rem 0.55rem; vertical-align: middle;
+}
+.departure-tag:hover { color: var(--ink); border-color: var(--ink-3); }
+
 /* --- Find-your-legislators widget --- */
 .district-finder {
   margin: 0 0 1.6rem; padding: 1rem 1.1rem;

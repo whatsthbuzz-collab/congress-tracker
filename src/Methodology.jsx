@@ -77,6 +77,19 @@ export default function Methodology({ onClose }) {
           received.
         </p>
 
+        <h3>Members leaving their seats</h3>
+        <p>
+          Members who will not be on the November 2026 ballot for their current
+          seat are marked on their profiles: &ldquo;Not seeking reelection&rdquo;
+          (including members who left their seat to run for another office),
+          &ldquo;Lost primary,&rdquo; or, where the nomination is confirmed,
+          &ldquo;Running for&rdquo; that office. The list is maintained by hand,
+          each entry links to its source, and members are excluded from
+          &ldquo;on the ballot&rdquo; counts. Louisiana&rsquo;s House primaries
+          take place in November, so no Louisiana House member is marked as
+          having lost a primary.
+        </p>
+
         <h3>Stock trade disclosures</h3>
         <p>
           Trade disclosure counts come from Periodic Transaction Reports (PTRs)

@@ -17,6 +17,7 @@ import ElectionsView from './ElectionsView';
 import DistrictFinder from './DistrictFinder';
 import Methodology from './Methodology';
 import { pacPctLabel } from './finance';
+import { DEPARTURES_AS_OF, departureOf, departureLabel } from './departures';
 
 // Set to the repo's new-issue URL to enable the "Report an error" footer
 // link, e.g. 'https://github.com/OWNER/congress-tracker/issues/new'. Empty
@@ -223,7 +224,7 @@ async function renderShareCard(m, theme) {
 
   const stats = [
     [String(m.termsServed ?? 'n/a'), m.termsServed === 1 ? 'term' : 'terms'],
-    [m.nextElection || 'n/a', 'on ballot'],
+    [m.nextElection || 'n/a', departureOf(m) ? 'seat up' : 'on ballot'],
     [m.voting?.partyLinePct != null ? `${m.voting.partyLinePct}%` : 'n/a', 'party line'],
     [pacPctLabel(m.finance), 'PAC share'],
   ];
@@ -390,7 +391,7 @@ function MemberCard({ member, onOpen, index = 0, onCompare, inCompare }) {
         </div>
         <div className="mstat">
           <span className="mstat-num">{m.nextElection || 'n/a'}</span>
-          <span className="mstat-label">on ballot</span>
+          <span className="mstat-label">{departureOf(m) ? 'seat up' : 'on ballot'}</span>
         </div>
         <div className="mstat">
           <span className="mstat-num">{pl != null ? `${pl}%` : 'n/a'}</span>
@@ -484,6 +485,12 @@ function MemberProfile({ member: m, onClose, onCompare, inCompare, allMembers = 
               <span className="party-dot" aria-hidden="true" />
               {m.party}
             </span>
+            {departureOf(m) && (
+              <a href={departureOf(m).source} target="_blank" rel="noopener noreferrer" className="departure-tag"
+                 title={`Source, as of ${DEPARTURES_AS_OF}`}>
+                {departureLabel(departureOf(m))} ↗
+              </a>
+            )}
             <div className="profile-links">
               <a href={m.sourceUrl} target="_blank" rel="noopener noreferrer" className="source-link">
                 Congress.gov ↗
@@ -536,7 +543,7 @@ function MemberProfile({ member: m, onClose, onCompare, inCompare, allMembers = 
           )}
           <div className="finance-stat">
             <span className="finance-num">{m.nextElection || 'n/a'}</span>
-            <span className="finance-label">next on the ballot</span>
+            <span className="finance-label">{departureOf(m) ? 'seat up · not on the ballot' : 'next on the ballot'}</span>
           </div>
           {m.lawsEnacted > 0 && (
             <div className="finance-stat">
@@ -959,7 +966,7 @@ export default function CongressTable() {
       }
     }
     if (nextYear !== null) {
-      upNext = data.filter((m) => parseInt(m.nextElection, 10) === nextYear).length;
+      upNext = data.filter((m) => parseInt(m.nextElection, 10) === nextYear && !departureOf(m)).length;
     }
 
     const senate = data.filter((m) => m.chamber === 'Senate').length;
@@ -994,7 +1001,7 @@ export default function CongressTable() {
     const rows = [
       row('Seats held', (v) => v, (g) => g.length),
       row('On the ballot in 2026', (v) => v,
-        (g) => g.filter((m) => m.nextElection === '2026').length),
+        (g) => g.filter((m) => m.nextElection === '2026' && !departureOf(m)).length),
       row('Avg. votes with party', (v) => (v == null ? 'n/a' : `${Math.round(v)}%`),
         (g) => avg(g.filter((m) => m.voting?.partyLinePct != null).map((m) => m.voting.partyLinePct)),
         voteScopeNote),
@@ -1144,7 +1151,7 @@ export default function CongressTable() {
             <div className="num-cell">
               <span className="num-main">{fmtDate(m.termStart) || 'n/a'}</span>
               {m.nextElection && (
-                <span className="num-sub">on ballot {m.nextElection}</span>
+                <span className="num-sub">{departureOf(m) ? `seat up ${m.nextElection} · ${departureLabel(departureOf(m)).toLowerCase()}` : `on ballot ${m.nextElection}`}</span>
               )}
             </div>
           );
@@ -2043,7 +2050,7 @@ export default function CongressTable() {
                 <dl className="compare2-facts">
                   <div><dt>Terms served</dt><dd>{m.termsServed ?? 'n/a'} <small>since {m.firstYearServed || 'n/a'}</small></dd></div>
                   <div><dt>Age</dt><dd>{ageOf(m.birthday) ?? 'n/a'}</dd></div>
-                  <div><dt>Next election</dt><dd>{m.nextElection || 'n/a'}</dd></div>
+                  <div><dt>Next election</dt><dd>{m.nextElection || 'n/a'}{departureOf(m) && <small> {departureLabel(departureOf(m)).toLowerCase()}</small>}</dd></div>
                   <div><dt>Votes with party</dt><dd>{m.voting?.partyLinePct != null ? `${m.voting.partyLinePct}%` : <small>n/a</small>}</dd></div>
                   <div><dt>Votes missed</dt><dd>{m.voting?.missedPct != null ? `${m.voting.missedPct}%` : <small>n/a</small>}</dd></div>
                   <div><dt>Contributions from PACs</dt><dd>{pacPctLabel(m.finance)}</dd></div>
@@ -2089,7 +2096,9 @@ export default function CongressTable() {
         </p>
         <p className="colophon-note">
           Terms are counted one per elected term. &ldquo;On ballot&rdquo; is the
-          November before the current term ends. For official records, always
+          November before the current term ends. Members who are not seeking
+          reelection, lost their primary, or are running for another office
+          are marked from cited sources, current as of {DEPARTURES_AS_OF}. For official records, always
           verify at Congress.gov.
         </p>
       </footer>
