@@ -946,8 +946,6 @@ export default function CongressTable() {
     if (level === 'state') url.searchParams.set('view', 'state');
     else if (level === 'elections') url.searchParams.set('view', 'elections');
     else { url.searchParams.delete('view'); url.searchParams.delete('st'); }
-    // Never keep "elections" in the URL when navigating away via the visible
-    // toggle -- it should only be reachable by a link someone was given.
     history.replaceState(null, '', url.pathname + url.search + url.hash);
   }, [level]);
   const [myState, setMyState] = useState('');
@@ -1509,9 +1507,10 @@ export default function CongressTable() {
         <span>{theme === 'dark' ? 'Light' : 'Dark'}</span>
       </button>
 
-      <nav className="level-switch" aria-label="Federal or state">
+      <nav className="level-switch" aria-label="Choose a view">
         <button type="button" className={`pill ${level === 'federal' ? 'active' : ''}`} onClick={() => setLevel('federal')}>Federal</button>
         <button type="button" className={`pill ${level === 'state' ? 'active' : ''}`} onClick={() => setLevel('state')}>State Legislatures</button>
+        <button type="button" className={`pill ${level === 'elections' ? 'active' : ''}`} onClick={() => setLevel('elections')}>Elections</button>
       </nav>
 
       {level === 'elections' ? (
