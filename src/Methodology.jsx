@@ -94,7 +94,10 @@ export default function Methodology({ onClose }) {
           tag ("corporate PAC", "labor union PAC", "party committee") is the
           FEC's own classification of that committee; ActBlue and WinRed are
           labeled as conduits because the FEC registers them as pass-throughs
-          for bundled individual donations. Candidate backgrounds and quick
+          for bundled individual donations. Outside spending is the FEC's tally
+          of independent expenditures for and against each candidate across the
+          whole election period, grouped by the committee that spent it; by law
+          these groups may not coordinate with the campaigns. Candidate backgrounds and quick
           facts cite Ballotpedia; photos come from Wikimedia Commons with the
           license credited; campaign site links go to the candidates' own
           pages. Candidates whose committees have not yet filed show "n/a"

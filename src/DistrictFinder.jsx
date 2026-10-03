@@ -1,7 +1,7 @@
 import { useRef, useState } from 'react';
 
 /*
- * DistrictFinder — "I don't know my district."
+ * DistrictFinder: "I don't know my district."
  *
  * Two easy paths, no full address required:
  *  1) "Use my location": browser geolocation -> Census geocoder -> exact
@@ -223,7 +223,7 @@ export default function DistrictFinder({ members, onSelectMember, onOpenState })
               State districts: {[result.slduName, result.sldlName].filter(Boolean).join(' · ')}
               {result.stateCode && (
                 <>
-                  {' — '}
+                  {' · '}
                   <button type="button" className="finder-member" onClick={() => onOpenState?.(result.stateCode)}>
                     open the {result.stateCode} legislature →
                   </button>

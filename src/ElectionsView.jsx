@@ -1,4 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react';
+import { pacPctLabel } from './finance';
 
 const partyClass = (p) => (p || '').toLowerCase().replace(/[^a-z]/g, '-');
 
@@ -9,6 +10,50 @@ const fmtMoney = (n) => {
   if (abs >= 1_000) return `$${Math.round(n / 1_000)}K`;
   return `$${n}`;
 };
+
+// Outside spending: one scannable line; tap to see which groups spent.
+function OutsideSpending({ o }) {
+  if (!o) return null;
+  if (!o.available) {
+    return <p className="outside-line">Outside groups: <span className="outside-na">n/a</span></p>;
+  }
+  if (!o.support && !o.oppose) {
+    return <p className="outside-line">Outside groups: none reported to the FEC</p>;
+  }
+  return (
+    <details className="outside">
+      <summary className="outside-line">
+        Outside groups: <strong>{fmtMoney(o.support)}</strong> supporting
+        {' · '}<strong>{fmtMoney(o.oppose)}</strong> opposing
+      </summary>
+      <div className="donor-list outside-list">
+        <span className="donor-label">Top outside spenders in this race:</span>
+        {o.groups.map((g, i) => {
+          const body = (
+            <>
+              {g.name}
+              {g.kind && <span className="donor-kind">{g.kind}</span>}
+              {g.support > 0 && <span className="outside-amt">for <strong>{fmtMoney(g.support)}</strong></span>}
+              {g.oppose > 0 && <span className="outside-amt">against <strong>{fmtMoney(g.oppose)}</strong></span>}
+            </>
+          );
+          return g.fecUrl ? (
+            <a key={i} href={g.fecUrl} target="_blank" rel="noopener noreferrer"
+               className="donor-chip donor-chip-link" title="View this committee's profile on fec.gov">
+              {body} <span aria-hidden="true">↗</span>
+            </a>
+          ) : (
+            <span key={i} className="donor-chip">{body}</span>
+          );
+        })}
+        <p className="finance-fineprint">
+          Independent expenditures reported to the FEC: money spent for or against a candidate by groups that may not coordinate with the campaign.
+        </p>
+      </div>
+    </details>
+  );
+}
+
 
 function Initials({ name, party, size = 'lg' }) {
   const initials = (name || '').split(/\s+/).filter(Boolean).map((w) => w[0]).slice(0, 2).join('').toUpperCase();
@@ -87,7 +132,7 @@ function CandidateCard({ c, onOpenState }) {
         {f.available && (
           <>
             <div className="finance-stat">
-              <span className="finance-num">{f.pacPct ?? 'n/a'}%</span>
+              <span className="finance-num">{pacPctLabel(f)}</span>
               <span className="finance-label">from PACs</span>
             </div>
             <div className="finance-stat">
@@ -102,6 +147,7 @@ function CandidateCard({ c, onOpenState }) {
           Cash on hand can include money carried over from previous campaigns, so it can exceed this cycle's total raised.
         </p>
       )}
+      <OutsideSpending o={c.outsideSpending} />
 
       {c.topPacDonors?.length > 0 && (
         <div className="donor-list">
@@ -240,7 +286,7 @@ export default function ElectionsView({ onOpenStateProfile }) {
             Photos:{' '}
             {race.candidates.filter((c) => c.photo).map((c, i, arr) => (
               <span key={c.fecId || c.name}>
-                {c.name} — <a href={c.photo.sourceUrl} target="_blank" rel="noopener noreferrer">{c.photo.credit}</a>
+                {c.name}: <a href={c.photo.sourceUrl} target="_blank" rel="noopener noreferrer">{c.photo.credit}</a>
                 {i < arr.length - 1 ? ' · ' : ''}
               </span>
             ))}

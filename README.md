@@ -24,7 +24,7 @@ Candidate and member facts, not recommendations. Every figure links back to its 
 
 **Elections**
 - Side-by-side candidate cards for the nationally watched 2026 U.S. Senate races
-- FEC finance totals, named PAC donors tagged with the FEC's committee type, background facts, photos, and campaign links
+- FEC finance totals, named PAC donors tagged with the FEC's committee type, outside spending for and against each candidate, background facts, photos, and campaign links
 
 **How these numbers are made**
 - A methodology page, linked in the site footer, defines every figure and its source.

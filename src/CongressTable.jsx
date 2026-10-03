@@ -16,11 +16,12 @@ import StateView from './StateView';
 import ElectionsView from './ElectionsView';
 import DistrictFinder from './DistrictFinder';
 import Methodology from './Methodology';
+import { pacPctLabel } from './finance';
 
 // Set to the repo's new-issue URL to enable the "Report an error" footer
 // link, e.g. 'https://github.com/OWNER/congress-tracker/issues/new'. Empty
 // string hides the link.
-const REPORT_ISSUE_URL = '';
+const REPORT_ISSUE_URL = 'https://github.com/whatsthbuzz-collab/congress-tracker/issues/new';
 
 
 function billStatus(actionText) {
@@ -64,7 +65,7 @@ function BillClarity({ bill }) {
       {bill.summary && (
         <p className="bill-summary">
           {bill.summary}{' '}
-          <span className="bill-summary-src">— {bill.summarySource || 'CRS'}</span>
+          <span className="bill-summary-src">Source: {bill.summarySource || 'CRS'}</span>
         </p>
       )}
       {bill.eoTitle && (
@@ -224,7 +225,7 @@ async function renderShareCard(m, theme) {
     [String(m.termsServed ?? 'n/a'), m.termsServed === 1 ? 'term' : 'terms'],
     [m.nextElection || 'n/a', 'on ballot'],
     [m.voting?.partyLinePct != null ? `${m.voting.partyLinePct}%` : 'n/a', 'party line'],
-    [m.finance?.pacPct != null ? `${m.finance.pacPct}%` : 'n/a', 'PAC money'],
+    [pacPctLabel(m.finance), 'PAC money'],
   ];
   const colW = (W - tx - 60) / 4;
   stats.forEach(([n, l], i) => {
@@ -401,7 +402,7 @@ function MemberCard({ member, onOpen, index = 0, onCompare, inCompare }) {
           )}
         </div>
         <div className="mstat">
-          <span className="mstat-num">{pac != null ? `${pac}%` : 'n/a'}</span>
+          <span className="mstat-num">{pacPctLabel(m.finance)}</span>
           <span className="mstat-label">PAC money</span>
           {pac != null && (
             <span className="mini-bar" aria-hidden="true">
@@ -492,6 +493,11 @@ function MemberProfile({ member: m, onClose, onCompare, inCompare, allMembers = 
                   Official site ↗
                 </a>
               )}
+              {m.phone && (
+                <a href={`tel:${m.phone}`} className="source-link" title="Washington, D.C. office">
+                  DC office: {m.phone}
+                </a>
+              )}
               <button type="button" className="pill pill-sm" onClick={copyLink}>
                 {copied ? 'Link copied' : 'Copy link'}
               </button>
@@ -548,7 +554,7 @@ function MemberProfile({ member: m, onClose, onCompare, inCompare, allMembers = 
           )}
           {m.finance?.pacPct != null && (
             <div className="finance-stat">
-              <span className="finance-num">{m.finance.pacPct}%</span>
+              <span className="finance-num">{pacPctLabel(m.finance)}</span>
               <span className="finance-label">of money from PACs</span>
             </div>
           )}
@@ -670,7 +676,7 @@ function MemberProfile({ member: m, onClose, onCompare, inCompare, allMembers = 
               </div>
               <div className="finance-stat">
                 <span className="finance-num">{fmtMoney(m.finance.fromPacs)}</span>
-                <span className="finance-label">from PACs ({m.finance.pacPct ?? 'n/a'}%)</span>
+                <span className="finance-label">from PACs ({pacPctLabel(m.finance)})</span>
               </div>
               <div className="finance-stat">
                 <span className="finance-num">{fmtMoney(m.finance.fromIndividuals)}</span>
@@ -1352,14 +1358,14 @@ export default function CongressTable() {
           const level =
             f.pacPct >= 50 ? 'high' : f.pacPct >= 25 ? 'mid' : 'low';
           return (
-            <div className="fund-cell" title={`${f.pacPct}% from PACs, ${f.individualPct}% from individuals`}>
+            <div className="fund-cell" title={`${pacPctLabel(f)} from PACs, ${f.individualPct}% from individuals`}>
               <div className="fund-bar" aria-hidden="true">
                 <div
                   className={`fund-fill ${level}`}
                   style={{ width: `${f.pacPct}%` }}
                 />
               </div>
-              <span className="fund-pct">{f.pacPct}%</span>
+              <span className="fund-pct">{pacPctLabel(f)}</span>
             </div>
           );
         },
@@ -2008,7 +2014,7 @@ export default function CongressTable() {
                                     {fmtMoney(m.finance.fromPacs)}
                                   </span>
                                   <span className="finance-label">
-                                    from PACs ({m.finance.pacPct ?? 'n/a'}%)
+                                    from PACs ({pacPctLabel(m.finance)})
                                   </span>
                                 </div>
                                 <div className="finance-stat">
@@ -2176,7 +2182,7 @@ export default function CongressTable() {
                   <div><dt>Next election</dt><dd>{m.nextElection || 'n/a'}</dd></div>
                   <div><dt>Votes with party</dt><dd>{m.voting?.partyLinePct != null ? `${m.voting.partyLinePct}%` : <small>n/a</small>}</dd></div>
                   <div><dt>Votes missed</dt><dd>{m.voting?.missedPct != null ? `${m.voting.missedPct}%` : <small>n/a</small>}</dd></div>
-                  <div><dt>Money from PACs</dt><dd>{m.finance?.pacPct != null ? `${m.finance.pacPct}%` : 'n/a'}</dd></div>
+                  <div><dt>Money from PACs</dt><dd>{pacPctLabel(m.finance)}</dd></div>
                   <div><dt>Total raised</dt><dd>{m.finance ? fmtMoney(m.finance.totalRaised) : 'n/a'}</dd></div>
                   <div><dt>Bills sponsored</dt><dd>{m.billsTotal ?? (m.bills?.length || 0)}</dd></div>
                   <div><dt>Laws enacted</dt><dd>{m.lawsEnacted ?? 0}</dd></div>

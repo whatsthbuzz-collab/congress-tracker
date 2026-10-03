@@ -41,6 +41,7 @@ OUT_DIR = os.path.join("public", "elections")
 INDEX = os.path.join(OUT_DIR, "index.json")
 
 TOP_PAC_DONORS = 8
+TOP_OUTSIDE_GROUPS = 8
 MAX_SCHED_A_PAGES = 15
 DONOR_LINES = {"11B", "11C"}
 
@@ -683,6 +684,8 @@ def _kind_label(info: Dict[str, Any]) -> str:
         return "party committee"
     if ctype == "O":
         return "super PAC"
+    if ctype in ("V", "W"):
+        return "hybrid PAC"
     if orgt in ("C", "W"):
         return "corporate PAC"
     if orgt == "L":
@@ -715,6 +718,51 @@ def classify_donor_committees(fetcher: FECFetcher, donors: List[Dict[str, Any]],
             d["kind"] = cache[cid]
 
 
+def fetch_outside_spending(fetcher: FECFetcher, fec_id: str, office: str,
+                           kind_cache: Dict[str, Optional[str]]) -> Dict[str, Any]:
+    """Independent expenditures for and against a candidate, by spending
+    group, from /schedules/schedule_e/by_candidate/. The FEC totals the whole
+    election period by default (election_full), so a Senate race includes all
+    spending aimed at this election. A failed request returns available=False
+    ("n/a"), never a misleading $0."""
+    if not fec_id:
+        return {"available": False}
+    rows: List[Dict[str, Any]] = []
+    for page in range(1, 11):
+        data = fetcher._get("/schedules/schedule_e/by_candidate/", {
+            "candidate_id": fec_id, "cycle": current_cycle(), "office": office,
+            "per_page": 100, "page": page, "sort": "-total"})
+        if data is None:
+            return {"available": False}
+        rows.extend(data.get("results") or [])
+        if page >= ((data.get("pagination") or {}).get("pages") or 1):
+            break
+    support = oppose = 0.0
+    groups: Dict[str, Dict[str, Any]] = {}
+    for r in rows:
+        amt = float(r.get("total") or 0)
+        side = (r.get("support_oppose_indicator") or "").upper()
+        if amt <= 0 or side not in ("S", "O"):
+            continue
+        cid = r.get("committee_id") or ""
+        name = (r.get("committee_name") or cid).strip()
+        g = groups.setdefault(cid or name, {"name": name, "committeeId": cid, "support": 0.0, "oppose": 0.0})
+        if side == "S":
+            support += amt; g["support"] += amt
+        else:
+            oppose += amt; g["oppose"] += amt
+    top = sorted(groups.values(), key=lambda g: g["support"] + g["oppose"], reverse=True)[:TOP_OUTSIDE_GROUPS]
+    out = []
+    for g in top:
+        item: Dict[str, Any] = {"name": g["name"], "support": round(g["support"]), "oppose": round(g["oppose"])}
+        if g["committeeId"]:
+            item["committeeId"] = g["committeeId"]
+            item["fecUrl"] = f"https://www.fec.gov/data/committee/{g['committeeId']}/"
+        out.append(item)
+    classify_donor_committees(fetcher, out, kind_cache)
+    return {"available": True, "support": round(support), "oppose": round(oppose), "groups": out}
+
+
 def build_race(fetcher: FECFetcher, race: Dict[str, Any],
                kind_cache: Dict[str, Optional[str]]) -> Dict[str, Any]:
     print(f"\n=== {race['id']} ===")
@@ -726,14 +774,18 @@ def build_race(fetcher: FECFetcher, race: Dict[str, Any],
         finance = fetch_candidate_finance(fetcher, c["committees"])
         donors = fetch_top_pac_donors(fetcher, c["committees"])
         classify_donor_committees(fetcher, donors, kind_cache)
+        office = "senate" if race["office"].startswith("U.S. Senate") else "house"
+        outside = fetch_outside_spending(fetcher, c.get("fecId"), office, kind_cache)
         raised = finance.get("totalRaised")
         print(f"  {c['name']}: {'$%d raised' % raised if raised else 'no FEC data'}, "
-              f"{len(donors)} named PAC donors, {sum(1 for d in donors if d.get('kind'))} classified")
+              f"{len(donors)} named PAC donors, {sum(1 for d in donors if d.get('kind'))} classified, "
+              f"outside: {('$%d for / $%d against' % (outside['support'], outside['oppose'])) if outside.get('available') else 'n/a'}")
         candidates.append({
             **c,
             "financeUrl": f"https://www.fec.gov/data/candidate/{c['fecId']}/" if c.get("fecId") else None,
             "finance": finance,
             "topPacDonors": donors,
+            "outsideSpending": outside,
         })
     return {
         "id": race["id"], "office": race["office"], "state": race["state"],
