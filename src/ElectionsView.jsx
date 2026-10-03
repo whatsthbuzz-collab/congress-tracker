@@ -192,7 +192,7 @@ export default function ElectionsView({ onOpenStateProfile }) {
                 history.replaceState(null, '', url.pathname + url.search + url.hash);
               }}
             >
-              {r.state}
+              {r.label || r.state}
             </button>
           ))}
         </nav>
@@ -200,7 +200,7 @@ export default function ElectionsView({ onOpenStateProfile }) {
       <div className="hero">
         <header className="masthead">
           <p className="masthead-eyebrow">Upcoming Race &middot; Preview</p>
-          <h1 className="masthead-title">{race.office}, {race.state}</h1>
+          <h1 className="masthead-title">{race.title || `${race.office}, ${race.state}`}</h1>
           <p className="masthead-dek">
             Candidate facts, not recommendations. Party, background, and campaign
             money for each candidate, every claim sourced. What you make of it is
