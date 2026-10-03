@@ -1,320 +1,127 @@
-# 🏛️ Congressional Tracker
+# Congress Tracker
 
-A transparent, searchable database of U.S. federal politicians with real-time bill tracking, voting records, and more.
+Sourced, nonpartisan facts about the people who represent you: every member of Congress, every state legislator, and the 2026 federal races on the ballot.
 
-**Live Demo:** (https://whatsthbuzz-collab.github.io/congress-tracker/)
-**Data Updates:** Nightly via GitHub Actions  
-**Data Source:** [Congress.gov API](https://api.congress.gov/)
+**Live site:** https://whatsthbuzz-collab.github.io/congress-tracker/
 
----
-
-## Features
-
-✅ **Complete Member Directory**
-- All 535 current members of Congress (House & Senate)
-- Party, state, district, and contact info
-- Term dates and re-election info
-
-✅ **Bill Tracking**
-- Bills sponsored/cosponsored by each member
-- Bill summaries and links to Congress.gov
-- Latest action status
-
-✅ **Searchable & Filterable**
-- Search by name, state, or party
-- Sort by any column
-- Filter by chamber (House/Senate) or party
-
-✅ **Transparent Attribution**
-- Every data point links to the original source
-- Congress.gov API integration
-- Public domain data
-
-✅ **Automated Updates**
-- Nightly data refresh via GitHub Actions
-- Git commit history tracks all changes
-- Zero manual maintenance
+Candidate and member facts, not recommendations. Every figure links back to its official source. Where a fact cannot be sourced, the site shows nothing rather than a guess.
 
 ---
 
-## Quick Start
+## What's on the site
 
-### For Users
-Just visit the live site (link above) and start filtering!
+**Federal**
+- All current members of Congress, including non-voting delegates
+- Sponsored bills with status, topic, Congressional Research Service (CRS) summaries, and executive order titles where a bill references one
+- House and Senate voting records: votes with party, votes missed, recent roll calls
+- Campaign finance from the Federal Election Commission (FEC): total raised, share from PACs, cash on hand
+- Stock trade disclosures (Periodic Transaction Reports)
+- Committee assignments, party comparisons, and shareable member links
+- District finder: enter a zip code, city, or address, or use your location
 
-### For Developers
+**State Legislatures**
+- Legislators in all 50 states, with sponsored bills, bill status, topics, and voting records
 
-**Local setup (5 minutes):**
+**Elections**
+- Side-by-side candidate cards for selected 2026 U.S. Senate and House races
+- FEC finance totals, named PAC donors tagged with the FEC's committee type, background facts, photos, and campaign links
+
+**How these numbers are made**
+- A methodology page, linked in the site footer, defines every figure and its source.
+
+---
+
+## Editorial rules
+
+- **Facts, not recommendations.** No scores, ratings, or endorsements.
+- **Every claim sourced.** Each figure links to the official record it came from.
+- **Missing over wrong.** If data is unavailable or unverified, the site shows "n/a" or nothing.
+- **Even-handed elections cards.** Both candidates in a race get a photo and a campaign link, or neither does. The build refuses to run if this is violated.
+- **Licensed photos only.** Candidate photos are public domain government portraits or freely licensed images from Wikimedia Commons, credited on the page.
+
+---
+
+## Data sources
+
+| Data | Source | License / terms |
+|---|---|---|
+| Member roster, committees | [unitedstates/congress-legislators](https://github.com/unitedstates/congress-legislators) | Public domain |
+| Bills, laws, House roll calls | [Congress.gov API](https://api.congress.gov/) | Public domain |
+| Bill summaries | Congressional Research Service, via Congress.gov | Public domain |
+| Executive order titles | [Federal Register API](https://www.federalregister.gov/developers/api/v1) | Public domain |
+| Senate roll calls | [senate.gov XML](https://www.senate.gov/general/XML.htm) | Public domain |
+| Campaign finance | [OpenFEC API](https://api.open.fec.gov/) | Public domain |
+| Stock trade disclosures | [House Clerk](https://disclosures-clerk.house.gov/) and [Senate eFD](https://efdsearch.senate.gov/) | Public records |
+| State legislatures | [LegiScan](https://legiscan.com/) bulk datasets | CC BY 4.0, credited on the site |
+| District finder | [OpenStreetMap Nominatim](https://nominatim.openstreetmap.org/) and [U.S. Census geocoder](https://geocoding.geo.census.gov/) | Lookups run in the visitor's browser; the site never sees or stores locations |
+| Member photos | [unitedstates/images](https://github.com/unitedstates/images) | Public domain |
+| Election candidate photos | Wikimedia Commons, per-photo license | Credited on each election page |
+
+---
+
+## Automated updates
+
+Data refreshes run on GitHub Actions. Each pipeline exits with an error instead of publishing if its output fails quality checks, so the previous good data stays live.
+
+| Workflow | Script | Schedule (UTC) |
+|---|---|---|
+| Update Congressional Data | `scripts/fetch_congress_data.py` | Daily, 02:00 |
+| Update Elections Data | `scripts/elections.py` | Daily, 10:00 |
+| Update State Data | `scripts/state_legislature.py` | Mondays, 09:00 |
+| Build and Deploy to GitHub Pages | `npm run build` | On every push to `main`, and after data updates |
+
+All workflows can also be run manually from the **Actions** tab.
+
+### Required repository secrets
+
+| Secret | Used by | Get one at |
+|---|---|---|
+| `CONGRESS_API_KEY` | Congressional data | https://api.congress.gov/sign-up/ |
+| `FEC_API_KEY` | Congressional data, elections | https://api.data.gov/signup/ |
+| `LEGISCAN_API_KEY` | State data | https://legiscan.com/legiscan |
+
+---
+
+## Repository layout
+
+```
+.github/workflows/   Scheduled data updates and deployment
+public/              Generated data (JSON), committed by the workflows
+  congress_data.json
+  state/             One file per state, plus index.json
+  elections/         One file per race, plus index.json
+scripts/             Python data pipelines
+src/                 React front end (Vite)
+```
+
+---
+
+## Local development
+
+Requires Node 20 and Python 3.11.
 
 ```bash
-# 1. Clone the repo
-git clone https://github.com/YOUR_USERNAME/congress-tracker.git
+git clone https://github.com/whatsthbuzz-collab/congress-tracker.git
 cd congress-tracker
-
-# 2. Install dependencies
 npm install
-pip install requests
+pip install requests pyyaml
 
-# 3. Fetch initial data
+# Optional: refresh data locally (set the API keys above as environment variables first)
 python scripts/fetch_congress_data.py
+python scripts/elections.py
+python scripts/state_legislature.py
 
-# 4. Start dev server
 npm run dev
-
-# 5. Open http://localhost:5173
-```
-
-**Deploy to GitHub Pages (free):**
-
-See [SETUP_GUIDE.md](SETUP_GUIDE.md) for step-by-step instructions.
-
----
-
-## Tech Stack
-
-| Layer | Technology | Why |
-|-------|-----------|-----|
-| **Frontend** | React 18 + TanStack Table | Efficient filtering, sorting, pagination |
-| **Styling** | Plain CSS | No build overhead, fast load times |
-| **Data Fetching** | Python 3 + Congress.gov API | Clean data aggregation |
-| **Automation** | GitHub Actions | Free nightly updates |
-| **Hosting** | GitHub Pages | Free, automatic deployments |
-
----
-
-## Data Sources
-
-### Primary: Congress.gov API
-- **Members:** Current members with bio info, contact details
-- **Bills:** Sponsored and co-sponsored bills
-- **Metadata:** Term dates, party, chamber
-- **Documentation:** [api.congress.gov](https://api.congress.gov)
-- **License:** Public domain
-
-### Data Attribution
-Every row includes direct links to Congress.gov for verification.
-
----
-
-## File Structure
-
-```
-congress-tracker/
-├── public/
-│   └── congress_data.json          # Generated data (~5-10MB)
-│
-├── src/
-│   ├── App.jsx                     # Root component
-│   ├── CongressTable.jsx           # Main table component
-│   ├── CongressTable.css           # Styles
-│   └── main.jsx                    # React entry point
-│
-├── scripts/
-│   └── fetch_congress_data.py      # Data fetcher (run nightly)
-│
-├── .github/
-│   └── workflows/
-│       ├── update-data.yml         # Data fetch workflow
-│       └── deploy.yml              # Build & deploy workflow
-│
-├── index.html
-├── vite.config.js
-├── package.json
-├── SETUP_GUIDE.md                  # Detailed setup instructions
-└── README.md                        # This file
 ```
 
 ---
 
-## How It Works
+## Adding an election race
 
-### Data Pipeline
+Races are configured in the `RACES` list at the top of `scripts/elections.py`.
 
-```
-Congress.gov API
-       ↓
-  fetch_congress_data.py (Python script)
-       ↓
-  congress_data.json (JSON export)
-       ↓
-  CongressTable.jsx (React component)
-       ↓
-  GitHub Pages (Static hosting)
-```
-
-### Nightly Updates
-
-1. **2 AM UTC:** GitHub Actions runs `fetch_congress_data.py`
-2. Fetches latest member info from Congress.gov
-3. Generates new `congress_data.json`
-4. Auto-commits to repo with timestamp
-5. GitHub Pages rebuilds and deploys
-
-**Git history = audit trail of all changes**
-
----
-
-## Usage & Features
-
-### Filtering
-
-- **Name/State Search:** Type to search members
-- **Party Filter:** Dropdown to filter by party
-- **State Filter:** Dropdown to filter by state
-- **Sort:** Click any column header to sort (↑ ↓)
-
-### View Details
-
-- **Bills:** Click "Bills Sponsored" to expand/collapse
-- **Sources:** Every item links to Congress.gov
-- **Profile:** Click member's name to go to their Congress.gov profile
-
-### Pagination
-
-- Adjust rows per page (10, 25, 50)
-- Navigate with Previous/Next buttons
-
----
-
-## Limitations & Future Work
-
-### Current Limitations
-- ⚠️ Voting records: Congress.gov API has limited vote data
-  - Full voting history requires scraping House/Senate Clerk data
-- ⚠️ Stock trades: Not yet aggregated
-  - Requires parsing SEC disclosures (complex)
-- ⚠️ Campaign finance: Not included
-  - Requires OpenSecrets API integration
-
-### Coming Soon
-- [ ] Full voting record integration
-- [ ] Stock trade aggregation
-- [ ] Campaign finance tracking
-- [ ] Mobile app
-- [ ] Public API
-
----
-
-## Development
-
-### Add a New Feature
-
-Example: Add re-election countdown
-
-1. Fetch data from Ballotpedia API in `fetch_congress_data.py`
-2. Add new column to `CongressTable.jsx`
-3. Add filter logic as needed
-4. Push to GitHub → Actions deploy automatically
-
-### Modify Styling
-
-Edit `CongressTable.css`. CSS variables at the top make theming easy:
-
-```css
-:root {
-  --color-primary: #1a1a1a;
-  --color-accent: #0066cc;
-  /* etc */
-}
-```
-
-### Update Data Fetch Frequency
-
-Edit `.github/workflows/update-data.yml`:
-
-```yaml
-schedule:
-  - cron: '0 2 * * *'  # Change this cron expression
-```
-
-Common schedules:
-- `0 2 * * *` → Daily at 2 AM UTC
-- `0 */6 * * *` → Every 6 hours
-- `0 0 * * 0` → Weekly on Sunday
-
----
-
-## Performance
-
-### Optimization Tips
-
-**Frontend:**
-- TanStack Table with pagination (loads 10-50 rows at a time)
-- CSS-in-JS minimal → fast paint
-- Gzip compression for JSON
-
-**Backend:**
-- Congress.gov API: 0.5s rate limiting built-in
-- GitHub Actions: Runs in ~2 minutes
-- Caching: GitHub Pages CDN cache
-
-**Benchmarks:**
-- Initial load: ~1-2 seconds (500KB gzipped JSON)
-- Filtering: <100ms (client-side)
-- Sort: <50ms (client-side)
-
----
-
-## Deployment Options
-
-| Option | Cost | Setup Time | Best For |
-|--------|------|-----------|----------|
-| **GitHub Pages** | $0 | 15 min | Community projects |
-| **Vercel** | $0-10/mo | 10 min | High traffic |
-| **Netlify** | $0-10/mo | 10 min | Easy CMS integration |
-| **AWS S3** | $1-2/mo | 30 min | Production + custom domain |
-| **VPS (DigitalOcean)** | $5-10/mo | 45 min | Full control |
-
-See [SETUP_GUIDE.md](SETUP_GUIDE.md) for detailed instructions.
-
----
-
-## Contributing
-
-**Found a bug?** Open an issue!  
-**Have an idea?** Submit a PR!
-
-1. Fork the repo
-2. Create feature branch: `git checkout -b feature/add-X`
-3. Make changes
-4. Test locally: `npm run dev`
-5. Push and open PR
-
----
-
-## License
-
-- **Code:** MIT (use however you want)
-- **Data:** Public domain (U.S. Government)
-
----
-
-## Resources
-
-- [Congress.gov API Docs](https://api.congress.gov/)
-- [TanStack Table Docs](https://tanstack.com/table/v8/)
-- [GitHub Pages Guide](https://pages.github.com/)
-- [Vite Guide](https://vitejs.dev/)
-
----
-
-## Support
-
-**Questions?**
-1. Check [SETUP_GUIDE.md](SETUP_GUIDE.md)
-2. Open a GitHub issue
-3. Check Congress.gov API docs
-
----
-
-## Acknowledgments
-
-- **Congress.gov API** - Source of truth for all data
-- **TanStack Table** - Table/filter/sort library
-- **GitHub** - Free hosting & CI/CD
-
----
-
-**Last Updated:** 2024  
-**Maintained By:** [Your Name]  
-**Status:** ✅ Active & Updated Nightly
+1. Verify both candidates are the current nominees.
+2. Look up each candidate's FEC candidate ID on [fec.gov](https://www.fec.gov/data/). House races can omit committee IDs; the script looks them up from the candidate ID.
+3. Source every background fact and add its link.
+4. Add photos only if both candidates have public domain or freely licensed photos, and campaign links only if both have confirmed campaign sites.
+5. Commit, then run **Update Elections Data** from the Actions tab.
