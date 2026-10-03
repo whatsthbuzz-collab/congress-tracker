@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-committees.py — add committee assignments to each member.
+committees.py: add committee assignments to each member.
 
 Source: unitedstates/congress-legislators (public domain), same family as
 the member roster. Two files, no key required:
@@ -13,7 +13,7 @@ Both are keyed by Bioguide ID, so the join is exact.
 
 Subcommittees are identified by parent ID + 2-digit suffix (SSCM33 is a
 subcommittee of SSCM). We fold them under their parent so a profile reads
-"Commerce, Science & Transportation — Chairman" rather than seventeen
+"Commerce, Science & Transportation, Chairman" rather than seventeen
 near-duplicate lines. Where a member holds a leadership title on a
 subcommittee only, we note it.
 

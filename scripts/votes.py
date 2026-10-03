@@ -303,6 +303,14 @@ class SenateVoteFetcher:
         bill_url = (f"https://www.congress.gov/bill/{doc_cong}th-congress/{slug}/{doc_num}"
                     if slug and doc_num and doc_cong else None)
 
+        # Amendment votes have no bill of their own; the record names the
+        # amendment, what it amends, and its stated purpose. Verified tags
+        # (vote_119_2_00242.xml): amendment/amendment_number,
+        # amendment/amendment_to_document_number, amendment/amendment_purpose.
+        amdt = (root.findtext("amendment/amendment_number") or "").strip()
+        amdt_to = (root.findtext("amendment/amendment_to_document_number") or "").strip()
+        amdt_purpose = (root.findtext("amendment/amendment_purpose") or "").strip()
+
         members = []
         for mem in root.findall("members/member"):
             members.append({
@@ -319,6 +327,8 @@ class SenateVoteFetcher:
             "result": (root.findtext("vote_result") or "").strip(),
             "bill": bill,
             "billUrl": bill_url,
+            "amendment": (f"{amdt} to {amdt_to}" if amdt and amdt_to else amdt) or None,
+            "amendmentPurpose": amdt_purpose or None,
             "sourceUrl": url.replace(".xml", ".htm"),
             "members": members,
         }
@@ -387,7 +397,11 @@ def add_votes(members: List[Dict[str, Any]], congress: int) -> bool:
 
         dem_maj = _majority(records, "D")
         rep_maj = _majority(records, "R")
-        maj_by_party = {"D": dem_maj, "R": rep_maj}
+        # Party-line math counts only PARTY-SPLIT votes (the two majorities
+        # went opposite ways), as the methodology page states. Near-unanimous
+        # votes would otherwise inflate everyone's "with party" share.
+        split = dem_maj is not None and rep_maj is not None and dem_maj != rep_maj
+        maj_by_party = {"D": dem_maj, "R": rep_maj} if split else {}
 
         meta = {
             "date": ref["date"],
@@ -444,13 +458,20 @@ def add_votes(members: List[Dict[str, Any]], congress: int) -> bool:
         records = [r for r in records if r["bioguide"]]
         if not records:
             continue
-        maj = {"D": _majority(records, "D"), "R": _majority(records, "R")}
+        d_maj, r_maj = _majority(records, "D"), _majority(records, "R")
+        maj = ({"D": d_maj, "R": r_maj}
+               if d_maj is not None and r_maj is not None and d_maj != r_maj else {})
         meta = {"date": v["date"], "question": v["question"], "result": v["result"],
                 "chamber": "Senate"}
         if v["bill"]:
             meta["bill"] = v["bill"]
         if v["billUrl"]:
             meta["billUrl"] = v["billUrl"]
+        if v.get("amendment"):
+            meta["amendment"] = v["amendment"]
+        if v.get("amendmentPurpose"):
+            meta["amendmentPurpose"] = v["amendmentPurpose"]
+        meta["voteUrl"] = v["sourceUrl"]
         for rec in records:
             t = tally.get(rec["bioguide"])
             if t is None:

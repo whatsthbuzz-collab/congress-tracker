@@ -198,8 +198,13 @@ export default function ElectionsView({ onOpenStateProfile }) {
         const r = await fetch(`${import.meta.env.BASE_URL}elections/index.json`, { cache: 'no-cache' });
         if (!r.ok) throw new Error(`No elections data yet (HTTP ${r.status}).`);
         const j = await r.json();
-        setPayload(j);
-        if (!raceId && j.races?.[0]) setRaceId(j.races[0].id);
+        // Soonest election first; races on the same day go alphabetically by state.
+        const races = [...(j.races || [])].sort((a, b) =>
+          (a.electionDate || '').localeCompare(b.electionDate || '')
+          || (a.state || '').localeCompare(b.state || '')
+          || (a.id || '').localeCompare(b.id || ''));
+        setPayload({ ...j, races });
+        if (!raceId && races[0]) setRaceId(races[0].id);
       } catch (e) { setError(e.message); }
     })();
     // eslint-disable-next-line react-hooks/exhaustive-deps

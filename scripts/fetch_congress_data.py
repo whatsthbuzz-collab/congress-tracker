@@ -35,6 +35,7 @@ from fec_finance import add_finance
 from votes import add_votes
 from committees import add_committees
 from laws import add_laws
+from keyvotes import add_key_votes
 from trades import add_trades
 
 # ---------- config ----------
@@ -507,6 +508,9 @@ def main():
     # ---- enacted laws this Congress, by sponsor party ----
     laws_summary = add_laws(members, current_congress)
 
+    # ---- key votes: final roll calls on every enacted law (reuses law list) ----
+    key_votes = add_key_votes(members, current_congress)
+
     # ---- STOCK Act trade disclosures (House Clerk index, no key) ----
     trades_enabled = add_trades(members, current_congress)
 
@@ -536,6 +540,7 @@ def main():
         "votesIncluded": votes_enabled,
         "committeesIncluded": committees_enabled,
         "lawsByParty": laws_summary,
+        "keyVotes": key_votes or [],
         "tradesIncluded": trades_enabled,
         "members": members,
         "metadata": {

@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useMemo } from 'react';
+import React, { useEffect, useState, useMemo, createContext, useContext } from 'react';
 import {
   useReactTable,
   getCoreRowModel,
@@ -20,9 +20,9 @@ import { pacPctLabel } from './finance';
 import { DEPARTURES_AS_OF, departureOf, departureLabel } from './departures';
 
 // Set to the repo's new-issue URL to enable the "Report an error" footer
-// link, e.g. 'https://github.com/OWNER/congress-tracker/issues/new'. Empty
+// link (a Google Form, so visitors need no account). Empty
 // string hides the link.
-const REPORT_ISSUE_URL = 'https://github.com/whatsthbuzz-collab/congress-tracker/issues/new';
+const REPORT_ISSUE_URL = 'https://forms.gle/4MgFXhR69igKDwT96';
 
 
 function billStatus(actionText) {
@@ -167,11 +167,160 @@ const fmtMoney = (n) => {
 // question, and an older fallback stored the bill type ("HR") there, treat
 // that as empty and show the result instead.
 const voteText = (rv) => {
+  // Amendment votes carry their own identity in the official record.
+  if (rv.amendment) {
+    return rv.amendmentPurpose ? `${rv.amendment}: ${rv.amendmentPurpose}` : rv.amendment;
+  }
   const q = (rv.question || '').trim();
   const looksLikeType = /^(H|S)(R|RES|JRES|CONRES)?$/i.test(q);
   if (q && !looksLikeType) return q;
   return rv.result || 'Recorded vote';
 };
+
+
+// ---------- key votes + lobbying (shared by the profile and the table row) ----------
+const KeyVotesCtx = createContext([]);
+const LobbyingCtx = createContext(null);
+const KEY_VOTES_SHOWN = 6;
+const POS_LABEL = { Y: 'Yea', N: 'Nay', P: 'Present', NV: 'Not Voting' };
+const stopIf = (stop) => (stop ? (e) => e.stopPropagation() : undefined);
+
+function VoteBadge({ position }) {
+  return (
+    <span className={`vote-pos vote-${(position || '').toLowerCase().replace(/[^a-z]/g, '')}`}>
+      {position}
+    </span>
+  );
+}
+
+function VotingPanel({ m, stop = false }) {
+  const keyVotes = useContext(KeyVotesCtx);
+  const [allKey, setAllKey] = useState(false);
+  const [showRecent, setShowRecent] = useState(false);
+  const v = m.voting;
+  const mine = (keyVotes || []).filter((k) => m.keyVotes && m.keyVotes[k.id]);
+  const shownKey = allKey ? mine : mine.slice(0, KEY_VOTES_SHOWN);
+  const onClick = stopIf(stop);
+  return (
+    <>
+      <p className="bill-panel-title">Voting record · {v.chamberScope || m.chamber}</p>
+      <div className="finance-grid">
+        <div className="finance-stat">
+          <span className="finance-num">{v.partyLinePct ?? 'n/a'}%</span>
+          <span className="finance-label">with their party</span>
+        </div>
+        <div className="finance-stat">
+          <span className="finance-num">{v.missedPct ?? 'n/a'}%</span>
+          <span className="finance-label">votes missed</span>
+        </div>
+        <div className="finance-stat">
+          <span className="finance-num">{v.votesAgainstParty ?? 'n/a'}</span>
+          <span className="finance-label">broke with party</span>
+        </div>
+      </div>
+      <p className="scope-note vote-scope">Across the last {v.votesTotal} roll calls.</p>
+
+      {mine.length > 0 && (
+        <>
+          <p className="vote-subhead">Key votes: final votes on bills that became law</p>
+          <div className="vote-list">
+            {shownKey.map((k) => (
+              <div key={k.id} className="vote-row">
+                <VoteBadge position={POS_LABEL[m.keyVotes[k.id]] || m.keyVotes[k.id]} />
+                <span className="vote-desc">{k.bill}{k.title ? `: ${k.title}` : ''}</span>
+                <span className="vote-date">{k.date}</span>
+                {k.voteUrl && (
+                  <a href={k.voteUrl} target="_blank" rel="noopener noreferrer" className="source-link vote-link" onClick={onClick}>
+                    vote ↗
+                  </a>
+                )}
+              </div>
+            ))}
+          </div>
+          {mine.length > KEY_VOTES_SHOWN && (
+            <button type="button" className="text-toggle" onClick={(e) => { if (stop) e.stopPropagation(); setAllKey((x) => !x); }}>
+              {allKey ? 'Show fewer key votes' : `Show all ${mine.length} key votes`}
+            </button>
+          )}
+        </>
+      )}
+
+      {v.recentVotes?.length > 0 && (
+        <>
+          <button type="button" className="text-toggle" onClick={(e) => { if (stop) e.stopPropagation(); setShowRecent((x) => !x); }}>
+            {showRecent ? 'Hide recent votes' : `Show recent votes (${v.recentVotes.length})`}
+          </button>
+          {showRecent && (
+            <div className="vote-list">
+              {v.recentVotes.map((rv, i) => (
+                <div key={i} className="vote-row">
+                  <VoteBadge position={rv.position} />
+                  <span className="vote-desc">
+                    {rv.bill ? `${rv.bill}: ` : ''}
+                    {voteText(rv)}
+                  </span>
+                  <span className="vote-date">{rv.date}</span>
+                  {rv.billUrl ? (
+                    <a href={rv.billUrl} target="_blank" rel="noopener noreferrer" className="source-link vote-link" onClick={onClick}>
+                      bill ↗
+                    </a>
+                  ) : rv.voteUrl ? (
+                    <a href={rv.voteUrl} target="_blank" rel="noopener noreferrer" className="source-link vote-link" onClick={onClick}>
+                      vote ↗
+                    </a>
+                  ) : null}
+                </div>
+              ))}
+            </div>
+          )}
+        </>
+      )}
+      {v.sourceUrl && (
+        <a href={v.sourceUrl} target="_blank" rel="noopener noreferrer" className="source-link finance-source" onClick={onClick}>
+          Full voting record ↗
+        </a>
+      )}
+    </>
+  );
+}
+
+// "119-hr1234" from a Congress.gov bill URL; only this Congress's bills can
+// match 2025-2026 lobbying reports.
+const lobbyKey = (bill) => {
+  const mm = /\/bill\/(\d+)th-congress\/([a-z]+)\/(\d+)/.exec(bill?.sourceUrl || '');
+  return mm && mm[1] === '119' ? `119-${mm[2]}${mm[3]}` : null;
+};
+
+function BillLobbying({ bill, stop = false }) {
+  const lobbying = useContext(LobbyingCtx);
+  const key = lobbyKey(bill);
+  const entry = key && lobbying?.bills?.[key];
+  if (!entry) return null;
+  const onClick = stopIf(stop);
+  return (
+    <details className="lobby" onClick={onClick}>
+      <summary>
+        Lobbied on by {entry.n} organization{entry.n === 1 ? '' : 's'}
+      </summary>
+      <ul className="lobby-list">
+        {entry.orgs.map(([client, registrant, url, period], i) => (
+          <li key={i}>
+            <a href={url} target="_blank" rel="noopener noreferrer" className="lobby-org" onClick={onClick}>
+              {client}{registrant ? <span className="lobby-via"> via {registrant}</span> : null}
+              <span className="lobby-period"> {period} ↗</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+      {entry.n > entry.orgs.length && (
+        <p className="lobby-note">Showing the {entry.orgs.length} most recent of {entry.n}.</p>
+      )}
+      <p className="lobby-note">
+        From Lobbying Disclosure Act reports that name this bill. Counts are a minimum.
+      </p>
+    </details>
+  );
+}
 
 
 // Draws a clean, neutral share card for one member onto a canvas and returns
@@ -705,42 +854,7 @@ function MemberProfile({ member: m, onClose, onCompare, inCompare, allMembers = 
         {/* votes */}
         {m.voting && (
           <section className="profile-section">
-            <p className="bill-panel-title">Voting record · {m.voting.chamberScope || m.chamber} · last {m.voting.votesTotal} roll calls</p>
-            <div className="finance-grid">
-              <div className="finance-stat">
-                <span className="finance-num">{m.voting.partyLinePct ?? 'n/a'}%</span>
-                <span className="finance-label">with their party</span>
-              </div>
-              <div className="finance-stat">
-                <span className="finance-num">{m.voting.missedPct ?? 'n/a'}%</span>
-                <span className="finance-label">votes missed</span>
-              </div>
-              <div className="finance-stat">
-                <span className="finance-num">{m.voting.votesAgainstParty ?? 'n/a'}</span>
-                <span className="finance-label">broke with party</span>
-              </div>
-            </div>
-            {m.voting.recentVotes?.length > 0 && (
-              <div className="vote-list">
-                {m.voting.recentVotes.map((rv, i) => (
-                  <div key={i} className="vote-row">
-                    <span className={`vote-pos vote-${(rv.position || '').toLowerCase().replace(/[^a-z]/g, '')}`}>
-                      {rv.position}
-                    </span>
-                    <span className="vote-desc">
-                      {rv.bill ? `${rv.bill}: ` : ''}
-                      {voteText(rv)}
-                    </span>
-                    <span className="vote-date">{rv.date}</span>
-                    {rv.billUrl && (
-                      <a href={rv.billUrl} target="_blank" rel="noopener noreferrer" className="source-link vote-link">
-                        bill ↗
-                      </a>
-                    )}
-                  </div>
-                ))}
-              </div>
-            )}
+            <VotingPanel m={m} />
           </section>
         )}
         {!m.voting && m.chamber === 'Senate' && (
@@ -768,6 +882,7 @@ function MemberProfile({ member: m, onClose, onCompare, inCompare, allMembers = 
                   <h3 className="bill-title">{bill.title || 'Untitled measure'}</h3>
                   <BillClarity bill={bill} />
                   {bill.latestAction && <p className="bill-action">{bill.latestAction}</p>}
+                  <BillLobbying bill={bill} />
                   <div className="bill-foot">
                     {bill.introducedDate && (
                       <span className="bill-date">Introduced {fmtDate(bill.introducedDate)}</span>
@@ -795,6 +910,8 @@ export default function CongressTable() {
   const [showMethodology, setShowMethodology] = useState(false);
   const [lastUpdated, setLastUpdated] = useState(null);
   const [lawsByParty, setLawsByParty] = useState(null);
+  const [keyVotes, setKeyVotes] = useState([]);
+  const [lobbying, setLobbying] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [globalFilter, setGlobalFilter] = useState('');
@@ -919,6 +1036,7 @@ export default function CongressTable() {
         setDataUpdated(json.lastUpdated || null);
         setLastUpdated(json.lastUpdated || null);
         setLawsByParty(json.lawsByParty || null);
+        setKeyVotes(json.keyVotes || []);
       } catch (err) {
         setError(err.message);
         console.error('Error fetching congressional data:', err);
@@ -927,6 +1045,11 @@ export default function CongressTable() {
       }
     };
     fetchData();
+    // Lobbying is a separate weekly file; the page works fine without it.
+    fetch(`${import.meta.env.BASE_URL}lobbying.json?v=${Date.now()}`)
+      .then((r) => (r.ok ? r.json() : null))
+      .then((j) => setLobbying(j))
+      .catch(() => setLobbying(null));
   }, []);
 
   const toggleRow = (id) => {
@@ -1359,6 +1482,8 @@ export default function CongressTable() {
   }
 
   return (
+    <KeyVotesCtx.Provider value={keyVotes}>
+    <LobbyingCtx.Provider value={lobbying}>
     <div className="ct-shell">
       {/* ---------- masthead ---------- */}
       <button
@@ -1796,76 +1921,7 @@ export default function CongressTable() {
                           <ShareLink id={m.bioguideId} />
                           {m.voting && (
                             <div className="finance-block">
-                              <p className="bill-panel-title">
-                                Voting record · {m.voting.chamberScope || m.chamber} · last {m.voting.votesTotal} roll calls
-                              </p>
-                              <div className="finance-grid">
-                                <div className="finance-stat">
-                                  <span className="finance-num">
-                                    {m.voting.partyLinePct ?? 'n/a'}%
-                                  </span>
-                                  <span className="finance-label">
-                                    votes with their party
-                                  </span>
-                                </div>
-                                <div className="finance-stat">
-                                  <span className="finance-num">
-                                    {m.voting.missedPct ?? 'n/a'}%
-                                  </span>
-                                  <span className="finance-label">votes missed</span>
-                                </div>
-                                <div className="finance-stat">
-                                  <span className="finance-num">
-                                    {m.voting.votesAgainstParty ?? 'n/a'}
-                                  </span>
-                                  <span className="finance-label">
-                                    times broke with party
-                                  </span>
-                                </div>
-                              </div>
-                              {m.voting.recentVotes &&
-                                m.voting.recentVotes.length > 0 && (
-                                  <div className="vote-list">
-                                    {m.voting.recentVotes.map((rv, i) => (
-                                      <div key={i} className="vote-row">
-                                        <span
-                                          className={`vote-pos vote-${(rv.position || '')
-                                            .toLowerCase()
-                                            .replace(/[^a-z]/g, '')}`}
-                                        >
-                                          {rv.position}
-                                        </span>
-                                        <span className="vote-desc">
-                                          {rv.bill ? `${rv.bill}: ` : ''}
-                                          {voteText(rv)}
-                                        </span>
-                                        <span className="vote-date">{rv.date}</span>
-                                        {rv.billUrl && (
-                                          <a
-                                            href={rv.billUrl}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="source-link vote-link"
-                                            onClick={(e) => e.stopPropagation()}
-                                          >
-                                            bill ↗
-                                          </a>
-                                        )}
-                                      </div>
-                                    ))}
-                                  </div>
-                                )}
-                              {m.voting.sourceUrl && (
-                                <a
-                                  href={m.voting.sourceUrl}
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                  className="source-link finance-source"
-                                  onClick={(e) => e.stopPropagation()}
-                                >
-                                  Full voting record ↗
-                                </a>
-                              )}
+                              <VotingPanel m={m} stop />
                             </div>
                           )}
 
@@ -1936,6 +1992,7 @@ export default function CongressTable() {
                                     {bill.latestAction && (
                                       <p className="bill-action">{bill.latestAction}</p>
                                     )}
+                                    <BillLobbying bill={bill} stop />
                                     <div className="bill-foot">
                                       {bill.introducedDate && (
                                         <span className="bill-date">
@@ -2117,5 +2174,7 @@ export default function CongressTable() {
         />
       )}
     </div>
+    </LobbyingCtx.Provider>
+    </KeyVotesCtx.Provider>
   );
 }

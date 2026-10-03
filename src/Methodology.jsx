@@ -55,7 +55,36 @@ export default function Methodology({ onClose }) {
           where the two parties' majorities went opposite ways, in which the
           member voted with their own party's majority. "Votes missed" is the
           share of roll calls where the member did not vote. Both are computed
-          over the most recent roll calls noted on the member's card.
+          over the most recent roll calls noted on the member's card. Votes on
+          amendments show the amendment number, the measure it amends, and its
+          stated purpose, as given in the official record.
+        </p>
+
+        <h3>Key votes</h3>
+        <p>
+          Key votes are a member&rsquo;s final recorded votes on every bill that
+          became law this Congress: votes on passage, on conference reports,
+          and on agreeing to the other chamber&rsquo;s version. Nothing is
+          hand-picked. Procedural votes such as cloture and motions to proceed
+          are never key votes. When a chamber held more than one final vote on
+          the same law, the latest is shown. Laws passed by voice vote or
+          unanimous consent have no recorded vote, so they do not appear. The
+          list of laws comes from Congress.gov, and each vote comes directly
+          from the House Clerk&rsquo;s or the Senate&rsquo;s official roll-call
+          record, linked on every row.
+        </p>
+
+        <h3>Lobbying</h3>
+        <p>
+          A bill shows &ldquo;Lobbied on by&rdquo; when organizations&rsquo;
+          Lobbying Disclosure Act reports from 2025 or 2026 name it by number,
+          written clearly (for example &ldquo;H.R. 1234&rdquo; or &ldquo;S.
+          567&rdquo;). Reports come from the official database at lda.gov, and
+          each organization links to its filing. Lobbyists describe their work
+          in their own words, so lobbying described without a clear bill number
+          is not counted, and the counts are a minimum. Only bills from the
+          current Congress can match. Reports are filed quarterly; this site
+          checks for new ones daily.
         </p>
 
         <h3>Campaign finance</h3>

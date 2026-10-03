@@ -51,6 +51,8 @@ Candidate and member facts, not recommendations. Every figure links back to its 
 | Executive order titles | [Federal Register API](https://www.federalregister.gov/developers/api/v1) | Public domain |
 | Senate roll calls | [senate.gov XML](https://www.senate.gov/general/XML.htm) | Public domain |
 | Campaign finance | [OpenFEC API](https://api.open.fec.gov/) | Public domain |
+| Key votes | Enacted laws from Congress.gov; each vote from the [House Clerk](https://clerk.house.gov/) or [senate.gov](https://www.senate.gov/legislative/votes_new.htm) roll-call XML | Public domain |
+| Lobbying | [Lobbying Disclosure Act database](https://lda.gov/) | Public records |
 | Stock trade disclosures | [House Clerk](https://disclosures-clerk.house.gov/) and [Senate eFD](https://efdsearch.senate.gov/) | Public records |
 | State legislatures | [LegiScan](https://legiscan.com/) bulk datasets | CC BY 4.0, credited on the site |
 | District finder | [OpenStreetMap Nominatim](https://nominatim.openstreetmap.org/) and [U.S. Census geocoder](https://geocoding.geo.census.gov/) | Lookups run in the visitor's browser; the site never sees or stores locations |
@@ -68,6 +70,7 @@ Data refreshes run on GitHub Actions. Each pipeline exits with an error instead 
 | Update Congressional Data | `scripts/fetch_congress_data.py` | Daily, 02:00 |
 | Update Elections Data | `scripts/elections.py` | Daily, 10:00 |
 | Update State Data | `scripts/state_legislature.py` | Mondays, 09:00 |
+| Update Lobbying Data | `scripts/lobbying.py` | Daily, 06:00 |
 | Build and Deploy to GitHub Pages | `npm run build` | On every push to `main`, and after data updates |
 
 All workflows can also be run manually from the **Actions** tab.
@@ -79,6 +82,7 @@ All workflows can also be run manually from the **Actions** tab.
 | `CONGRESS_API_KEY` | Congressional data | https://api.congress.gov/sign-up/ |
 | `FEC_API_KEY` | Congressional data, elections | https://api.data.gov/signup/ |
 | `LEGISCAN_API_KEY` | State data | https://legiscan.com/legiscan |
+| `LDA_API_KEY` | Lobbying data | https://lda.senate.gov/api/register/ |
 
 ---
 
@@ -86,8 +90,11 @@ All workflows can also be run manually from the **Actions** tab.
 
 ```
 .github/workflows/   Scheduled data updates and deployment
+data/                Pipeline working files, committed by the workflows (not served)
+  lobbying_cache.json
 public/              Generated data (JSON), committed by the workflows
   congress_data.json
+  lobbying.json
   state/             One file per state, plus index.json
   elections/         One file per race, plus index.json
 scripts/             Python data pipelines

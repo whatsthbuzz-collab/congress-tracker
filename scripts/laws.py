@@ -38,6 +38,9 @@ REQUEST_DELAY = 0.3
 # Safety cap on detail lookups; a Congress rarely exceeds ~500 public laws.
 MAX_LAWS = 800
 
+# The enacted-law list from the latest add_laws() run, shared with keyvotes.py.
+LAST_LAWS: List[Dict] = []
+
 
 class LawFetcher:
     def __init__(self, api_key: str):
@@ -141,6 +144,7 @@ def add_laws(members: List[Dict[str, Any]], congress: int) -> Optional[Dict[str,
     f = LawFetcher(API_KEY)
     laws = f.list_public_laws(congress)
     print(f"  {len(laws)} public laws listed.")
+    LAST_LAWS[:] = laws  # reused by keyvotes.py; no second download
 
     if not laws:
         print(f"  Failed requests: {f.failures}")

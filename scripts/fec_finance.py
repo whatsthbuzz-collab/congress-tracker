@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """
-fec_finance.py — add campaign-finance data to each member.
+fec_finance.py: add campaign-finance data to each member.
 
 Source: OpenFEC API (https://api.open.fec.gov), the Federal Election
 Commission's official REST API. Requires a free key from
-https://api.data.gov/signup/ — set it as FEC_API_KEY.
+https://api.data.gov/signup/ and set it as FEC_API_KEY.
 
 What this adds per member, all straight from FEC filings:
   - totalRaised            total receipts this cycle
