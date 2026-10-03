@@ -1,42 +1,45 @@
-name: Build and Deploy to GitHub Pages
+name: Update Lobbying Data
 
 on:
-  push:
-    branches: [main]
-  workflow_run:
-    workflows: ["Update Congressional Data", "Update State Data", "Update Elections Data"]
-    types: [completed]
+  schedule:
+    - cron: '0 6 * * *'
   workflow_dispatch:
 
 jobs:
-  build-and-deploy:
+  fetch-lobbying:
     runs-on: ubuntu-latest
+    # The first run backfills 2025-2026. The script stops itself at 300
+    # minutes and resumes on the next run, so this limit is only a backstop.
+    timeout-minutes: 330
     permissions:
-      contents: read
-      pages: write
-      id-token: write
+      contents: write
+    env:
+      PYTHONUNBUFFERED: "1"
 
     steps:
       - uses: actions/checkout@v4
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-python@v5
         with:
-          node-version: '20'
+          python-version: '3.11'
 
       - name: Install dependencies
-        run: npm install
+        run: pip install requests
 
-      - name: Build
-        run: npm run build
+      - name: Fetch lobbying data
+        env:
+          LDA_API_KEY: ${{ secrets.LDA_API_KEY }}
+        run: python scripts/lobbying.py
 
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: 'dist'
-
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+      - name: Commit changes
+        run: |
+          git config user.name "Congress Bot"
+          git config user.email "bot@congress-tracker.local"
+          git add public/lobbying.json data/
+          if git diff --cached --quiet; then
+            echo "No changes to lobbying data"
+          else
+            git commit -m "chore: update lobbying data [$(date -u +'%Y-%m-%d %H:%M UTC')]"
+            git pull --rebase
+            git push
+          fi
