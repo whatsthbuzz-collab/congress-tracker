@@ -1537,9 +1537,9 @@ export default function CongressTable() {
         <p className="masthead-eyebrow">The Public Record</p>
         <h1 className="masthead-title">Who&rsquo;s serving you in Congress?</h1>
         <p className="masthead-dek">
-          Every current member: their party, their tenure, what they&rsquo;ve
-          sponsored, and when they&rsquo;re next on your ballot. Every number
-          links back to the official record.
+          How every member of Congress votes, who funds them, what they trade,
+          and what they&rsquo;ve sponsored, in one place. Every number links
+          back to the official record.
         </p>
         {lastUpdated && (
           <p className="record-stamp">
