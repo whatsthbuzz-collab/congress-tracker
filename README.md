@@ -23,7 +23,7 @@ Candidate and member facts, not recommendations. Every figure links back to its 
 - Legislators in all 50 states, with sponsored bills, bill status, topics, and voting records
 
 **Elections**
-- Side-by-side candidate cards for selected 2026 U.S. Senate and House races
+- Side-by-side candidate cards for the nationally watched 2026 U.S. Senate races
 - FEC finance totals, named PAC donors tagged with the FEC's committee type, background facts, photos, and campaign links
 
 **How these numbers are made**
@@ -121,7 +121,7 @@ npm run dev
 Races are configured in the `RACES` list at the top of `scripts/elections.py`.
 
 1. Verify both candidates are the current nominees.
-2. Look up each candidate's FEC candidate ID on [fec.gov](https://www.fec.gov/data/). House races can omit committee IDs; the script looks them up from the candidate ID.
+2. Look up each candidate's FEC candidate ID on [fec.gov](https://www.fec.gov/data/). If committee IDs are left empty, the script looks them up from the candidate ID.
 3. Source every background fact and add its link.
 4. Add photos only if both candidates have public domain or freely licensed photos, and campaign links only if both have confirmed campaign sites.
 5. Commit, then run **Update Elections Data** from the Actions tab.
