@@ -40,7 +40,10 @@ export default function Methodology({ onClose }) {
           Register, the government's system of record. Status labels such as
           "In committee" or "Became law" restate the bill's official latest
           action from Congress.gov; where the latest action is ambiguous, no
-          label is shown.
+          label is shown. A member's sponsored total counts every measure on
+          record at Congress.gov including amendments; the cards display bills
+          and resolutions only, which is why the cards can number fewer than
+          the total.
         </p>
 
         <h3>Voting records</h3>

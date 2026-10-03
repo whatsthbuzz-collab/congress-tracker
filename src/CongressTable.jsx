@@ -1294,9 +1294,11 @@ export default function CongressTable() {
           // Show the true total when we have it; "15+" style is misleading, so
           // if the total exceeds what we display we show the real number.
           const total = m.billsTotal;
+          // The API's sponsored total counts amendments too, so when we
+          // show it, say "sponsored" rather than "bills".
           const label =
             total && total > bills.length
-              ? `${total} bills`
+              ? `${total} sponsored`
               : `${bills.length} ${bills.length === 1 ? 'bill' : 'bills'}`;
           return (
             <button

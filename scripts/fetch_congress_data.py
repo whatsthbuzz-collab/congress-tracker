@@ -176,6 +176,14 @@ def build_member(person: Dict[str, Any]) -> Optional[Dict[str, Any]]:
 # ---------- sponsored bills ----------
 
 
+# Real bills and resolutions. The sponsored-legislation feed also returns
+# amendments (no title, SAMDT/HAMDT types); those count toward the sponsored
+# total but are never rendered as cards.
+BILL_TYPES = {"HR", "S", "HRES", "SRES", "HJRES", "SJRES", "HCONRES", "SCONRES"}
+
+MAX_BILL_PAGES = 4  # fill the card list when amendments crowd the first page
+
+
 class BillFetcher:
     def __init__(self, api_key: str):
         self.api_key = api_key
@@ -194,21 +202,44 @@ class BillFetcher:
             "limit": BILLS_PER_MEMBER,
         }
 
-        try:
-            resp = self.session.get(url, params=params, timeout=30)
-            if resp.status_code == 429:
-                print("  Rate limited; waiting 60s...")
-                time.sleep(60)
-                resp = self.session.get(url, params=params, timeout=30)
-            resp.raise_for_status()
-            data = resp.json()
-        except requests.exceptions.RequestException as e:
-            # Never print the URL -- it carries the API key.
-            print(f"  Bill request failed for {bioguide_id}: {e}", file=sys.stderr)
-            self.failures += 1
-            return [], None
-
-        items = data.get("sponsoredLegislation") or []
+        items = []
+        total_count_holder = {}
+        for page in range(MAX_BILL_PAGES):
+            page_params = {**params, "offset": page * BILLS_PER_MEMBER}
+            try:
+                resp = self.session.get(url, params=page_params, timeout=30)
+                if resp.status_code == 429:
+                    print("  Rate limited; waiting 60s...")
+                    time.sleep(60)
+                    resp = self.session.get(url, params=page_params, timeout=30)
+                resp.raise_for_status()
+                data = resp.json()
+            except requests.exceptions.RequestException as e:
+                # Never print the URL -- it carries the API key.
+                print(f"  Bill request failed for {bioguide_id}: {e}", file=sys.stderr)
+                self.failures += 1
+                if page == 0:
+                    return [], None
+                break
+            page_items = data.get("sponsoredLegislation") or []
+            items.extend(page_items)
+            if page == 0:
+                total_count_holder["data"] = data
+            # Enough real bills once amendments are filtered? A cheap check
+            # here avoids extra requests for most members.
+            plausible = sum(
+                1 for b in page_items if isinstance(b, dict)
+                and (b.get("type") or "").strip().upper().replace(".", "") in BILL_TYPES
+                and (b.get("title") or "").strip()
+            )
+            if sum(
+                1 for b in items if isinstance(b, dict)
+                and (b.get("type") or "").strip().upper().replace(".", "") in BILL_TYPES
+                and (b.get("title") or "").strip()
+            ) >= BILLS_PER_MEMBER or not page_items:
+                break
+            time.sleep(REQUEST_DELAY)
+        data = total_count_holder.get("data") or {}
 
         # The real total (members can sponsor hundreds); the API reports it in
         # pagination.count. We show recent BILLS_PER_MEMBER but surface the
@@ -234,17 +265,19 @@ class BillFetcher:
                 self.dropped += 1
                 continue
 
-            # Bills carry `number`; amendments carry `amendmentNumber` and an
-            # amendment type like SAMDT. Accept both instead of dropping.
-            number = b.get("number") or b.get("amendmentNumber")
-            bill_type = (b.get("type") or "").strip()
+            # Bills and resolutions only: amendments have no title and
+            # rendered as "Untitled measure" junk cards. They still count in
+            # the sponsored total via pagination.count.
+            number = b.get("number")
+            bill_type = (b.get("type") or "").strip().upper().replace(".", "")
             congress = b.get("congress")
 
-            if not number:
+            if (not number or bill_type not in BILL_TYPES
+                    or not (b.get("title") or "").strip()):
                 self.dropped += 1
                 continue
 
-            label = f"{bill_type.upper()} {number}" if bill_type else f"Measure {number}"
+            label = f"{bill_type} {number}"
 
             # Only build a link if we have every piece it needs; a broken
             # link is worse than no link on a transparency tool.
@@ -268,7 +301,7 @@ class BillFetcher:
                 }
             )
 
-        return bills, total_count
+        return bills[:BILLS_PER_MEMBER], total_count
 
 
 
