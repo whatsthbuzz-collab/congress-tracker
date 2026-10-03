@@ -27,6 +27,12 @@
     }
    ],
    "incumbent": false,
+   "photo": {
+    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/2015_Brigadier_General_Leela_Gray_(cropped).jpg?width=240",
+    "credit": "U.S. Department of Defense, public domain",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:2015_Brigadier_General_Leela_Gray_(cropped).jpg"
+   },
+   "campaignSiteUrl": "https://www.leelagray.com/issues",
    "financeUrl": "https://www.fec.gov/data/candidate/H6FL13312/",
    "finance": {
     "available": true,
@@ -116,6 +122,12 @@
     }
    ],
    "incumbent": true,
+   "photo": {
+    "url": "https://unitedstates.github.io/images/congress/225x275/L000596.jpg",
+    "credit": "U.S. Congress, public domain, via the unitedstates project",
+    "sourceUrl": "https://github.com/unitedstates/images"
+   },
+   "campaignSiteUrl": "https://www.voteannapaulina.com/meet-anna",
    "financeUrl": "https://www.fec.gov/data/candidate/H0FL13158/",
    "finance": {
     "available": true,

@@ -27,6 +27,12 @@
     }
    ],
    "incumbent": false,
+   "photo": {
+    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Joshua_Turek_(cropped).jpg?width=240",
+    "credit": "Iowa General Assembly, used under its public-use terms, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Joshua_Turek_(cropped).jpg"
+   },
+   "campaignSiteUrl": "https://turek4iowa.com/platform",
    "financeUrl": "https://www.fec.gov/data/candidate/S6IA00298/",
    "finance": {
     "available": true,
@@ -120,6 +126,12 @@
     }
    ],
    "incumbent": false,
+   "photo": {
+    "url": "https://unitedstates.github.io/images/congress/225x275/H001091.jpg",
+    "credit": "U.S. Congress, public domain, via the unitedstates project",
+    "sourceUrl": "https://github.com/unitedstates/images"
+   },
+   "campaignSiteUrl": "https://ashleyhinson.com/issues/",
    "financeUrl": "https://www.fec.gov/data/candidate/S6IA00314/",
    "finance": {
     "available": true,

@@ -35,6 +35,7 @@
     }
    ],
    "incumbent": true,
+   "campaignSiteUrl": "https://sanfordbishop.com/issues/",
    "financeUrl": "https://www.fec.gov/data/candidate/H2GA02031/",
    "finance": {
     "available": true,
@@ -128,6 +129,7 @@
     }
    ],
    "incumbent": false,
+   "campaignSiteUrl": "https://www.votemattday.com/copy-of-national-issues",
    "financeUrl": "https://www.fec.gov/data/candidate/H6GA01182/",
    "finance": {
     "available": true,

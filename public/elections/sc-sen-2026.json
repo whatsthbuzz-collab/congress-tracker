@@ -32,6 +32,11 @@
     }
    ],
    "incumbent": false,
+   "photo": {
+    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Annie_Andrews_Greenville_(cropped_2).jpg?width=240",
+    "credit": "CC0 public domain dedication, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Annie_Andrews_Greenville_(cropped_2).jpg"
+   },
    "financeUrl": "https://www.fec.gov/data/candidate/S6SC04239/",
    "finance": {
     "available": true,
@@ -116,6 +121,14 @@
    "campaignSiteUrl": "https://www.darlinegraham.com/#record",
    "facts": [
     {
+     "label": "Born",
+     "value": "Central, South Carolina"
+    },
+    {
+     "label": "Education",
+     "value": "B.S., College of Charleston; M.A., South Carolina State University"
+    },
+    {
      "label": "Profession",
      "value": "Public administrator"
     },
@@ -125,6 +138,11 @@
     }
    ],
    "incumbent": true,
+   "photo": {
+    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Darline_Graham_official_portrait_(cropped2).jpg?width=240",
+    "credit": "U.S. Senate, public domain",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Darline_Graham_official_portrait_(cropped2).jpg"
+   },
    "financeUrl": null,
    "finance": {
     "available": false

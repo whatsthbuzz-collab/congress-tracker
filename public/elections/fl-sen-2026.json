@@ -31,6 +31,12 @@
     }
    ],
    "incumbent": false,
+   "photo": {
+    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Angie_Nixon_official_portrait_2022_(cropped).jpg?width=240",
+    "credit": "Florida House of Representatives, public domain",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Angie_Nixon_official_portrait_2022_(cropped).jpg"
+   },
+   "campaignSiteUrl": "https://angienixon.com/priorities/",
    "financeUrl": "https://www.fec.gov/data/candidate/S6FL00830/",
    "finance": {
     "available": true,
@@ -71,6 +77,12 @@
     }
    ],
    "incumbent": true,
+   "photo": {
+    "url": "https://unitedstates.github.io/images/congress/225x275/M001244.jpg",
+    "credit": "U.S. Congress, public domain, via the unitedstates project",
+    "sourceUrl": "https://github.com/unitedstates/images"
+   },
+   "campaignSiteUrl": "https://ashleymoody.com/about/",
    "financeUrl": "https://www.fec.gov/data/candidate/S6FL00640/",
    "finance": {
     "available": true,

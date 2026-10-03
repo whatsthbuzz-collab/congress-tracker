@@ -27,6 +27,12 @@
     }
    ],
    "incumbent": true,
+   "photo": {
+    "url": "https://unitedstates.github.io/images/congress/225x275/K000009.jpg",
+    "credit": "U.S. Congress, public domain, via the unitedstates project",
+    "sourceUrl": "https://github.com/unitedstates/images"
+   },
+   "campaignSiteUrl": "https://marcykaptur.com/priorities/",
    "financeUrl": "https://www.fec.gov/data/candidate/H2OH09031/",
    "finance": {
     "available": true,
@@ -124,6 +130,12 @@
     }
    ],
    "incumbent": false,
+   "photo": {
+    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Derek_Merrin_jpeg_(cropped).jpg?width=240",
+    "credit": "SchOg, CC BY 4.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Derek_Merrin_jpeg_(cropped).jpg"
+   },
+   "campaignSiteUrl": "https://www.derekmerrin.com/#About",
    "financeUrl": "https://www.fec.gov/data/candidate/H4OH09169/",
    "finance": {
     "available": true,

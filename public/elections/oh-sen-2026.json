@@ -31,6 +31,12 @@
     }
    ],
    "incumbent": false,
+   "photo": {
+    "url": "https://unitedstates.github.io/images/congress/225x275/B000944.jpg",
+    "credit": "U.S. Congress, public domain, via the unitedstates project",
+    "sourceUrl": "https://github.com/unitedstates/images"
+   },
+   "campaignSiteUrl": "https://www.sherrodbrown.com/our-fight/",
    "financeUrl": "https://www.fec.gov/data/candidate/S6OH00163/",
    "finance": {
     "available": true,
@@ -129,6 +135,12 @@
     }
    ],
    "incumbent": true,
+   "photo": {
+    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Sen._Jon_Husted_official_portrait,_119th_Congress_(cropped).jpg?width=240",
+    "credit": "U.S. Senate (photo by John Shinkle), public domain",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sen._Jon_Husted_official_portrait,_119th_Congress_(cropped).jpg"
+   },
+   "campaignSiteUrl": "https://www.jonhustedforsenate.com/bio/",
    "financeUrl": "https://www.fec.gov/data/candidate/S6OH00304/",
    "finance": {
     "available": true,

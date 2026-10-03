@@ -31,6 +31,12 @@
     }
    ],
    "incumbent": true,
+   "photo": {
+    "url": "https://unitedstates.github.io/images/congress/225x275/D000230.jpg",
+    "credit": "U.S. Congress, public domain, via the unitedstates project",
+    "sourceUrl": "https://github.com/unitedstates/images"
+   },
+   "campaignSiteUrl": "https://www.votedondavis.com/about",
    "financeUrl": "https://www.fec.gov/data/candidate/H2NC02287/",
    "finance": {
     "available": true,
@@ -122,6 +128,12 @@
     }
    ],
    "incumbent": false,
+   "photo": {
+    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Laurie_Buckhout_(cropped).jpg?width=240",
+    "credit": "U.S. Department of Defense, public domain",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Laurie_Buckhout_(cropped).jpg"
+   },
+   "campaignSiteUrl": "https://www.lauriebuckhoutforcongress.com/issues",
    "financeUrl": "https://www.fec.gov/data/candidate/H4NC01137/",
    "finance": {
     "available": true,
