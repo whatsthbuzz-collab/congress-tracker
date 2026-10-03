@@ -1,0 +1,160 @@
+{
+ "id": "oh-13-2026",
+ "office": "U.S. House",
+ "state": "Ohio",
+ "title": "U.S. House, Ohio's 13th District",
+ "label": "OH-13",
+ "stateCode": "OH",
+ "electionDate": "2026-11-03",
+ "seatNote": "The district was redrawn in 2025 to favor Democrats; 2024 nominee Kevin Coughlin (R) withdrew afterward.",
+ "sourceUrl": "https://ohiocapitaljournal.com/?p=37409",
+ "candidates": [
+  {
+   "name": "Emilia Sykes",
+   "party": "Democratic",
+   "fecId": "H2OH13264",
+   "committees": [
+    "C00801274"
+   ],
+   "currentOffice": "U.S. Representative, OH-13",
+   "stateProfile": null,
+   "background": "U.S. representative since 2023; former Ohio House minority leader.",
+   "backgroundSourceUrl": "https://ballotpedia.org/Emilia_Sykes",
+   "facts": [
+    {
+     "label": "Born",
+     "value": "Akron, Ohio"
+    },
+    {
+     "label": "Current office pay",
+     "value": "$174,000/yr"
+    }
+   ],
+   "incumbent": true,
+   "financeUrl": "https://www.fec.gov/data/candidate/H2OH13264/",
+   "finance": {
+    "available": true,
+    "cycle": 2026,
+    "totalRaised": 3137440,
+    "fromPacs": 1006777,
+    "fromIndividuals": 1923894,
+    "pacPct": 34,
+    "individualPct": 66,
+    "cashOnHand": 1897462,
+    "source": "OpenFEC API"
+   },
+   "topPacDonors": [
+    {
+     "name": "NEW DEMOCRAT COALITION ACTION FUND",
+     "amount": 52500,
+     "committeeId": "C00409730",
+     "fecUrl": "https://www.fec.gov/data/committee/C00409730/",
+     "kind": "PAC"
+    },
+    {
+     "name": "DCCC",
+     "amount": 30399,
+     "committeeId": "C00000935",
+     "fecUrl": "https://www.fec.gov/data/committee/C00000935/",
+     "kind": "party committee"
+    },
+    {
+     "name": "ACTBLUE",
+     "amount": 23000,
+     "committeeId": "C00401224",
+     "fecUrl": "https://www.fec.gov/data/committee/C00401224/",
+     "kind": "conduit - bundled individual donations"
+    },
+    {
+     "name": "SYNCHRONY FINANCIAL EMPLOYEES PAC (SYNCPAC)",
+     "amount": 10000,
+     "committeeId": "C00589119",
+     "fecUrl": "https://www.fec.gov/data/committee/C00589119/",
+     "kind": "corporate PAC"
+    },
+    {
+     "name": "PURPOSE PAC",
+     "amount": 10000,
+     "committeeId": "C00497131",
+     "fecUrl": "https://www.fec.gov/data/committee/C00497131/",
+     "kind": "leadership PAC"
+    },
+    {
+     "name": "NEW YORK LIFE INSURANCE COMPANY PAC",
+     "amount": 10000,
+     "committeeId": "C00158881",
+     "fecUrl": "https://www.fec.gov/data/committee/C00158881/",
+     "kind": "corporate PAC"
+    },
+    {
+     "name": "EMILY'S LIST",
+     "amount": 10000,
+     "committeeId": "C00193433",
+     "fecUrl": "https://www.fec.gov/data/committee/C00193433/",
+     "kind": "PAC"
+    },
+    {
+     "name": "CALIFORNIA LEADERSHIP UNITED FOR VICTORY PAC",
+     "amount": 10000,
+     "committeeId": "C00573709",
+     "fecUrl": "https://www.fec.gov/data/committee/C00573709/",
+     "kind": "leadership PAC"
+    }
+   ]
+  },
+  {
+   "name": "Carey Coleman",
+   "party": "Republican",
+   "fecId": "H6OH13307",
+   "committees": [
+    "C00933432"
+   ],
+   "currentOffice": "Former radio host",
+   "stateProfile": null,
+   "background": "Former radio host; won the five-way May 5 Republican primary.",
+   "backgroundSourceUrl": "https://ohiocapitaljournal.com/?p=37409",
+   "facts": [
+    {
+     "label": "Profession",
+     "value": "Radio host"
+    }
+   ],
+   "incumbent": false,
+   "financeUrl": "https://www.fec.gov/data/candidate/H6OH13307/",
+   "finance": {
+    "available": true,
+    "cycle": 2026,
+    "totalRaised": 127109,
+    "fromPacs": 8000,
+    "fromIndividuals": 65572,
+    "pacPct": 11,
+    "individualPct": 89,
+    "cashOnHand": 77727,
+    "source": "OpenFEC API"
+   },
+   "topPacDonors": [
+    {
+     "name": "BUCKEYE LIBERTY PAC",
+     "amount": 5000,
+     "committeeId": "C00693796",
+     "fecUrl": "https://www.fec.gov/data/committee/C00693796/",
+     "kind": "leadership PAC"
+    },
+    {
+     "name": "JIM JORDAN FOR CONGRESS",
+     "amount": 2000,
+     "committeeId": "C00416594",
+     "fecUrl": "https://www.fec.gov/data/committee/C00416594/",
+     "kind": "candidate committee"
+    },
+    {
+     "name": "CITIZENS UNITED POLITICAL VICTORY FUND",
+     "amount": 1000,
+     "committeeId": "C00295527",
+     "fecUrl": "https://www.fec.gov/data/committee/C00295527/",
+     "kind": "membership org PAC"
+    }
+   ]
+  }
+ ]
+}

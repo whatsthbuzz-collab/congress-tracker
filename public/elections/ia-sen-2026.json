@@ -1,0 +1,195 @@
+{
+ "id": "ia-sen-2026",
+ "office": "U.S. Senate",
+ "state": "Iowa",
+ "title": null,
+ "label": null,
+ "stateCode": "IA",
+ "electionDate": "2026-11-03",
+ "seatNote": "Open seat: Sen. Joni Ernst (R) is not seeking a third term.",
+ "sourceUrl": "https://en.wikipedia.org/wiki/2026_United_States_Senate_election_in_Iowa",
+ "candidates": [
+  {
+   "name": "Josh Turek",
+   "party": "Democratic",
+   "fecId": "S6IA00298",
+   "committees": [
+    "C00915645"
+   ],
+   "currentOffice": "Iowa State Representative",
+   "stateProfile": null,
+   "background": "Iowa state representative from Council Bluffs, first elected in 2022; two-time Paralympic gold medalist in wheelchair basketball.",
+   "backgroundSourceUrl": "https://iowacapitaldispatch.com/2026/06/02/rep-josh-turek-wins-u-s-senate-primary-race-against-sen-zach-wahls-ap-projects/",
+   "facts": [
+    {
+     "label": "Hometown",
+     "value": "Council Bluffs, Iowa"
+    }
+   ],
+   "incumbent": false,
+   "financeUrl": "https://www.fec.gov/data/candidate/S6IA00298/",
+   "finance": {
+    "available": true,
+    "cycle": 2026,
+    "totalRaised": 6276527,
+    "fromPacs": 440127,
+    "fromIndividuals": 5835817,
+    "pacPct": 7,
+    "individualPct": 93,
+    "cashOnHand": 2362314,
+    "source": "OpenFEC API"
+   },
+   "topPacDonors": [
+    {
+     "name": "DSCC",
+     "amount": 62000,
+     "committeeId": "C00042366",
+     "fecUrl": "https://www.fec.gov/data/committee/C00042366/",
+     "kind": "party committee"
+    },
+    {
+     "name": "ACTBLUE",
+     "amount": 37000,
+     "committeeId": "C00401224",
+     "fecUrl": "https://www.fec.gov/data/committee/C00401224/",
+     "kind": "conduit - bundled individual donations"
+    },
+    {
+     "name": "ALL FOR OUR COUNTRY LEADERSHIP PAC",
+     "amount": 10000,
+     "committeeId": "C00629212",
+     "fecUrl": "https://www.fec.gov/data/committee/C00629212/",
+     "kind": "leadership PAC"
+    },
+    {
+     "name": "LOBO PAC",
+     "amount": 10000,
+     "committeeId": "C00497073",
+     "fecUrl": "https://www.fec.gov/data/committee/C00497073/",
+     "kind": "leadership PAC"
+    },
+    {
+     "name": "JUNTOS PAC",
+     "amount": 10000,
+     "committeeId": "C00892752",
+     "fecUrl": "https://www.fec.gov/data/committee/C00892752/",
+     "kind": "leadership PAC"
+    },
+    {
+     "name": "COMMON GROUND PAC",
+     "amount": 10000,
+     "committeeId": "C00538835",
+     "fecUrl": "https://www.fec.gov/data/committee/C00538835/",
+     "kind": "leadership PAC"
+    },
+    {
+     "name": "ADVANCING DEMOCRACY AND MOBILIZATION PAC",
+     "amount": 10000,
+     "committeeId": "C00422774",
+     "fecUrl": "https://www.fec.gov/data/committee/C00422774/",
+     "kind": "leadership PAC"
+    },
+    {
+     "name": "LEGPAC",
+     "amount": 10000,
+     "committeeId": "C00385534",
+     "fecUrl": "https://www.fec.gov/data/committee/C00385534/",
+     "kind": "leadership PAC"
+    }
+   ]
+  },
+  {
+   "name": "Ashley Hinson",
+   "party": "Republican",
+   "fecId": "S6IA00314",
+   "committees": [
+    "C00706267"
+   ],
+   "currentOffice": "U.S. Representative, IA-02",
+   "stateProfile": null,
+   "background": "U.S. representative since 2021; former Iowa state representative and KCRG-TV reporter in Cedar Rapids.",
+   "backgroundSourceUrl": "https://ballotpedia.org/Ashley_Hinson",
+   "facts": [
+    {
+     "label": "Born",
+     "value": "Des Moines, Iowa"
+    },
+    {
+     "label": "Current office pay",
+     "value": "$174,000/yr"
+    }
+   ],
+   "incumbent": false,
+   "financeUrl": "https://www.fec.gov/data/candidate/S6IA00314/",
+   "finance": {
+    "available": true,
+    "cycle": 2026,
+    "totalRaised": 10217845,
+    "fromPacs": 2232367,
+    "fromIndividuals": 5267629,
+    "pacPct": 30,
+    "individualPct": 70,
+    "cashOnHand": 6749491,
+    "source": "OpenFEC API"
+   },
+   "topPacDonors": [
+    {
+     "name": "NRSC",
+     "amount": 62000,
+     "committeeId": "C00027466",
+     "fecUrl": "https://www.fec.gov/data/committee/C00027466/",
+     "kind": "party committee"
+    },
+    {
+     "name": "INNOVATION PAC",
+     "amount": 25000,
+     "committeeId": "C00540187",
+     "fecUrl": "https://www.fec.gov/data/committee/C00540187/",
+     "kind": "leadership PAC"
+    },
+    {
+     "name": "HEARTLAND VALUES PAC",
+     "amount": 25000,
+     "committeeId": "C00409003",
+     "fecUrl": "https://www.fec.gov/data/committee/C00409003/",
+     "kind": "leadership PAC"
+    },
+    {
+     "name": "COMMON VALUES PAC",
+     "amount": 25000,
+     "committeeId": "C00442368",
+     "fecUrl": "https://www.fec.gov/data/committee/C00442368/",
+     "kind": "leadership PAC"
+    },
+    {
+     "name": "AMERICAN EXCELLENCE PAC",
+     "amount": 15000,
+     "committeeId": "C00832501",
+     "fecUrl": "https://www.fec.gov/data/committee/C00832501/",
+     "kind": "leadership PAC"
+    },
+    {
+     "name": "ALABAMA FIRST PAC",
+     "amount": 15000,
+     "committeeId": "C00821058",
+     "fecUrl": "https://www.fec.gov/data/committee/C00821058/",
+     "kind": "leadership PAC"
+    },
+    {
+     "name": "BOOTS POLITICAL ACTION COMMITTEE",
+     "amount": 15000,
+     "committeeId": "C00567545",
+     "fecUrl": "https://www.fec.gov/data/committee/C00567545/",
+     "kind": "leadership PAC"
+    },
+    {
+     "name": "ARKANSAS FOR LEADERSHIP PAC",
+     "amount": 15000,
+     "committeeId": "C00413948",
+     "fecUrl": "https://www.fec.gov/data/committee/C00413948/",
+     "kind": "leadership PAC"
+    }
+   ]
+  }
+ ]
+}

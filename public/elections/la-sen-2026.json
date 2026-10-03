@@ -1,0 +1,146 @@
+{
+ "id": "la-sen-2026",
+ "office": "U.S. Senate",
+ "state": "Louisiana",
+ "title": null,
+ "label": null,
+ "stateCode": "LA",
+ "electionDate": "2026-11-03",
+ "seatNote": "Open seat: Sen. Bill Cassidy (R) finished third in the May 16 closed Republican primary.",
+ "sourceUrl": "https://en.wikipedia.org/wiki/2026_United_States_Senate_election_in_Louisiana",
+ "candidates": [
+  {
+   "name": "Jamie Davis",
+   "party": "Democratic",
+   "fecId": "S6LA00615",
+   "committees": [
+    "C00929117"
+   ],
+   "currentOffice": "Former Tensas Parish Police Juror",
+   "stateProfile": null,
+   "background": "Farmer from Waterproof, Louisiana; former Tensas Parish police juror; member of the Louisiana Democratic State Central Committee.",
+   "backgroundSourceUrl": "https://lailluminator.com/2026/04/30/davis-senate/",
+   "facts": [
+    {
+     "label": "Hometown",
+     "value": "Waterproof, Louisiana"
+    },
+    {
+     "label": "Profession",
+     "value": "Farmer"
+    }
+   ],
+   "incumbent": false,
+   "financeUrl": "https://www.fec.gov/data/candidate/S6LA00615/",
+   "finance": {
+    "available": true,
+    "cycle": 2026,
+    "totalRaised": 1983548,
+    "fromPacs": 0,
+    "fromIndividuals": 1969137,
+    "pacPct": 0,
+    "individualPct": 100,
+    "cashOnHand": 479104,
+    "source": "OpenFEC API"
+   },
+   "topPacDonors": []
+  },
+  {
+   "name": "Julia Letlow",
+   "party": "Republican",
+   "fecId": "S6LA00664",
+   "committees": [
+    "C00935411"
+   ],
+   "currentOffice": "U.S. Representative, LA-05",
+   "stateProfile": null,
+   "background": "U.S. representative since 2021; won the Republican nomination in a June 27 runoff.",
+   "backgroundSourceUrl": "https://ballotpedia.org/Julia_Letlow",
+   "facts": [
+    {
+     "label": "Born",
+     "value": "Monroe, Louisiana"
+    },
+    {
+     "label": "Education",
+     "value": "B.A. & M.A., Univ. of Louisiana Monroe; Ph.D., Univ. of South Florida"
+    },
+    {
+     "label": "Current office pay",
+     "value": "$174,000/yr"
+    }
+   ],
+   "incumbent": false,
+   "financeUrl": "https://www.fec.gov/data/candidate/S6LA00664/",
+   "finance": {
+    "available": true,
+    "cycle": 2026,
+    "totalRaised": 6210122,
+    "fromPacs": 824000,
+    "fromIndividuals": 1378951,
+    "pacPct": 37,
+    "individualPct": 63,
+    "cashOnHand": 1427072,
+    "source": "OpenFEC API"
+   },
+   "topPacDonors": [
+    {
+     "name": "NRSC",
+     "amount": 62000,
+     "committeeId": "C00027466",
+     "fecUrl": "https://www.fec.gov/data/committee/C00027466/",
+     "kind": "party committee"
+    },
+    {
+     "name": "AMERICAN ISRAEL PUBLIC AFFAIRS COMMITTEE PAC",
+     "amount": 19000,
+     "committeeId": "C00797670",
+     "fecUrl": "https://www.fec.gov/data/committee/C00797670/",
+     "kind": "membership org PAC"
+    },
+    {
+     "name": "CRESCENT RIVER PORT PILOTS ASSOCIATION FEDERAL PAC/CRPPA FED PAC",
+     "amount": 15000,
+     "committeeId": "C00221077",
+     "fecUrl": "https://www.fec.gov/data/committee/C00221077/",
+     "kind": "membership org PAC"
+    },
+    {
+     "name": "PAN-AMERICAN LIFE INSURANCE COMPANY PAC (PALIC PAC)",
+     "amount": 10000,
+     "committeeId": "C00232272",
+     "fecUrl": "https://www.fec.gov/data/committee/C00232272/",
+     "kind": "corporate PAC"
+    },
+    {
+     "name": "JONES WALKER L.L.P. POLITICAL ACTION COMMITTEE",
+     "amount": 10000,
+     "committeeId": "C00111534",
+     "fecUrl": "https://www.fec.gov/data/committee/C00111534/",
+     "kind": "PAC"
+    },
+    {
+     "name": "SPACE EXPLORATION TECHNOLOGIES CORP. PAC",
+     "amount": 10000,
+     "committeeId": "C00411116",
+     "fecUrl": "https://www.fec.gov/data/committee/C00411116/",
+     "kind": "corporate PAC"
+    },
+    {
+     "name": "ON WISCONSIN PAC, INC.",
+     "amount": 10000,
+     "committeeId": "C00697326",
+     "fecUrl": "https://www.fec.gov/data/committee/C00697326/",
+     "kind": "leadership PAC"
+    },
+    {
+     "name": "CHENIERE ENERGY, INC. PAC",
+     "amount": 10000,
+     "committeeId": "C00430157",
+     "fecUrl": "https://www.fec.gov/data/committee/C00430157/",
+     "kind": "corporate PAC"
+    }
+   ]
+  }
+ ]
+}

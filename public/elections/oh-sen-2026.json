@@ -1,0 +1,204 @@
+{
+ "id": "oh-sen-2026",
+ "office": "U.S. Senate",
+ "state": "Ohio",
+ "title": null,
+ "label": null,
+ "stateCode": "OH",
+ "electionDate": "2026-11-03",
+ "seatNote": "Special election for the rest of JD Vance's term, through January 2029. Sen. Jon Husted (R) was appointed in January 2025.",
+ "sourceUrl": "https://en.wikipedia.org/wiki/2026_United_States_Senate_special_election_in_Ohio",
+ "candidates": [
+  {
+   "name": "Sherrod Brown",
+   "party": "Democratic",
+   "fecId": "S6OH00163",
+   "committees": [
+    "C00916288"
+   ],
+   "currentOffice": "Former U.S. Senator, Ohio",
+   "stateProfile": null,
+   "background": "U.S. senator from Ohio (2007-2025), chair of the Senate Banking Committee; U.S. representative (1993-2007); Ohio secretary of state (1983-1991).",
+   "backgroundSourceUrl": "https://en.wikipedia.org/wiki/Sherrod_Brown",
+   "facts": [
+    {
+     "label": "Born",
+     "value": "Mansfield, Ohio"
+    },
+    {
+     "label": "Education",
+     "value": "B.A., Yale; M.A. & M.P.A., Ohio State"
+    }
+   ],
+   "incumbent": false,
+   "financeUrl": "https://www.fec.gov/data/candidate/S6OH00163/",
+   "finance": {
+    "available": true,
+    "cycle": 2026,
+    "totalRaised": 38566234,
+    "fromPacs": 861223,
+    "fromIndividuals": 31146133,
+    "pacPct": 3,
+    "individualPct": 97,
+    "cashOnHand": 16229741,
+    "source": "OpenFEC API"
+   },
+   "topPacDonors": [
+    {
+     "name": "ACTBLUE",
+     "amount": 16000,
+     "committeeId": "C00401224",
+     "fecUrl": "https://www.fec.gov/data/committee/C00401224/",
+     "kind": "conduit - bundled individual donations"
+    },
+    {
+     "name": "VICTORY NOW PAC",
+     "amount": 10000,
+     "committeeId": "C00416743",
+     "fecUrl": "https://www.fec.gov/data/committee/C00416743/",
+     "kind": "leadership PAC"
+    },
+    {
+     "name": "UNITE HERE TIP CAMPAIGN COMMITTEE",
+     "amount": 10000,
+     "committeeId": "C00004861",
+     "fecUrl": "https://www.fec.gov/data/committee/C00004861/",
+     "kind": "labor union PAC"
+    },
+    {
+     "name": "TREASURE STATE PAC",
+     "amount": 10000,
+     "committeeId": "C00433680",
+     "fecUrl": "https://www.fec.gov/data/committee/C00433680/",
+     "kind": "leadership PAC"
+    },
+    {
+     "name": "SMART SOLUTIONS PAC",
+     "amount": 10000,
+     "committeeId": "C00654475",
+     "fecUrl": "https://www.fec.gov/data/committee/C00654475/",
+     "kind": "leadership PAC"
+    },
+    {
+     "name": "SENATE FIGHT FUND",
+     "amount": 10000,
+     "committeeId": "C00814616",
+     "fecUrl": "https://www.fec.gov/data/committee/C00814616/",
+     "kind": "PAC"
+    },
+    {
+     "name": "SAVE DEMOCRACY PAC",
+     "amount": 10000,
+     "committeeId": "C00884973",
+     "fecUrl": "https://www.fec.gov/data/committee/C00884973/",
+     "kind": "PAC"
+    },
+    {
+     "name": "REV UP PAC",
+     "amount": 10000,
+     "committeeId": "C00767871",
+     "fecUrl": "https://www.fec.gov/data/committee/C00767871/",
+     "kind": "PAC"
+    }
+   ]
+  },
+  {
+   "name": "Jon Husted",
+   "party": "Republican",
+   "fecId": "S6OH00304",
+   "committees": [
+    "C00896019",
+    "C00895276"
+   ],
+   "currentOffice": "U.S. Senator, Ohio (appointed)",
+   "stateProfile": null,
+   "background": "Appointed to the Senate in January 2025; Ohio lieutenant governor (2019-2025) and secretary of state (2011-2019); former Ohio House speaker.",
+   "backgroundSourceUrl": "https://en.wikipedia.org/wiki/Jon_Husted",
+   "facts": [
+    {
+     "label": "Born",
+     "value": "Royal Oak, Michigan"
+    },
+    {
+     "label": "Education",
+     "value": "B.A. & M.A., University of Dayton"
+    },
+    {
+     "label": "Current office pay",
+     "value": "$174,000/yr"
+    }
+   ],
+   "incumbent": true,
+   "financeUrl": "https://www.fec.gov/data/candidate/S6OH00304/",
+   "finance": {
+    "available": true,
+    "cycle": 2026,
+    "totalRaised": 14360028,
+    "fromPacs": 2382560,
+    "fromIndividuals": 6280012,
+    "pacPct": 28,
+    "individualPct": 72,
+    "cashOnHand": 9418818,
+    "source": "OpenFEC API"
+   },
+   "topPacDonors": [
+    {
+     "name": "NRSC",
+     "amount": 62000,
+     "committeeId": "C00027466",
+     "fecUrl": "https://www.fec.gov/data/committee/C00027466/",
+     "kind": "party committee"
+    },
+    {
+     "name": "SMALL BUSINESS INVESTOR ALLIANCE PAC",
+     "amount": 15000,
+     "committeeId": "C00109991",
+     "fecUrl": "https://www.fec.gov/data/committee/C00109991/",
+     "kind": "trade assoc. PAC"
+    },
+    {
+     "name": "THE WENDYS COMPANY PAC",
+     "amount": 15000,
+     "committeeId": "C00369090",
+     "fecUrl": "https://www.fec.gov/data/committee/C00369090/",
+     "kind": "corporate PAC"
+    },
+    {
+     "name": "CARDINAL HEALTH COMPANIES PAC",
+     "amount": 12400,
+     "committeeId": "C00332833",
+     "fecUrl": "https://www.fec.gov/data/committee/C00332833/",
+     "kind": "corporate PAC"
+    },
+    {
+     "name": "CENCORA, INC. PAC",
+     "amount": 10500,
+     "committeeId": "C00400929",
+     "fecUrl": "https://www.fec.gov/data/committee/C00400929/",
+     "kind": "corporate PAC"
+    },
+    {
+     "name": "TRUE NORTH PAC",
+     "amount": 10000,
+     "committeeId": "C00571000",
+     "fecUrl": "https://www.fec.gov/data/committee/C00571000/",
+     "kind": "leadership PAC"
+    },
+    {
+     "name": "TRANSDIGM GROUP INC. EMPLOYEE PAC",
+     "amount": 10000,
+     "committeeId": "C00714329",
+     "fecUrl": "https://www.fec.gov/data/committee/C00714329/",
+     "kind": "corporate PAC"
+    },
+    {
+     "name": "TOMORROW IS MEANINGFUL PAC",
+     "amount": 10000,
+     "committeeId": "C00495887",
+     "fecUrl": "https://www.fec.gov/data/committee/C00495887/",
+     "kind": "leadership PAC"
+    }
+   ]
+  }
+ ]
+}

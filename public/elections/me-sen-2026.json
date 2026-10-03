@@ -2,6 +2,8 @@
  "id": "me-sen-2026",
  "office": "U.S. Senate",
  "state": "Maine",
+ "title": null,
+ "label": null,
  "stateCode": "ME",
  "electionDate": "2026-11-03",
  "seatNote": "Sen. Susan Collins (R) is seeking a sixth term. Primary winner Graham Platner withdrew in July; Maine Democrats nominated Troy Jackson at a special convention on July 25.",
@@ -9,11 +11,6 @@
  "candidates": [
   {
    "name": "Troy Jackson",
-   "photo": {
-    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Senate_President_Troy_Jackson_(cropped).png?width=240",
-    "credit": "ArenLeBrun, via Wikimedia Commons",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Senate_President_Troy_Jackson_(cropped).png"
-   },
    "party": "Democratic",
    "fecId": "S6ME00464",
    "committees": [
@@ -31,6 +28,11 @@
      "value": "Logger"
     }
    ],
+   "photo": {
+    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Senate_President_Troy_Jackson_(cropped).png?width=240",
+    "credit": "ArenLeBrun, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Senate_President_Troy_Jackson_(cropped).png"
+   },
    "incumbent": false,
    "financeUrl": "https://www.fec.gov/data/candidate/S6ME00464/",
    "finance": {
@@ -40,11 +42,6 @@
   },
   {
    "name": "Susan Collins",
-   "photo": {
-    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Senator_Susan_Collins_2014_official_portrait.jpg?width=240",
-    "credit": "U.S. Congress, public domain",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Senator_Susan_Collins_2014_official_portrait.jpg"
-   },
    "party": "Republican",
    "fecId": "S6ME00159",
    "committees": [
@@ -69,6 +66,11 @@
      "value": "$174,000/yr"
     }
    ],
+   "photo": {
+    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Senator_Susan_Collins_2014_official_portrait.jpg?width=240",
+    "credit": "U.S. Congress, public domain",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Senator_Susan_Collins_2014_official_portrait.jpg"
+   },
    "incumbent": true,
    "financeUrl": "https://www.fec.gov/data/candidate/S6ME00159/",
    "finance": {

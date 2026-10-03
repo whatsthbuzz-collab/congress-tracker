@@ -1,0 +1,199 @@
+{
+ "id": "oh-09-2026",
+ "office": "U.S. House",
+ "state": "Ohio",
+ "title": "U.S. House, Ohio's 9th District",
+ "label": "OH-09",
+ "stateCode": "OH",
+ "electionDate": "2026-11-03",
+ "seatNote": "Rematch of 2024, which Kaptur won by under one point. The district was redrawn in 2025 and now leans more Republican.",
+ "sourceUrl": "https://news.ballotpedia.org/2026/08/06/redistricting-redraws-ohios-9th-district-ahead-of-2026-kaptur-merrin-rematch/",
+ "candidates": [
+  {
+   "name": "Marcy Kaptur",
+   "party": "Democratic",
+   "fecId": "H2OH09031",
+   "committees": [
+    "C00154625"
+   ],
+   "currentOffice": "U.S. Representative, OH-09",
+   "stateProfile": null,
+   "background": "U.S. representative since 1983, the longest-serving woman in congressional history.",
+   "backgroundSourceUrl": "https://news.ballotpedia.org/2026/08/06/redistricting-redraws-ohios-9th-district-ahead-of-2026-kaptur-merrin-rematch/",
+   "facts": [
+    {
+     "label": "Current office pay",
+     "value": "$174,000/yr"
+    }
+   ],
+   "incumbent": true,
+   "financeUrl": "https://www.fec.gov/data/candidate/H2OH09031/",
+   "finance": {
+    "available": true,
+    "cycle": 2026,
+    "totalRaised": 4303416,
+    "fromPacs": 1126725,
+    "fromIndividuals": 2303406,
+    "pacPct": 33,
+    "individualPct": 67,
+    "cashOnHand": 3491668,
+    "source": "OpenFEC API"
+   },
+   "topPacDonors": [
+    {
+     "name": "DEMOCRATIC CONGRESSIONAL CAMPAIGN COMMITTEE (DCCC)",
+     "amount": 38497,
+     "committeeId": "C00000935",
+     "fecUrl": "https://www.fec.gov/data/committee/C00000935/",
+     "kind": "party committee"
+    },
+    {
+     "name": "ACTBLUE",
+     "amount": 14500,
+     "committeeId": "C00401224",
+     "fecUrl": "https://www.fec.gov/data/committee/C00401224/",
+     "kind": "conduit - bundled individual donations"
+    },
+    {
+     "name": "UAW - V - CAP (UAW VOLUNTARY COMMUNITY ACTION PROGRAM) 'INT'L UNION UNITED AUTOMOBILE AEROSPACE & AGRICULTURAL IMPLEMENT WORKERS OF AMERICA UAW",
+     "amount": 10000,
+     "committeeId": "C00002840",
+     "fecUrl": "https://www.fec.gov/data/committee/C00002840/",
+     "kind": "labor union PAC"
+    },
+    {
+     "name": "SEIU COPE (SERVICE EMPLOYEES INTERNATIONAL UNION COMMITTEE ON POLITICAL EDUCATION)",
+     "amount": 10000,
+     "committeeId": "C00004036",
+     "fecUrl": "https://www.fec.gov/data/committee/C00004036/",
+     "kind": "labor union PAC"
+    },
+    {
+     "name": "POLITICAL EDUCATION PATTERNS POLITICAL ARM INTL UN",
+     "amount": 10000,
+     "committeeId": "C00065870",
+     "fecUrl": "https://www.fec.gov/data/committee/C00065870/",
+     "kind": "labor union PAC"
+    },
+    {
+     "name": "NATIONAL CORN GROWERS ASSOCIATION (CORNPAC)",
+     "amount": 10000,
+     "committeeId": "C00376343",
+     "fecUrl": "https://www.fec.gov/data/committee/C00376343/",
+     "kind": "trade assoc. PAC"
+    },
+    {
+     "name": "LA BAMBA PAC",
+     "amount": 10000,
+     "committeeId": "C00753947",
+     "fecUrl": "https://www.fec.gov/data/committee/C00753947/",
+     "kind": "leadership PAC"
+    },
+    {
+     "name": "INTERNATIONAL LONGSHOREMEN'S ASSOCIATION COMMITTEE ON POLITICAL EDUCATION",
+     "amount": 10000,
+     "committeeId": "C00158576",
+     "fecUrl": "https://www.fec.gov/data/committee/C00158576/",
+     "kind": "labor union PAC"
+    }
+   ]
+  },
+  {
+   "name": "Derek Merrin",
+   "party": "Republican",
+   "fecId": "H4OH09169",
+   "committees": [
+    "C00909630",
+    "C00928184",
+    "C00894535",
+    "C00863829",
+    "C00895110"
+   ],
+   "currentOffice": "Former Ohio State Representative",
+   "stateProfile": null,
+   "background": "Ohio state representative (2016-2024); real estate investor; Republican nominee for this seat in 2024.",
+   "backgroundSourceUrl": "https://ballotpedia.org/Derek_Merrin",
+   "facts": [
+    {
+     "label": "Born",
+     "value": "Smithtown, New York"
+    },
+    {
+     "label": "Profession",
+     "value": "Real estate investor"
+    }
+   ],
+   "incumbent": false,
+   "financeUrl": "https://www.fec.gov/data/candidate/H4OH09169/",
+   "finance": {
+    "available": true,
+    "cycle": 2026,
+    "totalRaised": 1508953,
+    "fromPacs": 116900,
+    "fromIndividuals": 451831,
+    "pacPct": 21,
+    "individualPct": 79,
+    "cashOnHand": 511443,
+    "source": "OpenFEC API"
+   },
+   "topPacDonors": [
+    {
+     "name": "AMERICAN REVIVAL PAC",
+     "amount": 10000,
+     "committeeId": "C00639229",
+     "fecUrl": "https://www.fec.gov/data/committee/C00639229/",
+     "kind": "PAC"
+    },
+    {
+     "name": "GLASS CITY PAC",
+     "amount": 7000,
+     "committeeId": "C00878439",
+     "fecUrl": "https://www.fec.gov/data/committee/C00878439/",
+     "kind": "leadership PAC"
+    },
+    {
+     "name": "TURNING POINT PAC INC.",
+     "amount": 5000,
+     "committeeId": "C00814152",
+     "fecUrl": "https://www.fec.gov/data/committee/C00814152/",
+     "kind": "PAC"
+    },
+    {
+     "name": "THE EYE OF THE TIGER PAC",
+     "amount": 5000,
+     "committeeId": "C00467431",
+     "fecUrl": "https://www.fec.gov/data/committee/C00467431/",
+     "kind": "leadership PAC"
+    },
+    {
+     "name": "SEAL PAC SUPPORTING ELECTING AMERICAN LEADERS PAC",
+     "amount": 5000,
+     "committeeId": "C00570226",
+     "fecUrl": "https://www.fec.gov/data/committee/C00570226/",
+     "kind": "PAC"
+    },
+    {
+     "name": "RAPTOR PAC",
+     "amount": 5000,
+     "committeeId": "C00749481",
+     "fecUrl": "https://www.fec.gov/data/committee/C00749481/",
+     "kind": "leadership PAC"
+    },
+    {
+     "name": "MR. SOUTHERN MISSOURIAN IN THE HOUSE PAC",
+     "amount": 5000,
+     "committeeId": "C00563726",
+     "fecUrl": "https://www.fec.gov/data/committee/C00563726/",
+     "kind": "leadership PAC"
+    },
+    {
+     "name": "CONSERVATIVE OPPORTUNITY LEADERSHIP & ENTERPRISE PAC",
+     "amount": 5000,
+     "committeeId": "C00404392",
+     "fecUrl": "https://www.fec.gov/data/committee/C00404392/",
+     "kind": "leadership PAC"
+    }
+   ]
+  }
+ ]
+}

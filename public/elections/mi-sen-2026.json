@@ -2,18 +2,15 @@
  "id": "mi-sen-2026",
  "office": "U.S. Senate",
  "state": "Michigan",
+ "title": null,
+ "label": null,
  "stateCode": "MI",
  "electionDate": "2026-11-03",
- "seatNote": "Open seat \u2014 Sen. Gary Peters (D) is retiring.",
+ "seatNote": "Open seat: Sen. Gary Peters (D) is retiring.",
  "sourceUrl": "https://en.wikipedia.org/wiki/2026_United_States_Senate_election_in_Michigan",
  "candidates": [
   {
    "name": "Abdul El-Sayed",
-   "photo": {
-    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Abdul_El-Sayed.jpg?width=240",
-    "credit": "Kenneth C. Zirkel, CC BY-SA 4.0, via Wikimedia Commons",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Abdul_El-Sayed.jpg"
-   },
    "party": "Democratic",
    "fecId": "S6MI00418",
    "committees": [
@@ -42,6 +39,11 @@
      "value": "Physician & epidemiologist"
     }
    ],
+   "photo": {
+    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Abdul_El-Sayed.jpg?width=240",
+    "credit": "Kenneth C. Zirkel, CC BY-SA 4.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Abdul_El-Sayed.jpg"
+   },
    "incumbent": false,
    "financeUrl": "https://www.fec.gov/data/candidate/S6MI00418/",
    "finance": {
@@ -116,11 +118,6 @@
   },
   {
    "name": "Mike Rogers",
-   "photo": {
-    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Mike-Rogers-Head-Shot-2_(3x4_cropped).jpg?width=240",
-    "credit": "United States Congress, public domain",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mike-Rogers-Head-Shot-2_(3x4_cropped).jpg"
-   },
    "party": "Republican",
    "fecId": "S4MI00595",
    "committees": [
@@ -146,6 +143,11 @@
      "value": "Former FBI special agent"
     }
    ],
+   "photo": {
+    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Mike-Rogers-Head-Shot-2_(3x4_cropped).jpg?width=240",
+    "credit": "United States Congress, public domain",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mike-Rogers-Head-Shot-2_(3x4_cropped).jpg"
+   },
    "incumbent": false,
    "financeUrl": "https://www.fec.gov/data/candidate/S4MI00595/",
    "finance": {

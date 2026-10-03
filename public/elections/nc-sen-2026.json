@@ -2,18 +2,15 @@
  "id": "nc-sen-2026",
  "office": "U.S. Senate",
  "state": "North Carolina",
+ "title": null,
+ "label": null,
  "stateCode": "NC",
  "electionDate": "2026-11-03",
- "seatNote": "Open seat \u2014 Sen. Thom Tillis (R) is not seeking a third term.",
+ "seatNote": "Open seat: Sen. Thom Tillis (R) is not seeking a third term.",
  "sourceUrl": "https://en.wikipedia.org/wiki/2026_United_States_Senate_election_in_North_Carolina",
  "candidates": [
   {
    "name": "Roy Cooper",
-   "photo": {
-    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Gov._Cooper_Cropped.jpg?width=240",
-    "credit": "via Wikimedia Commons",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gov._Cooper_Cropped.jpg"
-   },
    "party": "Democratic",
    "fecId": "S6NC00407",
    "committees": [
@@ -42,6 +39,11 @@
      "value": "Attorney"
     }
    ],
+   "photo": {
+    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Gov._Cooper_Cropped.jpg?width=240",
+    "credit": "via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gov._Cooper_Cropped.jpg"
+   },
    "incumbent": false,
    "financeUrl": "https://www.fec.gov/data/candidate/S6NC00407/",
    "finance": {
@@ -68,7 +70,7 @@
      "amount": 13000,
      "committeeId": "C00401224",
      "fecUrl": "https://www.fec.gov/data/committee/C00401224/",
-     "kind": "PAC"
+     "kind": "conduit - bundled individual donations"
     },
     {
      "name": "AMERICAN FEDERATION OF STATE COUNTY & MUNICIPAL EMPLOYEES P E O P L E",
@@ -116,11 +118,6 @@
   },
   {
    "name": "Michael Whatley",
-   "photo": {
-    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Michael_Whatley_(54351730621)_(cropped).jpg?width=240",
-    "credit": "Gage Skidmore, CC BY-SA 2.0, via Wikimedia Commons",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Michael_Whatley_(54351730621)_(cropped).jpg"
-   },
    "party": "Republican",
    "fecId": "S6NC00415",
    "committees": [
@@ -150,6 +147,11 @@
      "value": "Attorney"
     }
    ],
+   "photo": {
+    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Michael_Whatley_(54351730621)_(cropped).jpg?width=240",
+    "credit": "Gage Skidmore, CC BY-SA 2.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Michael_Whatley_(54351730621)_(cropped).jpg"
+   },
    "incumbent": false,
    "financeUrl": "https://www.fec.gov/data/candidate/S6NC00415/",
    "finance": {
@@ -172,18 +174,11 @@
      "kind": "party committee"
     },
     {
-     "name": "WILD AND WONDERFUL PAC",
+     "name": "TRUIST FINANCIAL CORPORATION FEDERAL PAC (FORMERLY SUNTRUST BANKS, INC. POLITICAL ACTION COMMITTEE)",
      "amount": 10000,
-     "committeeId": "C00489336",
-     "fecUrl": "https://www.fec.gov/data/committee/C00489336/",
-     "kind": "leadership PAC"
-    },
-    {
-     "name": "US ENERGY PAC (THE PAC OF AMERICAN EXPLORATION & PRODUCTION COUNCIL, INC.)",
-     "amount": 10000,
-     "committeeId": "C00755454",
-     "fecUrl": "https://www.fec.gov/data/committee/C00755454/",
-     "kind": "trade assoc. PAC"
+     "committeeId": "C00386524",
+     "fecUrl": "https://www.fec.gov/data/committee/C00386524/",
+     "kind": "corporate PAC"
     },
     {
      "name": "THE COUNCIL OF INSURANCE AGENTS & BROKERS POLITICAL ACTION COMMITTEE",
@@ -193,31 +188,38 @@
      "kind": "membership org PAC"
     },
     {
-     "name": "STRATEGY PAC",
+     "name": "SENATE EAGLE PAC",
      "amount": 10000,
-     "committeeId": "C00497842",
-     "fecUrl": "https://www.fec.gov/data/committee/C00497842/",
+     "committeeId": "C00719971",
+     "fecUrl": "https://www.fec.gov/data/committee/C00719971/",
      "kind": "leadership PAC"
     },
     {
-     "name": "PINNACLE WEST CAPITAL CORPORATION PAC",
+     "name": "PENNSYLVANIA HONOR",
      "amount": 10000,
-     "committeeId": "C00015933",
-     "fecUrl": "https://www.fec.gov/data/committee/C00015933/",
-     "kind": "corporate PAC"
+     "committeeId": "C00851998",
+     "fecUrl": "https://www.fec.gov/data/committee/C00851998/",
+     "kind": "leadership PAC"
     },
     {
-     "name": "PHILLIPS 66 PAC",
+     "name": "PAC FOR AMERICA",
      "amount": 10000,
-     "committeeId": "C00513549",
-     "fecUrl": "https://www.fec.gov/data/committee/C00513549/",
-     "kind": "corporate PAC"
+     "committeeId": "C00772434",
+     "fecUrl": "https://www.fec.gov/data/committee/C00772434/",
+     "kind": "PAC"
     },
     {
      "name": "NEBRASKA SANDHILLS PAC",
      "amount": 10000,
      "committeeId": "C00540054",
      "fecUrl": "https://www.fec.gov/data/committee/C00540054/",
+     "kind": "leadership PAC"
+    },
+    {
+     "name": "MR PAC",
+     "amount": 10000,
+     "committeeId": "C00850610",
+     "fecUrl": "https://www.fec.gov/data/committee/C00850610/",
      "kind": "leadership PAC"
     }
    ]

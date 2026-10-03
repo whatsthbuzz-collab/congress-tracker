@@ -1,0 +1,146 @@
+{
+ "id": "ga-02-2026",
+ "office": "U.S. House",
+ "state": "Georgia",
+ "title": "U.S. House, Georgia's 2nd District",
+ "label": "GA-02",
+ "stateCode": "GA",
+ "electionDate": "2026-11-03",
+ "seatNote": "Rep. Sanford Bishop (D) is seeking an 18th term.",
+ "sourceUrl": "https://ajc.com/politics/2026/04/us-house-district-2-bishop-avoids-primary-challenge-in-sw-georgia/",
+ "candidates": [
+  {
+   "name": "Sanford Bishop",
+   "party": "Democratic",
+   "fecId": "H2GA02031",
+   "committees": [
+    "C00266940"
+   ],
+   "currentOffice": "U.S. Representative, GA-02",
+   "stateProfile": null,
+   "background": "U.S. representative since 1993; attorney and U.S. Army veteran; former Georgia state legislator.",
+   "backgroundSourceUrl": "https://ballotpedia.org/Sanford_Bishop_Jr.",
+   "facts": [
+    {
+     "label": "Born",
+     "value": "Mobile, Alabama"
+    },
+    {
+     "label": "Education",
+     "value": "B.A., Morehouse College; J.D., Emory University"
+    },
+    {
+     "label": "Current office pay",
+     "value": "$174,000/yr"
+    }
+   ],
+   "incumbent": true,
+   "financeUrl": "https://www.fec.gov/data/candidate/H2GA02031/",
+   "finance": {
+    "available": true,
+    "cycle": 2026,
+    "totalRaised": 1126530,
+    "fromPacs": 738750,
+    "fromIndividuals": 377718,
+    "pacPct": 66,
+    "individualPct": 34,
+    "cashOnHand": 447808,
+    "source": "OpenFEC API"
+   },
+   "topPacDonors": [
+    {
+     "name": "AFLAC POLITICAL ACTION COMMITTEE (AFLAC PAC)",
+     "amount": 15000,
+     "committeeId": "C00034157",
+     "fecUrl": "https://www.fec.gov/data/committee/C00034157/",
+     "kind": "corporate PAC"
+    },
+    {
+     "name": "NATIONAL CATTLEMEN'S BEEF ASSOCIATION PAC (NCBA-PAC)",
+     "amount": 10000,
+     "committeeId": "C00028787",
+     "fecUrl": "https://www.fec.gov/data/committee/C00028787/",
+     "kind": "trade assoc. PAC"
+    },
+    {
+     "name": "NATIONAL TELECOMMUNICATIONS COOPERATIVE ASSOCIATION PAC",
+     "amount": 10000,
+     "committeeId": "C00004473",
+     "fecUrl": "https://www.fec.gov/data/committee/C00004473/",
+     "kind": "trade assoc. PAC"
+    },
+    {
+     "name": "TROUTMAN PEPPER LOCKE LLP POLITICAL ACTION COMMITTEE, INC.",
+     "amount": 10000,
+     "committeeId": "C00311142",
+     "fecUrl": "https://www.fec.gov/data/committee/C00311142/",
+     "kind": "corporate PAC"
+    },
+    {
+     "name": "SOUTHEAST COTTON COMMITTEE (SECC)",
+     "amount": 10000,
+     "committeeId": "C00300426",
+     "fecUrl": "https://www.fec.gov/data/committee/C00300426/",
+     "kind": "trade assoc. PAC"
+    },
+    {
+     "name": "NATIONAL PECAN FEDERATION INC. PAC (PECAN PAC)",
+     "amount": 10000,
+     "committeeId": "C00682617",
+     "fecUrl": "https://www.fec.gov/data/committee/C00682617/",
+     "kind": "trade assoc. PAC"
+    },
+    {
+     "name": "NATIONAL PEANUT BUYING POINTS ASSOCIATION PEANUT BUYING POINT PAC",
+     "amount": 10000,
+     "committeeId": "C00374298",
+     "fecUrl": "https://www.fec.gov/data/committee/C00374298/",
+     "kind": "membership org PAC"
+    },
+    {
+     "name": "NATIONAL AUTOMOBILE DEALERS ASSOCIATION POLITICAL ACTION COMMITTEE",
+     "amount": 10000,
+     "committeeId": "C00040998",
+     "fecUrl": "https://www.fec.gov/data/committee/C00040998/",
+     "kind": "trade assoc. PAC"
+    }
+   ]
+  },
+  {
+   "name": "Matt Day",
+   "party": "Republican",
+   "fecId": "H6GA01182",
+   "committees": [
+    "C00917450"
+   ],
+   "currentOffice": "Business owner",
+   "stateProfile": null,
+   "background": "Business owner from Douglas, Georgia; founded the staffing companies Glaziers on Demand, Glazier Nation, and ChoreNab.",
+   "backgroundSourceUrl": "https://ajc.com/politics/2026/04/us-house-district-2-bishop-avoids-primary-challenge-in-sw-georgia/",
+   "facts": [
+    {
+     "label": "Hometown",
+     "value": "Douglas, Georgia"
+    },
+    {
+     "label": "Profession",
+     "value": "Business owner"
+    }
+   ],
+   "incumbent": false,
+   "financeUrl": "https://www.fec.gov/data/candidate/H6GA01182/",
+   "finance": {
+    "available": true,
+    "cycle": 2026,
+    "totalRaised": 206344,
+    "fromPacs": 0,
+    "fromIndividuals": 10762,
+    "pacPct": 0,
+    "individualPct": 100,
+    "cashOnHand": 1768,
+    "source": "OpenFEC API"
+   },
+   "topPacDonors": []
+  }
+ ]
+}

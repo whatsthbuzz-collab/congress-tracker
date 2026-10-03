@@ -1,0 +1,191 @@
+{
+ "id": "fl-13-2026",
+ "office": "U.S. House",
+ "state": "Florida",
+ "title": "U.S. House, Florida's 13th District",
+ "label": "FL-13",
+ "stateCode": "FL",
+ "electionDate": "2026-11-03",
+ "seatNote": "Rep. Anna Paulina Luna (R) is seeking a third term.",
+ "sourceUrl": "https://www.fox13news.com/news/florida-congressional-race-retired-army-leela-gray-challenges-anna-paulina-luna",
+ "candidates": [
+  {
+   "name": "Leela Gray",
+   "party": "Democratic",
+   "fecId": "H6FL13312",
+   "committees": [
+    "C00937441"
+   ],
+   "currentOffice": "Retired U.S. Army Brigadier General",
+   "stateProfile": null,
+   "background": "Retired Army brigadier general with more than 30 years in uniform, retiring in 2018 as deputy commanding general of U.S. Army Central; attorney.",
+   "backgroundSourceUrl": "https://www.newpolitics.org/candidates/leela-gray",
+   "facts": [
+    {
+     "label": "Profession",
+     "value": "Attorney; retired Army officer"
+    }
+   ],
+   "incumbent": false,
+   "financeUrl": "https://www.fec.gov/data/candidate/H6FL13312/",
+   "finance": {
+    "available": true,
+    "cycle": 2026,
+    "totalRaised": 1223069,
+    "fromPacs": 70500,
+    "fromIndividuals": 1144176,
+    "pacPct": 6,
+    "individualPct": 94,
+    "cashOnHand": 683295,
+    "source": "OpenFEC API"
+   },
+   "topPacDonors": [
+    {
+     "name": "CROSSPARTISAN PAC I",
+     "amount": 10000,
+     "committeeId": "C00786186",
+     "fecUrl": "https://www.fec.gov/data/committee/C00786186/",
+     "kind": "PAC"
+    },
+    {
+     "name": "NEW DEMOCRAT COALITION ACTION FUND",
+     "amount": 5000,
+     "committeeId": "C00409730",
+     "fecUrl": "https://www.fec.gov/data/committee/C00409730/",
+     "kind": "PAC"
+    },
+    {
+     "name": "MITTEN PAC",
+     "amount": 5000,
+     "committeeId": "C00832147",
+     "fecUrl": "https://www.fec.gov/data/committee/C00832147/",
+     "kind": "leadership PAC"
+    },
+    {
+     "name": "CARPENTERS LEGISLATIVE IMPROVEMENT COMMITTEE UNITED BROTHERHOOD OF CARPENTERS AND JOINERS",
+     "amount": 5000,
+     "committeeId": "C00001016",
+     "fecUrl": "https://www.fec.gov/data/committee/C00001016/",
+     "kind": "labor union PAC"
+    },
+    {
+     "name": "MOMS FED UP",
+     "amount": 5000,
+     "committeeId": "C00651042",
+     "fecUrl": "https://www.fec.gov/data/committee/C00651042/",
+     "kind": "PAC"
+    },
+    {
+     "name": "ELECT DEMOCRATIC WOMEN",
+     "amount": 5000,
+     "committeeId": "C00685297",
+     "fecUrl": "https://www.fec.gov/data/committee/C00685297/",
+     "kind": "PAC"
+    },
+    {
+     "name": "AMERIPAC: THE FUND FOR A GREATER AMERICA",
+     "amount": 5000,
+     "committeeId": "C00271338",
+     "fecUrl": "https://www.fec.gov/data/committee/C00271338/",
+     "kind": "leadership PAC"
+    },
+    {
+     "name": "VOTEVETS",
+     "amount": 5000,
+     "committeeId": "C00418897",
+     "fecUrl": "https://www.fec.gov/data/committee/C00418897/",
+     "kind": "PAC"
+    }
+   ]
+  },
+  {
+   "name": "Anna Paulina Luna",
+   "party": "Republican",
+   "fecId": "H0FL13158",
+   "committees": [
+    "C00718239"
+   ],
+   "currentOffice": "U.S. Representative, FL-13",
+   "stateProfile": null,
+   "background": "U.S. representative for Florida's 13th district since 2023.",
+   "backgroundSourceUrl": "https://ballotpedia.org/Anna_Paulina_Luna",
+   "facts": [
+    {
+     "label": "Current office pay",
+     "value": "$174,000/yr"
+    }
+   ],
+   "incumbent": true,
+   "financeUrl": "https://www.fec.gov/data/candidate/H0FL13158/",
+   "finance": {
+    "available": true,
+    "cycle": 2026,
+    "totalRaised": 3233312,
+    "fromPacs": 103000,
+    "fromIndividuals": 1905637,
+    "pacPct": 5,
+    "individualPct": 95,
+    "cashOnHand": 1474124,
+    "source": "OpenFEC API"
+   },
+   "topPacDonors": [
+    {
+     "name": "AMERICAN REVIVAL PAC",
+     "amount": 10000,
+     "committeeId": "C00639229",
+     "fecUrl": "https://www.fec.gov/data/committee/C00639229/",
+     "kind": "PAC"
+    },
+    {
+     "name": "VALOR PAC",
+     "amount": 10000,
+     "committeeId": "C00583153",
+     "fecUrl": "https://www.fec.gov/data/committee/C00583153/",
+     "kind": "leadership PAC"
+    },
+    {
+     "name": "SPACE EXPLORATION TECHNOLOGIES CORP. PAC",
+     "amount": 10000,
+     "committeeId": "C00411116",
+     "fecUrl": "https://www.fec.gov/data/committee/C00411116/",
+     "kind": "corporate PAC"
+    },
+    {
+     "name": "HONEYWELL INTERNATIONAL PAC",
+     "amount": 10000,
+     "committeeId": "C00096156",
+     "fecUrl": "https://www.fec.gov/data/committee/C00096156/",
+     "kind": "corporate PAC"
+    },
+    {
+     "name": "MVL PAC",
+     "amount": 5000,
+     "committeeId": "C00817338",
+     "fecUrl": "https://www.fec.gov/data/committee/C00817338/",
+     "kind": "leadership PAC"
+    },
+    {
+     "name": "UNITED STATES SUGAR CORPORATION EMPLOYEE STOCK OWNERSHIP PLAN PAC,",
+     "amount": 5000,
+     "committeeId": "C00234120",
+     "fecUrl": "https://www.fec.gov/data/committee/C00234120/",
+     "kind": "corporate PAC"
+    },
+    {
+     "name": "HOUSE FREEDOM FUND",
+     "amount": 5000,
+     "committeeId": "C00552851",
+     "fecUrl": "https://www.fec.gov/data/committee/C00552851/",
+     "kind": "PAC"
+    },
+    {
+     "name": "DEFENSE OF FREEDOM PAC",
+     "amount": 5000,
+     "committeeId": "C00749572",
+     "fecUrl": "https://www.fec.gov/data/committee/C00749572/",
+     "kind": "PAC"
+    }
+   ]
+  }
+ ]
+}

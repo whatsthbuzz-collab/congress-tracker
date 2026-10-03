@@ -2,6 +2,8 @@
  "id": "sc-sen-2026",
  "office": "U.S. Senate",
  "state": "South Carolina",
+ "title": null,
+ "label": null,
  "stateCode": "SC",
  "electionDate": "2026-11-03",
  "seatNote": "Sen. Lindsey Graham (R) died July 11. Gov. Henry McMaster appointed Darline Graham, his sister, to the seat; she won the Aug. 25 special primary runoff to seek a full term.",
@@ -18,6 +20,7 @@
    "stateProfile": null,
    "background": "Pediatrician who spent 15 years on the faculty of the Medical University of South Carolina; Democratic nominee for a U.S. House seat in 2022.",
    "backgroundSourceUrl": "https://ballotpedia.org/Annie_Andrews",
+   "campaignSiteUrl": "https://drannieandrews.com/platform/",
    "facts": [
     {
      "label": "Born",
@@ -28,7 +31,6 @@
      "value": "Pediatrician"
     }
    ],
-   "campaignSiteUrl": "https://drannieandrews.com/platform/",
    "incumbent": false,
    "financeUrl": "https://www.fec.gov/data/candidate/S6SC04239/",
    "finance": {
@@ -111,6 +113,7 @@
    "background": "Appointed to the Senate in July 2026 to fill the seat of her late brother, Sen. Lindsey Graham; her first elected office. Won the Aug. 25 special Republican primary runoff.",
    "backgroundSourceUrl": "https://ballotpedia.org/Darline_Graham",
    "financeNote": "Committee registered August 2026; its first FEC report is due Oct. 15, 2026.",
+   "campaignSiteUrl": "https://www.darlinegraham.com/#record",
    "facts": [
     {
      "label": "Profession",
@@ -121,7 +124,6 @@
      "value": "$174,000/yr"
     }
    ],
-   "campaignSiteUrl": "https://www.darlinegraham.com/#record",
    "incumbent": true,
    "financeUrl": null,
    "finance": {

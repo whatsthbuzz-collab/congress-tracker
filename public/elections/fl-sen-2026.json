@@ -1,0 +1,146 @@
+{
+ "id": "fl-sen-2026",
+ "office": "U.S. Senate",
+ "state": "Florida",
+ "title": null,
+ "label": null,
+ "stateCode": "FL",
+ "electionDate": "2026-11-03",
+ "seatNote": "Special election for the rest of Marco Rubio's term, through January 2029. Sen. Ashley Moody (R) was appointed in January 2025.",
+ "sourceUrl": "https://en.wikipedia.org/wiki/2026_United_States_Senate_special_election_in_Florida",
+ "candidates": [
+  {
+   "name": "Angie Nixon",
+   "party": "Democratic",
+   "fecId": "S6FL00830",
+   "committees": [
+    "C00915041"
+   ],
+   "currentOffice": "Florida State Representative",
+   "stateProfile": null,
+   "background": "Florida state representative from Jacksonville since 2020; won the August 18 Democratic primary over Alex Vindman.",
+   "backgroundSourceUrl": "https://en.wikipedia.org/wiki/Angie_Nixon",
+   "facts": [
+    {
+     "label": "Born",
+     "value": "Jacksonville, Florida"
+    },
+    {
+     "label": "Bachelor's",
+     "value": "University of Florida"
+    }
+   ],
+   "incumbent": false,
+   "financeUrl": "https://www.fec.gov/data/candidate/S6FL00830/",
+   "finance": {
+    "available": true,
+    "cycle": 2026,
+    "totalRaised": 974845,
+    "fromPacs": 0,
+    "fromIndividuals": 974845,
+    "pacPct": 0,
+    "individualPct": 100,
+    "cashOnHand": 264978,
+    "source": "OpenFEC API"
+   },
+   "topPacDonors": []
+  },
+  {
+   "name": "Ashley Moody",
+   "party": "Republican",
+   "fecId": "S6FL00640",
+   "committees": [
+    "C00895763"
+   ],
+   "currentOffice": "U.S. Senator, Florida (appointed)",
+   "stateProfile": null,
+   "background": "Appointed to the Senate in January 2025; Florida attorney general (2019-2025); previously a circuit court judge.",
+   "backgroundSourceUrl": "https://en.wikipedia.org/wiki/Ashley_Moody",
+   "facts": [
+    {
+     "label": "Born",
+     "value": "Plant City, Florida"
+    },
+    {
+     "label": "Education",
+     "value": "B.S., M.S., J.D., University of Florida; LL.M., Stetson"
+    },
+    {
+     "label": "Current office pay",
+     "value": "$174,000/yr"
+    }
+   ],
+   "incumbent": true,
+   "financeUrl": "https://www.fec.gov/data/candidate/S6FL00640/",
+   "finance": {
+    "available": true,
+    "cycle": 2026,
+    "totalRaised": 11259074,
+    "fromPacs": 2083000,
+    "fromIndividuals": 4941622,
+    "pacPct": 30,
+    "individualPct": 70,
+    "cashOnHand": 8482821,
+    "source": "OpenFEC API"
+   },
+   "topPacDonors": [
+    {
+     "name": "NRSC",
+     "amount": 62000,
+     "committeeId": "C00027466",
+     "fecUrl": "https://www.fec.gov/data/committee/C00027466/",
+     "kind": "party committee"
+    },
+    {
+     "name": "ELEVANCE HEALTH, INC. POLITICAL ACTION COMMITTEE (ELEVANCE HEALTH PAC)",
+     "amount": 12500,
+     "committeeId": "C00197228",
+     "fecUrl": "https://www.fec.gov/data/committee/C00197228/",
+     "kind": "corporate PAC"
+    },
+    {
+     "name": "WINE AND SPIRITS WHOLESALERS OF AMERICA, INC. PAC",
+     "amount": 10000,
+     "committeeId": "C00147173",
+     "fecUrl": "https://www.fec.gov/data/committee/C00147173/",
+     "kind": "trade assoc. PAC"
+    },
+    {
+     "name": "TOMORROW IS MEANINGFUL PAC",
+     "amount": 10000,
+     "committeeId": "C00495887",
+     "fecUrl": "https://www.fec.gov/data/committee/C00495887/",
+     "kind": "leadership PAC"
+    },
+    {
+     "name": "THE HAWKEYE PAC",
+     "amount": 10000,
+     "committeeId": "C00379479",
+     "fecUrl": "https://www.fec.gov/data/committee/C00379479/",
+     "kind": "leadership PAC"
+    },
+    {
+     "name": "STEER PAC",
+     "amount": 10000,
+     "committeeId": "C00762682",
+     "fecUrl": "https://www.fec.gov/data/committee/C00762682/",
+     "kind": "leadership PAC"
+    },
+    {
+     "name": "RESPONSIBILITY AND FREEDOM WORK PAC (RFWPAC)",
+     "amount": 10000,
+     "committeeId": "C00368696",
+     "fecUrl": "https://www.fec.gov/data/committee/C00368696/",
+     "kind": "leadership PAC"
+    },
+    {
+     "name": "PNC PAC",
+     "amount": 10000,
+     "committeeId": "C00186064",
+     "fecUrl": "https://www.fec.gov/data/committee/C00186064/",
+     "kind": "corporate PAC"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,197 @@
+{
+ "id": "nc-01-2026",
+ "office": "U.S. House",
+ "state": "North Carolina",
+ "title": "U.S. House, North Carolina's 1st District",
+ "label": "NC-01",
+ "stateCode": "NC",
+ "electionDate": "2026-11-03",
+ "seatNote": "Rematch of 2024. The district was redrawn in 2025 and now leans more Republican.",
+ "sourceUrl": "https://ncnewsline.com/2026/03/03/ager-wraps-up-dem-nomination-in-nc-11-buckhout-takes-nc-01-republican-primary/",
+ "candidates": [
+  {
+   "name": "Don Davis",
+   "party": "Democratic",
+   "fecId": "H2NC02287",
+   "committees": [
+    "C00795211"
+   ],
+   "currentOffice": "U.S. Representative, NC-01",
+   "stateProfile": null,
+   "background": "U.S. representative since 2023; U.S. Air Force veteran; former mayor of Snow Hill and North Carolina state senator.",
+   "backgroundSourceUrl": "https://www.witn.com/2026/03/04/buckhout-wins-primary-setting-up-fall-face-off-with-congressman-don-davis/",
+   "facts": [
+    {
+     "label": "Hometown",
+     "value": "Snow Hill, North Carolina"
+    },
+    {
+     "label": "Current office pay",
+     "value": "$174,000/yr"
+    }
+   ],
+   "incumbent": true,
+   "financeUrl": "https://www.fec.gov/data/candidate/H2NC02287/",
+   "finance": {
+    "available": true,
+    "cycle": 2026,
+    "totalRaised": 4287386,
+    "fromPacs": 1530112,
+    "fromIndividuals": 2211711,
+    "pacPct": 41,
+    "individualPct": 59,
+    "cashOnHand": 3570366,
+    "source": "OpenFEC API"
+   },
+   "topPacDonors": [
+    {
+     "name": "NEW DEMOCRAT COALITION ACTION FUND",
+     "amount": 66500,
+     "committeeId": "C00409730",
+     "fecUrl": "https://www.fec.gov/data/committee/C00409730/",
+     "kind": "PAC"
+    },
+    {
+     "name": "DCCC",
+     "amount": 28112,
+     "committeeId": "C00000935",
+     "fecUrl": "https://www.fec.gov/data/committee/C00000935/",
+     "kind": "party committee"
+    },
+    {
+     "name": "ACTBLUE",
+     "amount": 21500,
+     "committeeId": "C00401224",
+     "fecUrl": "https://www.fec.gov/data/committee/C00401224/",
+     "kind": "conduit - bundled individual donations"
+    },
+    {
+     "name": "THE FARM CREDIT COUNCIL POLITICAL ACTION COMMITTEE",
+     "amount": 15000,
+     "committeeId": "C00193631",
+     "fecUrl": "https://www.fec.gov/data/committee/C00193631/",
+     "kind": "trade assoc. PAC"
+    },
+    {
+     "name": "FAIR SHOT PAC",
+     "amount": 15000,
+     "committeeId": "C00574970",
+     "fecUrl": "https://www.fec.gov/data/committee/C00574970/",
+     "kind": "leadership PAC"
+    },
+    {
+     "name": "SAVE DEMOCRACY PAC",
+     "amount": 15000,
+     "committeeId": "C00884973",
+     "fecUrl": "https://www.fec.gov/data/committee/C00884973/",
+     "kind": "PAC"
+    },
+    {
+     "name": "AMERICAN ISRAEL PUBLIC AFFAIRS COMMITTEE POLITICAL ACTION COMMITTEE",
+     "amount": 15000,
+     "committeeId": "C00797670",
+     "fecUrl": "https://www.fec.gov/data/committee/C00797670/",
+     "kind": "membership org PAC"
+    },
+    {
+     "name": "DEMOCRATIC MAJORITY FUND",
+     "amount": 13000,
+     "committeeId": "C00844720",
+     "fecUrl": "https://www.fec.gov/data/committee/C00844720/",
+     "kind": "leadership PAC"
+    }
+   ]
+  },
+  {
+   "name": "Laurie Buckhout",
+   "party": "Republican",
+   "fecId": "H4NC01137",
+   "committees": [
+    "C00895037",
+    "C00853499",
+    "C00894485"
+   ],
+   "currentOffice": "Retired U.S. Army Colonel",
+   "stateProfile": null,
+   "background": "Retired Army colonel; Republican nominee for this seat in 2024; appointed acting assistant secretary of war for cyber policy.",
+   "backgroundSourceUrl": "https://www.witn.com/2026/03/04/buckhout-wins-primary-setting-up-fall-face-off-with-congressman-don-davis/",
+   "facts": [
+    {
+     "label": "Profession",
+     "value": "Retired Army officer"
+    }
+   ],
+   "incumbent": false,
+   "financeUrl": "https://www.fec.gov/data/candidate/H4NC01137/",
+   "finance": {
+    "available": true,
+    "cycle": 2026,
+    "totalRaised": 3793077,
+    "fromPacs": 351704,
+    "fromIndividuals": 557047,
+    "pacPct": 39,
+    "individualPct": 61,
+    "cashOnHand": 1823161,
+    "source": "OpenFEC API"
+   },
+   "topPacDonors": [
+    {
+     "name": "THE EYE OF THE TIGER POLITICAL ACTION COMMITTEE",
+     "amount": 25000,
+     "committeeId": "C00467431",
+     "fecUrl": "https://www.fec.gov/data/committee/C00467431/",
+     "kind": "leadership PAC"
+    },
+    {
+     "name": "GOP WINNING WOMEN 2026",
+     "amount": 15008,
+     "committeeId": "C00899633",
+     "fecUrl": "https://www.fec.gov/data/committee/C00899633/",
+     "kind": "joint fundraising"
+    },
+    {
+     "name": "KOCH, INC. POLITICAL ACTION COMMITTEE (KOCHPAC)",
+     "amount": 10000,
+     "committeeId": "C00236489",
+     "fecUrl": "https://www.fec.gov/data/committee/C00236489/",
+     "kind": "corporate PAC"
+    },
+    {
+     "name": "BUCKEYE LIBERTY POLITICAL ACTION COMMITTEE",
+     "amount": 10000,
+     "committeeId": "C00693796",
+     "fecUrl": "https://www.fec.gov/data/committee/C00693796/",
+     "kind": "leadership PAC"
+    },
+    {
+     "name": "SEAL PAC SUPPORTING ELECTING AMERICAN LEADERS PAC",
+     "amount": 10000,
+     "committeeId": "C00570226",
+     "fecUrl": "https://www.fec.gov/data/committee/C00570226/",
+     "kind": "PAC"
+    },
+    {
+     "name": "ELECTING MAJORITY MAKING EFFECTIVE REPUBLICANS PAC",
+     "amount": 10000,
+     "committeeId": "C00592089",
+     "fecUrl": "https://www.fec.gov/data/committee/C00592089/",
+     "kind": "leadership PAC"
+    },
+    {
+     "name": "VALUE IN ELECTING WOMEN POLITICAL ACTION COMMITTEE",
+     "amount": 10000,
+     "committeeId": "C00327189",
+     "fecUrl": "https://www.fec.gov/data/committee/C00327189/",
+     "kind": "PAC"
+    },
+    {
+     "name": "AMERICAN DREAM DELIVERED",
+     "amount": 5000,
+     "committeeId": "C00874362",
+     "fecUrl": "https://www.fec.gov/data/committee/C00874362/",
+     "kind": "leadership PAC"
+    }
+   ]
+  }
+ ]
+}
