@@ -776,6 +776,11 @@ a.comm-name:hover { color: var(--navy); text-decoration: underline; }
   margin: 0.9rem 0 -0.4rem; line-height: 1.4;
 }
 
+.finance-fineprint {
+  font-size: 0.75rem; color: var(--ink-2); line-height: 1.4;
+  margin: 0.6rem 0 0;
+}
+
 /* --- Find-your-legislators widget --- */
 .district-finder {
   margin: 0 0 1.6rem; padding: 1rem 1.1rem;

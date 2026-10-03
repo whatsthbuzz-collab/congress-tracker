@@ -97,6 +97,11 @@ function CandidateCard({ c, onOpenState }) {
           </>
         )}
       </div>
+      {f.available && (
+        <p className="finance-fineprint">
+          Cash on hand can include money carried over from previous campaigns, so it can exceed this cycle's total raised.
+        </p>
+      )}
 
       {c.topPacDonors?.length > 0 && (
         <div className="donor-list">
