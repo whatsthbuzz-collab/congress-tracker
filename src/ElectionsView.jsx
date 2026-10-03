@@ -199,7 +199,7 @@ export default function ElectionsView({ onOpenStateProfile }) {
       )}
       <div className="hero">
         <header className="masthead">
-          <p className="masthead-eyebrow">Upcoming Race &middot; Preview</p>
+          <p className="masthead-eyebrow">Upcoming Race</p>
           <h1 className="masthead-title">{race.title || `${race.office}, ${race.state}`}</h1>
           <p className="masthead-dek">
             Candidate facts, not recommendations. Party, background, and campaign
