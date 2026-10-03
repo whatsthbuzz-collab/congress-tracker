@@ -51,7 +51,27 @@
    },
    "topPacDonors": [],
    "outsideSpending": {
-    "available": false
+    "available": true,
+    "support": 711,
+    "oppose": 0,
+    "groups": [
+     {
+      "name": "DREAM DEFENDERS FIGHT PAC",
+      "support": 636,
+      "oppose": 0,
+      "committeeId": "C00728352",
+      "fecUrl": "https://www.fec.gov/data/committee/C00728352/",
+      "kind": "super PAC"
+     },
+     {
+      "name": "THE PEOPLE UNITED PAC",
+      "support": 75,
+      "oppose": 0,
+      "committeeId": "C00776419",
+      "fecUrl": "https://www.fec.gov/data/committee/C00776419/",
+      "kind": "super PAC"
+     }
+    ]
    }
   },
   {
@@ -157,7 +177,59 @@
     }
    ],
    "outsideSpending": {
-    "available": false
+    "available": true,
+    "support": 596527,
+    "oppose": 36025,
+    "groups": [
+     {
+      "name": "SLF PAC",
+      "support": 250000,
+      "oppose": 0,
+      "committeeId": "C00571703",
+      "fecUrl": "https://www.fec.gov/data/committee/C00571703/",
+      "kind": "super PAC"
+     },
+     {
+      "name": "SENATE CONSERVATIVES FUND",
+      "support": 204145,
+      "oppose": 0,
+      "committeeId": "C00448696",
+      "fecUrl": "https://www.fec.gov/data/committee/C00448696/",
+      "kind": "hybrid PAC"
+     },
+     {
+      "name": "SENATE CONSERVATIVES ACTION",
+      "support": 87232,
+      "oppose": 0,
+      "committeeId": "C00524181",
+      "fecUrl": "https://www.fec.gov/data/committee/C00524181/",
+      "kind": "super PAC"
+     },
+     {
+      "name": "LAW ENFORCEMENT FOR A SAFER AMERICA PAC",
+      "support": 55000,
+      "oppose": 0,
+      "committeeId": "C00681825",
+      "fecUrl": "https://www.fec.gov/data/committee/C00681825/",
+      "kind": "super PAC"
+     },
+     {
+      "name": "OUT OF THE SWAMP PAC",
+      "support": 0,
+      "oppose": 36025,
+      "committeeId": "C00920512",
+      "fecUrl": "https://www.fec.gov/data/committee/C00920512/",
+      "kind": "super PAC"
+     },
+     {
+      "name": "MOSHANGUSA FREE SPEECH",
+      "support": 150,
+      "oppose": 0,
+      "committeeId": "C00891473",
+      "fecUrl": "https://www.fec.gov/data/committee/C00891473/",
+      "kind": "PAC"
+     }
+    ]
    }
   }
  ]

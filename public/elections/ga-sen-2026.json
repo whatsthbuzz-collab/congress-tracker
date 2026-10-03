@@ -120,7 +120,72 @@
     }
    ],
    "outsideSpending": {
-    "available": false
+    "available": true,
+    "support": 6115679,
+    "oppose": 1032642,
+    "groups": [
+     {
+      "name": "WORKER POWER PAC",
+      "support": 784615,
+      "oppose": 0,
+      "committeeId": "C00756569",
+      "fecUrl": "https://www.fec.gov/data/committee/C00756569/",
+      "kind": "super PAC"
+     },
+     {
+      "name": "",
+      "support": 614128,
+      "oppose": 14842
+     },
+     {
+      "name": "WORKERS VOTE",
+      "support": 615225,
+      "oppose": 0,
+      "committeeId": "C00754051",
+      "fecUrl": "https://www.fec.gov/data/committee/C00754051/",
+      "kind": "super PAC"
+     },
+     {
+      "name": "BLACK VOTERS MATTER ACTION PAC",
+      "support": 560217,
+      "oppose": 0,
+      "committeeId": "C00753277",
+      "fecUrl": "https://www.fec.gov/data/committee/C00753277/",
+      "kind": "super PAC"
+     },
+     {
+      "name": "BLACKPAC",
+      "support": 395486,
+      "oppose": 0,
+      "committeeId": "C00609388",
+      "fecUrl": "https://www.fec.gov/data/committee/C00609388/",
+      "kind": "super PAC"
+     },
+     {
+      "name": "SLF PAC",
+      "support": 0,
+      "oppose": 313600,
+      "committeeId": "C00571703",
+      "fecUrl": "https://www.fec.gov/data/committee/C00571703/",
+      "kind": "super PAC"
+     },
+     {
+      "name": "ASIAN AMERICAN ADVOCACY FUND PAC",
+      "support": 304415,
+      "oppose": 0,
+      "committeeId": "C00739557",
+      "fecUrl": "https://www.fec.gov/data/committee/C00739557/",
+      "kind": "super PAC"
+     },
+     {
+      "name": "PLANNED PARENTHOOD VOTES",
+      "support": 290402,
+      "oppose": 0,
+      "committeeId": "C00489799",
+      "fecUrl": "https://www.fec.gov/data/committee/C00489799/",
+      "kind": "super PAC"
+     }
+    ]
    }
   },
   {
@@ -230,7 +295,75 @@
     }
    ],
    "outsideSpending": {
-    "available": false
+    "available": true,
+    "support": 476991,
+    "oppose": 853401,
+    "groups": [
+     {
+      "name": "GEORGIA VALUES",
+      "support": 0,
+      "oppose": 853401,
+      "committeeId": "C00951483",
+      "fecUrl": "https://www.fec.gov/data/committee/C00951483/",
+      "kind": "super PAC"
+     },
+     {
+      "name": "FELLOWSHIP PAC",
+      "support": 350000,
+      "oppose": 0,
+      "committeeId": "C00915181",
+      "fecUrl": "https://www.fec.gov/data/committee/C00915181/",
+      "kind": "super PAC"
+     },
+     {
+      "name": "SENATE CONSERVATIVES FUND",
+      "support": 60658,
+      "oppose": 0,
+      "committeeId": "C00448696",
+      "fecUrl": "https://www.fec.gov/data/committee/C00448696/",
+      "kind": "hybrid PAC"
+     },
+     {
+      "name": "CLUB FOR GROWTH ACTION",
+      "support": 30544,
+      "oppose": 0,
+      "committeeId": "C00487470",
+      "fecUrl": "https://www.fec.gov/data/committee/C00487470/",
+      "kind": "super PAC"
+     },
+     {
+      "name": "SENATE CONSERVATIVES ACTION",
+      "support": 19718,
+      "oppose": 0,
+      "committeeId": "C00524181",
+      "fecUrl": "https://www.fec.gov/data/committee/C00524181/",
+      "kind": "super PAC"
+     },
+     {
+      "name": "CLUB FOR GROWTH PAC",
+      "support": 14264,
+      "oppose": 0,
+      "committeeId": "C00432260",
+      "fecUrl": "https://www.fec.gov/data/committee/C00432260/",
+      "kind": "membership org PAC"
+     },
+     {
+      "name": "TURNING POINT PAC INC.",
+      "support": 1170,
+      "oppose": 0,
+      "committeeId": "C00814152",
+      "fecUrl": "https://www.fec.gov/data/committee/C00814152/",
+      "kind": "hybrid PAC"
+     },
+     {
+      "name": "RED SENATE",
+      "support": 637,
+      "oppose": 0,
+      "committeeId": "C00747121",
+      "fecUrl": "https://www.fec.gov/data/committee/C00747121/",
+      "kind": "super PAC"
+     }
+    ]
    }
   }
  ]

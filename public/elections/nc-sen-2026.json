@@ -116,7 +116,75 @@
     }
    ],
    "outsideSpending": {
-    "available": false
+    "available": true,
+    "support": 301185,
+    "oppose": 2353436,
+    "groups": [
+     {
+      "name": "AMERICANS FOR PROSPERITY ACTION, INC. (AFP ACTION) DBA CVA ACTION AND DBA LIBRE ACTION",
+      "support": 0,
+      "oppose": 1766545,
+      "committeeId": "C00687103",
+      "fecUrl": "https://www.fec.gov/data/committee/C00687103/",
+      "kind": "hybrid PAC"
+     },
+     {
+      "name": "SLF PAC",
+      "support": 0,
+      "oppose": 559552,
+      "committeeId": "C00571703",
+      "fecUrl": "https://www.fec.gov/data/committee/C00571703/",
+      "kind": "super PAC"
+     },
+     {
+      "name": "WORKERS VOTE",
+      "support": 166249,
+      "oppose": 0,
+      "committeeId": "C00754051",
+      "fecUrl": "https://www.fec.gov/data/committee/C00754051/",
+      "kind": "super PAC"
+     },
+     {
+      "name": "PROGRESSIVE TURNOUT PROJECT",
+      "support": 35941,
+      "oppose": 0,
+      "committeeId": "C00580068",
+      "fecUrl": "https://www.fec.gov/data/committee/C00580068/",
+      "kind": "hybrid PAC"
+     },
+     {
+      "name": "PLANNED PARENTHOOD VOTES NORTH CAROLINA",
+      "support": 29848,
+      "oppose": 0,
+      "committeeId": "C00887182",
+      "fecUrl": "https://www.fec.gov/data/committee/C00887182/",
+      "kind": "super PAC"
+     },
+     {
+      "name": "FORWARD BLUE",
+      "support": 26772,
+      "oppose": 0,
+      "committeeId": "C00835041",
+      "fecUrl": "https://www.fec.gov/data/committee/C00835041/",
+      "kind": "super PAC"
+     },
+     {
+      "name": "CATHOLICVOTE.ORG",
+      "support": 0,
+      "oppose": 17939,
+      "committeeId": "C90011800",
+      "fecUrl": "https://www.fec.gov/data/committee/C90011800/",
+      "kind": "PAC"
+     },
+     {
+      "name": "MODSQUAD ACTION",
+      "support": 15000,
+      "oppose": 0,
+      "committeeId": "C90023284",
+      "fecUrl": "https://www.fec.gov/data/committee/C90023284/",
+      "kind": "PAC"
+     }
+    ]
    }
   },
   {
@@ -227,7 +295,59 @@
     }
    ],
    "outsideSpending": {
-    "available": false
+    "available": true,
+    "support": 5026973,
+    "oppose": 8776174,
+    "groups": [
+     {
+      "name": "WINSENATE",
+      "support": 0,
+      "oppose": 8776153,
+      "committeeId": "C00865444",
+      "fecUrl": "https://www.fec.gov/data/committee/C00865444/",
+      "kind": "super PAC"
+     },
+     {
+      "name": "AMERICANS FOR PROSPERITY ACTION, INC. (AFP ACTION) DBA CVA ACTION AND DBA LIBRE ACTION",
+      "support": 4367543,
+      "oppose": 0,
+      "committeeId": "C00687103",
+      "fecUrl": "https://www.fec.gov/data/committee/C00687103/",
+      "kind": "hybrid PAC"
+     },
+     {
+      "name": "SLF PAC",
+      "support": 657773,
+      "oppose": 0,
+      "committeeId": "C00571703",
+      "fecUrl": "https://www.fec.gov/data/committee/C00571703/",
+      "kind": "super PAC"
+     },
+     {
+      "name": "RED SENATE",
+      "support": 1652,
+      "oppose": 0,
+      "committeeId": "C00747121",
+      "fecUrl": "https://www.fec.gov/data/committee/C00747121/",
+      "kind": "super PAC"
+     },
+     {
+      "name": "SIERRA CLUB POLITICAL COMMITTEE",
+      "support": 0,
+      "oppose": 22,
+      "committeeId": "C00135368",
+      "fecUrl": "https://www.fec.gov/data/committee/C00135368/",
+      "kind": "membership org PAC"
+     },
+     {
+      "name": "SENATE CONSERVATIVES FUND",
+      "support": 5,
+      "oppose": 0,
+      "committeeId": "C00448696",
+      "fecUrl": "https://www.fec.gov/data/committee/C00448696/",
+      "kind": "hybrid PAC"
+     }
+    ]
    }
   }
  ]

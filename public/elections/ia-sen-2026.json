@@ -104,7 +104,75 @@
     }
    ],
    "outsideSpending": {
-    "available": false
+    "available": true,
+    "support": 9795781,
+    "oppose": 213032,
+    "groups": [
+     {
+      "name": "VOTEVETS",
+      "support": 9756436,
+      "oppose": 0,
+      "committeeId": "C00418897",
+      "fecUrl": "https://www.fec.gov/data/committee/C00418897/",
+      "kind": "hybrid PAC"
+     },
+     {
+      "name": "AMERICANS FOR PROSPERITY ACTION, INC. (AFP ACTION) DBA CVA ACTION AND DBA LIBRE ACTION",
+      "support": 0,
+      "oppose": 201866,
+      "committeeId": "C00687103",
+      "fecUrl": "https://www.fec.gov/data/committee/C00687103/",
+      "kind": "hybrid PAC"
+     },
+     {
+      "name": "DEMOCRATS FIGHT BACK PAC",
+      "support": 17199,
+      "oppose": 0,
+      "committeeId": "C00951376",
+      "fecUrl": "https://www.fec.gov/data/committee/C00951376/",
+      "kind": "super PAC"
+     },
+     {
+      "name": "SLF PAC",
+      "support": 0,
+      "oppose": 11166,
+      "committeeId": "C00571703",
+      "fecUrl": "https://www.fec.gov/data/committee/C00571703/",
+      "kind": "super PAC"
+     },
+     {
+      "name": "FIELD TEAM 6, INC.",
+      "support": 5007,
+      "oppose": 0,
+      "committeeId": "C00909994",
+      "fecUrl": "https://www.fec.gov/data/committee/C00909994/",
+      "kind": "super PAC"
+     },
+     {
+      "name": "BLUE SHIFT PAC",
+      "support": 4596,
+      "oppose": 0,
+      "committeeId": "C00933614",
+      "fecUrl": "https://www.fec.gov/data/committee/C00933614/",
+      "kind": "super PAC"
+     },
+     {
+      "name": "MAJORITY BLUE PAC",
+      "support": 3678,
+      "oppose": 0,
+      "committeeId": "C00948000",
+      "fecUrl": "https://www.fec.gov/data/committee/C00948000/",
+      "kind": "super PAC"
+     },
+     {
+      "name": "BLUE MAJORITY MAKERS PAC",
+      "support": 3023,
+      "oppose": 0,
+      "committeeId": "C00948109",
+      "fecUrl": "https://www.fec.gov/data/committee/C00948109/",
+      "kind": "super PAC"
+     }
+    ]
    }
   },
   {
@@ -206,7 +274,59 @@
     }
    ],
    "outsideSpending": {
-    "available": false
+    "available": true,
+    "support": 4319927,
+    "oppose": 3839914,
+    "groups": [
+     {
+      "name": "AMERICANS FOR PROSPERITY ACTION, INC. (AFP ACTION) DBA CVA ACTION AND DBA LIBRE ACTION",
+      "support": 3449905,
+      "oppose": 0,
+      "committeeId": "C00687103",
+      "fecUrl": "https://www.fec.gov/data/committee/C00687103/",
+      "kind": "hybrid PAC"
+     },
+     {
+      "name": "AB PAC",
+      "support": 0,
+      "oppose": 2053497,
+      "committeeId": "C00492140",
+      "fecUrl": "https://www.fec.gov/data/committee/C00492140/",
+      "kind": "hybrid PAC"
+     },
+     {
+      "name": "WINSENATE",
+      "support": 0,
+      "oppose": 1786417,
+      "committeeId": "C00865444",
+      "fecUrl": "https://www.fec.gov/data/committee/C00865444/",
+      "kind": "super PAC"
+     },
+     {
+      "name": "SLF PAC",
+      "support": 643424,
+      "oppose": 0,
+      "committeeId": "C00571703",
+      "fecUrl": "https://www.fec.gov/data/committee/C00571703/",
+      "kind": "super PAC"
+     },
+     {
+      "name": "CLEARPATH ACTION FUND, INC.",
+      "support": 215921,
+      "oppose": 0,
+      "committeeId": "C00608943",
+      "fecUrl": "https://www.fec.gov/data/committee/C00608943/",
+      "kind": "super PAC"
+     },
+     {
+      "name": "MISSION IOWA",
+      "support": 10677,
+      "oppose": 0,
+      "committeeId": "C00874370",
+      "fecUrl": "https://www.fec.gov/data/committee/C00874370/",
+      "kind": "super PAC"
+     }
+    ]
    }
   }
  ]

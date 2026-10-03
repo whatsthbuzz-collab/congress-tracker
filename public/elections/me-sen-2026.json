@@ -40,7 +40,59 @@
    },
    "topPacDonors": [],
    "outsideSpending": {
-    "available": false
+    "available": true,
+    "support": 1735670,
+    "oppose": 0,
+    "groups": [
+     {
+      "name": "GOVERNMENT THAT WORKS PAC",
+      "support": 1647245,
+      "oppose": 0,
+      "committeeId": "C00915595",
+      "fecUrl": "https://www.fec.gov/data/committee/C00915595/",
+      "kind": "hybrid PAC"
+     },
+     {
+      "name": "AFSCME WORKING FAMILIES FUND",
+      "support": 87882,
+      "oppose": 0,
+      "committeeId": "C90011172",
+      "fecUrl": "https://www.fec.gov/data/committee/C90011172/",
+      "kind": "PAC"
+     },
+     {
+      "name": "DEMOCRATS FIGHT BACK PAC",
+      "support": 270,
+      "oppose": 0,
+      "committeeId": "C00951376",
+      "fecUrl": "https://www.fec.gov/data/committee/C00951376/",
+      "kind": "super PAC"
+     },
+     {
+      "name": "ACTIVATE AMERICA",
+      "support": 149,
+      "oppose": 0,
+      "committeeId": "C00640300",
+      "fecUrl": "https://www.fec.gov/data/committee/C00640300/",
+      "kind": "super PAC"
+     },
+     {
+      "name": "THE PEOPLE UNITED PAC",
+      "support": 75,
+      "oppose": 0,
+      "committeeId": "C00776419",
+      "fecUrl": "https://www.fec.gov/data/committee/C00776419/",
+      "kind": "super PAC"
+     },
+     {
+      "name": "GIVEGREEN UNITED ACTION",
+      "support": 50,
+      "oppose": 0,
+      "committeeId": "C00802389",
+      "fecUrl": "https://www.fec.gov/data/committee/C00802389/",
+      "kind": "super PAC"
+     }
+    ]
    }
   },
   {
@@ -146,7 +198,72 @@
     }
    ],
    "outsideSpending": {
-    "available": false
+    "available": true,
+    "support": 2861624,
+    "oppose": 1439671,
+    "groups": [
+     {
+      "name": "PLANNED PARENTHOOD VOTES",
+      "support": 0,
+      "oppose": 759345,
+      "committeeId": "C00489799",
+      "fecUrl": "https://www.fec.gov/data/committee/C00489799/",
+      "kind": "super PAC"
+     },
+     {
+      "name": "LEAD MAINE COMMITTEE, INC.",
+      "support": 638224,
+      "oppose": 0,
+      "committeeId": "C00946921",
+      "fecUrl": "https://www.fec.gov/data/committee/C00946921/",
+      "kind": "super PAC"
+     },
+     {
+      "name": "SLF PAC",
+      "support": 625939,
+      "oppose": 0,
+      "committeeId": "C00571703",
+      "fecUrl": "https://www.fec.gov/data/committee/C00571703/",
+      "kind": "super PAC"
+     },
+     {
+      "name": "CLEARPATH ACTION FUND, INC.",
+      "support": 616449,
+      "oppose": 0,
+      "committeeId": "C00608943",
+      "fecUrl": "https://www.fec.gov/data/committee/C00608943/",
+      "kind": "super PAC"
+     },
+     {
+      "name": "STRONGER MAINE",
+      "support": 539036,
+      "oppose": 0,
+      "committeeId": "C00922294",
+      "fecUrl": "https://www.fec.gov/data/committee/C00922294/",
+      "kind": "super PAC"
+     },
+     {
+      "name": "",
+      "support": 377623,
+      "oppose": 8333
+     },
+     {
+      "name": "GOVERNMENT THAT WORKS PAC",
+      "support": 0,
+      "oppose": 350959,
+      "committeeId": "C00915595",
+      "fecUrl": "https://www.fec.gov/data/committee/C00915595/",
+      "kind": "hybrid PAC"
+     },
+     {
+      "name": "REPRODUCTIVE FREEDOM FOR ALL FREEDOM FUND",
+      "support": 0,
+      "oppose": 169520,
+      "committeeId": "C00738674",
+      "fecUrl": "https://www.fec.gov/data/committee/C00738674/",
+      "kind": "super PAC"
+     }
+    ]
    }
   }
  ]

@@ -108,7 +108,27 @@
     }
    ],
    "outsideSpending": {
-    "available": false
+    "available": true,
+    "support": 160,
+    "oppose": 140756,
+    "groups": [
+     {
+      "name": "SECURITY IS STRENGTH PAC",
+      "support": 0,
+      "oppose": 140756,
+      "committeeId": "C00573733",
+      "fecUrl": "https://www.fec.gov/data/committee/C00573733/",
+      "kind": "super PAC"
+     },
+     {
+      "name": "GIVEGREEN UNITED ACTION",
+      "support": 160,
+      "oppose": 0,
+      "committeeId": "C00802389",
+      "fecUrl": "https://www.fec.gov/data/committee/C00802389/",
+      "kind": "super PAC"
+     }
+    ]
    }
   },
   {

@@ -77,7 +77,10 @@
     }
    ],
    "outsideSpending": {
-    "available": false
+    "available": true,
+    "support": 0,
+    "oppose": 0,
+    "groups": []
    }
   },
   {
@@ -184,7 +187,35 @@
     }
    ],
    "outsideSpending": {
-    "available": false
+    "available": true,
+    "support": 250127,
+    "oppose": 612,
+    "groups": [
+     {
+      "name": "SENATE CONSERVATIVES FUND",
+      "support": 204230,
+      "oppose": 0,
+      "committeeId": "C00448696",
+      "fecUrl": "https://www.fec.gov/data/committee/C00448696/",
+      "kind": "hybrid PAC"
+     },
+     {
+      "name": "SENATE CONSERVATIVES ACTION",
+      "support": 45897,
+      "oppose": 0,
+      "committeeId": "C00524181",
+      "fecUrl": "https://www.fec.gov/data/committee/C00524181/",
+      "kind": "super PAC"
+     },
+     {
+      "name": "REALLY AMERICAN PAC",
+      "support": 0,
+      "oppose": 612,
+      "committeeId": "C00748582",
+      "fecUrl": "https://www.fec.gov/data/committee/C00748582/",
+      "kind": "super PAC"
+     }
+    ]
    }
   }
  ]

@@ -116,7 +116,75 @@
     }
    ],
    "outsideSpending": {
-    "available": false
+    "available": true,
+    "support": 2385774,
+    "oppose": 20590775,
+    "groups": [
+     {
+      "name": "UNITED DEMOCRACY PROJECT ('UDP')",
+      "support": 0,
+      "oppose": 20140909,
+      "committeeId": "C00799031",
+      "fecUrl": "https://www.fec.gov/data/committee/C00799031/",
+      "kind": "super PAC"
+     },
+     {
+      "name": "FIGHTING FOR MICHIGAN PAC",
+      "support": 1134116,
+      "oppose": 0,
+      "committeeId": "C00919373",
+      "fecUrl": "https://www.fec.gov/data/committee/C00919373/",
+      "kind": "super PAC"
+     },
+     {
+      "name": "NATIONAL NURSES UNITED FOR PATIENT PROTECTION",
+      "support": 489665,
+      "oppose": 0,
+      "committeeId": "C00490375",
+      "fecUrl": "https://www.fec.gov/data/committee/C00490375/",
+      "kind": "super PAC"
+     },
+     {
+      "name": "AMERICANS FOR PROSPERITY ACTION, INC. (AFP ACTION) DBA CVA ACTION AND DBA LIBRE ACTION",
+      "support": 0,
+      "oppose": 299866,
+      "committeeId": "C00687103",
+      "fecUrl": "https://www.fec.gov/data/committee/C00687103/",
+      "kind": "hybrid PAC"
+     },
+     {
+      "name": "COMMON DEFENSE ACTION FUND",
+      "support": 289665,
+      "oppose": 0,
+      "committeeId": "C00620021",
+      "fecUrl": "https://www.fec.gov/data/committee/C00620021/",
+      "kind": "hybrid PAC"
+     },
+     {
+      "name": "WORKING FAMILIES PARTY PAC",
+      "support": 159233,
+      "oppose": 0,
+      "committeeId": "C00606962",
+      "fecUrl": "https://www.fec.gov/data/committee/C00606962/",
+      "kind": "hybrid PAC"
+     },
+     {
+      "name": "AMERICAN PRIORITIES (AP)",
+      "support": 154028,
+      "oppose": 0,
+      "committeeId": "C00932723",
+      "fecUrl": "https://www.fec.gov/data/committee/C00932723/",
+      "kind": "super PAC"
+     },
+     {
+      "name": "A STRONGER MICHIGAN",
+      "support": 0,
+      "oppose": 150000,
+      "committeeId": "C00952259",
+      "fecUrl": "https://www.fec.gov/data/committee/C00952259/",
+      "kind": "super PAC"
+     }
+    ]
    }
   },
   {
@@ -223,7 +291,75 @@
     }
    ],
    "outsideSpending": {
-    "available": false
+    "available": true,
+    "support": 37951315,
+    "oppose": 45532284,
+    "groups": [
+     {
+      "name": "WINSENATE",
+      "support": 0,
+      "oppose": 23009793,
+      "committeeId": "C00865444",
+      "fecUrl": "https://www.fec.gov/data/committee/C00865444/",
+      "kind": "super PAC"
+     },
+     {
+      "name": "GLCF, INC.",
+      "support": 20025476,
+      "oppose": 0,
+      "committeeId": "C00853861",
+      "fecUrl": "https://www.fec.gov/data/committee/C00853861/",
+      "kind": "super PAC"
+     },
+     {
+      "name": "AMERICANS FOR PROSPERITY ACTION, INC. (AFP ACTION) DBA CVA ACTION AND DBA LIBRE ACTION",
+      "support": 13113296,
+      "oppose": 0,
+      "committeeId": "C00687103",
+      "fecUrl": "https://www.fec.gov/data/committee/C00687103/",
+      "kind": "hybrid PAC"
+     },
+     {
+      "name": "DSCC",
+      "support": 0,
+      "oppose": 12332947,
+      "committeeId": "C00042366",
+      "fecUrl": "https://www.fec.gov/data/committee/C00042366/",
+      "kind": "party committee"
+     },
+     {
+      "name": "EDF ACTION VOTES",
+      "support": 0,
+      "oppose": 3211027,
+      "committeeId": "C00707844",
+      "fecUrl": "https://www.fec.gov/data/committee/C00707844/",
+      "kind": "super PAC"
+     },
+     {
+      "name": "THE SENTINEL ACTION FUND",
+      "support": 1879980,
+      "oppose": 0,
+      "committeeId": "C00811166",
+      "fecUrl": "https://www.fec.gov/data/committee/C00811166/",
+      "kind": "super PAC"
+     },
+     {
+      "name": "LCV VICTORY FUND",
+      "support": 0,
+      "oppose": 1265338,
+      "committeeId": "C00486845",
+      "fecUrl": "https://www.fec.gov/data/committee/C00486845/",
+      "kind": "super PAC"
+     },
+     {
+      "name": "PROTECT FREEDOM POLITICAL ACTION COMMITTEE",
+      "support": 0,
+      "oppose": 1131440,
+      "committeeId": "C00657866",
+      "fecUrl": "https://www.fec.gov/data/committee/C00657866/",
+      "kind": "super PAC"
+     }
+    ]
    }
   }
  ]

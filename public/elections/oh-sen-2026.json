@@ -108,7 +108,75 @@
     }
    ],
    "outsideSpending": {
-    "available": false
+    "available": true,
+    "support": 24335262,
+    "oppose": 118935753,
+    "groups": [
+     {
+      "name": "SLF PAC",
+      "support": 0,
+      "oppose": 64100138,
+      "committeeId": "C00571703",
+      "fecUrl": "https://www.fec.gov/data/committee/C00571703/",
+      "kind": "super PAC"
+     },
+     {
+      "name": "AMERICAN CROSSROADS",
+      "support": 0,
+      "oppose": 31103341,
+      "committeeId": "C00487363",
+      "fecUrl": "https://www.fec.gov/data/committee/C00487363/",
+      "kind": "super PAC"
+     },
+     {
+      "name": "AMERICANS FOR PROSPERITY ACTION, INC. (AFP ACTION) DBA CVA ACTION AND DBA LIBRE ACTION",
+      "support": 0,
+      "oppose": 9291239,
+      "committeeId": "C00687103",
+      "fecUrl": "https://www.fec.gov/data/committee/C00687103/",
+      "kind": "hybrid PAC"
+     },
+     {
+      "name": "BUCKEYE VALUES PAC",
+      "support": 0,
+      "oppose": 8731372,
+      "committeeId": "C00834630",
+      "fecUrl": "https://www.fec.gov/data/committee/C00834630/",
+      "kind": "super PAC"
+     },
+     {
+      "name": "WINSENATE",
+      "support": 7061803,
+      "oppose": 0,
+      "committeeId": "C00865444",
+      "fecUrl": "https://www.fec.gov/data/committee/C00865444/",
+      "kind": "super PAC"
+     },
+     {
+      "name": "NATIONAL ASSOCIATION OF REALTORS CONGRESSIONAL FUND",
+      "support": 2394002,
+      "oppose": 0,
+      "committeeId": "C00488742",
+      "fecUrl": "https://www.fec.gov/data/committee/C00488742/",
+      "kind": "super PAC"
+     },
+     {
+      "name": "BLACKPAC",
+      "support": 2326735,
+      "oppose": 0,
+      "committeeId": "C00609388",
+      "fecUrl": "https://www.fec.gov/data/committee/C00609388/",
+      "kind": "super PAC"
+     },
+     {
+      "name": "NEW AMERICAN JOBS FUND",
+      "support": 2196485,
+      "oppose": 0,
+      "committeeId": "C00625533",
+      "fecUrl": "https://www.fec.gov/data/committee/C00625533/",
+      "kind": "super PAC"
+     }
+    ]
    }
   },
   {
@@ -215,7 +283,75 @@
     }
    ],
    "outsideSpending": {
-    "available": false
+    "available": true,
+    "support": 4593041,
+    "oppose": 1029433,
+    "groups": [
+     {
+      "name": "AMERICANS FOR PROSPERITY ACTION, INC. (AFP ACTION) DBA CVA ACTION AND DBA LIBRE ACTION",
+      "support": 3632210,
+      "oppose": 0,
+      "committeeId": "C00687103",
+      "fecUrl": "https://www.fec.gov/data/committee/C00687103/",
+      "kind": "hybrid PAC"
+     },
+     {
+      "name": "AFSCME WORKING FAMILIES FUND",
+      "support": 0,
+      "oppose": 1000000,
+      "committeeId": "C90011172",
+      "fecUrl": "https://www.fec.gov/data/committee/C90011172/",
+      "kind": "PAC"
+     },
+     {
+      "name": "SLF PAC",
+      "support": 617776,
+      "oppose": 0,
+      "committeeId": "C00571703",
+      "fecUrl": "https://www.fec.gov/data/committee/C00571703/",
+      "kind": "super PAC"
+     },
+     {
+      "name": "WIN IT BACK PAC",
+      "support": 250341,
+      "oppose": 0,
+      "committeeId": "C00844613",
+      "fecUrl": "https://www.fec.gov/data/committee/C00844613/",
+      "kind": "super PAC"
+     },
+     {
+      "name": "CLEARPATH ACTION FUND, INC.",
+      "support": 92660,
+      "oppose": 0,
+      "committeeId": "C00608943",
+      "fecUrl": "https://www.fec.gov/data/committee/C00608943/",
+      "kind": "super PAC"
+     },
+     {
+      "name": "INDIVISIBLE ACTION",
+      "support": 0,
+      "oppose": 15476,
+      "committeeId": "C00678839",
+      "fecUrl": "https://www.fec.gov/data/committee/C00678839/",
+      "kind": "hybrid PAC"
+     },
+     {
+      "name": "ACTIVATE AMERICA",
+      "support": 55,
+      "oppose": 6559,
+      "committeeId": "C00640300",
+      "fecUrl": "https://www.fec.gov/data/committee/C00640300/",
+      "kind": "super PAC"
+     },
+     {
+      "name": "WINSENATE",
+      "support": 0,
+      "oppose": 5625,
+      "committeeId": "C00865444",
+      "fecUrl": "https://www.fec.gov/data/committee/C00865444/",
+      "kind": "super PAC"
+     }
+    ]
    }
   }
  ]
