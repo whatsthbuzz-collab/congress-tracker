@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-03T14:22:44.027042+00:00",
+  "lastUpdated": "2026-10-03T16:21:42.675919+00:00",
   "totalMembers": 539,
   "billsIncluded": true,
   "financeIncluded": true,
@@ -23307,9 +23307,7 @@
           "policyArea": "Congress",
           "role": "sponsor",
           "source": "Congress.gov API",
-          "sourceUrl": "https://www.congress.gov/bill/118th-congress/hres/1292",
-          "summary": "This resolution supports the need for and use of certain policy frameworks to incorporate the experiences of Black women into public policies.",
-          "summarySource": "CRS via Congress.gov"
+          "sourceUrl": "https://www.congress.gov/bill/118th-congress/hres/1292"
         },
         {
           "billNumber": "HR 4791",
@@ -47825,9 +47823,7 @@
           "policyArea": "Civil Rights and Liberties, Minority Issues",
           "role": "sponsor",
           "source": "Congress.gov API",
-          "sourceUrl": "https://www.congress.gov/bill/119th-congress/hres/549",
-          "summary": "This resolution expresses support for (1) equal rights and protections for all people, regardless of actual or perceived sexual orientation, gender identity, or sex characteristics;",
-          "summarySource": "CRS via Congress.gov"
+          "sourceUrl": "https://www.congress.gov/bill/119th-congress/hres/549"
         },
         {
           "billNumber": "HR 2421",
@@ -67420,9 +67416,7 @@
           "policyArea": "Civil Rights and Liberties, Minority Issues",
           "role": "sponsor",
           "source": "Congress.gov API",
-          "sourceUrl": "https://www.congress.gov/bill/119th-congress/hres/1292",
-          "summary": "This resolution supports the need for and use of certain policy frameworks to incorporate the experiences of Black women into public policies.",
-          "summarySource": "CRS via Congress.gov"
+          "sourceUrl": "https://www.congress.gov/bill/119th-congress/hres/1292"
         },
         {
           "billNumber": "HR 8645",
@@ -91083,9 +91077,7 @@
           "policyArea": "Civil Rights and Liberties, Minority Issues",
           "role": "sponsor",
           "source": "Congress.gov API",
-          "sourceUrl": "https://www.congress.gov/bill/119th-congress/hconres/112",
-          "summary": "This concurrent resolution recognizes that people with disabilities experience barriers to access every day and pledges to make universal and inclusive design a guiding principle for all infrastructure bills and projects.",
-          "summarySource": "CRS via Congress.gov"
+          "sourceUrl": "https://www.congress.gov/bill/119th-congress/hconres/112"
         },
         {
           "billNumber": "HR 9467",
