@@ -729,8 +729,10 @@ def fetch_outside_spending(fetcher: FECFetcher, fec_id: str, office: str,
         return {"available": False}
     rows: List[Dict[str, Any]] = []
     for page in range(1, 11):
+        # No "office" filter: the FEC then also requires "state" (and
+        # "district" for House), and the candidate ID already pins the race.
         data = fetcher._get("/schedules/schedule_e/by_candidate/", {
-            "candidate_id": fec_id, "cycle": current_cycle(), "office": office,
+            "candidate_id": fec_id, "cycle": current_cycle(),
             "per_page": 100, "page": page, "sort": "-total"})
         if data is None:
             return {"available": False}

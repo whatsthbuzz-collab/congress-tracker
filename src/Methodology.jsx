@@ -69,8 +69,12 @@ export default function Methodology({ onClose }) {
           "Members reporting $0 from PACs" counts members whose filings show
           exactly zero dollars in such contributions, computed from raw dollar
           amounts, never from rounded percentages. Percentages shown on member
-          cards are the PAC-versus-individual split of itemized contributions
-          and are rounded to whole numbers.
+          profiles, member cards and the table ("PAC share"), and elections
+          cards are the share of contributions that came
+          from PACs and party committees rather than individuals (small
+          unitemized donations included), rounded to whole numbers; a share
+          that rounds to zero shows as &ldquo;&lt;1%&rdquo; when any PAC money was
+          received.
         </p>
 
         <h3>Stock trade disclosures</h3>

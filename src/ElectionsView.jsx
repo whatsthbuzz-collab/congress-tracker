@@ -133,7 +133,7 @@ function CandidateCard({ c, onOpenState }) {
           <>
             <div className="finance-stat">
               <span className="finance-num">{pacPctLabel(f)}</span>
-              <span className="finance-label">from PACs</span>
+              <span className="finance-label">of contributions from PACs</span>
             </div>
             <div className="finance-stat">
               <span className="finance-num">{fmtMoney(f.cashOnHand)}</span>

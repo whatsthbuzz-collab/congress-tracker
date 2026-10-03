@@ -225,7 +225,7 @@ async function renderShareCard(m, theme) {
     [String(m.termsServed ?? 'n/a'), m.termsServed === 1 ? 'term' : 'terms'],
     [m.nextElection || 'n/a', 'on ballot'],
     [m.voting?.partyLinePct != null ? `${m.voting.partyLinePct}%` : 'n/a', 'party line'],
-    [pacPctLabel(m.finance), 'PAC money'],
+    [pacPctLabel(m.finance), 'PAC share'],
   ];
   const colW = (W - tx - 60) / 4;
   stats.forEach(([n, l], i) => {
@@ -403,7 +403,7 @@ function MemberCard({ member, onOpen, index = 0, onCompare, inCompare }) {
         </div>
         <div className="mstat">
           <span className="mstat-num">{pacPctLabel(m.finance)}</span>
-          <span className="mstat-label">PAC money</span>
+          <span className="mstat-label">PAC share</span>
           {pac != null && (
             <span className="mini-bar" aria-hidden="true">
               <span
@@ -555,7 +555,7 @@ function MemberProfile({ member: m, onClose, onCompare, inCompare, allMembers = 
           {m.finance?.pacPct != null && (
             <div className="finance-stat">
               <span className="finance-num">{pacPctLabel(m.finance)}</span>
-              <span className="finance-label">of money from PACs</span>
+              <span className="finance-label">of contributions from PACs</span>
             </div>
           )}
         </div>
@@ -781,141 +781,6 @@ function MemberProfile({ member: m, onClose, onCompare, inCompare, allMembers = 
   );
 }
 
-
-// "How well do you know Congress?", a short quiz generated from the live
-// data. It tests the reader's *knowledge of the record*, never ranks members,
-// and every answer reveals the sourced fact. Questions are built fresh each
-// time from a random sample so it stays interesting.
-function CongressQuiz({ data, onOpenProfile }) {
-  const [open, setOpen] = useState(false);
-  const [qs, setQs] = useState([]);
-  const [i, setI] = useState(0);
-  const [picked, setPicked] = useState(null);
-  const [score, setScore] = useState(0);
-
-  const pick = (arr, n) => [...arr].sort(() => Math.random() - 0.5).slice(0, n);
-
-  const build = () => {
-    const pool = data.filter((m) => m.name && m.party);
-    const withPL = pool.filter((m) => m.voting?.partyLinePct != null);
-    const withPac = pool.filter((m) => m.finance?.pacPct != null);
-    const out = [];
-
-    // Q type 1: which state does X represent?
-    for (const m of pick(pool, 2)) {
-      const wrong = pick([...new Set(pool.map((x) => x.state))].filter((st) => st !== m.state), 3);
-      out.push({ kind: 'state', m, prompt: `Which state does ${m.name} represent?`,
-        options: pick([m.state, ...wrong], 4), answer: m.state,
-        reveal: `${m.name} represents ${m.state} in the ${m.chamber}.` });
-    }
-    // Q type 2: who has served longer?
-    const [a, b] = pick(pool.filter((m) => m.termsServed), 2);
-    if (a && b && a.termsServed !== b.termsServed) {
-      const w = a.termsServed > b.termsServed ? a : b; const l = w === a ? b : a;
-      out.push({ kind: 'tenure', m: w, prompt: 'Who has served more terms in Congress?',
-        options: [a.name, b.name], answer: w.name,
-        reveal: `${w.name}: ${w.termsServed} terms (since ${w.firstYearServed}). ${l.name}: ${l.termsServed} (since ${l.firstYearServed}).` });
-    }
-    // Q type 3: party-line guess (bucketed)
-    if (withPL.length) {
-      const m = pick(withPL, 1)[0];
-      const v = m.voting.partyLinePct;
-      const bucket = v >= 95 ? '95–100%' : v >= 85 ? '85–94%' : v >= 70 ? '70–84%' : 'Under 70%';
-      out.push({ kind: 'pl', m, prompt: `How often does ${m.name} vote with their party on roll-call votes?`,
-        options: ['Under 70%', '70–84%', '85–94%', '95–100%'], answer: bucket,
-        reveal: `${m.name} voted with the ${m.party} majority ${v}% of the time across the last ${m.voting.votesTotal} ${m.voting.chamberScope || m.chamber} roll calls.` });
-    }
-    // Q type 4: PAC share guess
-    if (withPac.length) {
-      const m = pick(withPac, 1)[0];
-      const v = m.finance.pacPct;
-      const bucket = v >= 50 ? 'Half or more' : v >= 25 ? 'About a quarter to half' : v > 0 ? 'Some, under a quarter' : 'None';
-      out.push({ kind: 'pac', m, prompt: `How much of ${m.name}'s campaign money comes from PACs?`,
-        options: ['None', 'Some, under a quarter', 'About a quarter to half', 'Half or more'], answer: bucket,
-        reveal: `${v}% of ${m.name}'s ${m.finance.financeCycle || ''} cycle money came from PACs (${fmtMoney(m.finance.fromPacs)} of ${fmtMoney(m.finance.totalRaised)} raised).` });
-    }
-    // Q type 4b: who is older?
-    const withAge = pool.filter((m) => ageOf(m.birthday) != null);
-    const [p1, p2] = pick(withAge, 2);
-    if (p1 && p2 && ageOf(p1.birthday) !== ageOf(p2.birthday)) {
-      const older = ageOf(p1.birthday) > ageOf(p2.birthday) ? p1 : p2; const younger = older === p1 ? p2 : p1;
-      out.push({ kind: 'age', m: older, prompt: 'Who is older?',
-        options: [p1.name, p2.name], answer: older.name,
-        reveal: `${older.name} is ${ageOf(older.birthday)}; ${younger.name} is ${ageOf(younger.birthday)}.` });
-    }
-    // Q type 5: how many members are on the ballot next?
-    const yrs = data.map((m) => parseInt(m.nextElection, 10)).filter((y) => !isNaN(y) && y % 2 === 0);
-    if (yrs.length) {
-      const ny = Math.min(...yrs);
-      const n = data.filter((m) => parseInt(m.nextElection, 10) === ny).length;
-      const opts = pick([n, Math.round(n * 0.5), Math.round(n * 0.75), Math.min(537, Math.round(n * 1.15))].map(String), 4);
-      out.push({ kind: 'ballot', prompt: `How many members of Congress are on the ballot in ${ny}?`,
-        options: opts.includes(String(n)) ? opts : [String(n), ...opts.slice(0, 3)], answer: String(n),
-        reveal: `${n} of ${data.length} members face voters in ${ny}: the whole House plus a third of the Senate.` });
-    }
-    return pick(out, Math.min(5, out.length));
-  };
-
-  const start = () => { setQs(build()); setI(0); setPicked(null); setScore(0); setOpen(true); };
-  const q = qs[i];
-  const done = open && qs.length > 0 && i >= qs.length;
-
-  return (
-    <section className="quiz" aria-label="How well do you know Congress">
-      {!open ? (
-        <div className="quiz-intro">
-          <div>
-            <h2 className="compare-title">How well do you know Congress?</h2>
-            <p className="compare-sub">Five quick questions, built from the live record. Every answer shows the source.</p>
-          </div>
-          <button type="button" className="pill active" onClick={start} disabled={!data.length}>Start</button>
-        </div>
-      ) : done ? (
-        <div className="quiz-intro">
-          <div>
-            <h2 className="compare-title">You got {score} of {qs.length}</h2>
-            <p className="compare-sub">
-              {score === qs.length ? 'Perfect. You should probably run for something.' :
-               score >= qs.length - 1 ? 'Sharp. The record has few surprises for you.' :
-               'The record is full of surprises. That is rather the point.'}
-            </p>
-          </div>
-          <div className="compare2-actions">
-            <button type="button" className="pill active" onClick={start}>Play again</button>
-            <button type="button" className="pill" onClick={() => setOpen(false)}>Close</button>
-          </div>
-        </div>
-      ) : q ? (
-        <div className="quiz-q">
-          <p className="masthead-eyebrow">Question {i + 1} of {qs.length}</p>
-          <h3 className="quiz-prompt">{q.prompt}</h3>
-          <div className="quiz-opts">
-            {q.options.map((o) => {
-              const state = picked == null ? '' : o === q.answer ? 'right' : o === picked ? 'wrong' : 'dim';
-              return (
-                <button key={o} type="button" className={`quiz-opt ${state}`} disabled={picked != null}
-                  onClick={() => { setPicked(o); if (o === q.answer) setScore((s) => s + 1); }}>
-                  {o}
-                </button>
-              );
-            })}
-          </div>
-          {picked != null && (
-            <div className="quiz-reveal">
-              <p>{q.reveal}</p>
-              <div className="compare2-actions">
-                {q.m && <button type="button" className="pill pill-sm" onClick={() => onOpenProfile(q.m)}>See the record</button>}
-                <button type="button" className="pill pill-sm active" onClick={() => { setI(i + 1); setPicked(null); }}>
-                  {i + 1 < qs.length ? 'Next' : 'Finish'}
-                </button>
-              </div>
-            </div>
-          )}
-        </div>
-      ) : null}
-    </section>
-  );
-}
 
 export default function CongressTable() {
   const [data, setData] = useState([]);
@@ -1348,7 +1213,7 @@ export default function CongressTable() {
       }),
       columnHelper.accessor((row) => row.finance?.pacPct ?? -1, {
         id: 'funding',
-        header: 'PAC money',
+        header: 'PAC share',
         cell: (info) => {
           const f = info.row.original.finance;
           if (!f || f.pacPct == null) {
@@ -2132,7 +1997,6 @@ export default function CongressTable() {
         </select>
       </div>
 
-      {data.length > 0 && <CongressQuiz data={data} onOpenProfile={openProfile} />}
 
       {/* ---------- compare two ---------- */}
       {compareMembers.length > 0 && (
@@ -2182,7 +2046,7 @@ export default function CongressTable() {
                   <div><dt>Next election</dt><dd>{m.nextElection || 'n/a'}</dd></div>
                   <div><dt>Votes with party</dt><dd>{m.voting?.partyLinePct != null ? `${m.voting.partyLinePct}%` : <small>n/a</small>}</dd></div>
                   <div><dt>Votes missed</dt><dd>{m.voting?.missedPct != null ? `${m.voting.missedPct}%` : <small>n/a</small>}</dd></div>
-                  <div><dt>Money from PACs</dt><dd>{pacPctLabel(m.finance)}</dd></div>
+                  <div><dt>Contributions from PACs</dt><dd>{pacPctLabel(m.finance)}</dd></div>
                   <div><dt>Total raised</dt><dd>{m.finance ? fmtMoney(m.finance.totalRaised) : 'n/a'}</dd></div>
                   <div><dt>Bills sponsored</dt><dd>{m.billsTotal ?? (m.bills?.length || 0)}</dd></div>
                   <div><dt>Laws enacted</dt><dd>{m.lawsEnacted ?? 0}</dd></div>
