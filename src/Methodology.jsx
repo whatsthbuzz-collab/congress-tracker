@@ -103,8 +103,18 @@ export default function Methodology({ onClose }) {
 
         <h3>State legislatures</h3>
         <p>
-          State legislator rosters come from LegiScan, a nonpartisan
-          legislative data service, refreshed on the same nightly schedule.
+          State data comes from LegiScan, a nonpartisan legislative data
+          service, under its CC BY 4.0 license, via its official bulk
+          datasets: a complete archive of every bill, roll call, and member
+          for the current session, refreshed weekly when LegiScan's dataset
+          hash changes. Each legislator's sponsored bills, "votes with party"
+          and "votes missed" are computed from that archive using the same
+          definitions as the federal view. Bill status labels translate
+          LegiScan's official progress codes into plain terms: "Passed one
+          chamber" is the formal status Engrossed, and "Sent to governor" is
+          Enrolled (passed both chambers). Topic tags are LegiScan's own
+          subject classifications. Bills whose status code is unrecognized
+          show no label.
         </p>
 
         <h3>District lookup</h3>

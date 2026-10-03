@@ -90,8 +90,58 @@ function StateCard({ m, index = 0, onOpen, onCompare, inCompare }) {
 }
 
 // ---------- profile ----------
+
+function StateComparePicker({ m, allMembers, onCompareWith }) {
+  const [q, setQ] = useState('');
+  const needle = q.trim().toLowerCase();
+  const matches = needle
+    ? allMembers
+        .filter((x) => x.id !== m.id)
+        .filter((x) => {
+          const hay = `${x.name} ${x.party || ''} ${x.chamber || ''} ${x.district || ''}`.toLowerCase();
+          return needle.split(/\s+/).every((w) => hay.includes(w));
+        })
+        .slice(0, 12)
+    : [];
+  return (
+    <div className="compare-picker">
+      <label className="picker-label" htmlFor="cmp-pick-state">
+        Pick someone to compare against {m.name.split(' ')[0]}
+      </label>
+      <input
+        id="cmp-pick-state"
+        type="text"
+        className="finder-input picker-input"
+        placeholder="Type a name, chamber, or district…"
+        value={q}
+        autoFocus
+        onChange={(e) => setQ(e.target.value)}
+        onKeyDown={(e) => {
+          if (e.key === 'Enter' && matches.length === 1) onCompareWith(m.id, matches[0].id);
+        }}
+      />
+      {needle && (
+        <ul className="picker-results" role="listbox">
+          {matches.length === 0 && <li className="picker-empty">No legislators match "{q}"</li>}
+          {matches.map((x) => (
+            <li key={x.id}>
+              <button type="button" className="picker-option" onClick={() => onCompareWith(m.id, x.id)}>
+                <strong>{x.name}</strong>{' '}
+                <span className="picker-meta">
+                  {x.partyCode || '?'} · {x.chamber}{x.district ? ` D-${x.district}` : ''}
+                </span>
+              </button>
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+  );
+}
+
 function StateProfile({ m, stateName, sessionName, onClose, onCompare, inCompare, allMembers = [], onCompareWith }) {
   const [pickerOpen, setPickerOpen] = useState(false);
+  const [copied, setCopied] = useState(false);
   const bills = m.bills || [];
   const v = m.voting;
   return (
@@ -110,6 +160,20 @@ function StateProfile({ m, stateName, sessionName, onClose, onCompare, inCompare
               {m.email && <a href={`mailto:${m.email}`} className="source-link">Email ↗</a>}
               {m.financeUrl && <a href={m.financeUrl} target="_blank" rel="noopener noreferrer" className="source-link">Campaign finance ↗</a>}
               {m.links?.[0] && <a href={m.links[0]} target="_blank" rel="noopener noreferrer" className="source-link">Official site ↗</a>}
+              <button
+                type="button"
+                className="share-link"
+                title="Copy a direct link to this legislator"
+                onClick={() => {
+                  const url = `${window.location.origin}${window.location.pathname}?view=state&st=${m.stateCode}&person=${m.id}`;
+                  navigator.clipboard?.writeText(url).then(() => {
+                    setCopied(true);
+                    setTimeout(() => setCopied(false), 1600);
+                  });
+                }}
+              >
+                {copied ? 'Link copied ✓' : 'Copy link'}
+              </button>
               {onCompareWith && (
                 <button type="button" className={`pill pill-sm ${pickerOpen ? 'active' : ''}`} onClick={() => setPickerOpen((v) => !v)}>
                   Compare with…
@@ -117,19 +181,7 @@ function StateProfile({ m, stateName, sessionName, onClose, onCompare, inCompare
               )}
             </div>
             {pickerOpen && (
-              <div className="compare-picker">
-                <label className="picker-label" htmlFor="cmp-pick-state">Pick someone to compare against {m.name.split(' ')[0]}</label>
-                <select id="cmp-pick-state" className="state-select" defaultValue="" onChange={(e) => { if (e.target.value) onCompareWith(m.id, e.target.value); }}>
-                  <option value="" disabled>Choose a legislator…</option>
-                  {['Senate', 'House'].map((ch) => (
-                    <optgroup key={ch} label={ch}>
-                      {allMembers.filter((x) => x.chamber === ch && x.id !== m.id).map((x) => (
-                        <option key={x.id} value={x.id}>{x.name} ({x.partyCode || '?'}{x.district ? `, D-${x.district}` : ''})</option>
-                      ))}
-                    </optgroup>
-                  ))}
-                </select>
-              </div>
+              <StateComparePicker m={m} allMembers={allMembers} onCompareWith={onCompareWith} />
             )}
           </div>
         </div>
@@ -201,6 +253,8 @@ function StateProfile({ m, stateName, sessionName, onClose, onCompare, inCompare
               {bills.map((b, i) => (
                 <article key={i} className="bill-card">
                   <p className="bill-number">{b.billNumber}{b.primary ? ' · primary' : ''}</p>
+                  {b.statusLabel && <span className="bill-status">{b.statusLabel}</span>}
+                  {b.topic && <span className="bill-topic">{b.topic}</span>}
                   <h3 className="bill-title">{b.title || 'Untitled'}</h3>
                   {b.lastAction && <p className="bill-action">{b.lastAction}</p>}
                   <div className="bill-foot">
@@ -335,6 +389,13 @@ export default function StateView({ theme }) {
   }, [legs]);
 
   const selected = legs.find((m) => m.id === selectedId) || null;
+
+  // Deep link: ?person=TX-25434 opens that legislator's profile.
+  useEffect(() => {
+    const pid = new URL(window.location.href).searchParams.get('person');
+    if (pid && legs.some((m) => m.id === pid)) setSelectedId(pid);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [payload]);
   const compareMembers = compareIds.map((id) => legs.find((m) => m.id === id)).filter(Boolean);
   const toggleCompare = (id) => setCompareIds((p) => (p.includes(id) ? p.filter((x) => x !== id) : [...p.slice(-1), id]));
   const [scrollToCompare, setScrollToCompare] = useState(false);

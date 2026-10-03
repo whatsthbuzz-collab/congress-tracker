@@ -196,7 +196,30 @@ def openstates_match(idx: Dict[tuple, List[Dict]], chamber: str, district: Optio
 
 RECENT_PER_MEMBER = 10
 SPONSOR_PRIMARY = 1
-SCHEMA_VERSION = 4  # bump when the parser/output changes; forces a refresh  # sponsor_type_id 1 = primary sponsor in LegiScan
+SCHEMA_VERSION = 5
+
+# LegiScan's numeric bill status (API manual: "Internal progress id for
+# Intro, Engross, Enroll, Pass, Veto"; 6 = Failed/Dead). Shown with plain
+# labels; the formal terms are documented on the methodology page.
+# Unknown codes get no label: missing, never wrong.
+STATUS_LABELS = {
+    1: "Introduced",
+    2: "Passed one chamber",
+    3: "Sent to governor",
+    4: "Became law",
+    5: "Vetoed",
+    6: "Failed",
+}
+
+
+def _first_subject(b):
+    for s in b.get("subjects") or []:
+        if isinstance(s, dict) and s.get("subject_name"):
+            return s["subject_name"]
+        if isinstance(s, str) and s.strip():
+            return s.strip()
+    return ""
+  # bump when the parser/output changes; forces a refresh  # sponsor_type_id 1 = primary sponsor in LegiScan
 
 STATE_NAMES = {
     "AL": "Alabama", "AK": "Alaska", "AZ": "Arizona", "AR": "Arkansas", "CA": "California",
@@ -449,6 +472,8 @@ def build_state(code: str, session: Dict, data: Dict[str, List[Dict]],
                     "billNumber": b.get("bill_number"),
                     "title": b.get("title") or "",
                     "status": b.get("status_date"),
+                    "statusLabel": STATUS_LABELS.get(b.get("status")) or "",
+                    "topic": _first_subject(b),
                     "lastAction": ((b.get("history") or [{}])[-1].get("action") if b.get("history") else "") or "",
                     "primary": sp.get("sponsor_type_id") == SPONSOR_PRIMARY or sp.get("sponsor_order") == 1,
                     "url": b.get("url"),
