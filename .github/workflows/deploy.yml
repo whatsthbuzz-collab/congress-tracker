@@ -1,45 +1,42 @@
-name: Update Lobbying Data
+name: Build and Deploy to GitHub Pages
 
 on:
-  schedule:
-    - cron: '0 6 * * *'
+  push:
+    branches: [main]
+  workflow_run:
+    workflows: ["Update Congressional Data", "Update State Data", "Update Elections Data", "Update Lobbying Data"]
+    types: [completed]
   workflow_dispatch:
 
 jobs:
-  fetch-lobbying:
+  build-and-deploy:
     runs-on: ubuntu-latest
-    # The first run backfills 2025-2026. The script stops itself at 300
-    # minutes and resumes on the next run, so this limit is only a backstop.
-    timeout-minutes: 330
     permissions:
-      contents: write
-    env:
-      PYTHONUNBUFFERED: "1"
+      contents: read
+      pages: write
+      id-token: write
 
     steps:
       - uses: actions/checkout@v4
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-node@v4
         with:
-          python-version: '3.11'
+          node-version: '20'
 
       - name: Install dependencies
-        run: pip install requests
+        run: npm install
 
-      - name: Fetch lobbying data
-        env:
-          LDA_API_KEY: ${{ secrets.LDA_API_KEY }}
-        run: python scripts/lobbying.py
+      - name: Build
+        run: npm run build
 
-      - name: Commit changes
-        run: |
-          git config user.name "Congress Bot"
-          git config user.email "bot@congress-tracker.local"
-          git add public/lobbying.json data/
-          if git diff --cached --quiet; then
-            echo "No changes to lobbying data"
-          else
-            git commit -m "chore: update lobbying data [$(date -u +'%Y-%m-%d %H:%M UTC')]"
-            git pull --rebase
-            git push
-          fi
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: 'dist'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
